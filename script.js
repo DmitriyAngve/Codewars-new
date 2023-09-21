@@ -77,3 +77,24 @@ console.log(to24hourtime(1, 0, "am"));
 console.log(to24hourtime(6, 30, "pm"));
 console.log(to24hourtime(1, 0, "pm"));
 */
+
+// #4
+
+/*
+The vowel substrings in the word codewarriors are o,e,a,io. The longest of these has a length of 2. Given a lowercase string that has alphabetic characters only (both vowels and consonants) and no spaces, return the length of the longest vowel substring. Vowels are any of aeiou. 
+*/
+function solve(s) {
+  const vowels = s.match(/[aeiouAEIOU]+/g);
+  if (!vowels) return "";
+
+  let longest = "";
+  for (const vowelGroup of vowels) {
+    if (vowelGroup.length > longest.length) {
+      longest = vowelGroup;
+    }
+  }
+
+  return longest.length;
+}
+
+console.log(solve("codewarriors"));
