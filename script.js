@@ -119,6 +119,7 @@ function hotSingles(arr1, arr2) {
 */
 
 // SOLUTION #2
+/*
 function hotSingles(arr1, arr2) {
   return [...new Set([...arr1, ...arr2])].filter(
     (val) => !arr1.includes(val) || !arr2.includes(val)
@@ -128,3 +129,91 @@ function hotSingles(arr1, arr2) {
 console.log(hotSingles(["tartar", "blanket", "domino"], ["blanket"]));
 console.log(hotSingles([77, "basketweave"], [78, 42, "basketweave"]));
 console.log(hotSingles([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]));
+*/
+
+// ALGORITHMS
+
+// Linear_search
+/*
+const array = [1, 2, 3, 4, 8, 6, 7, 4, 1, 3, 6];
+let count = 0;
+function linearSearch(array, item) {
+  for (let i = 0; i < array.length; i++) {
+    count += 1;
+    if (array[i] === item) {
+      return i;
+    }
+  }
+  return null;
+}
+
+console.log(linearSearch(array, 8));
+console.log("count:", count);
+*/
+
+// Binary_search
+const array = [0, 1, 2, 3, 4, 6, 7, 8, 10, 12, 15, 17, 82, 91];
+let count = 0;
+
+// Цикл
+function binarySearch(array, item) {
+  // Получаем центральный элемент в массиве
+  let start = 0; // позиция первого эл
+  let end = array.length; // позиция последнего элемента
+  let middle; // позиция среднего (считаем внутри цикла)
+
+  let found = false; // вспомогательная переменная, помогающая отображать нашли ли мы элемнт в массиве или нет
+  let position = -1; // вспомогательная переменная, позиция самого элемента, которую мы будем возвращать из функции (если элемент не был найдем, то вернём -1)
+
+  // цикл продолжается пока мы либо не нашли элемент, либо стартовая и конечная позиция не поровнялись
+  while (found === false && start <= end) {
+    count += 1;
+    middle = Math.floor((start + end) / 2); // вычисляю середину. Округление - это для получения целого числа
+
+    if (array[middle] === item) {
+      // если элемент, находящийся в массиве по индексу, который высчитали, равен тому элементу, который мы ищем, то:
+      found = true;
+      // присваиваем позицию
+      position = middle;
+      return position; // останавливаем цикл, потому что переборка идет пока found === false
+    }
+    // если на этой итерации не нашли элемент, то проверям искомый элемент меньше ли элемента, находящегося в самой середине (значит, нас интересует только левая часть массива)
+
+    if (item < array[middle]) {
+      end = middle - 1; // меняем значение end, чтобы не учитывать правую часть общего массива
+    } else {
+      start = middle + 1; // это то же самое, но для левой части!
+    }
+  }
+  return position; // если не найден, то вернем -1
+}
+console.log(binarySearch(array, 10));
+console.log("count:", count);
+
+const arr = [0, 1, 2, 3, 4, 6, 7, 8, 10, 12, 15, 17, 82, 91];
+
+function bin(arr, item) {
+  let st = 0;
+  let en = arr.length;
+  let mid;
+  let fou = false;
+  let pos = -1;
+  while (fou === false && st <= en) {
+    mid = Math.floor((st + en) / 2);
+
+    if (arr[mid] === item) {
+      fou = true;
+      pos = mid;
+      return pos;
+    }
+
+    if (item < arr[mid]) {
+      en = mid - 1;
+    } else {
+      st = mid + 1;
+    }
+  }
+  return pos;
+}
+
+console.log(bin(arr, 2));
