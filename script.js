@@ -152,6 +152,7 @@ console.log("count:", count);
 */
 
 // Binary_search
+
 const array = [0, 1, 2, 3, 4, 6, 7, 8, 10, 12, 15, 17, 82, 91];
 let count = 0;
 
@@ -187,19 +188,19 @@ function binarySearch(array, item) {
   }
   return position; // если не найден, то вернем -1
 }
-console.log(binarySearch(array, 10));
+console.log(binarySearch(array, 17));
 console.log("count:", count);
-
+/*
 const arr = [0, 1, 2, 3, 4, 6, 7, 8, 10, 12, 15, 17, 82, 91];
 
 function bin(arr, item) {
-  let st = 0;
-  let en = arr.length;
+  let rigth = 0;
+  let left = arr.length;
   let mid;
   let fou = false;
   let pos = -1;
-  while (fou === false && st <= en) {
-    mid = Math.floor((st + en) / 2);
+  while (fou === false && rigth <= left) {
+    mid = Math.floor((rigth + left) / 2); //12
 
     if (arr[mid] === item) {
       fou = true;
@@ -208,12 +209,34 @@ function bin(arr, item) {
     }
 
     if (item < arr[mid]) {
-      en = mid - 1;
+      left = mid - 1;
     } else {
-      st = mid + 1;
+      rigth = mid + 1;
     }
   }
   return pos;
 }
 
 console.log(bin(arr, 2));
+*/
+
+// 08.10.2023
+/*
+Write a function that removes every lone 9 that is inbetween 7s.
+"79712312" --> "7712312"
+"79797"    --> "777"
+*/
+function sevenAte9(str) {
+  const arr = str.split("");
+  console.log(arr);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "9" && arr[i - 1] === "7" && arr[i + 1] === "7") {
+      arr.splice(i, 1);
+      i--;
+    }
+  }
+  return arr.join("");
+}
+
+console.log(sevenAte9("79712312"));
+console.log(sevenAte9("797"));
