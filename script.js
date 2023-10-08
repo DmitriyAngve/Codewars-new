@@ -248,16 +248,28 @@ console.log(sevenAte9("797"));
 /*
 #Permutation position In this kata you will have to permutate through a string of lowercase letters, each permutation will start at a and you must calculate how many iterations it takes to reach the current permutation.
 */
+/*
 function permutationPosition(perm) {
-  let res = 1;
+  let res = 0;
   for (let i = 0; i < perm.length; i++) {
     res = res * 26 + perm.charCodeAt(i) - 97;
   }
 
-  return res; // +1 так как счет не с
+  return res + 1; // +1 так как счет не с 0, а с 1
 }
 
 console.log(permutationPosition("a"));
 console.log(permutationPosition("c"));
 console.log(permutationPosition("z"));
 console.log(permutationPosition("aaa"));
+*/
+
+// #3
+/*
+Just a simple sorting usage. Create a function that returns the elements of the input-array / list sorted in lexicographical order.
+*/
+sortme = function (names) {
+  return names.sort((a, b) => a.localeCompare(b));
+};
+
+console.log(sortme(["one", "two", "three"]));
