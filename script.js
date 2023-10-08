@@ -152,7 +152,7 @@ console.log("count:", count);
 */
 
 // Binary_search
-
+/*
 const array = [0, 1, 2, 3, 4, 6, 7, 8, 10, 12, 15, 17, 82, 91];
 let count = 0;
 
@@ -190,6 +190,7 @@ function binarySearch(array, item) {
 }
 console.log(binarySearch(array, 17));
 console.log("count:", count);
+*/
 /*
 const arr = [0, 1, 2, 3, 4, 6, 7, 8, 10, 12, 15, 17, 82, 91];
 
@@ -226,6 +227,7 @@ Write a function that removes every lone 9 that is inbetween 7s.
 "79712312" --> "7712312"
 "79797"    --> "777"
 */
+/*
 function sevenAte9(str) {
   const arr = str.split("");
   console.log(arr);
@@ -240,3 +242,22 @@ function sevenAte9(str) {
 
 console.log(sevenAte9("79712312"));
 console.log(sevenAte9("797"));
+*/
+
+// #2
+/*
+#Permutation position In this kata you will have to permutate through a string of lowercase letters, each permutation will start at a and you must calculate how many iterations it takes to reach the current permutation.
+*/
+function permutationPosition(perm) {
+  let res = 1;
+  for (let i = 0; i < perm.length; i++) {
+    res = res * 26 + perm.charCodeAt(i) - 97;
+  }
+
+  return res; // +1 так как счет не с
+}
+
+console.log(permutationPosition("a"));
+console.log(permutationPosition("c"));
+console.log(permutationPosition("z"));
+console.log(permutationPosition("aaa"));
