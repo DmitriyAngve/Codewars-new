@@ -268,8 +268,54 @@ console.log(permutationPosition("aaa"));
 /*
 Just a simple sorting usage. Create a function that returns the elements of the input-array / list sorted in lexicographical order.
 */
+/*
 sortme = function (names) {
-  return names.sort((a, b) => a.localeCompare(b));
+  return names.sort();
 };
 
 console.log(sortme(["one", "two", "three"]));
+*/
+
+// 10.10.2023
+
+// #1
+/*
+Description:
+The museum of incredible dull things
+The museum of incredible dull things wants to get rid of some exhibitions. Miriam, the interior architect, comes up with a plan to remove the most boring exhibitions. She gives them a rating, and then removes the one with the lowest rating.
+However, just as she finished rating all exhibitions, she's off to an important fair, so she asks you to write a program that tells her the ratings of the items after one removed the lowest one. Fair enough.
+Task
+Given an array of integers, remove the smallest value. Do not mutate the original array/list. If there are multiple elements with the same value, remove the one with a lower index. If you get an empty array/list, return an empty array/list.
+Don't change the order of the elements that are left.
+Examples
+* Input: [1,2,3,4,5], output = [2,3,4,5]
+* Input: [5,3,2,1,4], output = [5,3,2,4]
+* Input: [2,2,1,2,1], output = [2,2,2,1]
+*/
+function removeSmallest(numbers) {
+  if (numbers.length === 0) {
+    return [];
+  }
+
+  const newArr = [...numbers];
+  let minVal = newArr[0]; // для хранения наименьшего числа
+  let minIdx = 0; // для хранения индекса наименьшего числа
+
+  // Цикл начинаю со второго числа
+  for (let i = 1; i < newArr.length; i++) {
+    // Сравниваю текущее число в массиве с minVal (наименьшим числом)
+    if (newArr[i] < minVal) {
+      // Если текущее число меньше, чем minVal, то обновляю minVal
+      minVal = newArr[i];
+      // И обновляю индекс
+      minIdx = i;
+    }
+  }
+  // После завершения minVal будет хранить самое маленькое число, а minIdx - его индекс
+  newArr.splice(minIdx, 1);
+  return newArr;
+}
+
+console.log(removeSmallest([1, 2, 3, 4, 5]));
+console.log(removeSmallest([5, 3, 2, 1, 4]));
+console.log(removeSmallest([2, 2, 1, 2, 1]));
