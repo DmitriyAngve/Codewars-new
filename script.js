@@ -379,6 +379,7 @@ console.log(digitalRoot(132189));
 Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary representation of that number. You can guarantee that input is non-negative.
 Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this case
 */
+/*
 var countBits = function (n) {
   if (n === 0) return 0;
   let ht = {};
@@ -399,3 +400,35 @@ console.log(countBits(0));
 console.log(countBits(4));
 console.log(countBits(7));
 console.log(countBits(1234));
+*/
+
+// #5
+/*
+You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. Write a method that takes the array as an argument and returns this "outlier" N.
+Examples
+[2, 4, 0, 100, 4, 11, 2602, 36] -->  11 (the only odd number)
+[160, 3, 1719, 19, 11, 13, -21] --> 160 (the only even number)
+*/
+function findOutlier(integers) {
+  let evenCount = 0;
+  let oddCount = 0;
+  let even = 0;
+  let odd = 0;
+  for (let i = 0; i < integers.length; i++) {
+    if (integers[i] % 2 == 0) {
+      evenCount++;
+      even = integers[i];
+    } else {
+      oddCount++;
+      odd = integers[i];
+    }
+  }
+  if (evenCount === 1) {
+    return even;
+  } else {
+    return odd;
+  }
+}
+
+console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]));
+console.log(findOutlier([160, 3, 1719, 19, 11, 13, -21]));
