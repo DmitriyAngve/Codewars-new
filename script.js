@@ -360,7 +360,7 @@ Examples
 132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
 493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  --
 */
-
+/*
 function digitalRoot(n) {
   if (n < 10) return n;
   const arr = n.toString().split("").map(Number);
@@ -372,3 +372,30 @@ function digitalRoot(n) {
 console.log(digitalRoot(16));
 console.log(digitalRoot(942));
 console.log(digitalRoot(132189));
+*/
+
+// #4
+/*
+Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary representation of that number. You can guarantee that input is non-negative.
+Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this case
+*/
+var countBits = function (n) {
+  if (n === 0) return 0;
+  let ht = {};
+  let count = 0;
+  const arr = n.toString(2).split("").map(Number);
+  console.log(arr);
+  for (const bit of arr) {
+    if (bit === 1) {
+      count++;
+      ht[bit] = (ht[bit] || 0) + 1; // "ht[bit] || 0" - проверка, есть ли в хэш таблице
+    }
+  }
+  console.log(ht);
+  return count;
+};
+
+console.log(countBits(0));
+console.log(countBits(4));
+console.log(countBits(7));
+console.log(countBits(1234));
