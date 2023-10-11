@@ -292,6 +292,7 @@ Examples
 * Input: [5,3,2,1,4], output = [5,3,2,4]
 * Input: [2,2,1,2,1], output = [2,2,2,1]
 */
+/*
 function removeSmallest(numbers) {
   if (numbers.length === 0) {
     return [];
@@ -319,3 +320,30 @@ function removeSmallest(numbers) {
 console.log(removeSmallest([1, 2, 3, 4, 5]));
 console.log(removeSmallest([5, 3, 2, 1, 4]));
 console.log(removeSmallest([2, 2, 1, 2, 1]));
+*/
+
+// #2
+/*
+Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
+Examples:
+spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw" 
+spinWords( "This is a test") => returns "This is a test" 
+spinWords( "This is another test" )=> returns "This is rehtona test
+*/
+function spinWords(string) {
+  const arr = string.split(" ");
+
+  let reversed = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length >= 5) {
+      reversed.push(arr[i].split("").reverse().join(""));
+    } else {
+      reversed.push(arr[i]);
+    }
+  }
+  return reversed.join(" ");
+}
+
+console.log(spinWords("Welcome"));
+console.log(spinWords("This is a test"));
+console.log(spinWords("This is another test"));
