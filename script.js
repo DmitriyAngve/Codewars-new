@@ -504,6 +504,7 @@ Examples
 "The_Stealth_Warrior" gets converted to "TheStealthWarrior"
 "The_Stealth-Warrior" gets converted to "TheStealthWarrior"
 */
+/*
 function toCamelCase(str) {
   if (!str.length) return "";
   const regExp = /[-_](.)/g;
@@ -515,3 +516,28 @@ function toCamelCase(str) {
 console.log(toCamelCase(""));
 console.log(toCamelCase("the_stealth_warrior"));
 console.log(toCamelCase("The-Stealth-Warrior"));
+*/
+
+// #4
+/*
+A Narcissistic Number (or Armstrong Number) is a positive number which is the sum of its own digits, each raised to the power of the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10).
+For example, take 153 (3 digits), which is narcissistic:
+    1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+and 1652 (4 digits), which isn't:
+    1^4 + 6^4 + 5^4 + 2^4 = 1 + 1296 + 625 + 16 = 1938
+The Challenge:
+Your code must return true or false (not 'true' and 'false') depending upon whether the given number is a Narcissistic number in base 10.
+*/
+function narcissistic(value) {
+  const arr = value.toString().split("").map(Number);
+  console.log(arr);
+  let result = 0;
+  for (let i = 0; i < arr.length; i++) {
+    result += arr[i] ** arr.length;
+  }
+  return result === value ? true : false;
+}
+
+console.log(narcissistic(1652));
+console.log(narcissistic(153));
+console.log(narcissistic(7));
