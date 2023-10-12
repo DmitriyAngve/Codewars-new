@@ -448,6 +448,7 @@ Examples (input --> output):
 "Skippy" --> "##ippy"
 "Nananananananananananananananana Batman!" --> "####################################man!
 */
+/*
 function maskify(cc) {
   if (cc.length <= 4) {
     return cc;
@@ -465,3 +466,52 @@ function maskify(cc) {
 console.log(maskify("4556364607935616"));
 console.log(maskify("1"));
 console.log(maskify("11111"));
+*/
+
+// #2
+/*
+When provided with a String, capitalize all vowels
+For example:
+Input : "Hello World!"
+Output : "HEllO WOrld!"
+Note: Y is not a vowel in this kata.
+*/
+/*
+function swap(string) {
+  const regExp = /[aeiou]/g;
+  const arr = string.split("");
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].match(regExp)) {
+      newArr.push(arr[i].toUpperCase());
+    } else {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr.join("");
+}
+
+console.log(swap("Friday"));
+console.log(swap("abracadabra"));
+console.log(swap("   @@@"));
+*/
+
+// #3
+/*
+Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case). The next words should be always capitalized.
+Examples
+"the-stealth-warrior" gets converted to "theStealthWarrior"
+"The_Stealth_Warrior" gets converted to "TheStealthWarrior"
+"The_Stealth-Warrior" gets converted to "TheStealthWarrior"
+*/
+function toCamelCase(str) {
+  if (!str.length) return "";
+  const regExp = /[-_](.)/g;
+  return str.replace(regExp, function (char) {
+    return char.toUpperCase();
+  });
+}
+
+console.log(toCamelCase(""));
+console.log(toCamelCase("the_stealth_warrior"));
+console.log(toCamelCase("The-Stealth-Warrior"));
