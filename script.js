@@ -790,6 +790,7 @@ Your task is to split the chocolate bar of given dimension n x m into small squa
 For example if you are given a chocolate bar of size 2 x 1 you can split it to single squares in just one break, but for size 3 x 1 you must do two breaks.
 If input data is invalid you should return 0 (as in no breaks are needed if we do not have any chocolate to split). Input will always be a non-negative integer.
 */
+/*
 function breakChocolate(n, m) {
   if (typeof n !== "number" || typeof m !== "number") {
     return 0;
@@ -801,3 +802,21 @@ function breakChocolate(n, m) {
 }
 
 console.log(breakChocolate(5, 5));
+*/
+
+// #7
+/*
+Write a method (or function, depending on the language) that converts a string to camelCase, that is, all words must have their first letter capitalized and spaces must be removed.
+Examples (input --> output):
+
+"hello case" --> "HelloCase"
+"camel case word" --> "CamelCaseWord"
+*/
+String.prototype.camelCase = function () {
+  return this.split(" ")
+    .map(function (word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join("");
+};
+console.log(camelCase("camel Case method"));
