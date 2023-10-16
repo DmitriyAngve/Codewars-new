@@ -701,6 +701,7 @@ Welcome. In this kata, you are asked to square every digit of a number and conca
 For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1. (81-1-1-81)
 Example #2: An input of 765 will/should return 493625 because 72 is 49, 62 is 36, and 52 is 25. (49-36-25)
 */
+/*
 function squareDigits(num) {
   const arr = num.toString().split("").map(Number);
   let result = [];
@@ -713,3 +714,23 @@ function squareDigits(num) {
 console.log(squareDigits(9119));
 console.log(squareDigits(765));
 console.log(squareDigits(3212));
+*/
+
+// #3
+/*
+In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+Examples
+highAndLow("1 2 3 4 5");  // return "5 1"
+highAndLow("1 2 -3 4 5"); // return "5 -3"
+highAndLow("1 9 3 4 -5"); // return "9 -5"
+*/
+function highAndLow(numbers) {
+  const arr = numbers
+    .split(" ")
+    .map(Number)
+    .sort((a, b) => a - b);
+  return `${arr[arr.length - 1]} ${arr[0]}`;
+}
+
+console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
+console.log(highAndLow("1 2 3"));
