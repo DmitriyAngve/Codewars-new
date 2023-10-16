@@ -724,6 +724,7 @@ highAndLow("1 2 3 4 5");  // return "5 1"
 highAndLow("1 2 -3 4 5"); // return "5 -3"
 highAndLow("1 9 3 4 -5"); // return "9 -5"
 */
+/*
 function highAndLow(numbers) {
   const arr = numbers
     .split(" ")
@@ -734,3 +735,24 @@ function highAndLow(numbers) {
 
 console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
 console.log(highAndLow("1 2 3"));
+*/
+
+// #4
+/*
+Make a program that filters a list of strings and returns a list with only your friends name in it.
+If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
+Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
+i.e.
+friend ["Ryan", "Kieran", "Mark"] `shouldBe` ["Ryan", "Mark"]
+*/
+function friend(friends) {
+  let res = [];
+  for (let i = 0; i < friends.length; i++) {
+    if (friends[i].length === 4) {
+      res.push(friends[i]);
+    }
+  }
+  return res;
+}
+
+console.log(friend(["Ryan", "Kieran", "Mark"]));
