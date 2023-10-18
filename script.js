@@ -943,7 +943,7 @@ For example (Input --> Output):
 [1, 5, 87, 45, 8, 8] --> [45, 87]
 [1, 3, 10, 0]) --> [3, 10]
 */
-
+/*
 function twoOldestAges(ages) {
   let sorted = ages.sort((a, b) => b - a);
   console.log(sorted);
@@ -953,3 +953,53 @@ function twoOldestAges(ages) {
 
 console.log(twoOldestAges([1, 2, 10, 8]));
 console.log(twoOldestAges([1, 5, 87, 45, 8, 8]));
+*/
+
+// #5
+/*
+Write an algorithm that will identify valid IPv4 addresses in dot-decimal format. IPs should be considered valid if they consist of four octets, with values between 0 and 255, inclusive.
+Valid inputs examples:
+Examples of valid inputs:
+1.2.3.4
+123.45.67.89
+Invalid input examples:
+1.2.3
+1.2.3.4.5
+123.456.78.90
+123.045.067.089
+Notes:
+    Leading zeros (e.g. 01.02.03.04) are considered invalid
+    Inputs are guaranteed to be a single string
+*/
+function isValidIP(str) {
+  const segments = str.split(".");
+
+  if (segments.length !== 4) {
+    return false;
+  }
+
+  for (const segment of segments) {
+    if (!/^\d+$/.test(segment)) {
+      return false;
+    }
+
+    const num = parseInt(segment, 10);
+    if (num < 0 || num > 255) {
+      return false;
+    }
+
+    if (segment.length > 1 && segment[0] === "0") {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(isValidIP("0.0.0.0"));
+console.log(isValidIP("12.255.56.1"));
+console.log(isValidIP("01.02.03.04"));
+console.log(isValidIP("12.34.56"));
+console.log(isValidIP(" 1.2.3.4"));
+console.log(isValidIP("abc.def.ghi.jkl"));
+console.log(isValidIP(""));
