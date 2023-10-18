@@ -823,6 +823,7 @@ String.prototype.camelCase = function () {
 */
 
 // 18.10.2023
+//#1
 /*
 Number is a palindrome if it is equal to the number with digits in reversed order. For example, 5, 44, 171, 4884 are palindromes, and 43, 194, 4773 are not.
 Write a function which takes a positive integer and returns the number of special steps needed to obtain a palindrome. The special step is: "reverse the digits, and add to the original number". If the resulting number is not a palindrome, repeat the procedure with the sum until the resulting number is a palindrome.
@@ -836,6 +837,7 @@ For example, start with 87:
 1353 + 3531 = 4884     - step 4, palindrome!
 4884 is a palindrome and we needed 4 steps to obtain it, so answer for 87 is 4.
 */
+/*
 function palindromeChainLength(n) {
   let count = 0;
 
@@ -860,3 +862,38 @@ console.log(palindromeChainLength(1));
 console.log(palindromeChainLength(88));
 console.log(palindromeChainLength(87));
 console.log(palindromeChainLength(89));
+*/
+
+// #2
+/*
+Given two arrays of strings a1 and a2 return a sorted array r in lexicographical order of the strings of a1 which are substrings of strings of a2.
+Example 1:
+a1 = ["arp", "live", "strong"]
+a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+returns ["arp", "live", "strong"]
+Example 2:
+a1 = ["tarp", "mice", "bull"]
+a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+returns []
+*/
+function inArray(a1, a2) {
+  const result = [];
+
+  for (const str1 of a1) {
+    for (const str2 of a2) {
+      if (str2.includes(str1)) {
+        result.push(str1);
+        break;
+      }
+    }
+  }
+
+  return result.sort();
+}
+
+console.log(
+  inArray(
+    ["xyz", "live", "strong"],
+    ["lively", "alive", "harp", "sharp", "armstrong"]
+  )
+);
