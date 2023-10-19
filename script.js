@@ -1121,6 +1121,7 @@ Notes
     Take a look at performance: some lists have thousands of elements.
     Please ask before translating.
 */
+/*
 function partsSums(ls) {
   let totalSum = 0;
   const result = new Array(ls.length + 1);
@@ -1136,3 +1137,31 @@ function partsSums(ls) {
 console.log(partsSums([]));
 console.log(partsSums([0, 1, 3, 6, 10]));
 console.log(partsSums([1, 2, 3, 4, 5, 6]));
+*/
+
+// #4
+/*
+Your task is to remove all duplicate words from a string, leaving only single (first) words entries.
+Example:
+Input:
+'alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'
+Output:
+'alpha beta gamma delta'
+*/
+function removeDuplicateWords(s) {
+  let words = s.split(" ");
+
+  const unique = new Set(words);
+  console.log(unique);
+  const uniqueArr = Array.from(unique);
+  console.log(uniqueArr);
+  const result = uniqueArr.join(" ");
+
+  return result;
+}
+
+console.log(
+  removeDuplicateWords(
+    "alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"
+  )
+);
