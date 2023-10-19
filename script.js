@@ -1084,6 +1084,7 @@ inAscOrder([1,2,3,4,5]); // returns true
 inAscOrder([1,6,10,18,2,4,20]); // returns false
 inAscOrder([9,8,7,6,5,4,3,2,1]); // returns false because
 */
+/*
 function inAscOrder(arr) {
   if (arr.length === 0 || arr.length === 1) {
     return true;
@@ -1096,3 +1097,42 @@ function inAscOrder(arr) {
 console.log(inAscOrder([1, 2, 4, 7, 19]));
 console.log(inAscOrder([1, 2, 3, 4, 5]));
 console.log(inAscOrder([9, 8, 7, 6, 5, 4, 3, 2, 1]));
+*/
+
+// #3
+/*
+Let us consider this example (array written in general format):
+ls = [0, 1, 3, 6, 10]
+Its following parts:
+ls = [0, 1, 3, 6, 10]
+ls = [1, 3, 6, 10]
+ls = [3, 6, 10]
+ls = [6, 10]
+ls = [10]
+ls = []
+The corresponding sums are (put together in a list): [20, 20, 19, 16, 10, 0]
+The function parts_sums (or its variants in other languages) will take as parameter a list ls and return a list of the sums of its parts as defined above.
+Other Examples:
+ls = [1, 2, 3, 4, 5, 6] 
+parts_sums(ls) -> [21, 20, 18, 15, 11, 6, 0]
+ls = [744125, 935, 407, 454, 430, 90, 144, 6710213, 889, 810, 2579358]
+parts_sums(ls) -> [10037855, 9293730, 9292795, 9292388, 9291934, 9291504, 9291414, 9291270, 2581057, 2580168, 2579358, 0]
+Notes
+    Take a look at performance: some lists have thousands of elements.
+    Please ask before translating.
+*/
+function partsSums(ls) {
+  let totalSum = 0;
+  const result = new Array(ls.length + 1);
+  result[ls.length] = 0; // устанавливаю последний элемент как 0
+  for (let i = ls.length - 1; i >= 0; i--) {
+    totalSum += ls[i];
+    result[i] = totalSum;
+  }
+
+  return result;
+}
+
+console.log(partsSums([]));
+console.log(partsSums([0, 1, 3, 6, 10]));
+console.log(partsSums([1, 2, 3, 4, 5, 6]));
