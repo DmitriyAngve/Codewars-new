@@ -1058,6 +1058,7 @@ In the following 10 digit number:
 67890 is the greatest sequence of 5 consecutive digits.
 Complete the solution so that it returns the greatest sequence of five consecutive digits found within the number given. The number will be passed in as a string of only digits. It should return a five digit integer. The number passed may be as large as 1000 digits. 
 */
+/*
 function solution(digits) {
   let max = 0;
   for (let i = 0; i <= digits.length - 5; i++) {
@@ -1069,3 +1070,29 @@ function solution(digits) {
 }
 
 console.log(solution("1234567898765"));
+*/
+
+// #2
+/*
+Are the numbers in order?
+In this Kata, your function receives an array of integers as input. Your task is to determine whether the numbers are in ascending order. An array is said to be in ascending order if there are no two adjacent integers where the left integer exceeds the right integer in value.
+For the purposes of this Kata, you may assume that all inputs are valid, i.e. arrays containing only integers.
+Note that an array of 0 or 1 integer(s) is automatically considered to be sorted in ascending order since all (zero) adjacent pairs of integers satisfy the condition that the left integer does not exceed the right integer in value.
+For example:
+inAscOrder([1,2,4,7,19]); // returns true
+inAscOrder([1,2,3,4,5]); // returns true
+inAscOrder([1,6,10,18,2,4,20]); // returns false
+inAscOrder([9,8,7,6,5,4,3,2,1]); // returns false because
+*/
+function inAscOrder(arr) {
+  if (arr.length === 0 || arr.length === 1) {
+    return true;
+  }
+  let arr1 = Number(arr.join(""));
+  let arr2 = Number(arr.sort((a, b) => a - b).join(""));
+  return arr1 === arr2;
+}
+
+console.log(inAscOrder([1, 2, 4, 7, 19]));
+console.log(inAscOrder([1, 2, 3, 4, 5]));
+console.log(inAscOrder([9, 8, 7, 6, 5, 4, 3, 2, 1]));
