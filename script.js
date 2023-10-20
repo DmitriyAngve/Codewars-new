@@ -1298,6 +1298,8 @@ console.log(cleanString(""));
 */
 
 // 20.10.2023
+
+// #1
 /*
 Return an array containing the numbers from 1 to N, where N is the parametered value.
 Replace certain values however if any of the following conditions are met:
@@ -1308,7 +1310,7 @@ N will never be less than 1.
 Method calling example:
 fizzbuzz(3) -->  [1, 2, "Fizz"]
 */
-
+/*
 function fizzbuzz(n) {
   let result = [];
 
@@ -1329,3 +1331,31 @@ function fizzbuzz(n) {
 console.log(fizzbuzz(3));
 console.log(fizzbuzz(4));
 console.log(fizzbuzz(15));
+*/
+
+// #2
+/*
+Triangular numbers are so called because of the equilateral triangular shape that they occupy when laid out as dots. i.e.
+1st (1)   2nd (3)    3rd (6)
+*          **        ***
+           *         **
+                     *
+You need to return the nth triangular number. You should return 0 for out of range values:
+For example: (Input --> Output)
+0 --> 0
+2 --> 3
+3 --> 6
+-10 --> 0
+*/
+
+function triangular(n) {
+  if (n < 0) {
+    return 0;
+  }
+
+  return (n * (n + 1)) / 2;
+}
+
+console.log(triangular(2));
+console.log(triangular(4));
+console.log(triangular(-454));
