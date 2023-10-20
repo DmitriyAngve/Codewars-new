@@ -1369,6 +1369,7 @@ Examples: (Input --> output)
 2 --> 9 (sum of the cubes of 1 and 2 is 1 + 8)
 3 --> 36 (sum of the cubes of 1, 2, and 3 is 1 + 8 + 27)
 */
+/*
 function sumCubes(n) {
   const arr = Array.from({ length: n }, (_, index) => index + 1);
   console.log(arr);
@@ -1379,3 +1380,33 @@ function sumCubes(n) {
 
 console.log(sumCubes(2));
 console.log(sumCubes(3));
+*/
+
+// #4
+/*
+Given a number, write a function to output its reverse digits. (e.g. given 123 the answer is 321)
+Numbers should preserve their sign; i.e. a negative number should still be negative when reversed.
+Examples
+ 123 ->  321
+-456 -> -654
+1000 ->    1
+*/
+function reverseNumber(n) {
+  const arr = [...(n + "")];
+
+  if (n < 0) {
+    const first = arr.shift();
+
+    arr.reverse();
+    arr.unshift(first);
+  } else {
+    arr.reverse();
+  }
+  const rev = arr.join("");
+  const revNum = parseInt(rev, 10);
+  return revNum;
+}
+
+console.log(reverseNumber(123));
+console.log(reverseNumber(1000));
+console.log(reverseNumber(-456));
