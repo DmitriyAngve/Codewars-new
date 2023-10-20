@@ -1347,7 +1347,7 @@ For example: (Input --> Output)
 3 --> 6
 -10 --> 0
 */
-
+/*
 function triangular(n) {
   if (n < 0) {
     return 0;
@@ -1359,3 +1359,23 @@ function triangular(n) {
 console.log(triangular(2));
 console.log(triangular(4));
 console.log(triangular(-454));
+*/
+
+// #3
+/*
+Write a function that takes a positive integer n, sums all the cubed values from 1 to n (inclusive), and returns that sum.
+Assume that the input n will always be a positive integer.
+Examples: (Input --> output)
+2 --> 9 (sum of the cubes of 1 and 2 is 1 + 8)
+3 --> 36 (sum of the cubes of 1, 2, and 3 is 1 + 8 + 27)
+*/
+function sumCubes(n) {
+  const arr = Array.from({ length: n }, (_, index) => index + 1);
+  console.log(arr);
+
+  const res = arr.map((val) => val ** 3);
+  return res.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(sumCubes(2));
+console.log(sumCubes(3));
