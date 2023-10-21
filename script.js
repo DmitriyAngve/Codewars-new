@@ -1566,10 +1566,13 @@ console.log(validate(2121));
 */
 
 // 21.10.2023
+
+// #1
 /*
 Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
 moveZeros([false,1,0,1,2,0,1,3,"a"]) // returns[false,1,1,2,1,3,"a",0,0]
 */
+/*
 function moveZeros(arr) {
   let result = [];
   let count = 0;
@@ -1586,3 +1589,36 @@ function moveZeros(arr) {
 
 console.log(moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1]));
 console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]));
+*/
+
+// #2
+/*
+Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+Examples
+pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
+pigIt('Hello world !');     // elloHay orldway !
+*/
+function pigIt(str) {
+  const arr = str.split(" ");
+  const resultArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let word = arr[i];
+    if (/[A-Za-z]/.test(word)) {
+      // Проверьте, что слово состоит из букв
+      let first = word[0];
+      const restOfString = word.slice(1);
+      const result = restOfString + first + "ay";
+      resultArr.push(result);
+    } else {
+      // Если слово не состоит из букв, добавьте его как есть
+      resultArr.push(word);
+    }
+  }
+
+  const resultStr = resultArr.join(" ");
+  return resultStr;
+}
+
+console.log(pigIt("Pig latin is cool"));
+console.log(pigIt("This is my string"));
