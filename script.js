@@ -1751,6 +1751,7 @@ cakes({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, mil
 // must return 0
 cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000}); 
 */
+/*
 function cakes(recipe, available) {
   let maxCakes = Infinity;
 
@@ -1782,3 +1783,48 @@ console.log(
     { sugar: 500, flour: 2000, milk: 2000 }
   )
 );
+*/
+
+// #4
+/*
+Write a function named first_non_repeating_letter that takes a string input, and returns the first character that is not repeated anywhere in the string.
+For example, if given the input 'stress', the function should return 't', since the letter t only occurs once in the string, and occurs first in the string.
+As an added challenge, upper- and lowercase letters are considered the same character, but the function should return the correct case for the initial letter. For example, the input 'sTreSS' should return 'T'.
+If a string contains all repeating characters, it should return an empty string ("") or None -- see sample tests.
+*/
+function firstNonRepeatingLetter(s) {
+  const count = {};
+
+  for (const char of s) {
+    const normal = char.toLowerCase();
+    count[normal] = (count[normal] || 0) + 1;
+  }
+
+  for (const char of s) {
+    if (count[char.toLowerCase()] === 1) {
+      return char;
+    }
+  }
+
+  return "";
+}
+// let result = {};
+// let count = 0;
+// for (const char of s) {
+//   if (result[char]) {
+//     count += result[char];
+//     result[char] += 1;
+//   } else {
+//     result[char] = 1;
+//   }
+// }
+// console.log(result);
+// for (const key in result) {
+//   if (result[key] === 1) {
+//     return key;
+//   }
+// }
+
+console.log(firstNonRepeatingLetter("a"));
+console.log(firstNonRepeatingLetter("stress"));
+console.log(firstNonRepeatingLetter("moonmen"));
