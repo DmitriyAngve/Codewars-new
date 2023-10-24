@@ -1825,6 +1825,7 @@ But what if we started with [0, 0, 1] as a signature? As starting with [0, 1] in
 Well, you may have guessed it by now, but to be clear: you need to create a fibonacci function that given a signature array/list, returns the first n elements - signature included of the so seeded sequence.
 Signature will always contain 3 numbers; n will always be a non-negative number; if n == 0, then return an empty array (except in C return NULL) and be ready for anything else which is not clearly specified ;)
 */
+/*
 function tribonacci(arr, n) {
   if (n === 0) return [];
   if (n <= 3) return arr.slice(0, n);
@@ -1838,3 +1839,40 @@ function tribonacci(arr, n) {
 }
 
 console.log(tribonacci([1, 1, 1], 10));
+*/
+
+// #6
+/*
+Complete the function scramble(str1, str2) that returns true if a portion of str1 characters can be rearranged to match str2, otherwise returns false.
+Notes:
+    Only lower case letters will be used (a-z). No punctuation or digits will be included.
+    Performance needs to be considered.
+Examples
+scramble('rkqodlw', 'world') ==> True
+scramble('cedewaraaossoqqyt', 'codewars') ==> True
+scramble('katas', 'steak') ==> False
+*/
+/*
+function scramble(str1, str2) {
+  const count1 = {};
+  const count2 = {};
+
+  for (const char of str1) {
+    count1[char] = (count1[char] || 0) + 1;
+  }
+
+  for (const char of str2) {
+    count2[char] = (count2[char] || 0) + 1;
+  }
+
+  for (const char in count2) {
+    if (!count1[char] || count1[char] < count2[char]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(scramble("rkqodlw", "world"));
+console.log(scramble("katas", "steak"));
+*/
