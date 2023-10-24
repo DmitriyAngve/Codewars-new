@@ -1664,6 +1664,7 @@ Examples (input --> output):
 0, 0, 0       --> "000000"
 148, 0, 211   --> "9400D3"
 */
+/*
 function rgb(r, g, b) {
   r = Math.max(0, Math.min(255, r));
   g = Math.max(0, Math.min(255, g));
@@ -1684,3 +1685,57 @@ function rgb(r, g, b) {
 console.log(rgb(255, 255, 255));
 console.log(rgb(255, 255, 300));
 console.log(rgb(148, 0, 211));
+*/
+
+// #2
+/*
+The marketing team is spending way too much time typing in hashtags.
+Let's help them with our own Hashtag Generator!
+Here's the deal:
+    It must start with a hashtag (#).
+    All words must have their first letter capitalized.
+    If the final result is longer than 140 chars it must return false.
+    If the input or the result is an empty string it must return false.
+Examples
+" Hello there thanks for trying my Kata"  =>  "#HelloThereThanksForTryingMyKata"
+"    Hello     World   "                  =>  "#HelloWorld"
+""                                        =>  false
+*/
+
+function generateHashtag(str) {
+  // if (!str.trim()) return false;
+  // if (str.length >= 140) return false;
+  // const arr = str.split(" ");
+  // console.log(arr);
+  // if (arr.length === 1) {
+  //   return "#" + arr;
+  // }
+  // let result = [];
+  // for (let i = 0; i < arr.length; i++) {
+  //   let word = arr[i].split("");
+  //   word[0] = word[0].toUpperCase();
+  //   word = word.join("");
+  //   result.push(word);
+  // }
+  // return "#" + result.join("");
+
+  if (!str || !str.trim()) return false;
+
+  const words = str.split(" ");
+
+  const capitalize = words.map(
+    (word) => word.charAt(0).toUpperCase() + word.slice(1)
+  );
+  console.log(capitalize);
+
+  const hashtag = "#" + capitalize.join("");
+
+  if (hashtag.length > 140) return false;
+
+  return hashtag;
+}
+
+console.log(generateHashtag(""));
+console.log(generateHashtag("Do We have A Hashtag"));
+console.log(generateHashtag("Codewars is nice"));
+console.log(generateHashtag("Codewars"));
