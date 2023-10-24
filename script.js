@@ -1825,6 +1825,7 @@ But what if we started with [0, 0, 1] as a signature? As starting with [0, 1] in
 Well, you may have guessed it by now, but to be clear: you need to create a fibonacci function that given a signature array/list, returns the first n elements - signature included of the so seeded sequence.
 Signature will always contain 3 numbers; n will always be a non-negative number; if n == 0, then return an empty array (except in C return NULL) and be ready for anything else which is not clearly specified ;)
 */
+/*
 function tribonacci(arr, n) {
   if (n === 0) return [];
   if (n <= 3) return arr.slice(0, n);
@@ -1838,3 +1839,71 @@ function tribonacci(arr, n) {
 }
 
 console.log(tribonacci([1, 1, 1], 10));
+*/
+
+// #6
+/*
+Complete the function scramble(str1, str2) that returns true if a portion of str1 characters can be rearranged to match str2, otherwise returns false.
+Notes:
+    Only lower case letters will be used (a-z). No punctuation or digits will be included.
+    Performance needs to be considered.
+Examples
+scramble('rkqodlw', 'world') ==> True
+scramble('cedewaraaossoqqyt', 'codewars') ==> True
+scramble('katas', 'steak') ==> False
+*/
+/*
+function scramble(str1, str2) {
+  const count1 = {};
+  const count2 = {};
+
+  for (const char of str1) {
+    count1[char] = (count1[char] || 0) + 1;
+  }
+
+  for (const char of str2) {
+    count2[char] = (count2[char] || 0) + 1;
+  }
+
+  for (const char in count2) {
+    if (!count1[char] || count1[char] < count2[char]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(scramble("rkqodlw", "world"));
+console.log(scramble("katas", "steak"));
+*/
+
+// #7
+/*
+Given a list of digits, return the smallest number that could be formed from these digits, using the digits only once (ignore duplicates).
+Notes:
+    Only positive integers will be passed to the function (> 0 ), no negatives or zeros.
+    Input >> Output Examples
+minValue ({1, 3, 1})  ==> return (13)
+Explanation:
+(13) is the minimum number could be formed from {1, 3, 1} , Without duplications
+minValue({5, 7, 5, 9, 7})  ==> return (579)
+Explanation:
+(579) is the minimum number could be formed from {5, 7, 5, 9, 7} , Without duplications
+minValue({1, 9, 3, 1, 7, 4, 6, 6, 7}) return  ==> (134679)
+Explanation:
+(134679) is the minimum number could be formed from {1, 9, 3, 1, 7, 4, 6, 6, 7} , Without duplications 
+*/
+function minValue(values) {
+  const set = [...new Set(values)].sort((a, b) => a - b);
+  console.log(set);
+  if (set.length < 3) {
+    return Number(set.join(""));
+  }
+
+  return Number(set.join(""));
+}
+
+console.log(minValue([1, 3, 1]));
+console.log(minValue([4, 7, 5, 7]));
+console.log(minValue([1, 9, 1, 3, 7, 4, 6, 6, 7]));
+console.log(minValue([5, 6, 9, 9, 7, 6, 4]));
