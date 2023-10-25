@@ -1977,6 +1977,7 @@ Example scoring
  1 1 1 3 1   1100: 1000 (for three 1s) + 100 (for the other 1)
  2 4 4 5 4   450:  400 (for three 4s) + 50 (for the 5)
 */
+/*
 function score(dice) {
   // Создаю массив длиной 7 (для значений от 1 до 6) и заполняю нулями. Массив для подсчета количества каждого значения на костях
   const counts = new Array(7).fill(0);
@@ -2012,3 +2013,26 @@ function score(dice) {
 }
 
 console.log(score([2, 4, 4, 5, 4]));
+*/
+
+// #3
+/*
+Complete the function that takes a sequence of numbers as single parameter. Your function must return the sum of the even values of this sequence.
+Only numbers without decimals like 4 or 4.0 can be even.
+The input is a sequence of numbers: integers and/or floats.
+Examples
+[4, 3, 1, 2, 5, 10, 6, 7, 9, 8]  -->  30   # because 4 + 2 + 10 + 6 + 8 = 30
+[]                               -->  0
+*/
+function sumEvenNumbers(input) {
+  let result = 0;
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] % 2 === 0) {
+      result += input[i];
+    }
+  }
+  return result;
+}
+
+console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+console.log(sumEvenNumbers([]));
