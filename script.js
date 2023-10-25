@@ -1893,6 +1893,7 @@ minValue({1, 9, 3, 1, 7, 4, 6, 6, 7}) return  ==> (134679)
 Explanation:
 (134679) is the minimum number could be formed from {1, 9, 3, 1, 7, 4, 6, 6, 7} , Without duplications 
 */
+/*
 function minValue(values) {
   const set = [...new Set(values)].sort((a, b) => a - b);
   console.log(set);
@@ -1907,3 +1908,50 @@ console.log(minValue([1, 3, 1]));
 console.log(minValue([4, 7, 5, 7]));
 console.log(minValue([1, 9, 1, 3, 7, 4, 6, 6, 7]));
 console.log(minValue([5, 6, 9, 9, 7, 6, 4]));
+*/
+
+// 25.10.2023
+
+// #1
+/*
+My friend John and I are members of the "Fat to Fit Club (FFC)". John is worried because each month a list with the weights of members is published and each month he is the last on the list which means he is the heaviest.
+I am the one who establishes the list so I told him: "Don't worry any more, I will modify the order of the list". It was decided to attribute a "weight" to numbers. The weight of a number will be from now on the sum of its digits.
+For example 99 will have "weight" 18, 100 will have "weight" 1 so in the list 100 will come before 99.
+Given a string with the weights of FFC members in normal order can you give this string ordered by "weights" of these numbers?
+Example:
+"56 65 74 100 99 68 86 180 90" ordered by numbers weights becomes: 
+"100 180 90 56 65 74 68 86 99"
+When two numbers have the same "weight", let us class them as if they were strings (alphabetical ordering) and not numbers:
+180 is before 90 since, having the same "weight" (9), it comes before as a string.
+All numbers in the list are positive numbers and the list can be empty.
+*/
+function orderWeight(str) {
+  const arr = str.split(" ");
+
+  arr.sort((a, b) => {
+    const sumA = sum(a);
+    const sumB = sum(b);
+
+    if (sumA < sumB) return -1;
+    if (sumA > sumB) return 1;
+
+    // If sums are equal, compare the original strings.
+    if (a < b) return -1;
+    if (a > b) return 1;
+
+    return 0;
+  });
+
+  return arr.join(" ");
+}
+
+function sum(el) {
+  return el
+    .toString()
+    .split("")
+    .map(Number)
+    .reduce((sum, digit) => sum + parseInt(digit, 10), 0);
+}
+
+console.log(orderWeight("103 123 4444 99 2000"));
+console.log(orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123"));
