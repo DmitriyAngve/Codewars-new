@@ -2052,6 +2052,7 @@ var list1 = [
   { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'Javascript' },
   { firstName: 'Jayden', lastName: 'P.', country: 'Jamaica', continent: 'Americas', age: 42, language: 'JavaScript' }
 */
+/*
 function isRubyComing(list) {
   let count = 0;
   for (let i = 0; i < list.length; i++) {
@@ -2091,3 +2092,19 @@ console.log(
     },
   ])
 );
+*/
+
+// #5
+/*
+Write a program to determine if a string contains only unique characters. Return true if it does and false otherwise.
+The string may contain any of the 128 ASCII characters. Characters are case-sensitive, e.g. 'a' and 'A' are considered different characters.
+*/
+function hasUniqueChars(str) {
+  const set = [...new Set(str.split(""))];
+
+  return set.length === str.length;
+}
+
+console.log(hasUniqueChars("abcdef"));
+console.log(hasUniqueChars("  nAa"));
+console.log(hasUniqueChars("++-"));
