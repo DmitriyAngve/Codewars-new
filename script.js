@@ -2233,6 +2233,7 @@ All elements of the sum are the results of integer division.
 Example
 25  =>  25 + 12 + 6 + 3 + 1 = 47
 */
+/*
 function halvingSum(n) {
   let sum = 0;
   while (n > 0) {
@@ -2241,7 +2242,33 @@ function halvingSum(n) {
   }
 
   return sum;
+
+  // if(n === 1) return n;
+  // return n + halvingSum(Math.floor(n/2));
 }
 
 console.log(halvingSum(25));
 console.log(halvingSum(127));
+*/
+
+// #10
+/*
+An ordered sequence of numbers from 1 to N is given. One number might have deleted from it, then the remaining numbers were mixed. Find the number that was deleted.
+Example:
+    The starting array sequence is [1,2,3,4,5,6,7,8,9]
+    The mixed array with one deleted number is [3,2,4,6,7,8,1,9]
+    Your function should return the int 5.
+If no number was deleted from the starting array, your function should return the int 0.
+Note: N may be 1 or less (in the latter case, the first array will be []).
+*/
+function findDeletedNumber(arr, mixArr) {
+  arr.sort((a, b) => a - b);
+  mixArr.sort((a, b) => a - b);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== mixArr[i]) {
+      return arr[i];
+    }
+  }
+  return 0;
+}
+console.log(findDeletedNumber([1, 2, 3, 4, 5], [3, 4, 1, 5]));
