@@ -2211,6 +2211,7 @@ Example (Input --> Output)
 5 --> 5
 10 --> 10
 */
+/*
 function cookingTime(eggs) {
   const batches = Math.ceil(eggs / 8);
 
@@ -2222,3 +2223,25 @@ console.log(cookingTime(10));
 console.log(cookingTime(16));
 console.log(cookingTime(5));
 console.log(cookingTime(0));
+*/
+
+// #9
+/*
+Given a positive integer n, calculate the following sum:
+n + n/2 + n/4 + n/8 + ...
+All elements of the sum are the results of integer division.
+Example
+25  =>  25 + 12 + 6 + 3 + 1 = 47
+*/
+function halvingSum(n) {
+  let sum = 0;
+  while (n > 0) {
+    sum += n;
+    n = Math.floor(n / 2);
+  }
+
+  return sum;
+}
+
+console.log(halvingSum(25));
+console.log(halvingSum(127));
