@@ -2349,6 +2349,7 @@ Consider the array [3,6,9,12]. If we generate all the combinations with repetiti
 Given an array of positive integers and a number n, count all combinations with repetition of integers that sum to n. For example:
 find([3,6,9,12],12) = 5.
 */
+/*
 function find(arr, n, depth = arr.length) {
   if (n === 0) return 1;
   if (depth === 0) return 0;
@@ -2361,3 +2362,33 @@ function find(arr, n, depth = arr.length) {
 
 console.log(find([1, 2, 3], 5));
 console.log(find([3, 6, 9, 12], 12));
+*/
+
+// #4
+/*
+In this Kata, you will be given an integer array and your task is to return the sum of elements occupying prime-numbered indices.
+The first element of the array is at index 0.
+ */
+function total(arr) {
+  let sumPrimeInd = 0;
+
+  for (let i = 2; i < arr.length; i++) {
+    if (isPrime(i)) {
+      sumPrimeInd += arr[i];
+    }
+  }
+  return sumPrimeInd;
+}
+
+function isPrime(num) {
+  let root = Math.sqrt(num);
+
+  for (let i = 2; i <= root; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(total([1, 2, 3, 4]));
