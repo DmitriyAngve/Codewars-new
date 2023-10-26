@@ -2369,6 +2369,7 @@ console.log(find([3, 6, 9, 12], 12));
 In this Kata, you will be given an integer array and your task is to return the sum of elements occupying prime-numbered indices.
 The first element of the array is at index 0.
  */
+/*
 function total(arr) {
   let sumPrimeInd = 0;
 
@@ -2392,3 +2393,32 @@ function isPrime(num) {
 }
 
 console.log(total([1, 2, 3, 4]));
+*/
+
+// #5
+/*
+You are given a dictionary/hash/object containing some languages and your test results in the given languages. Return the list of languages where your test score is at least 60, in descending order of the scores.
+Note: the scores will always be unique (so no duplicate values)
+Examples
+{"Java": 10, "Ruby": 80, "Python": 65}    -->  ["Ruby", "Python"]
+{"Hindi": 60, "Dutch" : 93, "Greek": 71}  -->  ["Dutch", "Greek", "Hindi"]
+{"C++": 50, "ASM": 10, "Haskell": 20}     -->  []
+*/
+
+function myLanguages(results) {
+  let arr = [];
+
+  const sortedEntr = Object.entries(results).sort((a, b) => b[1] - a[1]);
+  const sortedObj = Object.fromEntries(sortedEntr);
+  console.log(sortedObj);
+  for (const lang in sortedObj) {
+    if (sortedObj[lang] >= 60) {
+      arr.push(lang);
+    }
+  }
+  return arr;
+}
+
+console.log(myLanguages({ "Java": 10, "Ruby": 80, "Python": 65 }));
+console.log(myLanguages({ "Hindi": 60, "Dutch": 93, "Greek": 71 }));
+console.log(myLanguages({ "C++": 50, "ASM": 10, "Haskell": 20 }));
