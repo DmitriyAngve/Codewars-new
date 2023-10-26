@@ -2282,6 +2282,7 @@ console.log(findDeletedNumber([1, 2, 3, 4, 5], [3, 4, 1, 5]));
 In this Kata, you will be given an array of numbers in which two numbers occur once and the rest occur only twice. Your task will be to return the sum of the numbers that occur only once.
 For example, repeats([4,5,7,5,4,8]) = 15 because only the numbers 7 and 8 occur once, and their sum is 15. Every other number occurs twice. 
 */
+/*
 function repeats(arr) {
   let ht = {};
   let result = [];
@@ -2300,3 +2301,42 @@ function repeats(arr) {
   return result.reduce((a, b) => a + b);
 }
 console.log(repeats([4, 5, 7, 5, 4, 8]));
+*/
+
+// #2
+/*
+Your task is to add up letters to one letter.
+The function will be given a variable amount of arguments, each one being a lztter to add.
+Notes:
+    Letters will always be lowercase.
+    Letters can overflow (see second to last example of the description)
+    If no letters are given, the function should return 'z'
+Examples:
+addLetters('a', 'b', 'c') = 'f'
+addLetters('a', 'b') = 'c'
+addLetters('z') = 'z'
+addLetters('z', 'a') = 'a'
+addLetters('y', 'c', 'b') = 'd' // notice the letters overflowing
+addLetters() = 'z'
+*/
+function addLetters(...letters) {
+  if (letters.length === 0) {
+    return "z";
+  }
+
+  let sum = letters.reduce(
+    (acc, letter) => acc + (letter.charCodeAt(0) - "a".charCodeAt(0) + 1),
+    0
+  );
+
+  sum = (sum - 1) % 26;
+
+  if (sum < 0) {
+    sum += 26;
+  }
+
+  return String.fromCharCode("a".charCodeAt(0) + sum);
+}
+
+console.log(addLetters("a", "b", "c"));
+console.log(addLetters());
