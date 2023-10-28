@@ -2514,6 +2514,7 @@ Input:  [ 1, 3, 5, 1, -10]
 Output:  [ 2, 4, 3, -4.5]
 If the array has 0 or 1 values or is null, your method should return an empty array.
 */
+/*
 function averages(arr) {
   if (!arr || arr.length <= 1) {
     return [];
@@ -2529,3 +2530,18 @@ function averages(arr) {
 
 console.log(averages([2, 2, 2, 2, 2]));
 console.log(averages([2, -2, 2, -2, 2]));
+*/
+
+// #4
+/*
+Given a string of words (x), you need to return an array of the words, sorted alphabetically by the final character in each.
+If two words have the same last letter, they returned array should show them in the order they appeared in the given string.
+All inputs will be valid.
+*/
+function last(x) {
+  return x
+    .split(" ")
+    .sort((a, b) => a.charCodeAt(a.length - 1) - b.charCodeAt(b.length - 1));
+}
+
+console.log(last("man i need a taxi up to ubud"));
