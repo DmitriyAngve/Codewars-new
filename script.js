@@ -2404,7 +2404,7 @@ Examples
 {"Hindi": 60, "Dutch" : 93, "Greek": 71}  -->  ["Dutch", "Greek", "Hindi"]
 {"C++": 50, "ASM": 10, "Haskell": 20}     -->  []
 */
-
+/*
 function myLanguages(results) {
   let arr = [];
 
@@ -2422,3 +2422,49 @@ function myLanguages(results) {
 console.log(myLanguages({ "Java": 10, "Ruby": 80, "Python": 65 }));
 console.log(myLanguages({ "Hindi": 60, "Dutch": 93, "Greek": 71 }));
 console.log(myLanguages({ "C++": 50, "ASM": 10, "Haskell": 20 }));
+*/
+
+// 28.10.2023
+// #1
+/*
+Given a list of integers and a single sum value, return the first two values (parse from the left please) in order of appearance that add up to form the sum.
+If there are two or more pairs with the required sum, the pair whose second element has the smallest index is the solution.
+sum_pairs([11, 3, 7, 5],         10)
+#              ^--^      3 + 7 = 10
+== [3, 7]
+sum_pairs([4, 3, 2, 3, 4],         6)
+#          ^-----^         4 + 2 = 6, indices: 0, 2 *
+#             ^-----^      3 + 3 = 6, indices: 1, 3
+#                ^-----^   2 + 4 = 6, indices: 2, 4
+#  * the correct answer is the pair whose second value has the smallest index
+== [4, 2]
+sum_pairs([0, 0, -2, 3], 2)
+#  there are no pairs of values that can be added to produce 2.
+== None/nil/undefined (Based on the language)
+sum_pairs([10, 5, 2, 3, 7, 5],         10)
+#              ^-----------^   5 + 5 = 10, indices: 1, 5
+#                    ^--^      3 + 7 = 10, indices: 3, 4 *
+#  * the correct answer is the pair whose second value has the smallest index
+== [3, 7]
+*/
+function sumPairs(ints, s) {
+  // Это хэш таблица для хранения и отслеживания чисел, которые Я уже встречал в массиве
+  const seen = new Set();
+
+  // Начинаю переборку массива
+  for (let i = 0; i < ints.length; i++) {
+    // Вычисляю комплемент как разницу между искомым числом и каждым элементом массива ints
+    const comp = s - ints[i];
+    // Проверяю, сожержит ли хэш-таблица seen значение комплемента с помощью has. Если комплемент уже имеется, то возвращаю массив из комплемента и элемента массива, которые в сумме дают искомое число "s"
+    if (seen.has(comp)) {
+      return [comp, ints[i]];
+    }
+
+    // Если комплемент не найден, то это означает, что мы не нашли пару для конкретного ints[i]. Поэтому добавляю ints[i] в seen с помощью add
+    seen.add(ints[i]);
+  }
+  // Это на случай, если такого числа не найдется
+  return undefined;
+}
+
+console.log(sumPairs([1, 4, 8, 7, 3, 15], 8));
