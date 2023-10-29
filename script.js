@@ -2584,6 +2584,7 @@ Examples:
 [4, 6, 9, 1, 3]  -->  [5, 8, 2, 5, 8]  #  [4+1, 6+2, 9+3, 1+4, 3+5]
                                        #  9+3 = 12  -->  2
 */
+/*
 function incrementer(nums) {
   let result = [];
   if (!nums.length) return [];
@@ -2598,3 +2599,24 @@ function incrementer(nums) {
 
 console.log(incrementer([4, 6, 9, 1, 3]));
 console.log(incrementer([3, 6, 9, 8, 9]));
+*/
+
+// #3
+/*
+Debug   function getSumOfDigits that takes positive integer to calculate sum of its digits. Assume that argument is an integer.
+Example
+123  => 6
+223  => 7
+1337 => 14
+*/
+function getSumOfDigits(integer) {
+  var sum = 0;
+  var digits = Math.floor(integer).toString();
+  for (var ix = 0; ix < digits.length; ix++) {
+    sum += parseInt(digits[ix], 10);
+  }
+  return sum;
+}
+
+console.log(getSumOfDigits(123));
+console.log(getSumOfDigits(223));
