@@ -2647,6 +2647,7 @@ The lowest index N where the side to the left of N is equal to the side to the r
 Note:
 If you are given an array with multiple answers, return the lowest correct index.
 */
+/*
 function findEvenIndex(arr) {
   let totalSum = arr.reduce((acc, cur) => acc + cur, 0);
 
@@ -2666,3 +2667,43 @@ function findEvenIndex(arr) {
 }
 
 console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
+*/
+
+// #2
+/*
+Your job is to create a calculator which evaluates expressions in Reverse Polish notation.
+For example expression 5 1 2 + 4 * + 3 - (which is equivalent to 5 + ((1 + 2) * 4) - 3 in normal notation) should evaluate to 14.
+For your convenience, the input is formatted such that a space is provided between every token.
+Empty expression should evaluate to 0.
+Valid operations are +, -, *, /.
+You may assume that there won't be exceptional situations (like stack underflow or division by zero).
+*/
+function calc(expr) {
+  let result = [];
+
+  const atoms = expr.split(/\s+/);
+  const operators = ["+", "-", "*", "/"];
+  for (let i = 0; i < atoms.length; i++) {
+    switch (atoms[i]) {
+      case "+":
+        result.push(result.pop() + result.pop());
+        break;
+      case "-":
+        result.push(-result.pop() + result.pop());
+        break;
+      case "*":
+        result.push(result.pop() * result.pop());
+        break;
+      case "/":
+        result.push(1 / (result.pop() / result.pop()));
+        break;
+      default:
+        result.push(parseFloat(atoms[i]));
+    }
+  }
+  return result.pop() || 0;
+}
+
+console.log(calc(""));
+console.log(calc("3.5"));
+console.log(calc("1 3 +"));
