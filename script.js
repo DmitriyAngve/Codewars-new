@@ -2717,6 +2717,7 @@ console.log(calc("1 3 +"));
 Find the greatest common divisor of two positive integers. The integers can be large, so you need to find a clever solution.
 The inputs x and y are always greater or equal to 1, so the greatest common divisor will always be an integer that is also greater or equal to 1.
 */
+/*
 function mygcd(x, y) {
   while (y !== 0) {
     const temp = y;
@@ -2727,3 +2728,24 @@ function mygcd(x, y) {
 }
 
 console.log(mygcd(30, 12));
+*/
+
+// #2
+/*
+The code provided is supposed return a person's Full Name given their first and last names.
+But it's not working properly.
+Notes
+The first and/or last names are never null, but may be empty.
+Task
+Fix the bug so we can all go home early.
+*/
+class Dinglemouse {
+  constructor(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  getFullName() {
+    return this.firstName + " " + this.lastName;
+  }
+}
