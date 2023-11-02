@@ -2760,6 +2760,7 @@ For example:
     capitalize("abcdef",[1,2,5,100]) = "aBCdeF". There is no index 100.
 The input will be a lowercase string with no spaces and an array of digits.
 */
+/*
 function capitalize(s, arr) {
   const str = s.split("");
   // console.log(str);
@@ -2776,3 +2777,36 @@ function capitalize(s, arr) {
 }
 
 console.log(capitalize("abcdef", [1, 2, 5]));
+*/
+
+// #4
+/*
+In this Kata, you will be given an array of strings and your task is to remove all consecutive duplicate letters from each string in the array.
+For example:
+    dup(["abracadabra","allottee","assessee"]) = ["abracadabra","alote","asese"].
+    dup(["kelless","keenness"]) = ["keles","kenes"].
+Strings will be lowercase only, no spaces. See test cases for more examples.
+*/
+function dup(s) {
+  let result = [];
+  for (let i = 0; i < s.length; i++) {
+    let word = del(s[i]);
+    result.push(word.join(""));
+  }
+  return result;
+}
+
+function del(el) {
+  let res = [];
+  for (let j = 0; j < el.length; j++) {
+    if (el[j] !== el[j + 1]) {
+      res.push(el[j]);
+    }
+  }
+  return res;
+}
+
+console.log(del("ccooddddddewwwaaaaarrrrsssss"));
+console.log(
+  dup(["ccooddddddewwwaaaaarrrrsssss", "piccaninny", "hubbubbubboo"])
+);
