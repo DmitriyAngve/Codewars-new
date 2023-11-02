@@ -2678,6 +2678,7 @@ Empty expression should evaluate to 0.
 Valid operations are +, -, *, /.
 You may assume that there won't be exceptional situations (like stack underflow or division by zero).
 */
+/*
 function calc(expr) {
   let result = [];
 
@@ -2707,3 +2708,22 @@ function calc(expr) {
 console.log(calc(""));
 console.log(calc("3.5"));
 console.log(calc("1 3 +"));
+*/
+
+// 02.11.2023
+
+// #1
+/*
+Find the greatest common divisor of two positive integers. The integers can be large, so you need to find a clever solution.
+The inputs x and y are always greater or equal to 1, so the greatest common divisor will always be an integer that is also greater or equal to 1.
+*/
+function mygcd(x, y) {
+  while (y !== 0) {
+    const temp = y;
+    y = x % y;
+    x = temp;
+  }
+  return x;
+}
+
+console.log(mygcd(30, 12));
