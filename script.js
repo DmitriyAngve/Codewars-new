@@ -2739,6 +2739,7 @@ The first and/or last names are never null, but may be empty.
 Task
 Fix the bug so we can all go home early.
 */
+/*
 class Dinglemouse {
   constructor(firstName, lastName) {
     this.firstName = firstName;
@@ -2749,3 +2750,29 @@ class Dinglemouse {
     return this.firstName + " " + this.lastName;
   }
 }
+*/
+
+// #3
+/*
+Given a string and an array of integers representing indices, capitalize all letters at the given indices.
+For example:
+    capitalize("abcdef",[1,2,5]) = "aBCdeF"
+    capitalize("abcdef",[1,2,5,100]) = "aBCdeF". There is no index 100.
+The input will be a lowercase string with no spaces and an array of digits.
+*/
+function capitalize(s, arr) {
+  const str = s.split("");
+  // console.log(str);
+  let result = [];
+  for (let i = 0; i < str.length; i++) {
+    if (arr.includes(i)) {
+      result.push(str[i].toUpperCase());
+    } else {
+      result.push(str[i]);
+    }
+  }
+
+  return result.join("");
+}
+
+console.log(capitalize("abcdef", [1, 2, 5]));
