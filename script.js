@@ -3025,7 +3025,7 @@ Your task is to make this expression true (see testcase).
 HINT: javascript coercion rules.
 
 */
-
+/*
 var value = 2;
 
 var a = {
@@ -3035,3 +3035,31 @@ var a = {
 };
 
 console.log(a == 2 && a == 3);
+*/
+
+// #6
+/*
+Write a function that takes one or more arrays and returns a new array of unique values in the order of the original provided arrays.
+
+In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
+
+The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
+*/
+function uniteUnique() {
+  let result = [];
+
+  for (let i = 0; i < arguments.length; i++) {
+    let curArr = arguments[i];
+
+    for (let j = 0; j < curArr.length; j++) {
+      let el = curArr[j];
+
+      if (!result.includes(el)) {
+        result.push(el);
+      }
+    }
+  }
+  return result;
+}
+
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
