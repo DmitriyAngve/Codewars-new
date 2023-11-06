@@ -2869,6 +2869,7 @@ Example:
 Given string s = "444996, 699990, 666690, 096904, 600644, 640646, 606469, 409694, 666094, 606490" composing a set of n = 10 substrings (hence 45 combinations), pos_average returns 29.2592592593.
 In a set the n substrings will have the same length ( > 0 ).
 */
+/*
 function posAverage(s) {
   const subs = s.split(", ");
 
@@ -2902,3 +2903,52 @@ console.log(
     "466960, 069060, 494940, 060069, 060090, 640009, 496464, 606900, 004000, 944096"
   )
 );
+*/
+
+// #2
+/*
+n number theory, an abundant number or an excessive number is one for which the sum of it's proper divisors is greater than the number itself. The integer 12 is the first abundant number. Its proper divisors are 1, 2, 3, 4 and 6 for a total of 16. The amount by which the sum exceeds the number is the abundance. The number 12 has an abundance of 4, for example. Other initial abundant numbers are : 12, 18, 20, 24, 30, 36, 40, 42, 48, 54 etc . Infinitely many odd and even abundant numbers exist.
+As you should have guessed by now, in this kata your function will take a positive integer h as range input and return a nested array/list that will contain the following informations-
+    Highest available odd or even abundant number in that range
+    It's abundance
+Examples
+A few examples never hurt nobody, right???
+abundant(15)  = [[12], [4]]
+abundant(19)  = [[18], [3]]
+abundant(100) = [[100], [17]]
+abundant(999) = [[996], [360]]
+Tips
+The problem involves some pretty big random numbers. So try to optimize your code for performance as far as you can. And yes, the input argument will always be positive integers. So no need to check there.
+*/
+function abundant(h) {
+  let result = [];
+  // Проверяю, является ли число избыточным. Цикл начинается с передаваемого числа "h" до 12 - так как 12 это самое маленькое известное избыточное число. Избыточность проверяю путем нахождения всех делителей этого числа и вычисления суммы этих делителей. Необходимо найти, когда сумма делителей больше самого числа => значит число избыточное
+  for (let num = h; num >= 12; num--) {
+    let sumOfDiv = 1; // Изначальное сумма делителей равна 1. Добавляю 1, потому что 1 всегда является делителем любого числа
+
+    // Запускаю второй цикл. Начинается с 2, потому что 1 уже учтено. Цикл идет до корня квадратного из числа, так как далее делители будут повторяться в обратном порядке
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      // Если "i" является делителем "num"
+      if (num % i === 0) {
+        // Тогда добавляю "i" к сумме делителей
+        sumOfDiv += i;
+
+        // Проверка, чтоыб избежать повторения делителей
+        if (i !== num / i) {
+          sumOfDiv += num / i;
+        }
+      }
+    }
+
+    // Если сумма делителей больше числа num, то это избыточное число
+    if (sumOfDiv > num) {
+      result.push([num], [sumOfDiv - num]);
+
+      // Прерываю цикл, так как нашлось самое большое избыточное число
+      break;
+    }
+  }
+  return result;
+}
+
+console.log(abundant(15));
