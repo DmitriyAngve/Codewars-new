@@ -2995,6 +2995,7 @@ Given any number of boolean flags function should return true if and only if one
   onlyOne(true, false, false, true) --> false
   onlyOne(false, false, false, false) --> false
 */
+/*
 function onlyOne(s) {
   const args = Array.from(arguments);
   console.log(args);
@@ -3011,3 +3012,26 @@ function onlyOne(s) {
 console.log(onlyOne());
 console.log(onlyOne(true, false, false));
 console.log(onlyOne(true, false, false, true));
+*/
+
+// #5
+/*
+Here we have a strange looking expression.
+
+(a == 2 && a == 3);
+
+Your task is to make this expression true (see testcase).
+
+HINT: javascript coercion rules.
+
+*/
+
+var value = 2;
+
+var a = {
+  valueOf: function () {
+    return value++;
+  },
+};
+
+console.log(a == 2 && a == 3);
