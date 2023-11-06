@@ -3045,6 +3045,7 @@ In other words, all values present from all arrays should be included in their o
 
 The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
 */
+/*
 function uniteUnique() {
   let result = [];
 
@@ -3063,3 +3064,16 @@ function uniteUnique() {
 }
 
 console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+*/
+
+// #6
+/*
+Is the number even?
+If the numbers is even return true. If it's odd, return false.
+*/
+var isEven = function (n) {
+  return (n & 1) === 0;
+};
+
+console.log(isEven(2));
+console.log(isEven(3));
