@@ -2920,6 +2920,7 @@ abundant(999) = [[996], [360]]
 Tips
 The problem involves some pretty big random numbers. So try to optimize your code for performance as far as you can. And yes, the input argument will always be positive integers. So no need to check there.
 */
+/*
 function abundant(h) {
   let result = [];
   // Проверяю, является ли число избыточным. Цикл начинается с передаваемого числа "h" до 12 - так как 12 это самое маленькое известное избыточное число. Избыточность проверяю путем нахождения всех делителей этого числа и вычисления суммы этих делителей. Необходимо найти, когда сумма делителей больше самого числа => значит число избыточное
@@ -2952,3 +2953,34 @@ function abundant(h) {
 }
 
 console.log(abundant(15));
+*/
+
+// #3
+/*
+ Timed Reading is an educational tool used in many schools to improve and advance reading skills. A young elementary student has just finished his very first timed reading exercise. Unfortunately he's not a very good reader yet, so whenever he encountered a word longer than maxLength, he simply skipped it and read on.
+Help the teacher figure out how many words the boy has read by calculating the number of words in the text he has read, no longer than maxLength.
+Formally, a word is a substring consisting of English letters, such that characters to the left of the leftmost letter and to the right of the rightmost letter are not letters.
+Example
+For maxLength = 4 and text = "The Fox asked the stork, 'How is the soup?'", the output should be 7
+The boy has read the following words: "The", "Fox", "the", "How", "is", "the", "soup".
+*/
+function timedReading(maxLength, text) {
+  const reg = /[A-Za-z]+/g;
+
+  const words = text.match(reg);
+  console.log(words);
+
+  if (!words) {
+    return 0;
+  }
+
+  let count = 0;
+  for (const word of words) {
+    if (word.length <= maxLength) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(timedReading(4, "The Fox asked the stork, 'How is the soup?'"));
