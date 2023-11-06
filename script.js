@@ -2964,6 +2964,7 @@ Example
 For maxLength = 4 and text = "The Fox asked the stork, 'How is the soup?'", the output should be 7
 The boy has read the following words: "The", "Fox", "the", "How", "is", "the", "soup".
 */
+/*
 function timedReading(maxLength, text) {
   const reg = /[A-Za-z]+/g;
 
@@ -2984,3 +2985,29 @@ function timedReading(maxLength, text) {
 }
 
 console.log(timedReading(4, "The Fox asked the stork, 'How is the soup?'"));
+*/
+
+// #4
+/*
+Given any number of boolean flags function should return true if and only if one of them is true while others are false. If function is called without arguments it should return false.
+  onlyOne() --> false
+  onlyOne(true, false, false) --> true
+  onlyOne(true, false, false, true) --> false
+  onlyOne(false, false, false, false) --> false
+*/
+function onlyOne(s) {
+  const args = Array.from(arguments);
+  console.log(args);
+  let trueCount = 0;
+
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === true) {
+      trueCount++;
+    }
+  }
+  return trueCount === 1 ? true : false;
+}
+
+console.log(onlyOne());
+console.log(onlyOne(true, false, false));
+console.log(onlyOne(true, false, false, true));
