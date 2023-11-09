@@ -3086,6 +3086,7 @@ console.log(isEven(3));
 You are given an array with several "even" words, one "odd" word, and some numbers mixed in.
 Determine if any of the numbers in the array is the index of the "odd" word. If so, return true, otherwise false.
 */
+/*
 function oddBall(arr) {
   // let index;
   // for (let i = 0; i < arr.length; i++) {
@@ -3136,3 +3137,54 @@ console.log(
     "even",
   ])
 );
+*/
+
+// #8
+/*
+Given an array (or list or vector) of arrays (or, guess what, lists or vectors) of integers, your goal is to return the sum of a specific set of numbers, starting with elements whose position is equal to the main array length and going down by one at each step.
+Say for example the parent array (etc, etc) has 3 sub-arrays inside: you should consider the third element of the first sub-array, the second of the second array and the first element in the third one: [[3, 2, 1, 0], [4, 6, 5, 3, 2], [9, 8, 7, 4]] would have you considering 1 for [3, 2, 1, 0], 6 for [4, 6, 5, 3, 2] and 9 for [9, 8, 7, 4], which sums up to 16.
+One small note is that not always each sub-array will have enough elements, in which case you should then use a default value (if provided) or 0 (if not provided), as shown in the test cases.
+*/
+/*
+function elementsSum(arr, d) {
+  let result = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let element = arr[i];
+    console.log(element);
+    for (let j = 0; j < element.length; j++) {
+      result += element[j];
+      console.log(result);
+    }
+  }
+  return result;
+}
+
+console.log(
+  elementsSum([
+    [3, 2, 1, 0],
+    [4, 6, 5, 3, 2],
+    [9, 8, 7, 4],
+  ])
+);
+*/
+
+// 09.11.2023
+// #1
+/*
+Given a number return the closest number to it that is divisible by 10.
+Example input:
+22
+25
+37
+Expected output:
+20
+30
+40
+*/
+const closestMultiple10 = (num) => {
+  const res = Math.round(num / 10) * 10;
+  return res;
+};
+
+console.log(closestMultiple10(22));
