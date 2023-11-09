@@ -3199,6 +3199,7 @@ nameValue ["abc","abc abc"] should return [6,24] because of [ 6 * 1, 12 * 2 ]. N
 "abc" has a value of 6, while "abc abc" has a value of 12. Now, the value at position 1 is multiplied by 1 while the value at position 2 is multiplied by 2.
 Input will only contain lowercase characters and spaces.
 */
+/*
 function wordValue(arr) {
   return arr.map((str, index) => {
     let value = str
@@ -3210,3 +3211,28 @@ function wordValue(arr) {
 }
 
 console.log(wordValue(["codewars", "abc", "xyz"]));
+*/
+
+// #3
+/*
+Your task in this kata is to implement a function that calculates the sum of the integers inside a string. For example, in the string "The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog", the sum of the integers is 3635.
+
+Note: only positive integers will be tested.
+*/
+function sumOfIntegersInString(s) {
+  const integers = s.match(/\d+/g);
+
+  if (!integers) return 0;
+
+  const nums = integers.map(Number);
+  console.log(nums);
+
+  return nums.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(
+  sumOfIntegersInString("The Great Depression lasted from 1929 to 1939")
+);
+console.log(
+  sumOfIntegersInString("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy ")
+);
