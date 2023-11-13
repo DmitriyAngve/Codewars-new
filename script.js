@@ -3199,6 +3199,7 @@ nameValue ["abc","abc abc"] should return [6,24] because of [ 6 * 1, 12 * 2 ]. N
 "abc" has a value of 6, while "abc abc" has a value of 12. Now, the value at position 1 is multiplied by 1 while the value at position 2 is multiplied by 2.
 Input will only contain lowercase characters and spaces.
 */
+/*
 function wordValue(arr) {
   return arr.map((str, index) => {
     let value = str
@@ -3210,3 +3211,98 @@ function wordValue(arr) {
 }
 
 console.log(wordValue(["codewars", "abc", "xyz"]));
+*/
+
+// #3
+/*
+Your task in this kata is to implement a function that calculates the sum of the integers inside a string. For example, in the string "The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog", the sum of the integers is 3635.
+
+Note: only positive integers will be tested.
+*/
+/*
+function sumOfIntegersInString(s) {
+  const integers = s.match(/\d+/g);
+
+  if (!integers) return 0;
+
+  const nums = integers.map(Number);
+  console.log(nums);
+
+  return nums.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(
+  sumOfIntegersInString("The Great Depression lasted from 1929 to 1939")
+);
+console.log(
+  sumOfIntegersInString("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy ")
+);
+*/
+
+// 13.11.2023
+
+// #1
+/*
+Every now and then people in the office moves teams or departments. Depending what people are doing with their time they can become more or less boring. Time to assess the current team.
+You will be provided with an object(staff) containing the staff names as keys, and the department they work in as values.
+Each department has a different boredom assessment score, as follows:
+accounts = 1
+finance = 2
+canteen = 10
+regulation = 3
+trading = 6
+change = 6
+IS = 8
+retail = 5
+cleaning = 4
+pissing about = 25
+Depending on the cumulative score of the team, return the appropriate sentiment:
+<=80: 'kill me now'
+< 100 & > 80: 'i can handle this'
+100 or over: 'party time!!'
+*/
+function boredom(staff) {
+  let boredomScores = {
+    accounts: 1,
+    finance: 2,
+    canteen: 10,
+    regulation: 3,
+    trading: 6,
+    change: 6,
+    IS: 8,
+    retail: 5,
+    cleaning: 4,
+    "pissing about": 25,
+  };
+
+  let score = 0;
+
+  for (const name in staff) {
+    let role = staff[name];
+    score += boredomScores[role] || 0;
+  }
+
+  if (score <= 80) {
+    return "kill me now";
+  } else if (score < 100 && score > 80) {
+    return "i can handle this";
+  } else {
+    return "party time!!";
+  }
+}
+
+console.log(
+  boredom({
+    tim: "change",
+    jim: "accounts",
+    randy: "canteen",
+    sandy: "change",
+    andy: "change",
+    katie: "IS",
+    laura: "change",
+    saajid: "IS",
+    alex: "trading",
+    john: "accounts",
+    mr: "finance",
+  })
+);
