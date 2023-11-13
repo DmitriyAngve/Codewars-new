@@ -3219,6 +3219,7 @@ Your task in this kata is to implement a function that calculates the sum of the
 
 Note: only positive integers will be tested.
 */
+/*
 function sumOfIntegersInString(s) {
   const integers = s.match(/\d+/g);
 
@@ -3235,4 +3236,73 @@ console.log(
 );
 console.log(
   sumOfIntegersInString("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy ")
+);
+*/
+
+// 13.11.2023
+
+// #1
+/*
+Every now and then people in the office moves teams or departments. Depending what people are doing with their time they can become more or less boring. Time to assess the current team.
+You will be provided with an object(staff) containing the staff names as keys, and the department they work in as values.
+Each department has a different boredom assessment score, as follows:
+accounts = 1
+finance = 2
+canteen = 10
+regulation = 3
+trading = 6
+change = 6
+IS = 8
+retail = 5
+cleaning = 4
+pissing about = 25
+Depending on the cumulative score of the team, return the appropriate sentiment:
+<=80: 'kill me now'
+< 100 & > 80: 'i can handle this'
+100 or over: 'party time!!'
+*/
+function boredom(staff) {
+  let boredomScores = {
+    accounts: 1,
+    finance: 2,
+    canteen: 10,
+    regulation: 3,
+    trading: 6,
+    change: 6,
+    IS: 8,
+    retail: 5,
+    cleaning: 4,
+    "pissing about": 25,
+  };
+
+  let score = 0;
+
+  for (const name in staff) {
+    let role = staff[name];
+    score += boredomScores[role] || 0;
+  }
+
+  if (score <= 80) {
+    return "kill me now";
+  } else if (score < 100 && score > 80) {
+    return "i can handle this";
+  } else {
+    return "party time!!";
+  }
+}
+
+console.log(
+  boredom({
+    tim: "change",
+    jim: "accounts",
+    randy: "canteen",
+    sandy: "change",
+    andy: "change",
+    katie: "IS",
+    laura: "change",
+    saajid: "IS",
+    alex: "trading",
+    john: "accounts",
+    mr: "finance",
+  })
 );
