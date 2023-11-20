@@ -3397,6 +3397,7 @@ console.log(unluckyDays(1001));
 Given an array of numbers (in string format), you must return a string. The numbers correspond to the letters of the alphabet in reverse order: a=26, z=1 etc. You should also account for '!', '?' and ' ' that are represented by '27', '28' and '29' respectively.
 All inputs will be valid.
 */
+/*
 function switcher(x) {
   const mapping = {
     "1": "z",
@@ -3435,3 +3436,128 @@ function switcher(x) {
 }
 
 console.log(switcher(["24", "12", "23", "22", "4", "26", "9", "8"]));
+*/
+/*
+let x = 1;
+var y = 1;
+const result = function (x, y) {
+  let z;
+  z = x + y;
+  let j = x + y + z;
+  return j;
+};
+result(x, y);
+
+console.log(j);
+console.log(result(2, 2));
+// console.log(z);
+console.log(result());
+*/
+
+// const daughter = {
+//   name: "dina",
+// };
+
+// daughter.mama = "sasha";
+
+// console.log(daughter);
+
+// daughter.name = "andrei";
+// console.log(daughter);
+
+// const dinka = {
+//   hairStyle: "kavardak",
+//   height: 1.3,
+//   weight: 27,
+//   toys: {
+//     car: "volvo",
+//     dinosaur: {
+//       name: "bolotniy",
+//       number: 2,
+//       color: "green",
+//     },
+//   },
+// };
+// // 1
+// console.log(dinka.weight);
+// // 2
+// dinka.weight = 32;
+// console.log(dinka.weight);
+// // 3
+// console.log(dinka.toys.dinosaur.name);
+// // 4
+// delete dinka.toys.dinosaur.number;
+// console.log(dinka.toys.dinosaur);
+
+// //
+
+// const toys = {
+//   title: "snake",
+//   name: "anaconda",
+//   number: 2,
+// };
+
+// // 1
+// delete toys.title;
+// console.log(toys);
+// // 2
+// delete toys["title"];
+// console.log(toys);
+// // 3
+// toys.number = undefined;
+// console.log(toys);
+
+// //
+
+// const child = {
+//   name: "dina",
+//   age: 5,
+// };
+
+// const secondChild = {
+//   name: "dina",
+//   age: 5,
+// };
+
+// console.log(child === secondChild);
+
+// //
+
+// const book = {
+//   title: "Hobbit",
+//   number: 1,
+// };
+
+// const anotherBook = book;
+
+// console.log(book === anotherBook);
+
+//
+
+const toy = {
+  title: "dinosaur",
+  name: "bolotniy",
+};
+
+const anotherToy = toy;
+
+// 1
+console.log(anotherToy);
+console.log(toy);
+
+// 2
+toy.name = "banti";
+console.log(toy);
+console.log(anotherToy);
+
+let user = { name: "sasha", age: 34 };
+const architect = user;
+
+user = { name: "dina" };
+
+// 1
+console.log(architect);
+
+// 2
+architect.student = true;
+console.log(architect);
