@@ -3533,7 +3533,7 @@ console.log(result());
 // console.log(book === anotherBook);
 
 //
-
+/*
 const toy = {
   title: "dinosaur",
   name: "bolotniy",
@@ -3561,3 +3561,51 @@ console.log(architect);
 // 2
 architect.student = true;
 console.log(architect);
+*/
+
+// 27.11.2023
+
+// #1
+/*
+An array consisting of 0s and 1s, also called a binary array, is given as an input.
+Task
+Find the length of the longest contiguous subarray which consists of equal number of 0s and 1s.
+Example
+s = [1,1,0,1,1,0,1,1]
+         |_____|
+            |
+         [0,1,1,0]
+
+         length = 4
+Note
+0 <= length(array) < 120 000
+*/
+function binarray(a) {
+  // Создаем хеш карту для отслеживания текущей суммы и её индекса
+  let sumMap = new Map();
+  // Максимальная длина подмассива с равным количеством 0 и 1
+  let maxLen = 0;
+  // Текущая сумма
+  let sum = 0;
+
+  // Итерируем по массиву
+  for (let i = 0; i < a.length; i++) {
+    // Меняем сумму (увеличиваю при 1, уменьшаю для 0)
+    sum += a[i] === 1 ? 1 : -1;
+
+    // Если сумма равна 0, значит, равное количество 0 и 1с начала текущего индекса
+    if (sum === 0) {
+      maxLen = i + 1; // +1 потому что начало текущего индекса
+    } else if (sumMap.has(sum)) {
+      // Если эта сумма встречается снова, обновляю масимальную длину. Когд sum становится равным 0, это означает, что подмассив с равным количеством 0 и 1 начинается с начала массива и заканчивается текущим индексом i. Таким образом i+1 (длина массива от 0 до i включительно) становится масимальной длиной подмассива. Если sum уже ранее встречено (присутствует в хэш карте), то разница между двумя вхождениями sum количество 0 и 1 равно. Таким образом, разница между текущим индексом i и сохраненным индексом (sumMap.get(sum)) представляет собой длину подмассива с равным количеством 0 и 1 для текущей суммы sum. Я сравниваю эту длину с текущей максимальной длиной и обновляю maxLen, если новая длина больше
+      maxLen = Math.max(maxLen, i - sumMap.get(sum));
+    } else {
+      sumMap.set(sum, i);
+    }
+  }
+
+  return maxLen;
+}
+
+console.log(binarray([0]));
+console.log(binarray([0, 1, 1, 0, 1, 1, 1, 0, 0, 0]));
