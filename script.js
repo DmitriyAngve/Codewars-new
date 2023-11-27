@@ -3580,6 +3580,7 @@ s = [1,1,0,1,1,0,1,1]
 Note
 0 <= length(array) < 120 000
 */
+/*
 function binarray(a) {
   // Создаем хеш карту для отслеживания текущей суммы и её индекса
   let sumMap = new Map();
@@ -3609,3 +3610,16 @@ function binarray(a) {
 
 console.log(binarray([0]));
 console.log(binarray([0, 1, 1, 0, 1, 1, 1, 0, 0, 0]));
+*/
+
+// #2
+/*
+I'm new to coding and now I want to get the sum of two arrays... Actually the sum of all their elements. I'll appreciate for your help.
+P.S. Each array includes only integer numbers. Output is a number too.
+*/
+function arrayPlusArray(arr1, arr2) {
+  let arr = [...arr1, ...arr2];
+  return arr.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(arrayPlusArray([-1, -2, -3], [-4, -5, -6]));
