@@ -3617,9 +3617,47 @@ console.log(binarray([0, 1, 1, 0, 1, 1, 1, 0, 0, 0]));
 I'm new to coding and now I want to get the sum of two arrays... Actually the sum of all their elements. I'll appreciate for your help.
 P.S. Each array includes only integer numbers. Output is a number too.
 */
+/*
 function arrayPlusArray(arr1, arr2) {
   let arr = [...arr1, ...arr2];
   return arr.reduce((acc, curr) => acc + curr, 0);
 }
 
 console.log(arrayPlusArray([-1, -2, -3], [-4, -5, -6]));
+*/
+
+// #3
+/*
+You are given an initial 2-value array (x). You will use this to calculate a score.
+If both values in (x) are numbers, the score is the sum of the two. If only one is a number, the score is that number. If neither is a number, return 'Void!'.
+Once you have your score, you must return an array of arrays. Each sub array will be the same as (x) and the number of sub arrays should be equal to the score.
+For example:
+if (x) == ['a', 3] you should return [['a', 3], ['a', 3], ['a', 3]].
+*/
+function explode(x) {
+  let [x1, x2] = x;
+  if (typeof x1 === "string" && typeof x2 === "string") {
+    return "Void!";
+  }
+
+  if (typeof x1 === "number" && typeof x2 === "number") {
+    let sumX = x1 + x2;
+    let subArray = Array(sumX).fill(x);
+    return subArray;
+  }
+
+  if (typeof x1 === "number" && typeof x2 === "string") {
+    let subArray2 = Array(x1).fill(x);
+    return subArray2;
+  }
+
+  if (typeof x1 === "string" && typeof x2 === "number") {
+    let subArray3 = Array(x2).fill(x);
+    return subArray3;
+  }
+}
+
+console.log(explode([9, 3]));
+console.log(explode(["a", "b"]));
+console.log(explode(["a", 6]));
+console.log(explode([6, "a"]));
