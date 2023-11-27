@@ -3634,6 +3634,7 @@ Once you have your score, you must return an array of arrays. Each sub array wil
 For example:
 if (x) == ['a', 3] you should return [['a', 3], ['a', 3], ['a', 3]].
 */
+/*
 function explode(x) {
   let [x1, x2] = x;
   if (typeof x1 === "string" && typeof x2 === "string") {
@@ -3661,3 +3662,29 @@ console.log(explode([9, 3]));
 console.log(explode(["a", "b"]));
 console.log(explode(["a", 6]));
 console.log(explode([6, "a"]));
+*/
+
+// #4
+/*
+Peter enjoys taking risks, and this time he has decided to take it up a notch!
+Peter asks his local barman to pour him n shots, after which Peter then puts laxatives in x of them. He then turns around and lets the barman shuffle the shots. Peter approaches the shots and drinks a of them one at a time. Just one shot is enough to give Peter a runny tummy. What is the probability that Peter doesn't need to run to the loo?
+Task
+You are given:
+n - The total number of shots.
+x - The number of laxative laden shots.
+a - The number of shots that peter drinks.
+return the probability that Peter won't have the trots after drinking. n will always be greater than x, and a will always be less than n.
+You must return the probability rounded to two decimal places i.e. 0.05 or 0.81
+*/
+function getChance(n, x, a) {
+  let chance = 1;
+  while (a > 0) {
+    chance = ((n - x) / n) * chance; // обновляю значение chance. Chance умножается на ((n - x) / n) - это отражает вероятность того, что выбранная стопка не содержит слабительного
+    n--; // уменьшаю общее количество оставшихся стопок
+    a--; // уменьшаю количество стопок, которые планирует выпить Питер
+  }
+  return Math.round(chance * 100) / 100;
+}
+
+console.log(getChance(2, 1, 1));
+console.log(getChance(4, 1, 3));
