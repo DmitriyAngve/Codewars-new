@@ -3825,6 +3825,7 @@ Examples
 -5  -->  [0, -1, -3, -6, -10, -15]
  7  -->  [0,  1,  3,  6,  10,  15,  21,  28]
 */
+/*
 function sumOfN(n) {
   let arr = [];
 
@@ -3843,3 +3844,59 @@ function sumOfN(n) {
 
 console.log(sumOfN(3));
 console.log(sumOfN(-4));
+*/
+
+// #5
+/*
+Define a method/function that removes from a given array of integers all the values contained in a second array.
+Examples (input -> output):
+* [1, 1, 2, 3, 1, 2, 3, 4], [1, 3] -> [2, 2, 4]
+* [1, 1, 2, 3, 1, 2, 3, 4, 4, 3, 5, 6, 7, 2, 8], [1, 3, 4, 2] -> [5, 6, 7, 8]
+* [8, 2, 7, 2, 3, 4, 6, 5, 4, 4, 1, 2, 3], [2, 4, 3] -> [8, 7, 6, 5, 1]
+Enjoy it!!
+*/
+
+// FIRST
+/*
+function remove(arr1, arr2) {
+  let result = [];
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        break;
+      }
+
+      if (j === arr2.length - 1) {
+        result.push(arr1[i]);
+      }
+    }
+  }
+  return result;  
+}
+console.log(remove([1, 1, 2, 3, 1, 2, 3, 4], [1, 3]));
+*/
+/*
+// SECOND
+Array.prototype.remove_ = (x, y) => x.filter((e) => !y.includes(e));
+
+*/
+
+// #6
+/*
+This Kata is intended as a small challenge for my students
+Create a function that takes a string argument and returns that same string with all vowels removed (vowels are "a", "e", "i", "o", "u").
+Example (Input --> Output)
+"drake" --> "drk"
+"aeiou" --> ""
+remove_vowels("drake") // => "drk"
+remove_vowels("aeiou") // => ""
+*/
+var removeVowels = function (str) {
+  return str.replace(/[aeiou]/gi, "");
+};
+
+console.log(removeVowels("drake"));
+console.log(removeVowels("yw njwqnz kytte s nysqzklx zsmjvc khhrvr"));
+console.log(
+  removeVowels("jfv psqjsz lmpkbtxms mdscps pxej rzmepc smcw zln kwdvj")
+);
