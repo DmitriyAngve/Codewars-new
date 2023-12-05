@@ -3712,6 +3712,7 @@ A size 5 diamond:
 ...that is:
 "  *\n ***\n*****\n ***\n  *\n"
 */
+/*
 function diamond(n) {
   if (n <= 0 || n % 2 === 0) {
     return null;
@@ -3740,3 +3741,32 @@ console.log(diamond(2));
 console.log(diamond(3));
 console.log(diamond(5));
 console.log(diamond(-3));
+*/
+
+// #2
+/*
+Given a string, remove any characters that are unique from the string.
+Example:
+input: "abccdefee"
+output: "cceee"
+*/
+function onlyDuplicates(str) {
+  let ht = {};
+
+  for (const char of str) {
+    ht[char] = (ht[char] || 0) + 1;
+  }
+  console.log(ht);
+
+  let result = "";
+
+  for (let char of str) {
+    if (ht[char] > 1) {
+      result += char;
+    }
+  }
+
+  return result;
+}
+
+console.log(onlyDuplicates("abccdefee"));
