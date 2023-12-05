@@ -3676,6 +3676,7 @@ a - The number of shots that peter drinks.
 return the probability that Peter won't have the trots after drinking. n will always be greater than x, and a will always be less than n.
 You must return the probability rounded to two decimal places i.e. 0.05 or 0.81
 */
+/*
 function getChance(n, x, a) {
   let chance = 1;
   while (a > 0) {
@@ -3688,3 +3689,54 @@ function getChance(n, x, a) {
 
 console.log(getChance(2, 1, 1));
 console.log(getChance(4, 1, 3));
+*/
+
+// 05.12.2023
+
+// #1
+/*
+You need to return a string that looks like a diamond shape when printed on the screen, using asterisk (*) characters. Trailing spaces should be removed, and every line must be terminated with a newline character (\n).
+Return null/nil/None/... if the input is an even number or negative, as it is not possible to print a diamond of even or negative size.
+Examples
+A size 3 diamond:
+ *
+***
+ *
+...which would appear as a string of " *\n***\n *\n"
+A size 5 diamond:
+  *
+ ***
+*****
+ ***
+  *
+...that is:
+"  *\n ***\n*****\n ***\n  *\n"
+*/
+function diamond(n) {
+  if (n <= 0 || n % 2 === 0) {
+    return null;
+  }
+
+  let result = "";
+
+  // Верхняя часть
+  for (let i = 1; i <= n; i += 2) {
+    const spaces = " ".repeat((n - i) / 2);
+    const stars = "*".repeat(i);
+    result += spaces + stars + "\n";
+  }
+
+  // Нижняя часть
+  for (let i = n - 2; i > 0; i -= 2) {
+    const spaces = " ".repeat((n - i) / 2);
+    const stars = "*".repeat(i);
+    result += spaces + stars + "\n";
+  }
+
+  return result;
+}
+
+console.log(diamond(2));
+console.log(diamond(3));
+console.log(diamond(5));
+console.log(diamond(-3));
