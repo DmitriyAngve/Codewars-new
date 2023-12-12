@@ -3967,14 +3967,15 @@ Explanation:
     The Fourth element 300 is the product of all array's elements except the fourth element 6
     Finally ,The Fifth element 900 is the product of all array's elements except the fifth element 2
 */
+/*
 function productArray(numbers) {
   // FIRST
-  /*
-  const total = numbers.reduce((acc, num) => acc * num, 1);
-  console.log(total);
-  const result = numbers.map((num) => total / num);
-  return result;
-  */
+  
+  // const total = numbers.reduce((acc, num) => acc * num, 1);
+  // console.log(total);
+  // const result = numbers.map((num) => total / num);
+  // return result;
+  
 
   const result = [];
   for (let i = 0; i < numbers.length; i++) {
@@ -3990,3 +3991,28 @@ function productArray(numbers) {
 }
 
 console.log(productArray([3, 27, 4, 2]));
+*/
+
+// #2
+/*
+Positive integers have so many gorgeous features. Some of them could be expressed as a sum of two or more consecutive positive numbers.
+Consider an Example :
+    10 could be expressed as the sum of 1 + 2 + 3 + 4 .
+    Task
+Given Positive integer, N , return true if it could be expressed as a sum of two or more consecutive positive numbers , otherwise return false .
+Notes
+    Guaranteed constraint : 2 ≤ N ≤ (2^32) -1 .
+Input >> Output Examples:
+
+* consecutiveDucks(9)  ==>  return (true)  //  9 , could be expressed as a sum of ( 2 + 3 + 4 ) or ( 4 + 5 ) . 
+* consecutiveDucks(64)  ==>  return (false)
+* consecutiveDucks(42)  ==>  return (true) //  42 , could be expressed as a sum of ( 9 + 10 + 11 + 12 ) 
+*/
+function consecutiveDucks(num) {
+  // Использую формулу вычисления суммы последовательности положительных чисел
+  // Это проверка, является ли заданное число стеменью двойки (сумма чисел от 1 до N равна (n*(n+1)))/2. Исходя из этого можно перебирать возможные значения для N и проверять, деляться ли входное число на N без остатка
+  return (num & (num - 1)) !== 0;
+}
+
+console.log(consecutiveDucks(69));
+console.log(consecutiveDucks(8));
