@@ -4008,11 +4008,31 @@ Input >> Output Examples:
 * consecutiveDucks(64)  ==>  return (false)
 * consecutiveDucks(42)  ==>  return (true) //  42 , could be expressed as a sum of ( 9 + 10 + 11 + 12 ) 
 */
+/*
 function consecutiveDucks(num) {
   // Использую формулу вычисления суммы последовательности положительных чисел
-  // Это проверка, является ли заданное число стеменью двойки (сумма чисел от 1 до N равна (n*(n+1)))/2. Исходя из этого можно перебирать возможные значения для N и проверять, деляться ли входное число на N без остатка
+  // Это проверка, является ли заданное число степенью двойки (сумма чисел от 1 до N равна (n*(n+1)))/2. Исходя из этого можно перебирать возможные значения для N и проверять, деляться ли входное число на N без остатка
   return (num & (num - 1)) !== 0;
 }
 
 console.log(consecutiveDucks(69));
 console.log(consecutiveDucks(8));
+*/
+
+// #3
+/*
+With Cereal crops like wheat or rice, before we can eat the grain kernel, we need to remove that inedible hull, or to separate the wheat from the chaff.
+Task
+Given a sequence of n integers , separate the negative numbers (chaff) from positive ones (wheat).
+*/
+function wheatFromChaff(values) {
+  const o = [...values];
+  for (let head = 0, tail = values.length - 1; head < tail; head++, tail--) {
+    while (values[head] < 0) head++;
+    while (values[tail] > 0) tail--;
+    if (head < tail) [o[head], o[tail]] = [o[tail], o[head]];
+  }
+  return o;
+}
+
+console.log(wheatFromChaff([16, 25, -48, -47, -37, 41, -2]));
