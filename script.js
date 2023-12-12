@@ -4025,6 +4025,7 @@ With Cereal crops like wheat or rice, before we can eat the grain kernel, we nee
 Task
 Given a sequence of n integers , separate the negative numbers (chaff) from positive ones (wheat).
 */
+/*
 function wheatFromChaff(values) {
   const o = [...values];
   for (let head = 0, tail = values.length - 1; head < tail; head++, tail--) {
@@ -4036,3 +4037,57 @@ function wheatFromChaff(values) {
 }
 
 console.log(wheatFromChaff([16, 25, -48, -47, -37, 41, -2]));
+*/
+
+// #4
+/*
+Given a List [] of n integers , find minimum number to be inserted in a list, so that sum of all elements of list should equal the closest prime number .
+*/
+/*
+function minimumNumber(numbers) {
+  let sum = numbers.reduce((a, b) => a + b);
+  for (let i = sum; ; i++) {
+    if (prime(i)) return i - sum;
+  }
+  function prime(a) {
+    if (a < 2) return false;
+    if (a % 2 === 0) return a === 2;
+    for (let i = 3; i * i < a; i += 2) {
+      if (a % i === 0) return false;
+    }
+    return true;
+  }
+}
+
+console.log(minimumNumber([3, 2, 1]));
+*/
+
+// #5
+/*
+Given an array of N integers, you have to find how many times you have to add up the smallest numbers in the array until their Sum becomes greater or equal to K.
+    Input >> Output Examples
+minimumSteps({1, 10, 12, 9, 2, 3}, 6)  ==>  return (2)
+Explanation:
+    We add two smallest elements (1 + 2), their sum is 3
+    Then we add the next smallest number to it (3 + 3) , so the sum becomes 6
+    Now the result is greater or equal to 6 , Hence the output is (2) i.e (2) operations are required to do this .
+*/
+function minimumSteps(numbers, value) {
+  let count = 0;
+  let sum = 0;
+  numbers.sort((a, b) => a - b);
+  console.log(numbers);
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+    count += sum < value ? 1 : 0;
+
+    // Если сумма превышает или равна заданному значению, завершаю цикл
+    if (sum >= value) {
+      break;
+    }
+  }
+  return count;
+}
+
+// console.log(minimumSteps([4, 6, 3], 7));
+console.log(minimumSteps([8, 9, 10, 4, 2], 23));
