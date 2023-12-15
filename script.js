@@ -4072,6 +4072,7 @@ Explanation:
     Then we add the next smallest number to it (3 + 3) , so the sum becomes 6
     Now the result is greater or equal to 6 , Hence the output is (2) i.e (2) operations are required to do this .
 */
+/*
 function minimumSteps(numbers, value) {
   let count = 0;
   let sum = 0;
@@ -4091,3 +4092,31 @@ function minimumSteps(numbers, value) {
 
 // console.log(minimumSteps([4, 6, 3], 7));
 console.log(minimumSteps([8, 9, 10, 4, 2], 23));
+*/
+
+// 15.12.2023
+
+// #1
+/*
+Since the sum of its digits' factorial of 1! + 2! + 3! = 9 is not equal to number itself, then it's Not Strong .
+strong_num(2)  ==>  return "STRONG!!!!"
+Since the sum of its digits' factorial of 2! = 2 is equal to number itself, then its a Strong.
+strong_num(150) ==> return "Not Strong !!"
+Since the sum of its digits' factorial of 1! + 5! + 0! = 122 is not equal to number itself, Then it's Not Strong . 
+*/
+function strong(n) {
+  let arr = n.toString().split("").map(Number);
+  let result = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let factorial = 1;
+    for (let j = 1; j <= arr[i]; j++) {
+      factorial *= j;
+    }
+    result += factorial;
+  }
+  return result === n ? "STRONG!!!!" : "Not Strong !!";
+}
+
+console.log(strong(145));
+console.log(strong(123));
