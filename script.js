@@ -4104,13 +4104,13 @@ Since the sum of its digits' factorial of 2! = 2 is equal to number itself, then
 strong_num(150) ==> return "Not Strong !!"
 Since the sum of its digits' factorial of 1! + 5! + 0! = 122 is not equal to number itself, Then it's Not Strong . 
 */
+/*
 function strong(n) {
   let arr = n.toString().split("").map(Number);
   let result = 0;
-
   for (let i = 0; i < arr.length; i++) {
-    let factorial = 1;
-    for (let j = 1; j <= arr[i]; j++) {
+    let factorial = arr[i];
+    for (let j = 1; j < arr[i]; j++) {
       factorial *= j;
     }
     result += factorial;
@@ -4120,3 +4120,110 @@ function strong(n) {
 
 console.log(strong(145));
 console.log(strong(123));
+*/
+
+// #2
+/*
+The deleteValues function takes an array and removes elements that answer true to the pred function.
+For some reason, some of the elements of the array for which the predicate holds are not deleted...
+Can you fix the code?
+
+Code:
+
+function deleteValues(array, pred) {
+  for(var i = 0; i < array.length; i++) {
+    if ( pred(array[i]) ) {
+      array.splice(i, 1);
+    }
+  }
+  return array;
+}
+*/
+
+// function deleteValues(array, pred) {
+//   for (var i = 0; i < array.length; i++) {
+//     if (pred(array[i])) {
+//       array.splice(i--, 1);
+//     }
+//   }
+//   return array;
+// }
+
+// #3
+/*
+ Given an array of positive integers, replace every element with the least greater element to its right. If there is no greater element to its right, replace it with -1. For instance, given the array
+[8, 58, 71, 18, 31, 32, 63, 92, 43, 3, 91, 93, 25, 80, 28],
+the desired output is
+[18, 63, 80, 25, 32, 43, 80, 93, 80, 25, 93, -1, 28, -1, -1].
+Your task is to create a function "arrayManip()" that takes in an array as its argument, manipulates the array as described above, then return the resulting array.
+Note: Return a new array, rather than modifying the passed array.
+*/
+/*
+function arrayManip(array) {
+  for (let i = 0; i < array.length; i++) {
+    const toRight = array
+      .slice(i + 1, array.length)
+      .filter((n) => n > array[i]);
+    const min = Math.min(...toRight);
+    console.log(min);
+    min > array[i] && min !== Infinity ? (array[i] = min) : (array[i] = -1);
+  }
+  return [...array];
+}
+
+console.log(
+  arrayManip([8, 58, 71, 18, 31, 32, 63, 92, 43, 3, 91, 93, 25, 80, 28])
+);
+*/
+
+// 19.12.2023
+// #1
+/*
+Jumping number is the number that All adjacent digits in it differ by 1.
+Task
+Given a number, Find if it is Jumping or not .
+Warm-up (Highly recommended)
+Playing With Numbers Series
+Notes
+    Number passed is always Positive .
+    Return the result as String .
+    The difference between ‘9’ and ‘0’ is not considered as 1 .
+    All single digit numbers are considered as Jumping numbers.
+Input >> Output Examples
+jumpingNumber(9) ==> return "Jumping!!"
+Explanation:
+    It's single-digit number
+jumpingNumber(79) ==> return "Not!!"
+Explanation:
+    Adjacent digits don't differ by 1
+jumpingNumber(23) ==> return "Jumping!!"
+Explanation:
+    Adjacent digits differ by 1
+jumpingNumber(556847) ==> return "Not!!"
+Explanation:
+    Adjacent digits don't differ by 1
+jumpingNumber(4343456) ==> return "Jumping!!"
+Explanation:
+    Adjacent digits differ by 1
+jumpingNumber(89098) ==> return "Not!!"
+Explanation:
+    Adjacent digits don't differ by 1
+jumpingNumber(32) ==> return "Jumping!!"
+Explanation:
+    Adjacent digits differ by 1
+*/
+function jumpingNumber(n) {
+  let arr = n.toString().split("").map(Number);
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (Math.abs(arr[i] - arr[i + 1]) !== 1) {
+      return "Not";
+    }
+  }
+  return "Jumping!!";
+}
+
+console.log(jumpingNumber(1));
+console.log(jumpingNumber(23));
+console.log(jumpingNumber(79));
+console.log(jumpingNumber(8987));
