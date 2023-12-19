@@ -4158,7 +4158,7 @@ the desired output is
 Your task is to create a function "arrayManip()" that takes in an array as its argument, manipulates the array as described above, then return the resulting array.
 Note: Return a new array, rather than modifying the passed array.
 */
-
+/*
 function arrayManip(array) {
   for (let i = 0; i < array.length; i++) {
     const toRight = array
@@ -4174,3 +4174,56 @@ function arrayManip(array) {
 console.log(
   arrayManip([8, 58, 71, 18, 31, 32, 63, 92, 43, 3, 91, 93, 25, 80, 28])
 );
+*/
+
+// 19.12.2023
+// #1
+/*
+Jumping number is the number that All adjacent digits in it differ by 1.
+Task
+Given a number, Find if it is Jumping or not .
+Warm-up (Highly recommended)
+Playing With Numbers Series
+Notes
+    Number passed is always Positive .
+    Return the result as String .
+    The difference between ‘9’ and ‘0’ is not considered as 1 .
+    All single digit numbers are considered as Jumping numbers.
+Input >> Output Examples
+jumpingNumber(9) ==> return "Jumping!!"
+Explanation:
+    It's single-digit number
+jumpingNumber(79) ==> return "Not!!"
+Explanation:
+    Adjacent digits don't differ by 1
+jumpingNumber(23) ==> return "Jumping!!"
+Explanation:
+    Adjacent digits differ by 1
+jumpingNumber(556847) ==> return "Not!!"
+Explanation:
+    Adjacent digits don't differ by 1
+jumpingNumber(4343456) ==> return "Jumping!!"
+Explanation:
+    Adjacent digits differ by 1
+jumpingNumber(89098) ==> return "Not!!"
+Explanation:
+    Adjacent digits don't differ by 1
+jumpingNumber(32) ==> return "Jumping!!"
+Explanation:
+    Adjacent digits differ by 1
+*/
+function jumpingNumber(n) {
+  let arr = n.toString().split("").map(Number);
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (Math.abs(arr[i] - arr[i + 1]) !== 1) {
+      return "Not";
+    }
+  }
+  return "Jumping!!";
+}
+
+console.log(jumpingNumber(1));
+console.log(jumpingNumber(23));
+console.log(jumpingNumber(79));
+console.log(jumpingNumber(8987));
