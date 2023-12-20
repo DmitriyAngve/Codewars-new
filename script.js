@@ -4212,6 +4212,7 @@ jumpingNumber(32) ==> return "Jumping!!"
 Explanation:
     Adjacent digits differ by 1
 */
+/*
 function jumpingNumber(n) {
   let arr = n.toString().split("").map(Number);
 
@@ -4227,3 +4228,12 @@ console.log(jumpingNumber(1));
 console.log(jumpingNumber(23));
 console.log(jumpingNumber(79));
 console.log(jumpingNumber(8987));
+*/
+const obj = {
+  prop1: "1",
+  prop2: "2",
+};
+
+console.log(obj.hasOwnProperty("prop1"));
+console.log("prop1" in obj);
+console.log(obj["prop1"]);
