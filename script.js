@@ -4281,6 +4281,7 @@ Explanation:
     Explanation:
     6 squared is 36 , Ends with the same number's digits which are 6 
 */
+/*
 function automorphic(n) {
   const arr = n.toString().split("").map(Number);
   let square = n * n;
@@ -4291,3 +4292,24 @@ function automorphic(n) {
 console.log(automorphic(1));
 console.log(automorphic(225));
 console.log(automorphic(625));
+*/
+
+// #2
+/*
+Generate user links
+Your task is to create userlinks for the url, you will be given a username and must return a valid link.
+Example
+generate_link('matt c')
+http://www.codewars.com/users/matt%20c
+*/
+function generateLink(user) {
+  let encodedUser = encodeURIComponent(user);
+
+  let result = `http://www.codewars.com/users/${encodedUser}`;
+
+  return result;
+}
+
+console.log(generateLink("matt c"));
+
+console.log(generateLink("matt c"));
