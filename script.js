@@ -4345,6 +4345,7 @@ Finish the solution so that it returns the sum of all the multiples of 3 or 5 be
 Additionally, if the number is negative, return 0.
 Note: If the number is a multiple of both 3 and 5, only count it once.
 */
+/*
 function solution(number) {
   let sum = 0;
   for (let i = 1; i < number; i++) {
@@ -4356,3 +4357,34 @@ function solution(number) {
 }
 
 console.log(solution(10));
+*/
+
+// #5
+/*
+Complete the function to find the count of the most frequent item of an array. You can assume that input is an array of integers. For an empty array return 0
+Example
+input array: [3, -1, -1, -1, 2, 3, -1, 3, -1, 2, 4, 9, 3]
+ouptut: 5 
+The most frequent number in the array is -1 and it occurs 5 times.
+ */
+function mostFrequentItemCount(collection) {
+  if (collection.length === 0) {
+    return 0;
+  }
+
+  let ht = {};
+  for (const duplicate of collection) {
+    ht[duplicate] = (ht[duplicate] || 0) + 1;
+  }
+
+  let max = -Infinity;
+  for (let duplicate in ht) {
+    if (ht.hasOwnProperty(duplicate)) {
+      max = Math.max(max, ht[duplicate]);
+    }
+  }
+
+  return max;
+}
+
+console.log(mostFrequentItemCount([3, -1, -1]));
