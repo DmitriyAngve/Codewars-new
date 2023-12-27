@@ -4302,6 +4302,7 @@ Example
 generate_link('matt c')
 http://www.codewars.com/users/matt%20c
 */
+/*
 function generateLink(user) {
   let encodedUser = encodeURIComponent(user);
 
@@ -4313,3 +4314,25 @@ function generateLink(user) {
 console.log(generateLink("matt c"));
 
 console.log(generateLink("matt c"));
+*/
+
+// #3
+/*
+Implement a function, multiples(m, n), which returns an array of the first m multiples of the real number n. Assume that m is a positive integer.
+Ex.
+multiples(3, 5.0)
+should return
+[5.0, 10.0, 15.0]
+*/
+function multiples(m, n) {
+  // return multiples.map((el, ind) => );
+  let result = [];
+  let arr = Array(m).fill(0);
+
+  for (let i = 1; i <= arr.length; i++) {
+    result.push(i * n);
+  }
+  return result;
+}
+
+console.log(multiples(3, 5));
