@@ -4503,6 +4503,7 @@ To do this, you must first count the 'mini-wins' on your ticket. Each subarray h
 Once you have counted all of your mini wins, compare that number to the other input provided (win). If your total is more than or equal to (win), return 'Winner!'. Else return 'Loser!'.
 All inputs will be in the correct format. Strings on tickets are not always the same length.
 */
+/*
 function bingo(ticket, win) {
   let minWins = 0;
 
@@ -4530,3 +4531,29 @@ console.log(
     2
   )
 );
+*/
+
+// 28.12.2023
+// #1
+/*
+Description:
+The aim of this kata is to split a given string into different strings of equal size (note size of strings is passed to the method)
+Example:
+Split the below string into other strings of size #3
+'supercalifragilisticexpialidocious'
+Will return a new string
+'sup erc ali fra gil ist ice xpi ali doc iou s'
+Assumptions:
+String length is always greater than 0
+String has no spaces
+Size is always positive
+*/
+var splitInParts = function (s, len) {
+  let result = [];
+  for (let i = 0; i < s.length; i += len) {
+    result.push(s.slice(i, i + len));
+  }
+  return result.join(" ");
+};
+
+console.log(splitInParts("supercalifragilisticexpialidocious", 3));
