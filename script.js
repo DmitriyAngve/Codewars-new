@@ -4548,6 +4548,7 @@ String length is always greater than 0
 String has no spaces
 Size is always positive
 */
+/*
 var splitInParts = function (s, len) {
   let result = [];
   for (let i = 0; i < s.length; i += len) {
@@ -4557,3 +4558,34 @@ var splitInParts = function (s, len) {
 };
 
 console.log(splitInParts("supercalifragilisticexpialidocious", 3));
+*/
+
+// #2
+/*
+A stream of data is received and needs to be reversed.
+Each segment is 8 bits long, meaning the order of these segments needs to be reversed, for example:
+11111111  00000000  00001111  10101010
+ (byte1)   (byte2)   (byte3)   (byte4)
+should become:
+10101010  00001111  00000000  11111111
+ (byte4)   (byte3)   (byte2)   (byte1)
+The total number of bits will always be a multiple of 8.
+The data is given in an array as such:
+[1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,0,1,0,1,0]
+*/
+function dataReverse(data) {
+  const revData = [];
+  for (let i = data.length - 8; i >= 0; i -= 8) {
+    for (let j = 0; j < 8; j++) {
+      revData.push(data[i + j]);
+    }
+  }
+  return revData;
+}
+
+const inputData = [
+  1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0,
+  1, 0, 1, 0, 1, 0,
+];
+const reversedOutput = dataReverse(inputData);
+console.log(reversedOutput);
