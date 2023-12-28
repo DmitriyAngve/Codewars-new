@@ -4618,6 +4618,7 @@ Explanation:
     Since , {-282 , 818 , 900 , 928 } is the even numbers here , So it came first in ascending order , then the odds in descending order { 281 , 49 , -1 }
     Since , (Duplications are not included when separating) , then you can see only one (-282) was appeared in the final array/list .
 */
+/*
 function menFromBoys(arr) {
   let mans = [];
   let boys = [];
@@ -4636,3 +4637,20 @@ function menFromBoys(arr) {
 }
 
 console.log(menFromBoys([82, 91, 72, 76, 76, 100, 85]));
+*/
+
+// #4
+/*
+Write a program that outputs the top n elements from a list.
+Example:
+largest(2, [7,6,5,4,3,2,1])
+// => [6,7]
+*/
+function largest(n, array) {
+  return array
+    .sort((a, b) => b - a)
+    .splice(0, n)
+    .sort((a, b) => a - b);
+}
+
+console.log(largest(2, [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]));
