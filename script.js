@@ -5160,6 +5160,7 @@ addTwo(3); // == 5
 addTwo(3)(5); // == 10
 We can assume any number being passed in will be valid whole number.
 */
+/*
 function add(num) {
   function innerAdd(nextNum) {
     return add(num + nextNum);
@@ -5172,4 +5173,30 @@ function add(num) {
   return innerAdd;
 }
 
-console.log(add());
+*/
+
+// #17
+/*
+If you are calculating complex things or execute time-consuming API calls, you sometimes want to cache the results. In this case we want you to create a function wrapper, which takes a function and caches its results depending on the arguments, that were applied to the function.
+Usage example:
+var complexFunction = function(arg1, arg2) {  complex calculation in here };
+var cachedFunction = cache(complexFunction);
+cachedFunction('foo', 'bar'); // complex function should be executed
+cachedFunction('foo', 'bar'); // complex function should not be invoked again, instead the cached result should be returned
+cachedFunction('foo', 'baz'); // should be executed, because the method wasn't invoked before with these arguments
+*/
+function cache(func) {
+  const cacheMap = new Map();
+
+  return function (...args) {
+    const key = JSON.stringify(args);
+
+    if (cacheMap.has(key)) {
+      return cacheMap.get(key);
+    }
+
+    const result = func.call(this, ...args);
+    cacheMap.set(key, result);
+    return result;
+  };
+}
