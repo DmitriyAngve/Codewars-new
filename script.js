@@ -5097,6 +5097,7 @@ obj.getSecret() # returns 5
 obj.setSecret(2)
 obj.getSecret() # returns 2
 */
+/*
 const createSecretHolder = (secret) => {
   let secretVal = secret;
 
@@ -5109,3 +5110,66 @@ const createSecretHolder = (secret) => {
 };
 
 console.log(createSecretHolder());
+*/
+
+// #15
+/*
+In object-oriented programming, it is sometimes useful to have private shared state among all instances of a class; in other languages, like ruby, this shared state would be tracked with a class variable. In javascript we achieve this through closures and immediately-invoked function expressions.
+
+In this kata, I want you to write make a Cat constructor that takes arguments name and weight to instantiate a new cat object. The constructor should also have an averageWeight method that returns the average weight of cats created with the constructor.
+
+garfield = new Cat('garfield', 25);
+Cat.averageWeight(); // 25
+
+felix = new Cat('felix', 15);
+Cat.averageWeight();   // now 20
+
+But that's not all. Cats can change weight. Use Object.defineProperty to write custom setters and getters for the weight property so that the following works properly even as instances change their weight value:
+
+felix.weight = 25;
+felix.weight // 25
+Cat.averageWeight(); // now 25
+
+Object.defineProperty must be used to pass all tests. Storing a reference to all instances and recalculating the average weight each time is easier, but would prevent garbage collection from working properly if used in a production environment.
+
+Finally, since average weight is an aggregate statistic it's important that we validate constructor arguments so that no cats are created without a specified weight; so, make sure to throw an error if both arguments are not recieved by the constructor.
+Summary of requirements:
+
+    Cat constructor, requiring arguments for name and weight
+    Throw an error if name or weight not specified when invoking the constructor.
+    Cat.averageWeight() method should give the average weight of all cat instances created with Cat, even after if the instance's properties have changed.
+    Must use Object.defineProperty
+*/
+
+// #16
+/*
+We want to create a function that will add numbers together when called in succession.
+add(1)(2); // == 3
+We also want to be able to continue to add numbers to our chain.
+add(1)(2)(3); // == 6
+add(1)(2)(3)(4); //  == 10
+add(1)(2)(3)(4)(5); // == 15
+and so on.
+A single call should be equal to the number passed in.
+add(1); // == 1
+We should be able to store the returned values and reuse them.
+var addTwo = add(2);
+addTwo; // == 2
+addTwo + 5; // == 7
+addTwo(3); // == 5
+addTwo(3)(5); // == 10
+We can assume any number being passed in will be valid whole number.
+*/
+function add(num) {
+  function innerAdd(nextNum) {
+    return add(num + nextNum);
+  }
+
+  innerAdd.valueOf = function () {
+    return num;
+  };
+
+  return innerAdd;
+}
+
+console.log(add());
