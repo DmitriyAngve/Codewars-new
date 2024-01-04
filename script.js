@@ -4693,7 +4693,7 @@ Examples(Operator, value1, value2) --> output
 ('*', 5, 5) --> 25
 ('/', 49, 7) --> 7
 */
-
+/*
 const basicOp = (operation, value1, value2) => {
   switch (operation) {
     case "+":
@@ -4713,3 +4713,20 @@ console.log(basicOp("+", 4, 7));
 console.log(basicOp("-", 15, 18));
 console.log(basicOp("*", 5, 5));
 console.log(basicOp("/", 49, 7));
+*/
+
+// #3
+/*
+Description:
+Input: Array of elements
+["h","o","l","a"]
+Output: String with comma delimited elements of the array in th same order.
+"h,o,l,a"
+Note: if this seems too simple for you try the next level
+Note2: the input data can be: boolean array, array of objects, array of string arrays, array of number arrays... 😕
+*/
+function printArray(array) {
+  return array.join(",");
+}
+
+console.log(printArray(["h", "o", "l", "a"]));
