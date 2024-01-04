@@ -4646,6 +4646,7 @@ Example:
 largest(2, [7,6,5,4,3,2,1])
 // => [6,7]
 */
+/*
 function largest(n, array) {
   return array
     .sort((a, b) => b - a)
@@ -4654,3 +4655,26 @@ function largest(n, array) {
 }
 
 console.log(largest(2, [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]));
+*/
+
+// 04.01.2023
+
+// ASTON
+/*
+Very simple, given an integer or a floating-point number, find its opposite.
+Examples:
+1: -1
+14: -14
+-34: 34
+*/
+const opposite = (number) => {
+  if (typeof number === "number") {
+    return -number;
+  } else {
+    return NaN;
+  }
+};
+
+console.log(opposite(1));
+console.log(opposite(14));
+console.log(opposite(4.25));
