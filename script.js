@@ -4725,8 +4725,29 @@ Output: String with comma delimited elements of the array in th same order.
 Note: if this seems too simple for you try the next level
 Note2: the input data can be: boolean array, array of objects, array of string arrays, array of number arrays... 😕
 */
+/*
 function printArray(array) {
   return array.join(",");
 }
 
 console.log(printArray(["h", "o", "l", "a"]));
+*/
+
+// #4
+/*
+Can Santa save Christmas?
+Oh no! Santa's little elves are sick this year. He has to distribute the presents on his own.
+But he has only 24 hours left. Can he do it?
+Your Task:
+You will get an array as input with time durations as string in the following format: HH:MM:SS. Each duration represents the time taken by Santa to deliver a present. Determine whether he can do it in 24 hours or not. In case the time required to deliver all of the presents is exactly 24 hours, Santa can complete the delivery ;-) .
+*/
+
+const determineTime = (durations) => {
+  const totalSec = durations.reduce((total, duration) => {
+    const [h, m, s] = duration.split(":").map(Number);
+    return total + h * 3600 + m * 60 + s;
+  }, 0);
+  return totalSec <= 24 * 3600;
+};
+
+console.log(determineTime(["00:30:00", "02:30:00", "00:15:00"]));
