@@ -4741,7 +4741,7 @@ But he has only 24 hours left. Can he do it?
 Your Task:
 You will get an array as input with time durations as string in the following format: HH:MM:SS. Each duration represents the time taken by Santa to deliver a present. Determine whether he can do it in 24 hours or not. In case the time required to deliver all of the presents is exactly 24 hours, Santa can complete the delivery ;-) .
 */
-
+/*
 const determineTime = (durations) => {
   const totalSec = durations.reduce((total, duration) => {
     const [h, m, s] = duration.split(":").map(Number);
@@ -4751,3 +4751,31 @@ const determineTime = (durations) => {
 };
 
 console.log(determineTime(["00:30:00", "02:30:00", "00:15:00"]));
+*/
+
+// #5
+/*
+You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+#Examples:
+Kata.getMiddle("test") should return "es"
+Kata.getMiddle("testing") should return "t"
+Kata.getMiddle("middle") should return "dd"
+Kata.getMiddle("A") should return "A"
+#Input
+A word (string) of length 0 < str < 1000 (In javascript you may get slightly more than 1000 in some test cases due to an error in the test cases). You do not need to test for this. This is only here to tell you that you do not need to worry about your solution timing out.
+#Output
+The middle character(s) of the word represented as a string.
+*/
+const getMiddle = (s) => {
+  const middleIndex = Math.floor(s.length / 2);
+  if (s.length % 2 === 1) {
+    return s[middleIndex];
+  } else {
+    return s.slice(middleIndex - 1, middleIndex + 1);
+  }
+};
+
+console.log(getMiddle("test"));
+console.log(getMiddle("testing"));
+console.log(getMiddle("middle"));
+console.log(getMiddle("A"));
