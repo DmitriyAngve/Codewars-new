@@ -4905,6 +4905,7 @@ crossprod([1,2,3,4,5], [5,4,3,2,1], 5, 5) should return NULL
 crossprod([6,6,6], NULL, 3, 3)             should return NULL 
 crossprod(NULL, NULL, 3, 3)                should return NULL 
 */
+/*
 function crossProduct(vector1, vector2) {
   if (
     !Array.isArray(vector1) ||
@@ -4929,3 +4930,37 @@ function crossProduct(vector1, vector2) {
 console.log(crossProduct([3, 2, 1], [1, 2, 3]));
 console.log(crossProduct([1, 0, 0], [0, 1, 0]));
 console.log(crossProduct("gobbledigook", [0, 1, 0]));
+*/
+
+// #10
+/*
+Write a function that outputs the transpose of a matrix - a new matrix where the columns and rows of the original are swapped.
+For example, the transpose of:
+| 1 2 3 |
+| 4 5 6 |
+is
+| 1 4 |
+| 2 5 |
+| 3 6 |
+The input to your function will be an array of matrix rows. You can assume that each row has the same length, and that the height and width of the matrix are both positive.
+*/
+function transpose(matrix) {
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+
+  const result = Array.from({ length: cols }, () => []);
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      result[j][i] = matrix[i][j];
+    }
+  }
+  return result;
+}
+
+console.log(
+  transpose([
+    [1, 2, 3],
+    [4, 5, 6],
+  ])
+); // [[1,4],[2,5],[3,6]]
