@@ -5373,6 +5373,7 @@ var notSanta = {
 isSantaClausable(santa); // must return TRUE
 isSantaClausable(notSanta); // must return FALSE
 */
+/*
 function isSantaClausable(obj) {
   return (
     typeof obj.sayHoHoHo === "function" &&
@@ -5399,3 +5400,84 @@ var notSanta = {
 };
 console.log(isSantaClausable(santa));
 console.log(isSantaClausable(notSanta));
+*/
+
+// #23
+/*
+In JavaScript we can create objects using the new operator.
+
+For example, if you have this constructor function:
+
+function Greeting(name) {
+  this.name = name;
+}
+
+Greeting.prototype.sayHello = function() {
+  return "Hello " + this.name;
+};
+
+
+Greeting.prototype.sayBye = function() {
+  return "Bye " + this.name;
+};
+
+You can create a Greeting object in this way:
+
+  var greeting = new Greeting('John');
+
+new operator is evil because it produces a highly coupled code, difficult to maintain and test.
+
+Some patterns to reduce coupling are object factories or dependency injection.
+
+These patterns can benefit of the construct() function.
+
+This function receives a constructor function and possibly some arguments and it returns a new object constructed with the function and the passed arguments.
+
+This is another way to create the greeting object:
+
+var greeting = construct(Greeting, 'John');
+
+And a factory could use like this:
+
+  function factory() {
+    return {
+      createGreeting() {
+        return construct(Greeting, arguments);
+      }
+      ...
+    }
+  }
+
+Your work is to implement the construct() function.
+*/
+/*
+function construct(Class, ...arg) {
+  return new Class(...arg);
+}
+*/
+
+// #24
+/*
+You are given a complex object that has many deeply nested variables. You don't want to go the usual if obj.property == null route. Create a prototype method that given a nested path, either return the value or undefined.
+var obj = {
+  person: {
+    name: 'joe',
+    history: {
+      hometown: 'bratislava',
+      bio: {
+        funFact: 'I like fishing.'
+      }
+    }
+  }
+};
+obj.hash('person.name'); // 'joe'
+obj.hash('person.history.bio'); // { funFact: 'I like fishing.' }
+obj.hash('person.history.homeStreet'); // undefined
+obj.hash('person.animal.pet.needNoseAntEater'); // undefined
+*/
+
+Object.prototype.hash = function (string) {
+  return string
+    .split(".")
+    .reduce((result = this, item) => (result = result[item]), this);
+};
