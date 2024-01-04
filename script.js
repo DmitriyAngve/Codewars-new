@@ -5253,6 +5253,7 @@ A simple implementation of compose, could work as follows:
 const compose = (f, g) => (a) => f(g(a))
 The arguments f and g are unary functions (i.e. functions which take one argument). The problem with this compose function is that it only composes two functions. Your task is to write a compose function which can compose any number of functions together.
 */
+/*
 const compose = (...functions) => {
   return (arg) => {
     return functions.reduceRight((result, func) => func(result), arg);
@@ -5260,3 +5261,32 @@ const compose = (...functions) => {
 };
 
 console.log(compose());
+*/
+
+// #20
+/*
+Implement a function that receives a string, and lets you extend it with repeated calls. When no argument is passed you should return a string consisting of space-separated words you've received earlier.
+Note: There will always be at least 1 string; all inputs will be non-empty.
+For example:
+createMessage("Hello")("World!")("how")("are")("you?")() === "Hello World! how are you?"
+Tip (helpful, but not necessary): Try using classes!
+Good luck and happy coding!
+*/
+function createMessage(...initialWords) {
+  let words = [...initialWords];
+  console.log(words);
+
+  const message = function (...newWords) {
+    if (newWords.length === 0) {
+      return words.join(" ");
+    } else {
+      words = [...words, ...newWords];
+      return message;
+    }
+  };
+
+  return message;
+}
+
+const message = createMessage("Hello")("World!")("how")("are")("you?");
+console.log(message());
