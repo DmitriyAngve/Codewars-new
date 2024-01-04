@@ -5032,6 +5032,7 @@ Requirements:
     The most outer function represents the left operand, the most inner function represents the right operand
     Division should be integer division. For example, this should return 2, not 2.666666...:
 */
+/*
 function zero(x) {
   return x ? x(0) : 0;
 }
@@ -5083,3 +5084,28 @@ function dividedBy(right) {
     return Math.floor(left / right);
   };
 }
+*/
+
+// #14
+/*
+There's no such thing as private properties on a coffeescript object! But, maybe there are?
+Implement a function createSecretHolder(secret) which accepts any value as secret and returns an object with ONLY two methods
+    getSecret() which returns the secret
+    setSecret() which sets the secret
+obj = createSecretHolder(5)
+obj.getSecret() # returns 5
+obj.setSecret(2)
+obj.getSecret() # returns 2
+*/
+const createSecretHolder = (secret) => {
+  let secretVal = secret;
+
+  return {
+    getSecret: () => secretVal,
+    setSecret: (newSecret) => {
+      secretVal = newSecret;
+    },
+  };
+};
+
+console.log(createSecretHolder());
