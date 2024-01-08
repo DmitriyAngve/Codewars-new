@@ -5559,6 +5559,7 @@ Examples
 132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
 493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
 */
+/*
 function digitalRoot(n) {
   if (n < 10) return n;
   const arr = n.toString().split("").map(Number);
@@ -5566,3 +5567,54 @@ function digitalRoot(n) {
 
   return digitalRoot(result);
 }
+*/
+
+// 08.01.2024
+
+// #1
+/*
+You are given a String of one or more words. Your task is to check the length of each word and if it's less than 4, you keep it unmodified otherwise you find out the first vowel which is coming after 3-rd character and replace vowel and rest of word with a dot. Finally, you should return the same string but shorten (only if the length of words is more then 3 characters).
+Please note :
+ 1) You are not asked to trim anything.
+2) Apostrophes are part of words.
+3) Commas following shortened words are considered characters and should be removed.
+Examples:
+shortenSpeech( "Hello, do you want a coffee ? " ) => returns "Hell. do you want a coff. ? "
+shortenSpeech( "Hey fellow warriors !" ) => returns "Hey fell. warr. !"
+shortenSpeech( "This is a test") => returns "This is a test"
+*/
+// var shortenSpeech = function (str) {
+//   return str.replace(/\b(\S{3,}?)[aeiou]\S*/g, "$1.");
+// };
+
+// console.log(shortenSpeech("Hello, do you want a coffee ? "));
+
+// #2
+/*
+In a certain kingdom, strange mathematics is taught at school. Its main difference from ordinary mathematics is that the numbers in it are not ordered in ascending order, but lexicographically, as in a dictionary (first by the first digit, then, if the first digit is equal, by the second, and so on). In addition, we do not consider an infinite set of natural numbers, but only the first n numbers.
+
+So, for example, if n = 11, then the numbers in strange mathematics are ordered as follows:
+
+1, 10, 11, 2, 3, 4, 5, 6, 7, 8, 9.
+
+Help your students to learn this science: write a function that receives two integer numbers: n (total amount of numbers in strange mathematics) and k (number from sequence) and returns the location of a given number k in the order defined in strange mathematics.
+
+For example, if n = 11 and k = 2, the function should return 4 as the answer.
+
+Input: 1 <= n <= 100 000 , 1 <= k <= n.
+
+Output: position of the number k in sequence of the first n natural numbers in lexicographic order. Numbering starts with 1.
+Examples:
+
+strangeMath(11, 2) === 4
+strangeMath(15, 5) === 11
+strangeMath(15, 15) === 7
+*/
+function strangeMath(n, k) {
+  const numbers = Array.from({ length: n }, (_, i) => (i + 1).toString());
+  numbers.sort();
+  return numbers.indexOf(k.toString()) + 1;
+}
+
+console.log(strangeMath(15, 5));
+// const arr = Array.from({ length: n }, (_, index) => index + 1);
