@@ -5668,6 +5668,7 @@ AB1234#$ MG6145$@ KJ2249@&
 CD5678%^ IG7593~% FH8638@&
 EF9012!@ GB7047%$ KD7604^%
 */
+/*
 function rndCode() {
   let result = "";
   // First
@@ -5695,3 +5696,18 @@ function rndCode() {
 }
 
 console.log(rndCode());
+*/
+
+// #2
+/*
+Coding in function thinkingAndTesting.
+
+This time I won't explain to you how to do it. You need to look at the test cases. Thinking and testing. solve this kata by yourself ;-)
+
+The only hint is: it is related to power.
+
+If you are interested in this form of kata, I recommend to you my Thinking and Testing Series
+*/
+const thinkingAndTesting = (number, base) =>
+  number - Math.pow(base, Math.floor(Math.log(number) / Math.log(base)));
+console.log(thinkingAndTesting(100, 2));
