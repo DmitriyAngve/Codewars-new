@@ -5632,6 +5632,7 @@ threeInOne( [1,2,3,4,5,6]) should return [6,15]
 threeInOne( [1,2,3,4,5,6,7,8,9]) should return [6,15,24]
 threeInOne( [1,3,5,2,4,6,7,7,7]) should return [9,12,21]
 */
+/*
 function threeInOne(arr) {
   let res = [];
   for (let i = 0; i < arr.length; i += 3) {
@@ -5644,3 +5645,53 @@ function threeInOne(arr) {
 console.log(threeInOne([1, 2, 3]));
 console.log(threeInOne([1, 2, 3, 4, 5, 6, 7, 8, 9]));
 console.log(threeInOne([1, 3, 5, 2, 4, 6, 7, 7, 7]));
+*/
+
+// 09.01.2024
+// #1
+/*
+Coding in function rndCode. Your task is to generate a random verification code. In accordance with the following rules:
+
+    the code length should be 8;
+
+    The 1st and 2nd characters should be two uppercase letters. The range is "ABCDEFGHIJKLM".
+
+    The 3rd-6th characters should be four numbers.
+
+    the 7th and 8th characters should be two symbols. The range is "~!@#$%^&*".
+
+    If Your code runs 100 times, It should generate 100 non duplicate verification codes.
+
+Some valid verification code examples:
+
+AB1234#$ MG6145$@ KJ2249@&
+CD5678%^ IG7593~% FH8638@&
+EF9012!@ GB7047%$ KD7604^%
+*/
+function rndCode() {
+  let result = "";
+  // First
+  let firstAndSec = "ABCDEFGHIJKLM";
+  for (let i = 0; i < firstAndSec.length; i++) {
+    result = result + firstAndSec[~~(firstAndSec.length * Math.random())];
+    result = result.slice(0, 2);
+  }
+
+  // Second
+  for (let i = 0; i < 4; i++) {
+    result = result + ~~(100 * Math.random());
+    result = result.slice(0, 6);
+  }
+
+  // Third
+  const eithAndSeventh = "~!@#$%^&*";
+  for (let i = 0; i < eithAndSeventh.length; i++) {
+    result = result + eithAndSeventh[~~(eithAndSeventh.length * Math.random())];
+    result = result.slice(0, 8);
+  }
+  console.log(result);
+
+  return result;
+}
+
+console.log(rndCode());
