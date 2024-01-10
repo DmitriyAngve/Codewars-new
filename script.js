@@ -5793,6 +5793,7 @@ Comprehensive two conditions should be like this:
 
 sortIt([1,2,3,4,4,5,5,6,6]) should return [3,2,1,6,6,5,5,4,4]
 */
+/*
 function sortIt(arr) {
   let numberOf = {};
   arr.forEach((x) => (numberOf[x] = (numberOf[x] || 0) + 1));
@@ -5800,3 +5801,38 @@ function sortIt(arr) {
 }
 
 console.log(sortIt([1, 2, 3, 4, 4, 5, 5, 6, 6]));
+*/
+/*
+const numbers = [1, 2, 3, 4];
+for (var index = 0; index < numbers.length; index++);
+{
+  console.log(`The number is ${numbers[index]}`);
+}
+*/
+
+// 10.01.2024
+// #1
+/*
+Coding in function isolateIt. function accept 1 parameters arr, it's a string array. Your task is to put a character "|" into the middle of each element.
+If the string length is an even number, use the insert method. for example: "abcd" should became "ab|cd". "|" should be inserted between ab and cd.
+If the string length is an odd number, use the replacement method. for example: "abcde" should became "ab|de". Character c will be replaced by |.
+The original array should not be changed, you need to return a new array(if you use the map method, you do not need to worry about this).
+Example
+isolateIt(["abcd","efgh"]) should return ["ab|cd","ef|gh"]
+isolateIt(["abcde","fghij"]) should return ["ab|de","fg|ij"]
+isolateIt(["1234","56789"]) should return ["12|34","56|89"]
+a little hint: Flexible use of slice() Will make the work more simple.
+*/
+function isolateIt(arr) {
+  return arr.map((el, id) => {
+    const middle = Math.floor(el.length / 2);
+    if (el.length % 2 === 0) {
+      return el.slice(0, middle) + "|" + el.slice(middle);
+    } else {
+      return el.slice(0, middle) + "|" + el.slice(middle + 1);
+    }
+  });
+}
+
+console.log(isolateIt(["abcd", "efgh"]));
+console.log(isolateIt(["abcde", "efghg"]));
