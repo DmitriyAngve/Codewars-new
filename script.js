@@ -5823,6 +5823,7 @@ isolateIt(["abcde","fghij"]) should return ["ab|de","fg|ij"]
 isolateIt(["1234","56789"]) should return ["12|34","56|89"]
 a little hint: Flexible use of slice() Will make the work more simple.
 */
+/*
 function isolateIt(arr) {
   return arr.map((el, id) => {
     const middle = Math.floor(el.length / 2);
@@ -5836,3 +5837,49 @@ function isolateIt(arr) {
 
 console.log(isolateIt(["abcd", "efgh"]));
 console.log(isolateIt(["abcde", "efghg"]));
+*/
+
+// #2
+/*
+Coding in function countGrade. function accept 1 parameters scores, it's a number array. Your task is to count the grade distribution of the scores, to return an object like this:
+{S:888, A:888, B:888, C:888, D:888, X:888}
+Grading rules:
+Grade S: Full marks(score=100)
+Grade A: score<100 and score>=90
+Grade B: score<90 and score>=80
+Grade C: score<80 and score>=60
+Grade D: score<60 and score>=0
+Grade X: score=-1(The cheating guy gets a score like that)
+Example
+countGrade([50,60,70,80,90,100]) should return {S:1, A:1, B:1, C:2, D:1, X:0}
+countGrade([65,75,,85,85,95,100,100]) should return {S:2, A:1, B:2, C:2, D:0, X:0}
+countGrade([-1,-1,-1,-1,-1,-1]) should return {S:0, A:0, B:0, C:0, D:0, X:6}
+*/
+function countGrade(scores) {
+  const gradeCounts = {
+    S: 0,
+    A: 0,
+    B: 0,
+    C: 0,
+    D: 0,
+    X: 0,
+  };
+  scores.forEach((score) => {
+    if (score === 100) {
+      gradeCounts.S++;
+    } else if (score < 100 && score >= 90) {
+      gradeCounts.A++;
+    } else if (score < 90 && score >= 80) {
+      gradeCounts.B++;
+    } else if (score < 80 && score >= 60) {
+      gradeCounts.C++;
+    } else if (score < 60 && score >= 0) {
+      gradeCounts.D++;
+    } else if (score === -1) {
+      gradeCounts.X++;
+    }
+  });
+  return gradeCounts;
+}
+
+console.log(countGrade([50, 60, 70, 80, 90, 100]));
