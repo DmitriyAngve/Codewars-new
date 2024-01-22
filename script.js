@@ -5855,6 +5855,7 @@ countGrade([50,60,70,80,90,100]) should return {S:1, A:1, B:1, C:2, D:1, X:0}
 countGrade([65,75,,85,85,95,100,100]) should return {S:2, A:1, B:2, C:2, D:0, X:0}
 countGrade([-1,-1,-1,-1,-1,-1]) should return {S:0, A:0, B:0, C:0, D:0, X:6}
 */
+/*
 function countGrade(scores) {
   const gradeCounts = {
     S: 0,
@@ -5883,3 +5884,64 @@ function countGrade(scores) {
 }
 
 console.log(countGrade([50, 60, 70, 80, 90, 100]));
+*/
+/*
+function adjustArrayForTargetAverage(arr, targetAverage) {
+  const currentAverage =
+    arr.reduce((acc, current) => acc + current, 0) / arr.length;
+  const difference = targetAverage - currentAverage;
+
+  // Распределение разницы между элементами массива
+  const adjustedArray = arr.map((element) => element + difference);
+
+  return adjustedArray;
+}
+
+const originalArray = [9.6, 9.6, 9.7, 9.5];
+const targetAverage = 9.59;
+
+const adjustedArray = adjustArrayForTargetAverage(originalArray, targetAverage);
+console.log(adjustedArray);
+*/
+/*
+const arrayWithDuplicates = ["apple", "banana", "orange", "apple", "banana"];
+
+const uniqueArray = arrayWithDuplicates.filter((value, index, self) => {
+  return self.indexOf(value) === index;
+});
+
+console.log(uniqueArray);
+*/
+
+// 22.01.2024
+
+// #1
+
+/*
+Take the following IPv4 address: 128.32.10.1. This address has 4 octets where each octet is a single byte (or 8 bits).
+    1st octet 128 has the binary representation: 10000000
+    2nd octet 32 has the binary representation: 00100000
+    3rd octet 10 has the binary representation: 00001010
+    4th octet 1 has the binary representation: 00000001
+So 128.32.10.1 == 10000000.00100000.00001010.00000001
+Because the above IP address has 32 bits, we can represent it as the 32 bit number: 2149583361.
+Write a function ip_to_int32(ip) ( JS: ipToInt32(ip) ) that takes an IPv4 address and returns a 32 bit number.
+Example
+"128.32.10.1" => 2149583361
+*/
+
+function ipToInt32(ip) {
+  let binOctets = ip
+    .split(".")
+    .map(Number)
+    .map((el) => {
+      return el.toString(2);
+    });
+  binOctets = binOctets.map((bin) => bin.padStart(8, "0"));
+  let binString = binOctets.join("");
+  console.log(binString);
+
+  return parseInt(binString, 2);
+}
+
+console.log(ipToInt32("128.32.10.1"));
