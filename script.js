@@ -5929,7 +5929,7 @@ Write a function ip_to_int32(ip) ( JS: ipToInt32(ip) ) that takes an IPv4 addres
 Example
 "128.32.10.1" => 2149583361
 */
-
+/*
 function ipToInt32(ip) {
   let binOctets = ip
     .split(".")
@@ -5945,3 +5945,25 @@ function ipToInt32(ip) {
 }
 
 console.log(ipToInt32("128.32.10.1"));
+*/
+
+// #2
+/*
+Write a function insert_dash(num) / insertDash(num) / InsertDash(int num) that will insert dashes ('-') between each two odd digits in num. For example: if num is 454793 the output should be 4547-9-3.
+Note that the number will always be non-negative (>= 0).
+*/
+function insertDash(num) {
+  let arr = num.toString().split("").map(Number);
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] % 2 === 1 && arr[i + 1] % 2 === 1) {
+      arr.splice(i + 1, 0, "-");
+      i++; // Пропускаем следующий элемент, чтобы не добавить лишний дефис
+    }
+  }
+
+  return arr.join("");
+}
+
+console.log(insertDash(454793));
+console.log(insertDash(123456));
