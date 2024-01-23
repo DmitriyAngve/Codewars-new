@@ -6032,6 +6032,7 @@ cutIt(["ab","cde","fgh"]) should return ["ab","cd","fg"]
 cutIt(["abc","defgh","ijklmn"]) should return ["abc","def","ijk"]
 cutIt(["codewars","javascript","java"]) should return ["code","java","java"]
 */
+/*
 function cutIt(arr) {
   let result = [];
 
@@ -6044,3 +6045,21 @@ function cutIt(arr) {
 
 console.log(cutIt(["codewars", "javascript", "java"]));
 console.log(cutIt(["abc", "defgh", "ijklmn"]));
+*/
+
+// #4
+/*
+Create a function that returns the average of an array of numbers ("scores"), rounded to the nearest whole number. You are not allowed to use any loops (including for, for/in, while, and do/while loops).
+The array will never be empty.
+*/
+function average(scores) {
+  let rounded = scores.map((el) => Math.round(el));
+
+  let sum = rounded.reduce((acc, curr) => acc + curr, 0);
+
+  let avg = Math.round(sum / rounded.length);
+
+  return avg;
+}
+
+console.log(average([90.1, 98, 89, 100, 100, 86, 94]));
