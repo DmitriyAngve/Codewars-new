@@ -6052,6 +6052,7 @@ console.log(cutIt(["abc", "defgh", "ijklmn"]));
 Create a function that returns the average of an array of numbers ("scores"), rounded to the nearest whole number. You are not allowed to use any loops (including for, for/in, while, and do/while loops).
 The array will never be empty.
 */
+/*
 function average(scores) {
   let rounded = scores.map((el) => Math.round(el));
 
@@ -6063,3 +6064,20 @@ function average(scores) {
 }
 
 console.log(average([90.1, 98, 89, 100, 100, 86, 94]));
+*/
+
+// #5
+/*
+Enjoying your holiday, you head out on a scuba diving trip!
+Disaster!! The boat has caught fire!!
+You will be provided a string that lists many boat related items. If any of these items are "Fire" you must spring into action. Change any instance of "Fire" into "~~". Then return the string.
+*/
+function fireFight(s) {
+  return s.replace(/Fire/g, "~~");
+}
+
+console.log(
+  fireFight(
+    "Boat Rudder Mast Boat Hull Water Fire Boat Deck Hull Fire Propeller Deck Fire Deck Boat Mast"
+  )
+);
