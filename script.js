@@ -6012,6 +6012,7 @@ howManySmaller([1.234,1.235,1.228],1.24) should return 2
 howManySmaller([1.1888,1.1868,1.1838],1.19) should return 1
 howManySmaller([3.1288,3.1212,3.1205],3.1212) should return 2
 */
+/*
 function howManySmaller(arr, n) {
   const roundedArray = arr.map((element) => Number(element.toFixed(2)));
   const count = roundedArray.filter((element) => element < n).length;
@@ -6019,3 +6020,27 @@ function howManySmaller(arr, n) {
 }
 
 console.log(howManySmaller([1.234, 1.235, 1.228], 1.24));
+*/
+
+// #3
+/*
+Coding in function cutIt, function accept 1 parameter:arr. arr is a string array.
+The first mission: Traversing arr, find the shortest string length.
+The second mission: Traversing arr again, intercept all strings to the shortest string length(Start from index0). you can use one of slice() substring() or substr() do it. return the result after finished the work.
+for example:
+cutIt(["ab","cde","fgh"]) should return ["ab","cd","fg"]
+cutIt(["abc","defgh","ijklmn"]) should return ["abc","def","ijk"]
+cutIt(["codewars","javascript","java"]) should return ["code","java","java"]
+*/
+function cutIt(arr) {
+  let result = [];
+
+  let shortest = Math.min(...arr.map((str) => str.length));
+
+  result = arr.map((str) => str.substring(0, shortest));
+
+  return result;
+}
+
+console.log(cutIt(["codewars", "javascript", "java"]));
+console.log(cutIt(["abc", "defgh", "ijklmn"]));
