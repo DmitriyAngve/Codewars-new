@@ -5952,6 +5952,7 @@ console.log(ipToInt32("128.32.10.1"));
 Write a function insert_dash(num) / insertDash(num) / InsertDash(int num) that will insert dashes ('-') between each two odd digits in num. For example: if num is 454793 the output should be 4547-9-3.
 Note that the number will always be non-negative (>= 0).
 */
+/*
 function insertDash(num) {
   let arr = num.toString().split("").map(Number);
 
@@ -5967,3 +5968,34 @@ function insertDash(num) {
 
 console.log(insertDash(454793));
 console.log(insertDash(123456));
+*/
+
+// 23.01.2024
+
+// #1
+/*
+Coding in function colorOf. function accept 3 parameter:r g b. It means value of color red green and blue. the value range is 0-255.
+Use toString(16) Convert numbers r g b to hex string form. at last, combine them to a web color code and return it.
+the color code should starting with "#". and then use 2 characters per color.
+for example:
+colorOf(255,0,0) should return "#ff0000"
+colorOf(0,111,0) should return "#006f00"
+colorOf(1, 2 ,3) should return "#010203"
+That's all of your work. My work is print your color code on your screen.
+*/
+function colorOf(r, g, b) {
+  const arr = [r, g, b];
+  let result = "#";
+  for (let i = 0; i < arr.length; i++) {
+    let hex = arr[i].toString(16);
+
+    if (hex.length === 1) {
+      hex = "0" + hex;
+    }
+
+    result += hex;
+  }
+  return result;
+}
+console.log(colorOf(255, 0, 0));
+console.log(colorOf(1, 2, 3));
