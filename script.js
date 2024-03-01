@@ -6108,3 +6108,597 @@ console.log(firstToLast("ababc", "a"));
 console.log(firstToLast("ababc", "c"));
 console.log(firstToLast("ababc", "d"));
 */
+
+/*
+console.log("100" / "2"); // 50
+console.log("100" * 5); // 500
+console.log("100" - 5); // 95
+console.log("100" + 5); // 1005
+
+console.log(Number("123")); // 123
+console.log(Number("123z")); // NaN
+console.log(Number(true)); // 1 
+console.log(Number(false)); // 0
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+console.log({} === {}); // false
+console.log([] == []); // false
+console.log(true == 1); // true
+console.log(false == 0); // true
+console.log(false === ""); // false
+console.log(typeof null); // object
+console.log(typeof function () {}); // function
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const res = "B" + "a" + (1 - "hello"); // BaNaN
+console.log(res); // 
+
+const res2 = Boolean(true && 3) + "d";
+console.log(res2); // trued
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var a = 10;
+var b = 20;
+a.b = 15;
+
+console.log("a", a); // a 10
+console.log("a.b", a.b); // a.b undefined
+console.log(b); // 20
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var a = { b: 1};
+c = Object.create(a); 
+
+// с = {b: 1}
+
+console.log(c.b); // 1
+delete c.b;
+console.log(c.b); // 1
+delete a.b;
+console.log(c.b); // undefined
+a.z = 2;
+console.log(c.z); // 2
+c.z = 3;
+console.log(a.z); // 2
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ <style>
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+
+</style>
+
+<div className="red blue">Text 1</div> // blue
+<div className="blue red">Text 2</div> // blue
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// for (var i = 0; i < 10; i++) {
+//   setTimeout(function () {
+//     console.log(i); // 10
+//   }, 1000);
+// }
+// var i = 0
+
+for (var i = 0; i < 10; i++) {
+  let j = i
+  setTimeout(function () {
+    console.log(j); // 10
+  }, 1000);
+}
+
+for (let i = 0; i < 10; i++) {
+  setTimeout(function () {
+    console.log(i); // 
+  }, 1000);
+} // 2
+
+for (var i = 0; i < 10; i++) {
+  setTimeout(function () {
+    console.log(this); // 
+  }.bind(i), 1000);
+} // 3
+
+for (var i = 0; i < 10; i++) {
+  setTimeout(function (i) {
+    console.log(i); // 
+  }, 1000, i);
+} // 4
+
+for (var i = 0; i < 10; i++) {
+  (function (i) {
+  setTimeout(function () {
+    console.log(i); // 
+  }, 1000);
+  })(i)
+} // 5
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Что выведет console.log и почему
+function makeWorker() {
+  let name = "Peter";
+
+  return function () {
+    console.log(name);
+  };
+}
+
+var name = "John";
+
+let work = makeWorker();
+
+work() // Peter
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//? Что выведут console.log
+const obj2 = {
+  x: "yandex",
+  a: function f() {
+    console.log(this.x);
+  },
+  b: () => {
+    console.log("arrow", this.x);
+  },
+};
+
+obj2.a(); // yandex
+obj2.b(); // undefined
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function makeCounter() {
+  let counter = 0;
+  return function () {
+    return ++counter;
+  };
+}
+
+let someCounter = makeCounter();
+
+for (var i = 0; i < 10; i++) {
+  setTimeout(() => console.log(someCounter())); // 2..11
+}
+
+console.log(someCounter()); // 1
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+class Foo {
+  constructor() {
+    this.id = "foo";
+    this.print();
+  }
+
+  print() {
+    console.log("foo" + this.id);
+  }
+}
+
+class Bar extends Foo {
+  constructor() {
+    super();
+    this.id = "bar";
+    this.print();
+    super.print();
+  }
+
+  print() {
+    console.log("bar" + this.id);
+  }
+}
+
+new Bar();
+
+// bar foo
+// bar bar 
+// foo bar
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+const func = (a,b) => {
+    return a + b 
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const myPromise = (delay) => new Promise((res, rej) => { setTimeout(res, delay) })
+setTimeout(() => console.log('1'), 1000);
+myPromise(1000).then(res => console.log('2'));
+setTimeout(() => console.log('3'), 100);
+myPromise(2000).then(res => console.log('4')); 
+setTimeout(() => console.log('5'), 2000);
+myPromise(1000).then(res => console.log('6'));
+setTimeout(() => console.log('7'), 1000);
+myPromise(5000).then(res => console.log('8'));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+console.log("Start"); // 1
+
+const observer = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("Observer: Событие произошло");
+    resolve("Success");
+  }, 2000);
+});
+
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("Promise 1: Событие произошло");
+    resolve("Success");
+  }, 1000);
+});
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("Promise 2: Событие произошло");
+    resolve("Success");
+  }, 1500);
+});
+
+observer.then(() => {
+  console.log("Observer: Обработка события");
+});
+
+Promise.all([promise1, promise2]).then(() => {
+  console.log("Promise: Все события обработаны");
+});
+
+console.log("End");
+
+// Start
+// End
+// Promise 1: Событие произошло
+// Promise 2: Событие произошло
+// Promise: Все события обработаны
+// Observer: Событие произошло
+// Observer: Обработка события
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+queueMicrotask(() => {
+  console.log("1");
+});
+
+Promise.reject("2")
+  .catch((res1) => {
+    console.log("res1", res1);
+    return "4";
+  })
+  .then((res2) => {
+    console.log("res2", res2);
+  });
+
+queueMicrotask(() => {
+  console.log("3");
+});
+
+// 1
+// res1 2
+// 3
+// res2 4
+// 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const myPromise = Promise.resolve(Promise.resolve("Promise!"));
+
+function funcOne() {
+  myPromise
+    .then((res) => res)
+    .then((res) => console.log(res, "Результат funcOne"));
+  setTimeout(() => console.log("Timeout! 1", 0));
+  console.log("Last line! 1");
+}
+
+async function funcTwo() {
+  const res = await myPromise;
+  console.log(res, "Результат funcTwo");
+  setTimeout(() => console.log("Timeout! 2", 0));
+  console.log("Last line! 2");
+}
+
+funcOne();
+funcTwo();
+
+// Last line! 1
+// Promise! Результат funcTwo
+// Last line! 2
+// Promise! Результат funcOne
+// Timeout! 1
+// Timeout! 2
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const foo = async () => {
+  console.log("1");
+  return 100;
+};
+
+const bar = async () => {
+  console.log("2");
+  const r = await foo();
+  console.log(r);
+  foo().then((res) => console.log(res));
+  await console.log("3");
+  console.log(await "4");
+};
+
+bar();
+
+// 2
+// 1
+// 100 
+// 1
+// 3
+// 100
+// 4
+
+// async await
+// Что вернет функция fetchData?
+const fetchData = async () => {
+  const result = await doSomething(getDelay());
+  return result;
+};
+
+fetchData();
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+async function a(p) {
+  return p;
+}
+
+console.log("1");
+
+(async function () {
+  console.log("f1");
+  console.log(await a("a1"));
+  console.log("f2");
+  console.log(await a("a2"));
+  console.log("f3");
+})();
+
+console.log("2");
+
+// 1
+// f1
+// 2
+// a1
+// f2
+// a2
+// f3
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Promise.reject("a")
+  .then(
+    (p) => p + "1",
+    (p) => p + "2"
+  )
+  .catch((p) => p + "b")
+  .catch((p) => p + "с")
+  .then((p) => p + "d1")
+  .then("d2")
+  .then((p) => p + "d3")
+  .finally((p) => p + "e")
+  .then((p) => console.log(p)); // 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function getPromise() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Успешное выполнение");
+    }, 1000);
+  });
+}
+
+async function myAsyncFunction() {
+  try {
+    console.log("Начало выполнения асинхронной функции");
+
+    const result = await getPromise();
+    console.log("Результат промиса:", result);
+
+    console.log("Завершение выполнения асинхронной функции");
+  } catch (error) {
+    console.error("Произошла ошибка:", error);
+  }
+}
+
+myAsyncFunction();
+
+console.log("Последующий код");
+
+// Начало выполнения асинхронной функции
+// Последующий код
+// Результат промиса: Успешное выполнение
+// Завершение выполнения асинхронной функции
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+const myNewPromise = new Promise((resolve, reject) => { 
+  setTimeout(() => {
+    const randomNumber = Math.random(); // 0.55555555
+    if (randomNumber > 0.5) {
+      resolve("Успешный результат: " + randomNumber);
+    } else {
+      reject("Неудача: " + randomNumber);
+    }
+  }, 1000); // mac 1
+});
+
+myNewPromise
+  .then((result) => {
+    console.log("Промис выполнен успешно:", result);
+  })
+  .catch((error) => {
+    console.log("Промис был отклонен с ошибкой:", error);
+  })
+  .finally(() => {
+    console.log("Завершение выполнения промиса");
+  }); // mic 1
+
+  
+const promise11 = new Promise((resolve) => setTimeout(() => resolve(1), 3000)); // mac 2
+const promise22 = new Promise((resolve) => setTimeout(() => resolve(2), 2000)); // mac 3
+
+Promise.all([promise11, promise22]).then((results) => {
+  console.log("Оба промиса выполнены успешно:", results);
+}); // mic 2
+
+const racePromise1 = new Promise((resolve) =>
+  setTimeout(() => resolve(1), 3000) // mac 4
+);
+
+const racePromise2 = new Promise((resolve) =>
+  setTimeout(() => resolve(2), 2000) //mac 5
+);
+
+Promise.race([racePromise1, racePromise2]).then((result) => {
+  console.log("Первый завершившийся промис:", result);
+});
+
+// Промис выполнен успешно: Успешный результат:  0.55555555
+// Завершение выполнения промиса
+// Первый завершившийся промис: 2
+// Оба промиса выполнены успешно: [1, 2]
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function asyncActions() {
+  console.log("Start of asyncActions");
+
+  const action1 = new Promise((resolve) => {
+    console.log("Action 4");
+    setTimeout(() => {
+      console.log("Action 1 completed");
+      resolve();
+    }, 2000);
+  });
+
+  const action2 = new Promise((resolve) => {
+    console.log("Action 5");
+    setTimeout(() => {
+      console.log("Action 2 completed");
+      resolve();
+    }, 1000);
+  });
+
+  return action1.then(() => action2);
+}
+
+asyncActions();
+
+// Start of asyncActions
+// Action 4
+// Action 5
+// Action 2 completed
+// Action 1 completed
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const obj = {
+  name: "Alice",
+  sayHello: function () {
+    setTimeout(function () {
+      console.log("Hello, " + this.name);
+    }, 1000);
+  },
+};
+
+obj.sayHello(); // Hello undefined
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function getAge() {
+  "use strict";
+  age = 21;
+  console.log(age);
+}
+
+getAge(); // 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const sum = eval("10*10+5");
+console.log(sum);  
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let c = { greeting: "Hey!" };
+let d;
+
+d = c;
+c.greeting = "Hello";
+console.log(d.greeting); // 
+
+
+
+*/
+
+/*
+ДАНО
+строка слов "apple banana orange apple"
+
+ЗАДАЧА
+написать словами алгоритм подсчета кол-ва вхождений каждого слова. вывести на экран результат.
+примерная степень детализации алгоритма - одна строчка алгоритма = одна строчка будущего кода.пример вывода на экран
+apple - 2
+banana - 1
+orange - 1
+
+ОГРАНИЧЕНИЯ
+не использовать функцию split
+*/
+function noSplit(str) {
+  let count = {};
+  let curWord = "";
+
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+
+    if (char !== " ") {
+      curWord += char;
+    }
+
+    if (char === " " || i === str.length - 1) {
+      if (curWord in count) {
+        count[curWord]++;
+      } else {
+        count[curWord] = 1;
+      }
+      curWord = "";
+    }
+  }
+  return count;
+}
+
+let str = "apple banana orange apple";
+let result = noSplit(str);
+for (let word in result) {
+  console.log(`${word} - ${result[word]}`);
+}
