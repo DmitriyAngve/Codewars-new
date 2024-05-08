@@ -6674,6 +6674,7 @@ orange - 1
 ОГРАНИЧЕНИЯ
 не использовать функцию split
 */
+/*
 function noSplit(str) {
   let count = {};
   let curWord = "";
@@ -6702,3 +6703,36 @@ let result = noSplit(str);
 for (let word in result) {
   console.log(`${word} - ${result[word]}`);
 }
+
+
+*/
+
+// 08.05.2024
+// #1
+/*
+Write a function that flattens an Array of Array objects into a flat Array. Your function must only do one level of flattening.
+
+flatten([1,2,3]) // => [1,2,3]
+flatten([[1,2,3],["a","b","c"],[1,2,3]])  // => [1,2,3,"a","b","c",1,2,3]
+flatten([[[1,2,3]]]) // => [[1,2,3]]
+*/
+var flatten = function (array) {
+  let arr = [];
+  for (let item of array) {
+    if (Array.isArray(item)) {
+      arr.push(...item);
+    } else {
+      arr.push(item);
+    }
+  }
+  return arr;
+};
+
+console.log(
+  flatten([
+    [1, 2, 3],
+    ["a", "b", "c"],
+    [1, 2, 3],
+  ])
+);
+console.log(flatten([[3, 4, 5], [[9, 9, 9]], ["a,b,c"]]));
