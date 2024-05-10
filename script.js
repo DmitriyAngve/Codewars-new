@@ -6739,6 +6739,8 @@ flatten([[[1,2,3]]]) // => [[1,2,3]]
 // console.log(flatten([[3, 4, 5], [[9, 9, 9]], ["a,b,c"]]));
 
 // 10.05.2024
+
+// #1
 /*
 Compare two strings by comparing the sum of their values (ASCII character code).
 
@@ -6748,7 +6750,7 @@ Compare two strings by comparing the sum of their values (ASCII character code).
 
 Your method should return true, if the strings are equal and false if they are not equal.
 */
-
+/*
 function helpFunc(str) {
   if (!str || /[^a-zA-Z]/.test(str)) {
     return true;
@@ -6771,3 +6773,27 @@ console.log(compare("AD", "BC"));
 console.log(compare("AD", "DD"));
 console.log(compare("gf", "FG"));
 console.log(compare("##", "1176"));
+*/
+
+// #2
+/*
+Implement a function that returns the minimal and the maximal value of a list (in this order).
+*/
+function getMinMax(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) {
+    return [];
+  }
+
+  if (arr.length === 1) {
+    return [arr[0], arr[0]];
+  }
+
+  const sort = arr.slice().sort((a, b) => a - b);
+
+  return [sort[0], sort[sort.length - 1]];
+}
+
+console.log(getMinMax([1]));
+console.log(getMinMax([1, 1]));
+console.log(getMinMax([1, 2]));
+console.log(getMinMax([2, 1]));
