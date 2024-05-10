@@ -6705,9 +6705,10 @@ for (let word in result) {
 }
 
 
-*/
+
 
 // 08.05.2024
+/*
 // #1
 /*
 Write a function that flattens an Array of Array objects into a flat Array. Your function must only do one level of flattening.
@@ -6716,23 +6717,83 @@ flatten([1,2,3]) // => [1,2,3]
 flatten([[1,2,3],["a","b","c"],[1,2,3]])  // => [1,2,3,"a","b","c",1,2,3]
 flatten([[[1,2,3]]]) // => [[1,2,3]]
 */
-var flatten = function (array) {
-  let arr = [];
-  for (let item of array) {
-    if (Array.isArray(item)) {
-      arr.push(...item);
-    } else {
-      arr.push(item);
-    }
-  }
-  return arr;
-};
+// var flatten = function (array) {
+//   let arr = [];
+//   for (let item of array) {
+//     if (Array.isArray(item)) {
+//       arr.push(...item);
+//     } else {
+//       arr.push(item);
+//     }
+//   }
+//   return arr;
+// };
 
-console.log(
-  flatten([
-    [1, 2, 3],
-    ["a", "b", "c"],
-    [1, 2, 3],
-  ])
-);
-console.log(flatten([[3, 4, 5], [[9, 9, 9]], ["a,b,c"]]));
+// console.log(
+//   flatten([
+//     [1, 2, 3],
+//     ["a", "b", "c"],
+//     [1, 2, 3],
+//   ])
+// );
+// console.log(flatten([[3, 4, 5], [[9, 9, 9]], ["a,b,c"]]));
+
+// 10.05.2024
+
+// #1
+/*
+Compare two strings by comparing the sum of their values (ASCII character code).
+
+    For comparing treat all letters as UpperCase
+    null/NULL/Nil/None should be treated as empty strings
+    If the string contains other characters than letters, treat the whole string as it would be empty
+
+Your method should return true, if the strings are equal and false if they are not equal.
+*/
+/*
+function helpFunc(str) {
+  if (!str || /[^a-zA-Z]/.test(str)) {
+    return true;
+  }
+
+  return str
+    .toUpperCase()
+    .split("")
+    .reduce((sum, char) => sum + char.charCodeAt(0), 0);
+}
+
+function compare(s1, s2) {
+  const sum1 = helpFunc(s1);
+  const sum2 = helpFunc(s2);
+
+  return sum1 === sum2;
+}
+
+console.log(compare("AD", "BC"));
+console.log(compare("AD", "DD"));
+console.log(compare("gf", "FG"));
+console.log(compare("##", "1176"));
+*/
+
+// #2
+/*
+Implement a function that returns the minimal and the maximal value of a list (in this order).
+*/
+function getMinMax(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) {
+    return [];
+  }
+
+  if (arr.length === 1) {
+    return [arr[0], arr[0]];
+  }
+
+  const sort = arr.slice().sort((a, b) => a - b);
+
+  return [sort[0], sort[sort.length - 1]];
+}
+
+console.log(getMinMax([1]));
+console.log(getMinMax([1, 1]));
+console.log(getMinMax([1, 2]));
+console.log(getMinMax([2, 1]));
