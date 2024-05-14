@@ -7031,6 +7031,7 @@ greet("") === null; // Return null if input is empty string
 greet(null) === null; // Return null if input is null
 */
 
+/*
 function greet(name) {
   if (name === null) return null;
   return name.length > 0 ? "hello " + name + "!" : null;
@@ -7039,3 +7040,23 @@ function greet(name) {
 console.log(greet("Niks"));
 console.log(greet(""));
 console.log(greet(null));
+*/
+
+// #10
+/*
+Kevin is noticing his space run out! Write a function that removes the spaces from the values and returns an array showing the space decreasing.
+For example, running this function on the array ['i', 'have','no','space'] would produce ['i','ihave','ihaveno','ihavenospace']
+*/
+
+function spacey(arr) {
+  let res = [];
+  let curr = "";
+  for (let i = 0; i < arr.length; i++) {
+    curr += arr[i].split(" ").join("");
+    res.push(curr);
+  }
+
+  return res;
+}
+
+console.log(spacey(["i", "have", "no", "space"]));
