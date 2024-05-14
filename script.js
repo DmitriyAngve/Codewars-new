@@ -7003,7 +7003,7 @@ keys = ['a', 'b', 'c']
 values = [1, 2, 3, 4]
 createDict(keys, values) // returns {'a': 1, 'b': 2, 'c': 3}
 */
-
+/*
 function createDict(keys, values) {
   let ht = {};
   for (let i = 0; i < keys.length; i++) {
@@ -7019,3 +7019,23 @@ function createDict(keys, values) {
 console.log(createDict(["a", "b", "c"], [1, 2, 3]));
 console.log(createDict(["a", "b", "c"], [1, 2, 3, 4]));
 console.log(createDict(["a", "b", "c", "d"], [1, 2, 3]));
+*/
+
+// #9
+/*
+Say hello!
+Write a function to greet a person. Function will take name as input and greet the person by saying hello. Return null/nil/None if input is empty string or null/nil/None.
+Example:
+greet("Niks") === "hello Niks!";
+greet("") === null; // Return null if input is empty string
+greet(null) === null; // Return null if input is null
+*/
+
+function greet(name) {
+  if (name === null) return null;
+  return name.length > 0 ? "hello " + name + "!" : null;
+}
+
+console.log(greet("Niks"));
+console.log(greet(""));
+console.log(greet(null));
