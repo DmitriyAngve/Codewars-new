@@ -6779,6 +6779,7 @@ console.log(compare("##", "1176"));
 /*
 Implement a function that returns the minimal and the maximal value of a list (in this order).
 */
+/*
 function getMinMax(arr) {
   if (!Array.isArray(arr) || arr.length === 0) {
     return [];
@@ -6791,9 +6792,39 @@ function getMinMax(arr) {
   const sort = arr.slice().sort((a, b) => a - b);
 
   return [sort[0], sort[sort.length - 1]];
+
+  // return [Math.min(...arr),Math.max(...arr)];
 }
 
 console.log(getMinMax([1]));
 console.log(getMinMax([1, 1]));
 console.log(getMinMax([1, 2]));
 console.log(getMinMax([2, 1]));
+*/
+
+// #3
+/*
+Create a function that checks if a number n is divisible by two numbers x AND y. All inputs are positive, non-zero numbers.
+Examples:
+1) n =   3, x = 1, y = 3 =>  true because   3 is divisible by 1 and 3
+2) n =  12, x = 2, y = 6 =>  true because  12 is divisible by 2 and 6
+3) n = 100, x = 5, y = 3 => false because 100 is not divisible by 3
+4) n =  12, x = 7, y = 5 => false because  12 is neither divisible by 7 nor 5
+*/
+
+function isDivisible(n, x, y) {
+  let first;
+  let second;
+  if (n % x === 0) {
+    first = true;
+  }
+  if (n % y === 0) {
+    second = true;
+  }
+
+  return first === second ? true : false;
+}
+
+console.log(isDivisible(3, 3, 4));
+console.log(isDivisible(12, 3, 4));
+console.log(isDivisible(48, 3, 4));
