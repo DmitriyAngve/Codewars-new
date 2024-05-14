@@ -6811,7 +6811,7 @@ Examples:
 3) n = 100, x = 5, y = 3 => false because 100 is not divisible by 3
 4) n =  12, x = 7, y = 5 => false because  12 is neither divisible by 7 nor 5
 */
-
+/*
 function isDivisible(n, x, y) {
   let first;
   let second;
@@ -6828,3 +6828,31 @@ function isDivisible(n, x, y) {
 console.log(isDivisible(3, 3, 4));
 console.log(isDivisible(12, 3, 4));
 console.log(isDivisible(48, 3, 4));
+*/
+
+// 14.05.2024
+
+// #1
+/*
+Write a function filterLucky/filter_lucky() that accepts a list of integers and filters the list to only include the elements that contain the digit 7.
+
+For example,
+
+ghci> filterLucky [1,2,3,4,5,6,7,68,69,70,15,17]
+[7,70,17]
+
+Don't worry about bad input, you will always receive a finite list of integers
+*/
+var filterLucky = (x) => {
+  let result = [];
+  for (let i = 0; i < x.length; i++) {
+    let y = x[i].toString();
+    if (y.includes(7)) {
+      result.push(Number(y));
+    }
+  }
+
+  return result;
+};
+
+console.log(filterLucky([1, 2, 3, 4, 5, 6, 7, 68, 69, 70, 15, 17]));
