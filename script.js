@@ -6943,13 +6943,33 @@ Write a function to find if a number is lucky or not. If the sum of all digits i
 1892376 => 1+8+9+2+3+7+6 = 36. 36 is divisible by 9, hence number is lucky.
 Function will return true for lucky numbers and false for others.
 */
-
+/*
 function isLucky(n) {
   const result = n.toString().split("").map(Number);
-  // console.log(result);
   return result.reduce((acc, curr) => acc + curr, 0) % 9 === 0;
 }
 
 console.log(isLucky(1892376));
 console.log(isLucky(189237));
 console.log(isLucky(0));
+*/
+
+// #6
+/*
+This kata is about converting numbers to their binary or hexadecimal representation:
+    If a number is even, convert it to binary.
+    If a number is odd, convert it to hex.
+Numbers will be positive. The hexadecimal string should be lowercased.
+*/
+function evensAndOdds(num) {
+  // if (num % 2 === 0) {
+  //   return num.toString(2);
+  // } else {
+  //   return num.toString(16);
+  // }
+
+  return num % 2 === 0 ? num.toString(2) : num.toString(16);
+}
+
+console.log(evensAndOdds(2));
+console.log(evensAndOdds(13));
