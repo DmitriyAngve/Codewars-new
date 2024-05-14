@@ -6961,15 +6961,31 @@ This kata is about converting numbers to their binary or hexadecimal representat
     If a number is odd, convert it to hex.
 Numbers will be positive. The hexadecimal string should be lowercased.
 */
+/*
 function evensAndOdds(num) {
-  // if (num % 2 === 0) {
-  //   return num.toString(2);
-  // } else {
-  //   return num.toString(16);
-  // }
-
   return num % 2 === 0 ? num.toString(2) : num.toString(16);
 }
 
 console.log(evensAndOdds(2));
 console.log(evensAndOdds(13));
+*/
+
+// #7
+/*
+In this kata, your job is to return the two distinct highest values in a list. If there're less than 2 unique values, return as many of them, as possible.
+The result should also be ordered from highest to lowest.
+Examples:
+[4, 10, 10, 9]  =>  [10, 9]
+[1, 1, 1]  =>  [1]
+[]  =>  []
+*/
+
+function twoHighest(arr) {
+  if (!arr.length || arr.length === 1) return arr;
+  const res = [...new Set(arr)].sort((a, b) => b - a);
+  return [res[0], res[1]];
+}
+
+console.log(twoHighest([4, 10, 10, 9]));
+console.log(twoHighest([15]));
+console.log(twoHighest([]));
