@@ -6867,6 +6867,7 @@ For example (Input --> Output)
 "Yes" --> "Yes?" 
 "No?" --> "No?"
 */
+/*
 function ensureQuestion(s) {
   const sign = s.endsWith("?");
   if (sign) {
@@ -6878,3 +6879,28 @@ function ensureQuestion(s) {
 
 console.log(ensureQuestion("Yes"));
 console.log(ensureQuestion("No?"));
+*/
+
+// #3
+/*
+Given a string of space separated words, return the longest word.
+If there are multiple longest words, return the rightmost longest word.
+Examples
+"red white blue"  =>  "white"
+"red blue gold"   =>  "gold"
+*/
+
+function longestWord(stringOfWords) {
+  const arr = stringOfWords.split(" ");
+
+  let longest = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].length >= longest.length) {
+      longest = arr[i];
+    }
+  }
+  return longest;
+}
+
+console.log(longestWord("red white blue"));
+console.log(longestWord("red blue gold"));
