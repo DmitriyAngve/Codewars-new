@@ -6843,6 +6843,7 @@ ghci> filterLucky [1,2,3,4,5,6,7,68,69,70,15,17]
 
 Don't worry about bad input, you will always receive a finite list of integers
 */
+/*
 var filterLucky = (x) => {
   let result = [];
   for (let i = 0; i < x.length; i++) {
@@ -6851,8 +6852,29 @@ var filterLucky = (x) => {
       result.push(Number(y));
     }
   }
-
   return result;
 };
 
 console.log(filterLucky([1, 2, 3, 4, 5, 6, 7, 68, 69, 70, 15, 17]));
+*/
+
+// #2
+/*
+Given a string, write a function that returns the string with a question mark ("?") appends to the end, unless the original string ends with a question mark, in which case, returns the original string.
+
+For example (Input --> Output)
+
+"Yes" --> "Yes?" 
+"No?" --> "No?"
+*/
+function ensureQuestion(s) {
+  const sign = s.endsWith("?");
+  if (sign) {
+    return s;
+  } else {
+    return s + "?";
+  }
+}
+
+console.log(ensureQuestion("Yes"));
+console.log(ensureQuestion("No?"));
