@@ -7048,15 +7048,29 @@ Kevin is noticing his space run out! Write a function that removes the spaces fr
 For example, running this function on the array ['i', 'have','no','space'] would produce ['i','ihave','ihaveno','ihavenospace']
 */
 
-function spacey(arr) {
-  let res = [];
-  let curr = "";
-  for (let i = 0; i < arr.length; i++) {
-    curr += arr[i].split(" ").join("");
-    res.push(curr);
-  }
+// function spacey(arr) {
+//   let res = [];
+//   let curr = "";
+//   for (let i = 0; i < arr.length; i++) {
+//     curr += arr[i].split(" ").join("");
+//     res.push(curr);
+//   }
 
-  return res;
+//   return res;
+// }
+
+// console.log(spacey(["i", "have", "no", "space"]));
+
+// 04.06.2024
+
+// #1
+/*
+In this kata the function returns an array/list of numbers without its last element. The function is already written for you and the basic tests pass, but random tests fail. Your task is to figure out why and fix it.
+Good luck!
+*/
+
+function withoutLast(arr) {
+  return arr.slice(0, -1);
 }
 
-console.log(spacey(["i", "have", "no", "space"]));
+console.log(withoutLast([53, 50, 10, 84, 66, 70, 64, 5, 65, 63, 100, 10]));
