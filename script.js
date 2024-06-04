@@ -7068,9 +7068,27 @@ For example, running this function on the array ['i', 'have','no','space'] would
 In this kata the function returns an array/list of numbers without its last element. The function is already written for you and the basic tests pass, but random tests fail. Your task is to figure out why and fix it.
 Good luck!
 */
-
+/*
 function withoutLast(arr) {
   return arr.slice(0, -1);
 }
 
 console.log(withoutLast([53, 50, 10, 84, 66, 70, 64, 5, 65, 63, 100, 10]));
+
+*/
+
+// #2
+
+/*
+It's the academic year's end, fateful moment of your school report. The averages must be calculated. All the students come to you and entreat you to calculate their average for them. Easy ! You just need to write a script.
+Return the average of the given array rounded down to its nearest integer.
+The array will never be empty.
+*/
+
+function getAverage(marks) {
+  return Math.floor(marks.reduce((curr, acc) => acc + curr, 0) / marks.length);
+}
+
+console.log(getAverage([2, 2, 2, 2]));
+console.log(getAverage([1, 2, 3, 4, 5]));
+console.log(getAverage([1, 5, 87, 45, 8, 8]));
