@@ -7085,6 +7085,7 @@ Return the average of the given array rounded down to its nearest integer.
 The array will never be empty.
 */
 
+/*
 function getAverage(marks) {
   return Math.floor(marks.reduce((curr, acc) => acc + curr, 0) / marks.length);
 }
@@ -7092,3 +7093,25 @@ function getAverage(marks) {
 console.log(getAverage([2, 2, 2, 2]));
 console.log(getAverage([1, 2, 3, 4, 5]));
 console.log(getAverage([1, 5, 87, 45, 8, 8]));
+*/
+
+// #3
+/*
+In this exercise, a string is passed to a method and a new string has to be returned with the first character of each word in the string.
+For example:
+"This Is A Test" ==> "TIAT"
+Strings will only contain letters and spaces, with exactly 1 space between words, and no leading/trailing spaces.
+*/
+
+function makeString(s) {
+  let res = s.split(" ");
+  let result = "";
+
+  for (let i = 0; i < res.length; i++) {
+    let word = res[i];
+    result += word[0];
+  }
+  return result;
+}
+
+console.log(makeString("This Is A Test"));
