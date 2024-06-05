@@ -7332,6 +7332,7 @@ More examples:
 "Bangkok"    -->  "b:*,a:*,n:*,g:*,k:**,o:*"
 "Las Vegas"  -->  "l:*,a:**,s:**,v:*,e:*,g:*"
 */
+/*
 function getStrings(city) {
   const str = city.replace(/\s/g, "").toLowerCase().split("");
   let ht = {};
@@ -7353,3 +7354,21 @@ function getStrings(city) {
 
 console.log(getStrings("Chicago"));
 console.log(getStrings("Las Vegas"));
+*/
+
+// #7
+/*
+Write a function that returns the number of arguments it received.
+args_count() --> 0
+args_count('a') --> 1
+args_count('a', 'b') --> 2
+*/
+// Create a function called args_count that returns the number of arguments provided
+
+function args_count(args) {
+  return arguments.length;
+}
+
+console.log(args_count(1, 2));
+console.log(args_count());
+console.log(args_count(["foo", "bar"]));
