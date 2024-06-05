@@ -7332,6 +7332,7 @@ More examples:
 "Bangkok"    -->  "b:*,a:*,n:*,g:*,k:**,o:*"
 "Las Vegas"  -->  "l:*,a:**,s:**,v:*,e:*,g:*"
 */
+/*
 function getStrings(city) {
   const str = city.replace(/\s/g, "").toLowerCase().split("");
   let ht = {};
@@ -7353,3 +7354,44 @@ function getStrings(city) {
 
 console.log(getStrings("Chicago"));
 console.log(getStrings("Las Vegas"));
+*/
+
+// #7
+/*
+Write a function that returns the number of arguments it received.
+args_count() --> 0
+args_count('a') --> 1
+args_count('a', 'b') --> 2
+*/
+// Create a function called args_count that returns the number of arguments provided
+/*
+function args_count(args) {
+  return arguments.length;
+}
+
+console.log(args_count(1, 2));
+console.log(args_count());
+console.log(args_count(["foo", "bar"]));
+*/
+
+// #8
+/*
+You are given a list of unique integers arr, and two integers a and b. Your task is to find out whether or not a and b appear consecutively in arr, and return a boolean value (True if a and b are consecutive, False otherwise).
+
+It is guaranteed that a and b are both present in arr.
+*/
+
+function consecutive(arr, a, b) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (
+      (arr[i] === a && arr[i + 1] === b) ||
+      (arr[i] === b && arr[i + 1] === a)
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(consecutive([1, 3, 5, 7], 3, 7)); // false
+console.log(consecutive([1, 3, 5, 7], 3, 1)); // true
