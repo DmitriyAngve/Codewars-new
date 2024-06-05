@@ -7279,7 +7279,7 @@ two zero	%&B8
 
 Output will be a number of "0".
 */
-
+/*
 function countzero(s) {
   const one = (s.match(/(?:[0690abdDegoOpPRqQ]|\(\))/g) || []).length;
   const two = (s.match(/[8B%&]/g) || []).length * 2;
@@ -7288,3 +7288,26 @@ function countzero(s) {
 
 console.log(countzero("1234567890"));
 console.log(countzero("abcdefghijklmnopqrstuvwxyz"));
+*/
+
+// #5
+/*
+Given a sequence of integers, return the sum of all the integers that have an even index (odd index in COBOL), multiplied by the integer at the last index.
+Indices in sequence start from 0.
+If the sequence is empty, you should return 0.
+*/
+
+function evenLast(numbers) {
+  if (!numbers.length) return 0;
+
+  let res = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (i % 2 === 0) {
+      res += numbers[i] * numbers[numbers.length - 1];
+    }
+  }
+  return res;
+}
+
+console.log(evenLast([2, 3, 4, 5]));
+console.log(evenLast([]));
