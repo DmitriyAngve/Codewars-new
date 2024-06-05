@@ -7410,7 +7410,7 @@ Examples:
 [0, 5, 1, 3, 2, 9, 7, 6, 4] --> 8
 [9, 2, 4, 5, 7, 0, 8, 6, 1] --> 3
 */
-
+/*
 function getMissingElement(arr) {
   if (!arr.length) return 0;
   const res = arr.sort((a, b) => a - b);
@@ -7425,18 +7425,56 @@ function getMissingElement(arr) {
   return 0;
 }
 
-/*
-function findMissingLetter(arr) {
-  const mapArr = arr.map((el) => el.charCodeAt(0));
-  console.log(mapArr);
-  for (let i = 0; i < mapArr.length - 1; i++) {
-    if (mapArr[i] + 1 !== mapArr[i + 1]) {
-      return String.fromCharCode(mapArr[i] + 1);
-    }
-  }
-  return "";
-}
-*/
-
 console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4])); // 8
 console.log(getMissingElement([9, 2, 4, 5, 7, 0, 8, 6, 1])); // 3
+*/
+
+// #10
+/*
+A mad sociopath scientist just came out with a brilliant invention! He extracted his own memories to forget all the people he hates! Now there's a lot of information in there, so he needs your talent as a developer to automatize that task for him.
+
+    You are given the memories as a string containing people's surname and name (comma separated). The scientist marked one occurrence of each of the people he hates by putting a '!' right before their name.
+
+Your task is to destroy all the occurrences of the marked people. One more thing ! Hate is contagious, so you also need to erase any memory of the person that comes after any marked name!
+Examples
+
+Input:
+
+"Albert Einstein, !Sarah Connor, Marilyn Monroe, Abraham Lincoln, Sarah Connor, Sean Connery, Marilyn Monroe, Bjarne Stroustrup, Manson Marilyn, Monroe Mary"
+
+Output:
+
+"Albert Einstein, Abraham Lincoln, Sean Connery, Bjarne Stroustrup, Manson Marilyn, Monroe Mary"
+
+=> We must remove every memories of Sarah Connor because she's marked, but as a side-effect we must also remove all the memories about Marilyn Monroe that comes right after her! Note that we can't destroy the memories of Manson Marilyn or Monroe Mary, so be careful!
+Fundamentals
+*/
+
+function select(memory) {
+  let names = memory.split(", ");
+  console.log(names);
+  let namesToRemove = new Set();
+
+  for (let i = 0; i < names.length; i++) {
+    if (names[i].startsWith("!")) {
+      let markedName = names[i].substring(1);
+      namesToRemove.add(markedName);
+
+      if (i + 1 < names.length) {
+        namesToRemove.add(names[i + 1]);
+      }
+    }
+  }
+
+  let result = names.filter(
+    (name) => !namesToRemove.has(name.replace(/^!/, ""))
+  );
+
+  return result.join(", ");
+}
+
+console.log(
+  select(
+    "Albert Einstein, !Sarah Connor, Marilyn Monroe, Abraham Lincoln, Sarah Connor, Sean Connery, Marilyn Monroe, Bjarne Stroustrup, Manson Marilyn, Monroe Mary"
+  )
+);
