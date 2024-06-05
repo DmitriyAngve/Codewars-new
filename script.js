@@ -7103,6 +7103,7 @@ For example:
 Strings will only contain letters and spaces, with exactly 1 space between words, and no leading/trailing spaces.
 */
 
+/*
 function makeString(s) {
   let res = s.split(" ");
   let result = "";
@@ -7115,3 +7116,76 @@ function makeString(s) {
 }
 
 console.log(makeString("This Is A Test"));
+*/
+
+// 05.06.2024
+
+// #1
+
+/*
+Find the missing letter
+Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
+You will always get an valid array. And it will be always exactly one letter be missing. The length of the array will always be at least 2.
+The array will always contain letters in only one case.
+Example:
+['a','b','c','d','f'] -> 'e'
+['O','Q','R','S'] -> 'P'
+(Use the English alphabet with 26 letters!)
+Have fun coding it and please don't forget to vote and rank this kata! :-)
+I have also created other katas. Take a look if you enjoyed this kata!
+*/
+
+/*
+function findMissingLetter(arr) {
+  const mapArr = arr.map((el) => el.charCodeAt(0));
+  console.log(mapArr);
+  for (let i = 0; i < mapArr.length - 1; i++) {
+    if (mapArr[i] + 1 !== mapArr[i + 1]) {
+      return String.fromCharCode(mapArr[i] + 1);
+    }
+  }
+  return "";
+}
+
+console.log(findMissingLetter(["a", "b", "c", "d", "f"]));
+
+// const arr = Array.from({ length: n }, (_, index) => index + 1);
+// char.charCodeAt(0) - 96
+*/
+
+// 2
+/*
+The Stanton measure of an array is computed as follows: count the number of occurences for value 1 in the array. Let this count be n. The Stanton measure is the number of times that n appears in the array.
+Write a function which takes an integer array and returns its Stanton measure.
+Examples
+The Stanton measure of [1, 4, 3, 2, 1, 2, 3, 2] is 3, because 1 occurs 2 times in the array and 2 occurs 3 times.
+The Stanton measure of [1, 4, 1, 2, 11, 2, 3, 1] is 1, because 1 occurs 3 times in the array and 3 occurs 1 time.
+*/
+
+function stantonMeasure(a) {
+  let ht = {};
+  for (const el of a) {
+    ht[el] = (ht[el] || 0) + 1;
+  }
+  console.log(ht);
+
+  let count = ht[1] || 0;
+
+  let stanton = ht[count] || 0;
+
+  return stanton;
+}
+
+console.log(stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2])); // 2
+console.log(stantonMeasure([1, 4, 1, 2, 11, 2, 3, 1]));
+console.log(stantonMeasure([-2, 1, -15, 1, 3, 1, -11, 1, -3, 1]));
+
+/*
+  let ht = {};
+  let result = [];
+
+  for (const el of arr) {
+    ht[el] = (ht[el] || 0) + 1;
+  }
+  console.log(ht);
+*/
