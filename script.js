@@ -7228,7 +7228,7 @@ check digit = 11 - 4 = 7
 
 output: "0365327"
 */
-
+/*
 function addCheckDigit(number) {
   let arr = number.split("").map(Number);
   console.log(arr);
@@ -7257,12 +7257,34 @@ function addCheckDigit(number) {
   return number + digit.toString();
 }
 
-console.log(addCheckDigit("167703625"));
-console.log(addCheckDigit("12388878"));
-console.log(addCheckDigit("036532"));
-/*
-digit     :  1    6    7    7    0    3    6    2    5
-factor    :  4    3    2    7    6    5    4    3    2
-           ---  ---  ---  ---  ---  ---  ---  ---  ---
-             4 + 18 + 14 + 49 +  0 + 15 + 24 +  6 + 10 = 140
 */
+
+// #4
+/*
+Gigi is a clever monkey, living in the zoo, his teacher (animal keeper) recently taught him some knowledge of "0".
+
+In Gigi's eyes, "0" is a character contains some circle(maybe one, maybe two).
+
+So, a is a "0",b is a "0",6 is also a "0"，and 8 have two "0" ,etc...
+
+Now, write some code to count how many "0"s in the text.
+
+Let us see who is smarter? You ? or monkey?
+
+Input always be a string(including words numbers and symbols)，You don't need to verify it, but pay attention to the difference between uppercase and lowercase letters.
+
+Here is a table of characters：
+one zero	abdegopq069DOPQR         () <-- A pair of braces as a zero
+two zero	%&B8
+
+Output will be a number of "0".
+*/
+
+function countzero(s) {
+  const one = (s.match(/(?:[0690abdDegoOpPRqQ]|\(\))/g) || []).length;
+  const two = (s.match(/[8B%&]/g) || []).length * 2;
+  return one + two;
+}
+
+console.log(countzero("1234567890"));
+console.log(countzero("abcdefghijklmnopqrstuvwxyz"));
