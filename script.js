@@ -7381,6 +7381,7 @@ You are given a list of unique integers arr, and two integers a and b. Your task
 It is guaranteed that a and b are both present in arr.
 */
 
+/*
 function consecutive(arr, a, b) {
   for (let i = 0; i < arr.length - 1; i++) {
     if (
@@ -7395,3 +7396,47 @@ function consecutive(arr, a, b) {
 
 console.log(consecutive([1, 3, 5, 7], 3, 7)); // false
 console.log(consecutive([1, 3, 5, 7], 3, 1)); // true
+*/
+
+// #9
+/*
+Fellow code warrior, we need your help! We seem to have lost one of our sequence elements, and we need your help to retrieve it!
+
+Our sequence given was supposed to contain all of the integers from 0 to 9 (in no particular order), but one of them seems to be missing.
+
+Write a function that accepts a sequence of unique integers between 0 and 9 (inclusive), and returns the missing element.
+Examples:
+
+[0, 5, 1, 3, 2, 9, 7, 6, 4] --> 8
+[9, 2, 4, 5, 7, 0, 8, 6, 1] --> 3
+*/
+
+function getMissingElement(arr) {
+  if (!arr.length) return 0;
+  const res = arr.sort((a, b) => a - b);
+  console.log(res);
+
+  for (let i = 0; i < res.length - 1; i++) {
+    if (res[i] + 1 !== res[i + 1]) {
+      return res[i] + 1;
+    }
+  }
+
+  return 0;
+}
+
+/*
+function findMissingLetter(arr) {
+  const mapArr = arr.map((el) => el.charCodeAt(0));
+  console.log(mapArr);
+  for (let i = 0; i < mapArr.length - 1; i++) {
+    if (mapArr[i] + 1 !== mapArr[i + 1]) {
+      return String.fromCharCode(mapArr[i] + 1);
+    }
+  }
+  return "";
+}
+*/
+
+console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4])); // 8
+console.log(getMissingElement([9, 2, 4, 5, 7, 0, 8, 6, 1])); // 3
