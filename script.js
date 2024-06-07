@@ -7675,7 +7675,7 @@ For input: [3, 4, 4, 3, 6, 3]
     remove the 3 at index 3
 Expected output: [4, 6, 3]
 */
-
+/*
 function solve(arr) {
   arr.reverse();
   let set = new Set(arr);
@@ -7688,3 +7688,23 @@ function solve(arr) {
 console.log(solve([3, 4, 4, 3, 6, 3]));
 console.log(solve([1, 2, 1, 2, 1, 2, 3]));
 console.log(solve([1, 2, 1, 2, 1, 2, 3]));
+*/
+
+// #8
+/*
+Given a two-dimensional array of integers, return the flattened version of the array with all the integers in the sorted (ascending) order.
+
+Example:
+
+Given [[3, 2, 1], [4, 6, 5], [], [9, 7, 8]], your function should return [1, 2, 3, 4, 5, 6, 7, 8, 9]
+*/
+function flattenAndSort(array) {
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    result.push(...array[i]);
+  }
+  return result.sort((a, b) => a - b);
+}
+
+console.log(flattenAndSort([[1, 3, 5], [100], [2, 4, 6]]));
+console.log(flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]]));
