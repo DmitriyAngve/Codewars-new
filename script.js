@@ -7505,7 +7505,7 @@ alphabetWar("zdqmwpbs"); //=> Let's fight again!
 alphabetWar("zzzzs");    //=> Right side wins!
 alphabetWar("wwwwwwz");  //=> Left s
 */
-
+/*
 function alphabetWar(fight) {
   const leftSide = { w: 4, p: 3, b: 2, s: 1 };
   const rightSide = { m: 4, q: 3, d: 2, z: 1 };
@@ -7532,3 +7532,25 @@ function alphabetWar(fight) {
 
 console.log(alphabetWar("zdqmwpbs"));
 console.log(alphabetWar("zzzzs"));
+*/
+
+// #2
+/*
+Write a function that finds the sum of all its arguments.
+
+eg:
+
+sum(1, 2, 3) // => 6
+sum(8, 2) // => 10
+sum(1, 2, 3, 4, 5) // => 15
+
+*/
+
+function sum() {
+  let arr = [...arguments];
+  return arr.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(sum(12, 1, 1, 1, 1));
+console.log(sum(11));
+console.log(sum(5, 7, 9));
