@@ -7612,7 +7612,7 @@ Result should be separated by comma and space.
 Example
 geometricSequenceElements(2, 3, 5) == '2, 6, 18, 54, 162
 */
-
+/*
 function geometricSequenceElements(a, r, n) {
   const result = [];
   let curr = a;
@@ -7628,3 +7628,37 @@ function geometricSequenceElements(a, r, n) {
 console.log(geometricSequenceElements(2, 3, 5));
 console.log(geometricSequenceElements(2, 2, 10));
 console.log(geometricSequenceElements(1, -2, 10));
+*/
+
+// #6
+/*
+In this Kata, you will be given a string that may have mixed uppercase and lowercase letters and your task is to convert that string to either lowercase only or uppercase only based on:
+
+    make as few changes as possible.
+    if the string contains equal number of uppercase and lowercase letters, convert the string to lowercase.
+For example:
+solve("coDe") = "code". Lowercase characters > uppercase. Change only the "D" to lowercase.
+solve("CODe") = "CODE". Uppercase characters > lowecase. Change only the "e" to uppercase.
+solve("coDE") = "code". Upper == lowercase. Change all to lowercase.
+*/
+function solve(s) {
+  const arr = s.split("");
+  console.log(arr);
+  let upperCount = 0;
+  let lowerCount = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== arr[i].toLowerCase()) {
+      lowerCount++;
+    } else {
+      upperCount++;
+    }
+  }
+
+  console.log(lowerCount, upperCount);
+
+  return lowerCount <= upperCount ? s.toLowerCase() : s.toUpperCase();
+}
+
+console.log(solve("coDe"));
+console.log(solve("CODe"));
+console.log(solve("coDE"));
