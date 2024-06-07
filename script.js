@@ -7866,7 +7866,7 @@ one([1, 3, 5, 6, 99, 88, 3], bigger_than_ten) -> false
 one([1, 3, 5, 6, 5, 1, 3], bigger_than_ten) -> false
 
 */
-
+/*
 function one(arr, fun) {
   let count = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -7890,3 +7890,45 @@ console.log(
     return item % 2;
   })
 );
+*/
+
+// #11
+/*
+Each exclamation mark's weight is 2; each question mark's weight is 3. Putting two strings left and right on the balance - are they balanced?
+
+If the left side is more heavy, return "Left"; if the right side is more heavy, return "Right"; if they are balanced, return "Balance".
+Examples
+
+"!!", "??"     -->  "Right"
+"!??", "?!!"   -->  "Left"
+"!?!!", "?!?"  -->  "Left"
+"!!???!????", "??!!?!!!!!!!"  -->  "Balance"
+*/
+function balance(left, right) {
+  function calculateWeight(str) {
+    let weights = { "!": 2, "?": 3 };
+    let count = 0;
+
+    for (const char of str) {
+      if (weights[char]) {
+        count += weights[char];
+      }
+    }
+    return count;
+  }
+
+  const leftWeight = calculateWeight(left);
+  const rightWeight = calculateWeight(right);
+
+  if (leftWeight > rightWeight) {
+    return "Left";
+  } else if (rightWeight > leftWeight) {
+    return "Right";
+  } else {
+    return "Balance";
+  }
+}
+
+console.log(balance("!!", "??"));
+console.log(balance("!??", "?!!"));
+console.log(balance("!!???!????", "??!!?!!!!!!!"));
