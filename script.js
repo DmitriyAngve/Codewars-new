@@ -7569,7 +7569,7 @@ each_cons([1,2,3,4], 3)
 
 As you can see, the lists are cascading; ie, they overlap, but never out of order.
 */
-
+/*
 function eachCons(array, n) {
   let result = [];
   for (let i = 0; i <= array.length - n; i++) {
@@ -7581,3 +7581,25 @@ function eachCons(array, n) {
 
 console.log(eachCons([1, 2, 3, 4], 2));
 console.log(eachCons([1, 2, 3, 4], 3));
+*/
+
+// #4
+/*
+Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+Examples:
+Input: 42145 Output: 54421
+Input: 145263 Output: 654321
+Input: 123456789 Output: 987654321
+*/
+
+function descendingOrder(n) {
+  const arr = n.toString().split("").map(Number);
+  console.log(arr);
+
+  return parseInt(arr.sort((a, b) => b - a).join(""), 10);
+}
+
+console.log(descendingOrder(42145));
+console.log(descendingOrder(145263));
+console.log(descendingOrder(123456789));
+console.log(descendingOrder(467994600));
