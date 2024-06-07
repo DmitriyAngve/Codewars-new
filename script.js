@@ -7591,7 +7591,7 @@ Input: 42145 Output: 54421
 Input: 145263 Output: 654321
 Input: 123456789 Output: 987654321
 */
-
+/*
 function descendingOrder(n) {
   const arr = n.toString().split("").map(Number);
   console.log(arr);
@@ -7603,3 +7603,28 @@ console.log(descendingOrder(42145));
 console.log(descendingOrder(145263));
 console.log(descendingOrder(123456789));
 console.log(descendingOrder(467994600));
+*/
+
+// #5
+/*
+In your class, you have started lessons about geometric progression. Since you are also a programmer, you have decided to write a function that will print first n elements of the sequence with the given constant r and first element a.
+Result should be separated by comma and space.
+Example
+geometricSequenceElements(2, 3, 5) == '2, 6, 18, 54, 162
+*/
+
+function geometricSequenceElements(a, r, n) {
+  const result = [];
+  let curr = a;
+
+  for (let i = 0; i < n; i++) {
+    result.push(curr);
+    curr *= r;
+  }
+
+  return result.join(", ");
+}
+
+console.log(geometricSequenceElements(2, 3, 5));
+console.log(geometricSequenceElements(2, 2, 10));
+console.log(geometricSequenceElements(1, -2, 10));
