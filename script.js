@@ -7820,6 +7820,7 @@ console.log(base64toBase10("BA"));
 /*
 Create an any? (JS: any) function that accepts an array and a block (JS: function), and returns true if the block (/function) returns true for any item in the array. If the array is empty, the function should return false.
 */
+/*
 function any(arr, fun) {
   if (!arr.length) return false;
   let count = 0;
@@ -7846,5 +7847,46 @@ console.log(
 console.log(
   any([], function (v, i) {
     return v > 4;
+  })
+);
+*/
+
+// #10
+/*
+Create a function called one that accepts two params:
+
+    a sequence
+    a function
+
+and returns true only if the function in the params returns true for exactly one (1) item in the sequence.
+Example
+
+one([1, 3, 5, 6, 99, 1, 3], bigger_than_ten) -> true
+one([1, 3, 5, 6, 99, 88, 3], bigger_than_ten) -> false
+one([1, 3, 5, 6, 5, 1, 3], bigger_than_ten) -> false
+
+*/
+
+function one(arr, fun) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (fun(arr[i])) {
+      count++;
+    }
+    if (count > 1) {
+      return false;
+    }
+  }
+  return count === 1;
+}
+
+console.log(
+  one([1, 2, 3, 4, 5], function (item) {
+    return item < 2;
+  })
+);
+console.log(
+  one([1, 2, 3, 4, 5], function (item) {
+    return item % 2;
   })
 );
