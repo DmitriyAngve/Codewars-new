@@ -7698,6 +7698,7 @@ Example:
 
 Given [[3, 2, 1], [4, 6, 5], [], [9, 7, 8]], your function should return [1, 2, 3, 4, 5, 6, 7, 8, 9]
 */
+/*
 function flattenAndSort(array) {
   let result = [];
   for (let i = 0; i < array.length; i++) {
@@ -7708,3 +7709,108 @@ function flattenAndSort(array) {
 
 console.log(flattenAndSort([[1, 3, 5], [100], [2, 4, 6]]));
 console.log(flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]]));
+*/
+
+// #8
+/*
+Our standard numbering system is base-10, that uses digits 0 through 9. Binary is base-2, using only 1s and 0s. And hexadecimal is base-16, using digits 0 to 9 and A to F. A hexadecimal F has a base-10 value of 15.
+
+Base-64 has 64 individual characters ("digits") which translate to the base-10 values of 0 to 63. These are (in ascending order):
+
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/
+
+(so A is equal to 0 and / is equal to 63)
+Task
+
+Complete the method that will take a base-64 number (as a string) and output its base-10 value as an integer.
+Examples
+
+"/"   -->  63
+"BA"  -->  64
+"BB"  -->  65
+"BC"  -->  66
+"WIN" -->  90637
+*/
+
+function base64toBase10(base64) {
+  const base64Mapping = {
+    "A": 0,
+    "B": 1,
+    "C": 2,
+    "D": 3,
+    "E": 4,
+    "F": 5,
+    "G": 6,
+    "H": 7,
+    "I": 8,
+    "J": 9,
+    "K": 10,
+    "L": 11,
+    "M": 12,
+    "N": 13,
+    "O": 14,
+    "P": 15,
+    "Q": 16,
+    "R": 17,
+    "S": 18,
+    "T": 19,
+    "U": 20,
+    "V": 21,
+    "W": 22,
+    "X": 23,
+    "Y": 24,
+    "Z": 25,
+    "a": 26,
+    "b": 27,
+    "c": 28,
+    "d": 29,
+    "e": 30,
+    "f": 31,
+    "g": 32,
+    "h": 33,
+    "i": 34,
+    "j": 35,
+    "k": 36,
+    "l": 37,
+    "m": 38,
+    "n": 39,
+    "o": 40,
+    "p": 41,
+    "q": 42,
+    "r": 43,
+    "s": 44,
+    "t": 45,
+    "u": 46,
+    "v": 47,
+    "w": 48,
+    "x": 49,
+    "y": 50,
+    "z": 51,
+    "0": 52,
+    "1": 53,
+    "2": 54,
+    "3": 55,
+    "4": 56,
+    "5": 57,
+    "6": 58,
+    "7": 59,
+    "8": 60,
+    "9": 61,
+    "+": 62,
+    "/": 63,
+  };
+
+  let base10 = 0;
+  const arr = base64.split("").reverse();
+
+  for (let i = 0; i < arr.length; i++) {
+    const val = base64Mapping[arr[i]];
+    base10 += val * Math.pow(64, i);
+  }
+
+  return base10;
+}
+
+console.log(base64toBase10("WIN"));
+console.log(base64toBase10("/"));
+console.log(base64toBase10("BA"));
