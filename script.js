@@ -7731,7 +7731,7 @@ Examples
 "BC"  -->  66
 "WIN" -->  90637
 */
-
+/*
 function base64toBase10(base64) {
   const base64Mapping = {
     "A": 0,
@@ -7814,3 +7814,37 @@ function base64toBase10(base64) {
 console.log(base64toBase10("WIN"));
 console.log(base64toBase10("/"));
 console.log(base64toBase10("BA"));
+*/
+
+// #9
+/*
+Create an any? (JS: any) function that accepts an array and a block (JS: function), and returns true if the block (/function) returns true for any item in the array. If the array is empty, the function should return false.
+*/
+function any(arr, fun) {
+  if (!arr.length) return false;
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (fun(arr[i])) {
+      count++;
+    } else {
+      count;
+    }
+  }
+  return count > 0;
+}
+
+console.log(
+  any([1, 2, 3, 4], function (v, i) {
+    return v > 3;
+  })
+);
+console.log(
+  any([1, 2, 3, 4], function (v, i) {
+    return v > 4;
+  })
+);
+console.log(
+  any([], function (v, i) {
+    return v > 4;
+  })
+);
