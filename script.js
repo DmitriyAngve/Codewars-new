@@ -7641,6 +7641,7 @@ solve("coDe") = "code". Lowercase characters > uppercase. Change only the "D" to
 solve("CODe") = "CODE". Uppercase characters > lowecase. Change only the "e" to uppercase.
 solve("coDE") = "code". Upper == lowercase. Change all to lowercase.
 */
+/*
 function solve(s) {
   const arr = s.split("");
   console.log(arr);
@@ -7662,3 +7663,28 @@ function solve(s) {
 console.log(solve("coDe"));
 console.log(solve("CODe"));
 console.log(solve("coDE"));
+*/
+
+// #7
+/*
+Remove the duplicates from a list of integers, keeping the last ( rightmost ) occurrence of each element.
+Example:
+For input: [3, 4, 4, 3, 6, 3]
+    remove the 3 at index 0
+    remove the 4 at index 1
+    remove the 3 at index 3
+Expected output: [4, 6, 3]
+*/
+
+function solve(arr) {
+  arr.reverse();
+  let set = new Set(arr);
+
+  let result = Array.from(set);
+
+  return result.reverse();
+}
+
+console.log(solve([3, 4, 4, 3, 6, 3]));
+console.log(solve([1, 2, 1, 2, 1, 2, 3]));
+console.log(solve([1, 2, 1, 2, 1, 2, 3]));
