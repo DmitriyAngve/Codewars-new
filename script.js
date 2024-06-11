@@ -8030,7 +8030,7 @@ Remarks:
     if a result in seconds is ab.xy... it will be given truncated as ab.
     if the given string is "" you will return ""
 */
-
+/*
 function stat(strg) {
   if (!strg) return "";
 
@@ -8076,3 +8076,24 @@ function stat(strg) {
 }
 
 console.log(stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17"));
+*/
+
+// #4
+/*
+You will be given a string (x) featuring a cat 'C' and a mouse 'm'. The rest of the string will be made up of '.'.
+
+You need to find out if the cat can catch the mouse from it's current position. The cat can jump over three characters. So:
+
+C.....m returns 'Escaped!' <-- more than three characters between
+
+C...m returns 'Caught!' <-- as there are three characters between the two, the cat can jump.
+*/
+
+function catMouse(x) {
+  return x.length <= 5 ? "Caught!" : "Escaped!";
+}
+
+console.log(catMouse("C....m"));
+console.log(catMouse("C...m"));
+console.log(catMouse("C..m"));
+console.log(catMouse("C....m"));
