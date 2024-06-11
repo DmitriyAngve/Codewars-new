@@ -8088,7 +8088,7 @@ C.....m returns 'Escaped!' <-- more than three characters between
 
 C...m returns 'Caught!' <-- as there are three characters between the two, the cat can jump.
 */
-
+/*
 function catMouse(x) {
   return x.length <= 5 ? "Caught!" : "Escaped!";
 }
@@ -8097,3 +8097,71 @@ console.log(catMouse("C....m"));
 console.log(catMouse("C...m"));
 console.log(catMouse("C..m"));
 console.log(catMouse("C....m"));
+*/
+
+// #5
+/*
+Let us consider this example (array written in general format):
+
+ls = [0, 1, 3, 6, 10]
+
+Its following parts:
+
+ls = [0, 1, 3, 6, 10]
+ls = [1, 3, 6, 10]
+ls = [3, 6, 10]
+ls = [6, 10]
+ls = [10]
+ls = []
+
+The corresponding sums are (put together in a list): [20, 20, 19, 16, 10, 0]
+
+The function parts_sums (or its variants in other languages) will take as parameter a list ls and return a list of the sums of its parts as defined above.
+Other Examples:
+
+ls = [1, 2, 3, 4, 5, 6] 
+parts_sums(ls) -> [21, 20, 18, 15, 11, 6, 0]
+
+ls = [744125, 935, 407, 454, 430, 90, 144, 6710213, 889, 810, 2579358]
+parts_sums(ls) -> [10037855, 9293730, 9292795, 9292388, 9291934, 9291504, 9291414, 9291270, 2581057, 2580168, 2579358, 0]
+
+*/
+/*
+function partsSums(ls) {
+  let sum = 0;
+  let result = new Array(ls.length + 1);
+  result[ls.length] = 0;
+  for (let i = ls.length - 1; i >= 0; i--) {
+    sum += ls[i];
+    result[i] = sum;
+  }
+  return result;
+}
+
+console.log(partsSums([1, 2, 3, 4, 5, 6]));
+*/
+
+// #6
+/*
+Welcome to the Codewars Bar!
+
+Codewars Bar recommends you drink 1 glass of water per standard drink so you're not hungover tomorrow morning.
+
+Your fellow coders have bought you several drinks tonight in the form of a string. Return a string suggesting how many glasses of water you should drink to not be hungover.
+Examples
+
+"1 beer"  -->  "1 glass of water"
+because you drank one standard drink
+
+"1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer"  -->  "10 glasses of water"
+because you drank ten standard drinks
+*/
+
+function hydrate(s) {
+  const arr = s.match(/\d+/g).map(Number);
+  let result = arr.reduce((acc, curr) => acc + curr, 0);
+  if (result === 1) return "1 glass of water";
+  return `${result} glasses of water`;
+}
+
+console.log(hydrate("1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer"));
