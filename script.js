@@ -8156,7 +8156,7 @@ because you drank one standard drink
 "1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer"  -->  "10 glasses of water"
 because you drank ten standard drinks
 */
-
+/*
 function hydrate(s) {
   const arr = s.match(/\d+/g).map(Number);
   let result = arr.reduce((acc, curr) => acc + curr, 0);
@@ -8165,3 +8165,23 @@ function hydrate(s) {
 }
 
 console.log(hydrate("1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer"));
+*/
+
+// #7
+/*
+Complete the solution so that it takes the object (JavaScript/CoffeeScript) or hash (ruby) passed in and generates a human readable string from its key/value pairs.
+The format should be "KEY = VALUE". Each key/value pair should be separated by a comma except for the last pair.
+Example:
+solution({a: 1, b: '2'}) // should return "a = 1,b = 2"
+*/
+
+function solution(pairs) {
+  const result = Object.entries(pairs).map(
+    ([key, value]) => `${key} = ${value}`
+  );
+  return result.join(",");
+}
+
+console.log(solution({ "a": 1, "b": 2 }));
+console.log(solution({ "a": 1, "b": 2, "c": 3 }));
+console.log(solution({}));
