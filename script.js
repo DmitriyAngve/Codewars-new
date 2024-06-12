@@ -8156,7 +8156,7 @@ because you drank one standard drink
 "1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer"  -->  "10 glasses of water"
 because you drank ten standard drinks
 */
-
+/*
 function hydrate(s) {
   const arr = s.match(/\d+/g).map(Number);
   let result = arr.reduce((acc, curr) => acc + curr, 0);
@@ -8165,3 +8165,50 @@ function hydrate(s) {
 }
 
 console.log(hydrate("1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer"));
+*/
+
+// #7
+/*
+Complete the solution so that it takes the object (JavaScript/CoffeeScript) or hash (ruby) passed in and generates a human readable string from its key/value pairs.
+The format should be "KEY = VALUE". Each key/value pair should be separated by a comma except for the last pair.
+Example:
+solution({a: 1, b: '2'}) // should return "a = 1,b = 2"
+*/
+/*
+function solution(pairs) {
+  const result = Object.entries(pairs).map(
+    ([key, value]) => `${key} = ${value}`
+  );
+  return result.join(",");
+}
+
+console.log(solution({ "a": 1, "b": 2 }));
+console.log(solution({ "a": 1, "b": 2, "c": 3 }));
+console.log(solution({}));
+*/
+
+// 12.06.2024
+
+// #1
+/*
+Aspect-oriented programming (AOP) is programming that adds additional behavior (advice) to existing functionality without actually modifying that functionality.
+
+Create a method called adviseBefore. This method will take two arguments, a function (target) and the advising function (advice).
+
+adviseBefore should return a function that, when executed, will first execute the advising function and then the original method with the following conditions:
+
+    The arguments passed to the function that adviseBefore returns should be passed to the advising function.
+    If the advising function returns an array, the array should replace the arguments passed to the original method.
+    If the advising function does not return an array, the original arguments should be passed to the original method.
+    The return value of the original method should be returned.
+*/
+
+function adviseBefore(target, advice) {
+  return function (...args) {
+    const adviseArgs = advice(...args);
+    const finalArgs = Array.isArray(adviseArgs) ? adviseArgs : args;
+    return target(...finalArgs);
+  };
+}
+
+console.log(adviseBefore());
