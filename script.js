@@ -8226,7 +8226,7 @@ If you wish, you could also fix the sort() method for arrays such that it also w
 */
 
 // Fix the sort() method for arrays here.
-
+/*
 Array.prototype.sort = function () {
   // Bubble sort implementation
   for (let i = 0; i < this.length; i++) {
@@ -8246,3 +8246,34 @@ Array.prototype.sort = function () {
 const arr = [9, 7, 2, 4, 5, 3, 6, 8, 1];
 arr.sort();
 console.log(arr); // Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+*/
+
+// #3
+/*
+In this kata, you will do addition and subtraction on a given string. The return value must be also a string.
+Note: the input will not be empty.
+Examples
+"1plus2plus3plus4"  --> "10"
+"1plus2plus3minus4" -->  "2"
+*/
+
+function calculate(str) {
+  let replaced = str.replace(/plus/g, "+").replace(/minus/g, "-");
+  let arr = replaced.split(/[\+\-]/); // Split by either "+" or "-" to get individual numbers
+  let operations = replaced.match(/[\+\-]/g) || []; // Get all "+" and "-" signs
+
+  let count = Number(arr[0]); // Initialize count with the first number
+
+  for (let i = 0; i < operations.length; i++) {
+    let num = Number(arr[i + 1]); // Get the next number
+    if (operations[i] === "+") {
+      count += num;
+    } else {
+      count -= num;
+    }
+  }
+  return count.toString();
+}
+console.log(calculate("1plus2plus3plus4"));
+console.log(calculate("1minus2minus3minus4"));
+console.log(calculate("1plus2plus3minus4"));
