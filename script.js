@@ -8202,7 +8202,7 @@ adviseBefore should return a function that, when executed, will first execute th
     If the advising function does not return an array, the original arguments should be passed to the original method.
     The return value of the original method should be returned.
 */
-
+/*
 function adviseBefore(target, advice) {
   return function (...args) {
     const adviseArgs = advice(...args);
@@ -8212,3 +8212,37 @@ function adviseBefore(target, advice) {
 }
 
 console.log(adviseBefore());
+*/
+
+// #2
+/*
+You are a(n) novice/average/senior/professional/world-class (choose one) Computer Scientist and Web Developer who specialises in Javascript (choose the language of your choice). One day, while you were away, your naughty little brother fiddles with your computer and somehow manages to disable the sort() method for arrays!
+Task
+
+Being the developer that you are, you decide to fix the sort() method so that it works for any array consisting of only positive integers. You may use any algorithm you wish.
+Extension
+
+If you wish, you could also fix the sort() method for arrays such that it also works on String arrays (sorting them into alphabetical order) but please note that it is not required and will not be tested.
+*/
+
+// Fix the sort() method for arrays here.
+
+Array.prototype.sort = function () {
+  // Bubble sort implementation
+  for (let i = 0; i < this.length; i++) {
+    for (let j = 0; j < this.length - i - 1; j++) {
+      if (this[j] > this[j + 1]) {
+        // Swap elements if they are in the wrong order
+        let temp = this[j];
+        this[j] = this[j + 1];
+        this[j + 1] = temp;
+      }
+    }
+  }
+  return this; // Return sorted array
+};
+
+// Example usage:
+const arr = [9, 7, 2, 4, 5, 3, 6, 8, 1];
+arr.sort();
+console.log(arr); // Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
