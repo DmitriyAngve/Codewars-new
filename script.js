@@ -8257,6 +8257,7 @@ Examples
 "1plus2plus3minus4" -->  "2"
 */
 
+/*
 function calculate(str) {
   let replaced = str.replace(/plus/g, "+").replace(/minus/g, "-");
   let arr = replaced.split(/[\+\-]/); // Split by either "+" or "-" to get individual numbers
@@ -8277,3 +8278,44 @@ function calculate(str) {
 console.log(calculate("1plus2plus3plus4"));
 console.log(calculate("1minus2minus3minus4"));
 console.log(calculate("1plus2plus3minus4"));
+*/
+
+// 17.06.2024
+
+// #1
+/*
+Write a function, nicknameGenerator that takes a string name as an argument and returns the first 3 or 4 letters as a nickname.
+
+If the 3rd letter is a consonant, return the first 3 letters.
+
+nickname("Robert") //=> "Rob"
+nickname("Kimberly") //=> "Kim"
+nickname("Samantha") //=> "Sam"
+
+If the 3rd letter is a vowel, return the first 4 letters.
+
+nickname("Jeannie") //=> "Jean"
+nickname("Douglas") //=> "Doug"
+nickname("Gregory") //=> "Greg"
+
+If the string is less than 4 characters, return "Error: Name too short".
+*/
+
+function nicknameGenerator(name) {
+  if (name.length < 4) {
+    return "Error: Name too short";
+  }
+
+  const vowels = /[aeiouAEIOU]/g;
+
+  if (vowels.test(name[2])) {
+    return name.slice(0, 4);
+  } else {
+    return name.slice(0, 3);
+  }
+}
+
+console.log(nicknameGenerator("Jimmy"));
+console.log(nicknameGenerator("Sam"));
+console.log(nicknameGenerator("Samantha"));
+console.log(nicknameGenerator("Roby"));
