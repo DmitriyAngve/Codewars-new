@@ -8300,7 +8300,7 @@ nickname("Gregory") //=> "Greg"
 
 If the string is less than 4 characters, return "Error: Name too short".
 */
-
+/*
 function nicknameGenerator(name) {
   if (name.length < 4) {
     return "Error: Name too short";
@@ -8319,3 +8319,31 @@ console.log(nicknameGenerator("Jimmy"));
 console.log(nicknameGenerator("Sam"));
 console.log(nicknameGenerator("Samantha"));
 console.log(nicknameGenerator("Roby"));
+*/
+
+// #2
+/*
+My friend wants a new band name for her band. She like bands that use the formula: "The" + a noun with the first letter capitalized, for example:
+
+"dolphin" -> "The Dolphin"
+
+However, when a noun STARTS and ENDS with the same letter, she likes to repeat the noun twice and connect them together with the first and last letter, combined into one word (WITHOUT "The" in front), like this:
+
+"alaska" -> "Alaskalaska"
+
+Complete the function that takes a noun as a string, and returns her preferred band name written as a string.
+*/
+
+function bandNameGenerator(str) {
+  let newStr1 = str[0].toUpperCase();
+  let newStr2 = str.slice(1);
+
+  if (str[0] === str[str.length - 1]) {
+    return `${newStr1}${newStr2}${newStr2}`;
+  } else {
+    return `The ${newStr1}${newStr2}`;
+  }
+}
+
+console.log(bandNameGenerator("knife"));
+console.log(bandNameGenerator("tart"));
