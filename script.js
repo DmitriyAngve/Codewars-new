@@ -8333,7 +8333,7 @@ However, when a noun STARTS and ENDS with the same letter, she likes to repeat t
 
 Complete the function that takes a noun as a string, and returns her preferred band name written as a string.
 */
-
+/*
 function bandNameGenerator(str) {
   let newStr1 = str[0].toUpperCase();
   let newStr2 = str.slice(1);
@@ -8347,3 +8347,35 @@ function bandNameGenerator(str) {
 
 console.log(bandNameGenerator("knife"));
 console.log(bandNameGenerator("tart"));
+*/
+
+// #3
+/*
+Oh no, our Math object was "accidently" reset. Can you re-implement some of those functions? We can assure, that only non-negative numbers are passed as arguments. So you don't have to consider things like undefined, null, NaN, negative numbers, strings and so on.
+
+Here is a list of functions, we need:
+
+    Math.round()
+    Math.ceil()
+    Math.floor()
+*/
+
+Math.round = function (number) {
+  if (number % 1 >= 0.5) {
+    return Math.floor(number) + 1;
+  } else {
+    return Math.floor(number);
+  }
+};
+
+Math.ceil = function (number) {
+  if (number % 1 === 0) {
+    return number;
+  } else {
+    return Math.floor(number) + 1;
+  }
+};
+
+Math.floor = function (number) {
+  return number - (number % 1);
+};
