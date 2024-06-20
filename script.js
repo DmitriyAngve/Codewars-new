@@ -8438,6 +8438,7 @@ You need to write a loop statement within the function that loops n times. Each 
 
 Finally, return the padded string.
 */
+/*
 function padIt(str, n) {
   let i = 0;
   while (i < n) {
@@ -8456,3 +8457,27 @@ console.log(padIt("a", 2));
 console.log(padIt("a", 3));
 console.log(padIt("a", 4));
 console.log(padIt("a", 5));
+*/
+
+// #2
+/*
+The other day I saw an amazing video where a guy hacked some wifi controlled lightbulbs by flying a drone past them. Brilliant.
+
+In this kata we will recreate that stunt... sort of.
+
+You will be given two strings: lamps and drone. lamps represents a row of lamps, currently off, each represented by x. When these lamps are on, they should be represented by o.
+
+The drone string represents the position of the drone T (any better suggestion for character??) and its flight path up until this point =. The drone always flies left to right, and always begins at the start of the row of lamps. Anywhere the drone has flown, including its current position, will result in the lamp at that position switching on.
+
+Return the resulting lamps string. See example tests for more clarity.
+*/
+
+function flyBy(l, d) {
+  let lengthToTurn = Math.min(l.length, d.length);
+
+  let result = "o".repeat(lengthToTurn) + l.slice(lengthToTurn);
+  return result;
+}
+
+console.log(flyBy("xxxxxx", "====T"));
+console.log(flyBy("xxxxxxxxxxxxxxx", "=========T"));
