@@ -8601,7 +8601,7 @@ Note
 
     You have to return a new array, do not modify the original array.
 */
-
+/*
 Array.prototype.sortReloaded = function (dir = "asc") {
   let newArray = [...this];
 
@@ -8618,3 +8618,33 @@ console.log([3, 1, 5, 3, 6, 1, 2].sortReloaded("asc"));
 console.log([2, 3, 4, 3, 2, 9, 1].sortReloaded("desc"));
 console.log([2, 3, 4, 3, 2, 9, 1].sortReloaded("foo"));
 console.log([4, 7, 2].sortReloaded());
+*/
+
+// #7
+/*
+You have an array of numbers 1 through n (where 1 <= n <= 10). The array needs to be formatted correctly for the person reading the countdown of a spaceship launch.
+
+Unfortunately, the person reading the countdown only knows how to read strings. After the array is sorted correctly make sure it's in a format he can understand.
+
+Between each number should be a space and after the final number (n) should be the word 'liftoff!'
+
+Example:
+
+// Given
+instructions = [8,1,10,2,7,9,6,3,4,5]
+// Should return
+"10 9 8 7 6 5 4 3 2 1 liftoff!"
+// Given
+instructions = [1,2,4,3,5]
+// Should return
+"5 4 3 2 1 liftoff!"
+*/
+function liftoff(instructions) {
+  let sorted = instructions.sort((a, b) => b - a);
+  sorted.push("liftoff!");
+
+  return sorted.join(" ");
+}
+
+console.log(liftoff([8, 1, 10, 2, 7, 9, 6, 3, 4, 5]));
+console.log(liftoff([1, 2, 4, 3, 5]));
