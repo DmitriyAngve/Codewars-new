@@ -8492,7 +8492,7 @@ For example, the number 417 is 110100001 in binary. Reversing the binary is 1000
 
 You can assume that the number is not negative.
 */
-
+/*
 function reverseBits(n) {
   const bin = n.toString(2);
   console.log(bin);
@@ -8503,3 +8503,23 @@ function reverseBits(n) {
 }
 
 console.log(reverseBits(417));
+*/
+
+// #2
+/*
+HELP! Jason can't find his textbook! It is two days before the test date, and Jason's textbooks are all out of order! Help him sort a list (ArrayList in java) full of textbooks by subject, so he can study before the test.
+
+The sorting should NOT be case sensitive
+*/
+
+function sorter(textbooks) {
+  return textbooks.sort((a, b) =>
+    a.toLowerCase() > b.toLowerCase()
+      ? 1
+      : a.toLowerCase() < b.toLowerCase()
+      ? -1
+      : 0
+  );
+}
+
+console.log(sorter(["Algebra", "History", "Geometry", "English"]));
