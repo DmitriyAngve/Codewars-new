@@ -8571,6 +8571,7 @@ So:
 sumCircles(2) == "We have this much circle: 3"
 sumCircles(2, 3, 4) == "We have this much circle: 23"
 */
+/*
 function sumCircles() {
   let area = 0;
   let args = [...arguments];
@@ -8584,3 +8585,36 @@ function sumCircles() {
 console.log(sumCircles(2));
 console.log(sumCircles(2, 3, 4));
 console.log(sumCircles(1, 1, 1));
+*/
+
+// #6
+/*
+Array.prototype.sort() is a pretty handy feature of the JS core, but when it comes to order an array of numbers, sometimes it can pollute our code.
+Task
+
+In this Kata you have to extend the Array object and add the sortReloaded(dir) method to it in order to make this task easier and cleaner.
+
+It should receive a dir parameter which has with two possible values 'asc' or 'desc', and return a new array ordered ascendingly or descendingly respectively. If no dir parameter is set it should assume 'asc' by default. If it has an invalid value, return false.
+Note
+
+    For the effects of this Kata, all the arrays will contain only Integer numbers so you don't have to care about validating them.
+
+    You have to return a new array, do not modify the original array.
+*/
+
+Array.prototype.sortReloaded = function (dir = "asc") {
+  let newArray = [...this];
+
+  if (dir === "asc") {
+    return newArray.sort((a, b) => a - b);
+  } else if (dir === "desc") {
+    return newArray.sort((a, b) => b - a);
+  } else {
+    return false;
+  }
+};
+
+console.log([3, 1, 5, 3, 6, 1, 2].sortReloaded("asc"));
+console.log([2, 3, 4, 3, 2, 9, 1].sortReloaded("desc"));
+console.log([2, 3, 4, 3, 2, 9, 1].sortReloaded("foo"));
+console.log([4, 7, 2].sortReloaded());
