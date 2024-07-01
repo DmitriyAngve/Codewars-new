@@ -8549,7 +8549,7 @@ JavaScript has sparse arrays, in which not all of its elements are necessarily s
 
 The challenge here is to create such a method. Please remember that an element in an array can be set to anything including "null" and "undefined". Such elements are not considered sparse in JavaScript. One of the ways to make sparse arrays is for example by deleting some elements in a regular array, like in "delete array[i]", where i < array.length. Also remember that an empty array is not a sparse array by definition.
 */
-
+/*
 Array.prototype.isSparse = function () {
   for (let i = 0; i < this.length; i++) {
     if (!(i in this)) {
@@ -8560,3 +8560,27 @@ Array.prototype.isSparse = function () {
 };
 
 console.log([1, 2, 3].isSparse());
+*/
+
+// #5
+/*
+Write a function that takes as its parameters one or more numbers which are the diameters of circles.
+The function should return the total area of all the circles, rounded to the nearest integer in a string that says "We have this much circle: xyz".
+You don't know how many circles you will be given, but you can assume it will be at least one.
+So:
+sumCircles(2) == "We have this much circle: 3"
+sumCircles(2, 3, 4) == "We have this much circle: 23"
+*/
+function sumCircles() {
+  let area = 0;
+  let args = [...arguments];
+  for (let i = 0; i < args.length; i++) {
+    let rad = args[i] / 2;
+    area += Math.PI * rad * rad;
+  }
+  console.log(area);
+  return `We have this much circle: ${Math.round(area)}`;
+}
+console.log(sumCircles(2));
+console.log(sumCircles(2, 3, 4));
+console.log(sumCircles(1, 1, 1));
