@@ -8677,6 +8677,7 @@ sum(1,2,3,4)         should return 10
 sum(1, "two", 3)     should return false
 sum(1, 2, [3], NaN)  should return false
 */
+/*
 function sum() {
   var total = 0;
 
@@ -8695,3 +8696,28 @@ function sum() {
 
 console.log(sum(6, 2, 3));
 console.log(sum(1, -32, undefined, 1076));
+*/
+
+// #10
+/*
+Complete the function/method so that it takes a PascalCase string and returns the string in snake_case notation. Lowercase characters can be numbers. If the method gets a number as input, it should return a string.
+Examples
+"TestController"  -->  "test_controller"
+"MoviesAndBooks"  -->  "movies_and_books"
+"App7Test"        -->  "app7_test"
+1                 -->  "1"
+*/
+function toUnderscore(string) {
+  if (typeof string === "number") return string.toString();
+
+  const capital = /[A-Z]/g;
+
+  const chars = string.replace(capital, (match) => `_${match.toLowerCase()}`);
+  const final = chars.startsWith("_") ? chars.slice(1) : chars;
+  return final;
+}
+
+console.log(toUnderscore(1));
+console.log(toUnderscore("TestController"));
+console.log(toUnderscore("MoviesAndBooks"));
+console.log(toUnderscore("App7Test"));
