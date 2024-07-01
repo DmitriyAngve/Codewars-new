@@ -8657,7 +8657,7 @@ Exponential/scientific notation is used to write very large or small numbers in 
 Write a function which returns the number of digits in any number with more than 21 digits. If the function is passed a string or a number with 21 or fewer digits it should return "wrong input".
 For example: If input number is 9000000000000000000000, then it should return number of digits, in this case 22. If numbers are 222222222 or "5263" which number of digits are less than 21 or "asdf///" which is not a number then it should return string 'wrong input'.
 */
-
+/*
 function getNumberLength(n) {
   if (typeof n === "string" || !n.toString().includes("e+"))
     return "wrong input";
@@ -8666,3 +8666,32 @@ function getNumberLength(n) {
 console.log(getNumberLength(7005623021525000000000000000));
 console.log(getNumberLength(5236200000000000));
 console.log(getNumberLength(9000000000000000000000));
+*/
+
+// #9
+/*
+Calculate the sum of all the arguments passed to a function.
+Note: If any of the arguments is not a finite number the function should return false/False instead of the sum of the arguments.
+For example:
+sum(1,2,3,4)         should return 10
+sum(1, "two", 3)     should return false
+sum(1, 2, [3], NaN)  should return false
+*/
+function sum() {
+  var total = 0;
+
+  let arr = [...arguments];
+  console.log(arr);
+
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] !== "number" || !isFinite(arr[i])) {
+      return false;
+    } else {
+      total += arr[i];
+    }
+  }
+  return total;
+}
+
+console.log(sum(6, 2, 3));
+console.log(sum(1, -32, undefined, 1076));
