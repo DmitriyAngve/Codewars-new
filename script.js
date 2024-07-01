@@ -8471,7 +8471,7 @@ The drone string represents the position of the drone T (any better suggestion f
 
 Return the resulting lamps string. See example tests for more clarity.
 */
-
+/*
 function flyBy(l, d) {
   let lengthToTurn = Math.min(l.length, d.length);
 
@@ -8481,3 +8481,25 @@ function flyBy(l, d) {
 
 console.log(flyBy("xxxxxx", "====T"));
 console.log(flyBy("xxxxxxxxxxxxxxx", "=========T"));
+*/
+
+// 01.07.2024
+// #1
+/*
+Write a function that reverses the bits in an integer.
+
+For example, the number 417 is 110100001 in binary. Reversing the binary is 100001011 which is 267.
+
+You can assume that the number is not negative.
+*/
+
+function reverseBits(n) {
+  const bin = n.toString(2);
+  console.log(bin);
+
+  const binArr = bin.split("").reverse().join("");
+
+  return parseInt(binArr, 2);
+}
+
+console.log(reverseBits(417));
