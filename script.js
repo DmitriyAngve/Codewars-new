@@ -8766,9 +8766,42 @@ Should yield the same result as
 
 d(c(b(a(input))))
 */
-
+/*
 function chained(functions) {
   return function (input) {
     return functions.reduce((acc, fn) => fn(acc), input);
   };
 }
+*/
+
+// #2
+/*
+Some people just have a first name; some people have first and last names and some people have first, middle and last names.
+
+You task is to initialize the middle names (if there is any).
+Examples
+
+'Jack Ryan'                   => 'Jack Ryan'
+'Lois Mary Lane'              => 'Lois M. Lane'
+'Dimitri'                     => 'Dimitri'
+'Alice Betty Catherine Davis' => 'Alice B. C. Davis'
+*/
+function initializeNames(name) {
+  let arr = name.split(" ");
+  console.log(arr);
+  let result = [];
+  if (arr.length >= 3) {
+    for (let i = 1; i < arr.length - 1; i++) {
+      // arr[i] = arr[i].slice(0, 1);
+      arr[i] = arr[i].charAt(0) + ".";
+      console.log(arr[i]);
+    }
+  }
+
+  return arr.join(" ");
+}
+
+console.log(initializeNames("Jack Ryan"));
+console.log(initializeNames("Dimitri"));
+console.log(initializeNames("Lois Mary Lane"));
+console.log(initializeNames("Alice Betty Catherine Davis"));
