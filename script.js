@@ -8939,7 +8939,7 @@ numToIp / num_to_ip
  167772160 converts to    '10.0.0.0'
 2953838593 converts to  '176.16.0.1'
 */
-
+/*
 function ipToNum(ip) {
   // Разделяем IP-адрес на октеты
   let arr = ip.split(".");
@@ -8970,3 +8970,55 @@ console.log(ipToNum("10.0.0.0"));
 
 console.log(numToIp(3232235777));
 console.log(numToIp(167772160));
+*/
+
+// #7
+/*
+Create a function that takes a positive integer and returns the next bigger number that can be formed by rearranging its digits. For example:
+
+  12 ==> 21
+ 513 ==> 531
+2017 ==> 2071
+
+If the digits can't be rearranged to form a bigger number, return -1 (or nil in Swift, None in Rust):
+
+  9 ==> -1
+111 ==> -1
+531 ==> -1
+*/
+
+function nextBigger(n) {
+  let arr = n.toString().split("").map(Number);
+  let len = arr.length;
+
+  // Найти первый элемент справа который меньше следующего справа от него
+  let i;
+
+  for (i = len - 2; i >= 0; i--) {
+    if (arr[i] < arr[i + 1]) break;
+  }
+
+  // Если такого не найдено, то вернуть -1
+  if (i === -1) return -1;
+
+  // Найти наименьший элемент справа от arr[i], который больше arr[i]
+  let j;
+  for (j = len - 1; j > i; j--) {
+    if (arr[j] > arr[i]) break;
+  }
+
+  // Меняю местами arr[i] и arr[j]
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+
+  // Отсортировать элементы справа от позиции i
+  let r = arr.slice(i + 1).sort((a, b) => a - b);
+  let result = arr.slice(0, i + 1).concat(r);
+
+  return parseInt(result.join("", 10));
+}
+
+console.log(nextBigger(12));
+console.log(nextBigger(513));
+console.log(nextBigger(414));
+console.log(nextBigger(111));
+console.log(nextBigger(9));
