@@ -8986,7 +8986,7 @@ If the digits can't be rearranged to form a bigger number, return -1 (or nil in 
 111 ==> -1
 531 ==> -1
 */
-
+/*
 function nextBigger(n) {
   let arr = n.toString().split("").map(Number);
   let len = arr.length;
@@ -9022,3 +9022,27 @@ console.log(nextBigger(513));
 console.log(nextBigger(414));
 console.log(nextBigger(111));
 console.log(nextBigger(9));
+*/
+
+// #8
+/*
+Define a class named MyClass inside a namespace MyNamespace. The class constructor should accept a single string argument. It should also have a function named sayHello that returns the string passed into the constructor.
+
+Example:
+
+var myObject = new MyNamespace.MyClass('Hello!');
+
+var phrase = myObject.sayHello(); // phrase should be 'Hello!'
+
+The interesting part is that MyClass should only be accessible via the namespace and should not define any extra global variables. Code should not redefine an existing namespace, but should also function if the namespace is not previously defined.
+*/
+
+var MyNamespace = MyNamespace || {};
+
+MyNamespace.MyClass = function (phrase) {
+  this.phrase = phrase;
+};
+
+MyNamespace.MyClass.prototype.sayHello = function () {
+  return this.phrase;
+};
