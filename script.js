@@ -8786,6 +8786,7 @@ Examples
 'Dimitri'                     => 'Dimitri'
 'Alice Betty Catherine Davis' => 'Alice B. C. Davis'
 */
+/*
 function initializeNames(name) {
   let arr = name.split(" ");
   console.log(arr);
@@ -8794,7 +8795,7 @@ function initializeNames(name) {
     for (let i = 1; i < arr.length - 1; i++) {
       // arr[i] = arr[i].slice(0, 1);
       arr[i] = arr[i].charAt(0) + ".";
-      console.log(arr[i]);
+      
     }
   }
 
@@ -8805,3 +8806,32 @@ console.log(initializeNames("Jack Ryan"));
 console.log(initializeNames("Dimitri"));
 console.log(initializeNames("Lois Mary Lane"));
 console.log(initializeNames("Alice Betty Catherine Davis"));
+*/
+
+// #3
+/*
+Create a function that returns True if a given number is divisible by 4, otherwise it should return False.
+*/
+/*
+function dividedByFour(x) {
+  return x % 4 === 0 
+}
+*/
+
+// #4
+/*
+Create a function that rounds a number to 2 decimal places and returns it as a string.
+
+For example:
+
+Round(1.56888)==>"1.57"
+Round(0.3333)==> "0.33"
+
+The return value should be a string, as shown in examples.
+*/
+function Round(n) {
+  return n.toFixed(2);
+}
+
+console.log(Round(1.56888));
+console.log(Round(0.3333));
