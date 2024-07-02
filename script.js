@@ -8742,7 +8742,7 @@ Even though there are no spaces, it is still valid because none are needed:
 * ' '             => false
 * ''              => true
 */
-
+/*
 function validSpacing(s) {
   return s.trim() === s && !s.includes("  ");
 }
@@ -8752,3 +8752,23 @@ console.log(validSpacing(" Hello world"));
 console.log(validSpacing("Hello world  "));
 console.log(validSpacing("  "));
 console.log(validSpacing(""));
+*/
+
+// 02.07.2024
+
+// #1
+/*
+Your task is to write a higher order function for chaining together a list of unary functions. In other words, it should return a function that does a left fold on the given functions.
+
+chained([a,b,c,d])(input)
+
+Should yield the same result as
+
+d(c(b(a(input))))
+*/
+
+function chained(functions) {
+  return function (input) {
+    return functions.reduce((acc, fn) => fn(acc), input);
+  };
+}
