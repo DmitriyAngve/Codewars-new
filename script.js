@@ -8857,6 +8857,7 @@ Function should return a dictionary/Object/Hash with "status" as a key, whose va
 But as you will see after clicking RUN or ATTEMPT this code has several bugs, please fix them.
 */
 
+/*
 function getStatus(isBusy) {
   var msg = isBusy ? "busy" : "available";
   let ht = { status: msg };
@@ -8864,3 +8865,37 @@ function getStatus(isBusy) {
 }
 
 console.log(getStatus(1));
+*/
+
+// #5
+/*
+Every Friday and Saturday night, farmer counts sheep coming back to his farm (sheep returned on Friday stay and don't leave).
+
+Sheep return in groups both of the days -> You will be given two arrays with these numbers (one for Friday and one for Saturday night). Array entries are integers, equal zero or higher - in case a given array is empty, farmer did not count the sheep or got sick (we treat this as no sheep returned that night).
+
+Farmer knows how many sheep he has in total (third parameter). You need to calculate the amount of sheep lost (not returned to the farm) after final sheep count on Saturday.
+
+Example 1: Input: [1, 2], [3, 4], 15 --> Output: 5
+
+Example 2: Input: [3, 1, 2], [4, 5], 21 --> Output: 6
+
+Example 3: Input: [0], [4, 15], 31 --> Output: 12
+
+Example 4: Input: [], [4], 15 --> Output: 11
+*/
+function lostSheep(friday, saturday, total) {
+  let res = sums(friday) + sums(saturday);
+  return total - res;
+}
+
+function sums(arr) {
+  let result = 0;
+  for (let i = 0; i < arr.length; i++) {
+    result += arr[i];
+  }
+  return result;
+}
+
+console.log(lostSheep([1, 2], [3, 4], 15));
+console.log(lostSheep([5, 1, 4], [5, 4], 29));
+console.log(lostSheep([], [], 15));
