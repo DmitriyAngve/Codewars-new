@@ -9057,6 +9057,7 @@ Use the super secret characters in the superSecretChars variable to replace the 
 eg. replace all 'a's with '@'s. Make sure you get the upper case characters too just in case the user wants to SHOUT their password at you.
 */
 //These are your super secret characters you will use to make the password super secure
+/*
 var superSecretChars = [
   ["a", "@"],
   ["s", "$"],
@@ -9078,3 +9079,29 @@ function createSSP(password) {
 
 console.log(createSSP("haxorpassword"));
 console.log(createSSP("HaxorPassword"));
+*/
+
+// 08.07.2024
+
+// #1
+/*
+Complete the function that returns an array of length n, starting with the given number x and the squares of the previous number. If n is negative or zero, return an empty array/list.
+Examples
+
+2, 5  -->  [2, 4, 16, 256, 65536]
+3, 3  -->  [3, 9, 81]
+*/
+
+function squares(x, n) {
+  if (n <= 0) return [];
+
+  let result = [x];
+  for (let i = 1; i < n; i++) {
+    result.push(result[i - 1] ** 2);
+  }
+
+  return result;
+}
+
+console.log(squares(3, 3));
+console.log(squares(2, 5));
