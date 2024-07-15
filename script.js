@@ -9249,7 +9249,7 @@ changeTime('10:00', -1) //return '09:59'
 changeTime('23:59', 1) //return '00:00'
 changeTime('00:00', -1) //return '23:59'
 */
-
+/*
 function changeTime(input, delta) {
   let [h, m] = input.split(":").map(Number);
 
@@ -9269,3 +9269,44 @@ function changeTime(input, delta) {
 console.log(changeTime("10:00", 1));
 console.log(changeTime("23:59", 1));
 console.log(changeTime("00:00", -1));
+*/
+
+// #4
+/*
+You are a(n) novice/average/experienced/professional/world-famous Web Developer (choose one) who owns a(n) simple/clean/slick/beautiful/complicated/professional/business website (choose one or more) which contains form fields so visitors can send emails or leave a comment on your website with ease. However, with ease comes danger. Every now and then, a hacker visits your website and attempts to compromise it through the use of XSS (Cross Site Scripting). This is done by injecting script tags into the website through form fields which may contain malicious code (e.g. a redirection to a malicious website that steals personal information).
+Mission
+
+Your mission is to implement a function that converts the following potentially harmful characters:
+
+    < --> &lt;
+    > --> &gt;
+    " --> &quot;
+    & --> &amp;
+*/
+
+function htmlspecialchars(formData) {
+  // const replacement = {
+  //   "<": "&lt",
+  //   ">": "&gt",
+  //   '"': "&quot",
+  //   "&": "&amp",
+  // };
+  // let result = formData.replace(/[<>"&]/g, (matched) => replacement[matched]);
+  // return result;
+
+  const replacement = [
+    ["<", "&lt"],
+    [">", "&gt"],
+    ['"', "&quot"],
+    ["&", "&amp"],
+  ];
+
+  for (let [search, replace] of replacement) {
+    formData = formData.replace(new RegExp(search, "g"), replace);
+  }
+  return formData;
+}
+
+console.log(htmlspecialchars("<h2>Hello World</h2>"));
+console.log(htmlspecialchars("Hello, how would you & I fare?"));
+console.log(htmlspecialchars("<script>alert('Website Hacked!');</script>"));
