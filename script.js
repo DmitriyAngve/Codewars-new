@@ -9320,7 +9320,7 @@ The function buildFun will return an array of functions. The single parameter ac
 
 The wanted outcome is that when all function in the array are executed, the number from 0 to N should be returned.
 */
-
+/*
 function buildFun(n) {
   var res = [];
 
@@ -9333,3 +9333,49 @@ function buildFun(n) {
 }
 
 console.log(buildFun(10));
+*/
+
+// #6
+/*
+Amicable numbers are two different numbers so related that the sum of the proper divisors of each is equal to the other number. (A proper divisor of a number is a positive factor of that number other than the number itself. For example, the proper divisors of 6 are 1, 2, and 3.)
+
+For example, the smallest pair of amicable numbers is (220, 284); for the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110, of which the sum is 284; and the proper divisors of 284 are 1, 2, 4, 71 and 142, of which the sum is 220.
+
+Derive function amicableNumbers(num1, num2) which returns true/True if pair num1 num2 are amicable, false/False if not.
+*/
+
+function amicableNumbers(num1, num2) {
+  let x = check(num1);
+  let y = check(num2);
+  // console.log(x);
+  // console.log(y);
+  if (num1 === y && num2 === x) {
+    return true;
+  }
+  return false;
+}
+
+function check(num) {
+  let arr = [];
+  for (let i = 1; i < num; i++) {
+    if (num % i === 0) {
+      arr.push(i);
+    }
+  }
+  return arr.reduce((acc, curr) => acc + curr, 0);
+}
+console.log(amicableNumbers(220, 284));
+console.log(amicableNumbers(220, 280));
+console.log(amicableNumbers(1184, 1210));
+// for (let i = 1; i < num1; i++) {
+//   if (num1 % i === 0) {
+//     arr1.push(i);
+//   }
+// }
+// console.log(arr1);
+// for (let j = 1; j < num2; j++) {
+//   if (num2 % j === 0) {
+//     arr2.push(j);
+//   }
+// }
+// console.log(arr2);
