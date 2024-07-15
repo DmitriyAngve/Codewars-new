@@ -9343,12 +9343,11 @@ For example, the smallest pair of amicable numbers is (220, 284); for the proper
 
 Derive function amicableNumbers(num1, num2) which returns true/True if pair num1 num2 are amicable, false/False if not.
 */
-
+/*
 function amicableNumbers(num1, num2) {
   let x = check(num1);
   let y = check(num2);
-  // console.log(x);
-  // console.log(y);
+
   if (num1 === y && num2 === x) {
     return true;
   }
@@ -9367,15 +9366,33 @@ function check(num) {
 console.log(amicableNumbers(220, 284));
 console.log(amicableNumbers(220, 280));
 console.log(amicableNumbers(1184, 1210));
-// for (let i = 1; i < num1; i++) {
-//   if (num1 % i === 0) {
-//     arr1.push(i);
-//   }
-// }
-// console.log(arr1);
-// for (let j = 1; j < num2; j++) {
-//   if (num2 % j === 0) {
-//     arr2.push(j);
-//   }
-// }
-// console.log(arr2);
+*/
+
+// #7
+/*
+vowelOne
+Write a function that takes a string and outputs a strings of 1's and 0's where vowels become 1's and non-vowels become 0's.
+All non-vowels including non alpha characters (spaces,commas etc.) should be included.
+Examples:
+vowelOne( "abceios" ) // "1001110"
+vowelOne( "aeiou, abc" ) // "1111100100"
+*/
+
+function vowelOne(s) {
+  const vowels = /[aeiouAEIOU]/g;
+
+  const arr = s.split("");
+  let result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].match(vowels)) {
+      result.push(1);
+    } else {
+      result.push(0);
+    }
+  }
+  return result.join("");
+}
+
+console.log(vowelOne("vowelOne"));
+console.log(vowelOne("123, arou"));
