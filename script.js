@@ -9214,7 +9214,7 @@ Be careful with long sequences. They are just arrays, every element is created w
 
 For lazy sequences (elements created when needed) use Iterator.
 */
-
+/*
 function sequence(n, pattern) {
   // const res = new Array(n);
   // if (typeof pattern === "function") {
@@ -9238,3 +9238,34 @@ console.log(sequence(3, 4));
 console.log(sequence(3, "s"));
 console.log(sequence(3, []));
 console.log(sequence(3, (x, idx) => idx % 2));
+*/
+
+// #3
+/*
+Write a function changeTime which increases or decreases given time. Input param is string in HH:MM format and delta is integer value -1 or 1 in minutes. Let see some examples:
+
+changeTime('10:00', 1) //return '10:01'
+changeTime('10:00', -1) //return '09:59'
+changeTime('23:59', 1) //return '00:00'
+changeTime('00:00', -1) //return '23:59'
+*/
+
+function changeTime(input, delta) {
+  let [h, m] = input.split(":").map(Number);
+
+  // Создаю новый объект Date, и задаю ему часы и минуты
+  let date = new Date();
+  date.setHours(h);
+  date.setMinutes(m + delta); // изменение минут
+  // console.log(date);
+
+  // Обратное действие
+  let newH = date.getHours().toString().padStart(2, "0");
+  let newM = date.getMinutes().toString().padStart(2, "0");
+
+  return `${newH}:${newM}`;
+}
+
+console.log(changeTime("10:00", 1));
+console.log(changeTime("23:59", 1));
+console.log(changeTime("00:00", -1));
