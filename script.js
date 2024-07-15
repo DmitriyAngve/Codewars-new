@@ -9141,7 +9141,7 @@ For this game of BINGO, you will receive a single array of 10 numbers from 1 to 
 
 Each number corresponds to their alphabetical order letter (e.g. 1 = A. 2 = B, etc). Write a function where you will win the game if your numbers can spell "BINGO". They do not need to be in the right order in the input array. Otherwise you will lose. Your outputs should be "WIN" or "LOSE" respectively.
 */
-
+/*
 function bingo(a) {
   const bingo = new Set(["B", "I", "N", "G", "O"]);
   const letters = a.map((num) => String.fromCharCode(num + 64));
@@ -9157,3 +9157,33 @@ function bingo(a) {
 
 console.log(bingo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 console.log(bingo([21, 13, 2, 7, 5, 14, 7, 15, 9, 10]));
+*/
+
+// 15.07.2024
+
+// #1
+/*
+Jack really likes his number five: the trick here is that you have to multiply each number by 5 raised to the number of digits of each numbers, so, for example:
+
+  3 -->    15  (  3 * 5¹)
+ 10 -->   250  ( 10 * 5²)
+200 --> 25000  (200 * 5³)
+  0 -->     0  (  0 * 5¹)
+ -3 -->   -15  ( -3 * 5¹)
+*/
+
+function multiply(number) {
+  let len = number.toString().length;
+  if (number < 0) {
+    len = len - 1;
+  }
+
+  console.log(length);
+  return number * Math.pow(5, len);
+}
+
+// console.log(multiply(10));
+// console.log(multiply(5));
+// console.log(multiply(200));
+// console.log(multiply(0));
+console.log(multiply(-3));
