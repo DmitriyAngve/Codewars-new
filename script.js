@@ -9283,7 +9283,7 @@ Your mission is to implement a function that converts the following potentially 
     " --> &quot;
     & --> &amp;
 */
-
+/*
 function htmlspecialchars(formData) {
   // const replacement = {
   //   "<": "&lt",
@@ -9295,10 +9295,10 @@ function htmlspecialchars(formData) {
   // return result;
 
   const replacement = [
-    ["<", "&lt"],
-    [">", "&gt"],
-    ['"', "&quot"],
-    ["&", "&amp"],
+    ["<", "&lt;"],
+    [">", "&gt;"],
+    ['"', "&quot;"],
+    ["&", "&amp;"],
   ];
 
   for (let [search, replace] of replacement) {
@@ -9310,3 +9310,26 @@ function htmlspecialchars(formData) {
 console.log(htmlspecialchars("<h2>Hello World</h2>"));
 console.log(htmlspecialchars("Hello, how would you & I fare?"));
 console.log(htmlspecialchars("<script>alert('Website Hacked!');</script>"));
+*/
+
+// #5
+/*
+This is a simple exercise to understand the feature in the javascript language called closure.
+
+The function buildFun will return an array of functions. The single parameter accepted by buildFun is the number of elements N of the array returned.
+
+The wanted outcome is that when all function in the array are executed, the number from 0 to N should be returned.
+*/
+
+function buildFun(n) {
+  var res = [];
+
+  for (let i = 0; i <= n; i++) {
+    res.push(function () {
+      return i;
+    });
+  }
+  return res;
+}
+
+console.log(buildFun(10));
