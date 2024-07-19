@@ -9529,7 +9529,7 @@ Examples
 
 ("-++-", "-+-+") ➞ "-+00"
 */
-
+/*
 function neutralise(s1, s2) {
   let res = [];
   for (let i = 0; i < s1.length; i++) {
@@ -9544,3 +9544,36 @@ function neutralise(s1, s2) {
 
 console.log(neutralise("--++--", "++--++"));
 console.log(neutralise("-+-+-+", "-+-+-+"));
+*/
+
+// #3
+/*
+Write a function that takes an array of unique integers and returns the minimum number of integers needed to make the values of the array consecutive from the lowest number to the highest number.
+Example
+
+[4, 8, 6] --> 2
+Because 5 and 7 need to be added to have [4, 5, 6, 7, 8]
+
+[-1, -5] --> 3
+Because -2, -3, -4 need to be added to have [-5, -4, -3, -2, -1]
+
+[1] --> 0
+[]  --> 0
+*/
+
+function consecutive(arr) {
+  if (!arr.length || arr.length === 1) return 0;
+
+  arr.sort((a, b) => a - b);
+  let min = arr[0];
+  let max = arr[arr.length - 1];
+
+  let totalNumInRange = max - min + 1;
+
+  return totalNumInRange - arr.length;
+}
+
+console.log(consecutive([4, 8, 6]));
+console.log(consecutive([-1, -5]));
+console.log(consecutive([1]));
+console.log(consecutive([]));
