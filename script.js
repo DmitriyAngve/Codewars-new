@@ -9560,7 +9560,7 @@ Because -2, -3, -4 need to be added to have [-5, -4, -3, -2, -1]
 [1] --> 0
 []  --> 0
 */
-
+/*
 function consecutive(arr) {
   if (!arr.length || arr.length === 1) return 0;
 
@@ -9577,3 +9577,37 @@ console.log(consecutive([4, 8, 6]));
 console.log(consecutive([-1, -5]));
 console.log(consecutive([1]));
 console.log(consecutive([]));
+*/
+
+// 21.07.2024
+
+// #1
+/*
+Given an array of 4 integers
+[a,b,c,d] representing two points (a, b) and (c, d), return a string representation of the slope of the line joining these two points.
+
+For an undefined slope (division by 0), return undefined . Note that the "undefined" is case-sensitive.
+
+   a:x1
+   b:y1
+   c:x2
+   d:y2
+
+Assume that [a,b,c,d] and the answer are all integers (no floating numbers!). Slope: https://en.wikipedia.org/wiki/Slope
+*/
+
+function slope(points) {
+  const [x1, y1, x2, y2] = points;
+
+  if (x2 - x1 === 0) {
+    return "undefined";
+  }
+
+  const k = (y2 - y1) / (x2 - x1);
+
+  return k.toString();
+}
+
+console.log(slope([19, 3, 20, 3]));
+console.log(slope([2, 7, 4, -7]));
+console.log(slope([-10, 6, -10, 3]));
