@@ -9804,7 +9804,7 @@ for n = 4, there is neither n - 1 = 3 nor n + 1 = 5
 
 Write a function named isNice/IsNice that returns true if its array argument is a Nice array, else false. An empty array is not considered nice.
 */
-
+/*
 function isNice(arr) {
   let count = 0;
 
@@ -9821,3 +9821,35 @@ function isNice(arr) {
 
 console.log(isNice([2, 10, 9, 3]));
 console.log(isNice([3, 4, 5, 7]));
+*/
+
+// #8
+/*
+Write a solution to cleanup arrays. This can exist entirely in the squeakyClean function or contain multiple helper functions.
+
+Your squeakyClean function should accept an input array of values and return a new array with all empty strings, 0, null and undefined removed.
+
+Example:
+
+var originalArray = ['click1','click2',null,'','','submitForm'];
+
+the solution you write should return this:
+
+var cleanedArray = ['click1', 'click2','submitForm'] 
+*/
+
+function squeakyClean(arr) {
+  // let cleanedArray = [];
+  // for (let i = 0; i < arr.length; i++) {
+  //   if (Boolean(arr[i]) !== false) {
+  //     cleanedArray.push(arr[i]);
+  //   }
+  // }
+  // return cleanedArray;item
+
+  return arr
+    .map((item) => (Boolean(item) ? item : null))
+    .filter((item) => item !== null);
+}
+
+console.log(squeakyClean(["click1", "click2", null, "", "", "submitForm"]));
