@@ -9837,7 +9837,7 @@ the solution you write should return this:
 
 var cleanedArray = ['click1', 'click2','submitForm'] 
 */
-
+/*
 function squeakyClean(arr) {
   // let cleanedArray = [];
   // for (let i = 0; i < arr.length; i++) {
@@ -9853,3 +9853,142 @@ function squeakyClean(arr) {
 }
 
 console.log(squeakyClean(["click1", "click2", null, "", "", "submitForm"]));
+*/
+
+// #9
+/*
+You will be given a 2D array of the maze and an array of directions. Your task is to follow the directions given. If you reach the end point before all your moves have gone, you should return Finish. If you hit any walls or go outside the maze border, you should return Dead. If you find yourself still in the maze after using all the moves, you should return Lost.
+
+The Maze array will look like
+
+maze = [[1,1,1,1,1,1,1],
+        [1,0,0,0,0,0,3],
+        [1,0,1,0,1,0,1],
+        [0,0,1,0,0,0,1],
+        [1,0,1,0,1,0,1],
+        [1,0,0,0,0,0,1],
+        [1,2,1,0,1,0,1]]
+
+..with the following key
+
+      0 = Safe place to walk
+      1 = Wall
+      2 = Start Point
+      3 = Finish Point
+
+  direction = ["N","N","N","N","N","E","E","E","E","E"] == "Finish"
+
+Rules
+
+1. The Maze array will always be square i.e. N x N but its size and content will alter from test to test.
+
+2. The start and finish positions will change for the final tests.
+
+3. The directions array will always be in upper case and will be in the format of N = North, E = East, W = West and S = South.
+
+4. If you reach the end point before all your moves have gone, you should return Finish.
+
+5. If you hit any walls or go outside the maze border, you should return Dead.
+
+6. If you find yourself still in the maze after using all the moves, you should return Lost.
+*/
+
+function mazeRunner(maze, directions) {
+  // Определение размеров лабиринта
+  const n = maze.length;
+
+  // Найти стартовую точку
+  let startX, startY;
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      if (maze[i][j] === 2) {
+        startX = i;
+        startY = j;
+        break;
+      }
+    }
+  }
+
+  // Функция для перемещения
+  function move(x, y, direction) {
+    switch (direction) {
+      case "N":
+        return [x - 1, y];
+      case "S":
+        return [x + 1, y];
+      case "E":
+        return [x, y + 1];
+      case "W":
+        return [x, y - 1];
+    }
+  }
+
+  // Перемещение по направлениям
+  let [x, y] = [startX, startY];
+  for (const direction of directions) {
+    [x, y] = move(x, y, direction);
+
+    // Проверка границ
+    if (x < 0 || x >= n || y < 0 || y >= n) {
+      return "Dead";
+    }
+
+    // Проверка на стену
+    if (maze[x][y] === 1) {
+      return "Dead";
+    }
+
+    // Проверка на финиш
+    if (maze[x][y] === 3) {
+      return "Finish";
+    }
+  }
+
+  // Если достигли конца и все перемещения использованы
+  return "Lost";
+}
+
+console.log(
+  mazeRunner(
+    [
+      [1, 1, 1, 1, 1, 1, 1],
+      [1, 0, 0, 0, 0, 0, 3],
+      [1, 0, 1, 0, 1, 0, 1],
+      [0, 0, 1, 0, 0, 0, 1],
+      [1, 0, 1, 0, 1, 0, 1],
+      [1, 0, 0, 0, 0, 0, 1],
+      [1, 2, 1, 0, 1, 0, 1],
+    ],
+    ["N", "N", "N", "N", "N", "E", "E", "E", "E", "E"]
+  )
+); // "Finish"
+
+console.log(
+  mazeRunner(
+    [
+      [1, 1, 1, 1, 1, 1, 1],
+      [1, 0, 0, 0, 0, 0, 3],
+      [1, 0, 1, 0, 1, 0, 1],
+      [0, 0, 1, 0, 0, 0, 1],
+      [1, 0, 1, 0, 1, 0, 1],
+      [1, 0, 0, 0, 0, 0, 1],
+      [1, 2, 1, 0, 1, 0, 1],
+    ],
+    ["N", "N", "N", "N", "N", "E", "E", "S", "S", "E", "E", "N", "N", "E"]
+  )
+); // "Lost"
+
+console.log(
+  mazeRunner(
+    [
+      [1, 1, 1, 1, 1, 1, 1],
+      [1, 0, 0, 0, 0, 0, 3],
+      [1, 0, 1, 0, 1, 0, 1],
+      [0, 0, 1, 0, 0, 0, 1],
+      [1, 0, 1, 0, 1, 0, 1],
+      [1, 0, 0, 0, 0, 0, 1],
+      [1, 2, 1, 0, 1, 0, 1],
+    ],
+    ["N", "N", "N", "W", "W"]
+  )
+);
