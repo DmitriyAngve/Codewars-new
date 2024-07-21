@@ -9595,7 +9595,7 @@ For an undefined slope (division by 0), return undefined . Note that the "undefi
 
 Assume that [a,b,c,d] and the answer are all integers (no floating numbers!). Slope: https://en.wikipedia.org/wiki/Slope
 */
-
+/*
 function slope(points) {
   const [x1, y1, x2, y2] = points;
 
@@ -9611,3 +9611,44 @@ function slope(points) {
 console.log(slope([19, 3, 20, 3]));
 console.log(slope([2, 7, 4, -7]));
 console.log(slope([-10, 6, -10, 3]));
+*/
+
+// #2
+/*
+In this Kata, you will be given two numbers, a and b, and your task is to determine if the first number a is divisible by all the prime factors of the second number b. For example: solve(15,12) = False because 15 is not divisible by all the prime factors of 12 (which include2).
+
+See test cases for more examples. 
+*/
+
+function getPrimeFactors(n) {
+  let factors = new Set();
+  let divisor = 2;
+
+  while (n >= 2) {
+    if (n % divisor == 0) {
+      factors.add(divisor);
+      n = n / divisor;
+    } else {
+      divisor++;
+    }
+  }
+
+  return factors;
+}
+
+function solve(a, b) {
+  let primeFactors = getPrimeFactors(b);
+
+  for (let prime of primeFactors) {
+    if (a % prime !== 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(solve(2, 256));
+console.log(solve(15, 12));
+console.log(solve(9, 243));
+console.log(solve(21, 2893401));
