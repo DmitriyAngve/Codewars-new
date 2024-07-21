@@ -9722,7 +9722,7 @@ Incorrect examples (e.g. if you round the numbers):
 32.8493 is 32.85  
 14.3286 is 14.33
 */
-
+/*
 function twoDecimalPlaces(number) {
   let arr = number.toString().split("");
   let res = [];
@@ -9747,3 +9747,33 @@ function twoDecimalPlaces(number) {
 console.log(twoDecimalPlaces(10.1289767789));
 console.log(twoDecimalPlaces(-7488.83485834983));
 console.log(twoDecimalPlaces(4.653725356));
+*/
+
+// #6
+/*
+Simple enough this one - you will be given an array. The values in the array will either be numbers or strings, or a mix of both. You will not get an empty array, nor a sparse one.
+
+Your job is to return a single array that has first the numbers sorted in ascending order, followed by the strings sorted in alphabetic order. The values must maintain their original type.
+
+Note that numbers written as strings are strings and must be sorted with the other strings.
+*/
+
+function dbSort(arr) {
+  let strings = [];
+  let numbers = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "string") {
+      strings.push(arr[i]);
+    } else {
+      numbers.push(arr[i]);
+    }
+  }
+  numbers.sort((a, b) => a - b);
+  strings.sort();
+
+  return [...numbers, ...strings];
+}
+
+console.log(dbSort([6, 2, 3, 4, 5]));
+console.log(dbSort(["Banana", "Orange", "Apple", "Mango", 0, 2, 2]));
