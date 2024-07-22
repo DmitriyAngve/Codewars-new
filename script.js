@@ -10165,11 +10165,11 @@ For example:
 
 You may assume the input only contain English alphabet and spaces.
 */
-
+/*
 function stringTransformer(str) {
   let result = [];
   const arr = str.split(" ");
-  console.log(arr);
+
   for (let i = 0; i < arr.length; i++) {
     let word = arr[i];
     result.push(changeCase(word));
@@ -10196,3 +10196,21 @@ function changeCase(word) {
 }
 
 console.log(stringTransformer("Example Input"));
+*/
+
+// #5
+/*
+Implement the function which should return true if given object is a vowel (meaning a, e, i, o, u, uppercase or lowercase), and false otherwise.
+*/
+
+String.prototype.vowel = function () {
+  const vowels = "aeiouAEIOU";
+  return this.length === 1 && vowels.includes(this);
+};
+
+console.log(".".vowel());
+console.log("a".vowel());
+console.log("E".vowel());
+console.log("ou".vowel());
+
+// const vowels = "aeiou"
