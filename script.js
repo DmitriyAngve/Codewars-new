@@ -10027,7 +10027,7 @@ Some guides for coding
     The number of 'i's in the output must be >= 1
     All the inputs are valid.
 */
-
+/*
 function madShout(sidewalk) {
   let yIndex = sidewalk.indexOf("Y");
   let fIndex = sidewalk.indexOf("F");
@@ -10044,3 +10044,30 @@ function madShout(sidewalk) {
 
 // console.log(madShout("-----------------Y--------F--------------"));
 console.log(madShout("------------Y-F------------------"));
+*/
+
+// 22.07.2024
+// #1
+/*
+Create a method none? (JS none) that accepts an array and a block (JS: a function), and returns true if the block (/function) returns true for none of the items in the array. An empty list should return true.
+*/
+
+function none(arr, fun) {
+  for (let i = 0; i < arr.length; i++) {
+    if (fun(arr[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(
+  none([1, 2, 3, 4, 5], function (item) {
+    return item > 5;
+  })
+);
+console.log(
+  none([1, 2, 3, 4, 5], function (item) {
+    return item > 4;
+  })
+);
