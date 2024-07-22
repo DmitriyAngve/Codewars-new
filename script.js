@@ -10129,7 +10129,7 @@ Examples
 
 The input will always be an array.
 */
-
+/*
 function deepCount(a) {
   let count = 0;
 
@@ -10148,3 +10148,51 @@ console.log(deepCount([]));
 console.log(deepCount([1, 2, 3]));
 console.log(deepCount(["x", "y", ["z"]]));
 console.log(deepCount([1, 2, [3, 4, [5]]]));
+*/
+
+// #4
+/*
+Given a string, return a new string that has transformed based on the input:
+
+    Change case of every character, ie. lower case to upper case, upper case to lower case.
+    Reverse the order of words from the input.
+
+Note: You will have to handle multiple spaces, and leading/trailing spaces.
+
+For example:
+
+"Example Input" ==> "iNPUT eXAMPLE"
+
+You may assume the input only contain English alphabet and spaces.
+*/
+
+function stringTransformer(str) {
+  let result = [];
+  const arr = str.split(" ");
+  console.log(arr);
+  for (let i = 0; i < arr.length; i++) {
+    let word = arr[i];
+    result.push(changeCase(word));
+  }
+  result.reverse();
+
+  return result.join(" ");
+}
+
+function changeCase(word) {
+  let res = [];
+
+  for (let j = 0; j < word.length; j++) {
+    let char = word[j];
+
+    if (char === char.toUpperCase()) {
+      res.push(char.toLowerCase());
+    } else if (char === char.toLowerCase()) {
+      res.push(char.toUpperCase());
+    }
+  }
+
+  return res.join("");
+}
+
+console.log(stringTransformer("Example Input"));
