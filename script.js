@@ -10094,7 +10094,7 @@ whatNumberIsIt(100) should return "Input number is 100"
 
 What you need to think about is how to judge it correctly and effectively and don't forget isNaN().
 */
-
+/*
 function whatNumberIsIt(n) {
   if (n === Number.MAX_VALUE) {
     return "Input number is Number.MAX_VALUE";
@@ -10115,3 +10115,36 @@ console.log(whatNumberIsIt(1 / 0));
 console.log(whatNumberIsIt(100));
 console.log(whatNumberIsIt(5e-324));
 console.log(whatNumberIsIt(NaN));
+*/
+
+// #3
+/*
+You are given an array. Complete the function that returns the number of ALL elements within an array, including any nested arrays.
+Examples
+
+[]                   -->  0
+[1, 2, 3]            -->  3
+["x", "y", ["z"]]    -->  4
+[1, 2, [3, 4, [5]]]  -->  7
+
+The input will always be an array.
+*/
+
+function deepCount(a) {
+  let count = 0;
+
+  for (let i = 0; i < a.length; i++) {
+    count++;
+
+    if (Array.isArray(a[i])) {
+      count += deepCount(a[i]);
+    }
+  }
+
+  return count;
+}
+
+console.log(deepCount([]));
+console.log(deepCount([1, 2, 3]));
+console.log(deepCount(["x", "y", ["z"]]));
+console.log(deepCount([1, 2, [3, 4, [5]]]));
