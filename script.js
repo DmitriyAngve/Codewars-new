@@ -10202,7 +10202,7 @@ console.log(stringTransformer("Example Input"));
 /*
 Implement the function which should return true if given object is a vowel (meaning a, e, i, o, u, uppercase or lowercase), and false otherwise.
 */
-
+/*
 String.prototype.vowel = function () {
   const vowels = "aeiouAEIOU";
   return this.length === 1 && vowels.includes(this);
@@ -10214,3 +10214,29 @@ console.log("E".vowel());
 console.log("ou".vowel());
 
 // const vowels = "aeiou"
+*/
+
+// #6
+/*
+Given an array (a list in Python) of integers and an integer n, find all occurrences of n in the given array and return another array containing all the index positions of n in the given array.
+
+If n is not in the given array, return an empty array [].
+
+Assume that n and all values in the given array will always be integers.
+
+Example:
+
+findAll([6, 9, 3, 4, 3, 82, 11], 3) => [2, 4]
+*/
+
+const findAll = (arr, n) => {
+  let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === n) {
+      res.push(i);
+    }
+  }
+  return res;
+};
+
+console.log(findAll([6, 9, 3, 4, 3, 82, 11], 3));
