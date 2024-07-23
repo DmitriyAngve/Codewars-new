@@ -10253,7 +10253,7 @@ In other words, the shortest string has to be put as prefix and as suffix of the
 Strings a and b may be empty, but not null (In C# strings may also be null. Treat them as if they are empty.).
 If a and b have the same length treat a as the longer producing b+reverse(a)+b
 */
-
+/*
 function shorterReverseLonger(a, b) {
   let shorter = a.length < b.length ? a : b;
   let longer = a.length >= b.length ? a : b;
@@ -10266,3 +10266,49 @@ function shorterReverseLonger(a, b) {
 console.log(shorterReverseLonger("first", "abcde"));
 console.log(shorterReverseLonger("hello", "bau"));
 console.log(shorterReverseLonger("fghi", "abcde"));
+*/
+
+// #2
+/*
+Create a function that rounds a number n to p decimal places and returns it as a string.
+
+For example:
+Round(1.56881,4)==>"1.5688"
+Round(0.3333,2)==> "0.33"
+*/
+/*
+function round(n, p) {
+  return n.toFixed(p);
+}
+
+console.log(round(1.56881, 4));
+console.log(round(0.3333, 2));
+*/
+
+// #3
+/*
+You love coffee and want to know what beans you can afford to buy it.
+
+The first argument to your search function will be a number which represents your budget.
+
+The second argument will be an array of coffee bean prices.
+
+Your 'search' function should return the stores that sell coffee within your budget.
+
+The search function should return a string of prices for the coffees beans you can afford. The prices in this string are to be sorted in ascending order.
+*/
+
+function search(budget, prices) {
+  let arr = [];
+  for (let i = 0; i < prices.length; i++) {
+    if (prices[i] <= budget) {
+      arr.push(prices[i]);
+    }
+  }
+  console.log(arr);
+
+  return arr.sort((a, b) => a - b).join(",");
+}
+
+console.log(search(3, [6, 1, 2, 9, 2]));
+console.log(search(14, [7, 3, 23, 9, 14, 20, 7]));
