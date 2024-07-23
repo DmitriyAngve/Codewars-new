@@ -10228,7 +10228,7 @@ Example:
 
 findAll([6, 9, 3, 4, 3, 82, 11], 3) => [2, 4]
 */
-
+/*
 const findAll = (arr, n) => {
   let res = [];
   for (let i = 0; i < arr.length; i++) {
@@ -10240,3 +10240,29 @@ const findAll = (arr, n) => {
 };
 
 console.log(findAll([6, 9, 3, 4, 3, 82, 11], 3));
+*/
+
+// 23.07.2024
+
+// #1
+/*
+Given 2 strings, a and b, return a string of the form: shorter+reverse(longer)+shorter.
+
+In other words, the shortest string has to be put as prefix and as suffix of the reverse of the longest.
+
+Strings a and b may be empty, but not null (In C# strings may also be null. Treat them as if they are empty.).
+If a and b have the same length treat a as the longer producing b+reverse(a)+b
+*/
+
+function shorterReverseLonger(a, b) {
+  let shorter = a.length < b.length ? a : b;
+  let longer = a.length >= b.length ? a : b;
+
+  let reversed = longer.split("").reverse().join("");
+
+  return shorter + reversed + shorter;
+}
+
+console.log(shorterReverseLonger("first", "abcde"));
+console.log(shorterReverseLonger("hello", "bau"));
+console.log(shorterReverseLonger("fghi", "abcde"));
