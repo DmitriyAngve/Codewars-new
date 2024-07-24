@@ -10404,7 +10404,7 @@ Complete the function that takes a string of English-language text and returns t
 
 Consonants are all letters used to write English excluding the vowels a, e, i, o, u.
 */
-
+/*
 function consonantCount(str) {
   let count = 0;
 
@@ -10423,3 +10423,30 @@ console.log(
     "aeiou AEIOU bcdfghjklmnpqrstvwxyz BCDFGHJKLMNPQRSTVWXYZ 01234567890_ ^&$#"
   )
 );
+*/
+
+// #3
+/*
+In this example you have to validate if a user input string is alphanumeric. The given string is not nil/null/NULL/None, so you don't have to check that.
+
+The string has the following conditions to be alphanumeric:
+
+    At least one character ("" is not valid)
+    Allowed characters are uppercase / lowercase latin letters and digits from 0 to 9
+    No whitespaces / underscore
+*/
+
+function alphanumeric(string) {
+  let regExp = /[^a-zA-Z0-9]/g;
+
+  if (regExp.test(string) || string === "") {
+    return false;
+  }
+
+  return true;
+}
+
+console.log(alphanumeric("Mazinkaiser"));
+console.log(alphanumeric("PassW0rd"));
+console.log(alphanumeric("hello world_"));
+console.log(alphanumeric("   "));
