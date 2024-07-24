@@ -10379,7 +10379,7 @@ We are interested in Harshad numbers where the product of its digit sum s and s 
 
 Complete the function which tests if a positive integer n is Harshad number, and returns True if the product of its digit sum and its digit sum reversed equals n; otherwise return False.
 */
-
+/*
 function numberJoy(n) {
   if (n <= 9) return true;
 
@@ -10396,3 +10396,30 @@ console.log(numberJoy(1997));
 console.log(numberJoy(1));
 console.log(numberJoy(1729));
 console.log(numberJoy(1458));
+*/
+
+// #2
+/*
+Complete the function that takes a string of English-language text and returns the number of consonants in the string.
+
+Consonants are all letters used to write English excluding the vowels a, e, i, o, u.
+*/
+
+function consonantCount(str) {
+  let count = 0;
+
+  let consonant = /[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/g;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i].match(consonant)) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(
+  consonantCount(
+    "aeiou AEIOU bcdfghjklmnpqrstvwxyz BCDFGHJKLMNPQRSTVWXYZ 01234567890_ ^&$#"
+  )
+);
