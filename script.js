@@ -10468,7 +10468,7 @@ Examples
  1000000  ->   "1,000,000"
 35235235  ->  "35,235,235"
 */
-
+/*
 function groupByCommas(n) {
   let arr = n.toString().split("");
 
@@ -10485,3 +10485,58 @@ console.log(groupByCommas(1));
 console.log(groupByCommas(10));
 console.log(groupByCommas(10000));
 console.log(groupByCommas(35235235));
+*/
+
+// #5
+/*
+To solve this Kata, complete the function, calculateHypotenuse(a,b), which will return the length of the hyptenuse for a right angled triangle with the other two sides having a length equal to the inputs. More details:
+
+    The returned value should be a number rounded to three decimal places
+    An error (ArgumentException in C#) should be thrown if an invalid input is provided (inputs should both be numbers that are above zero)
+
+calculateHypotenuse(1,1); // returns 1.414
+calculateHypotenuse(3,4); // returns 5
+calculateHypotenuse(-2,1); // throws error
+calculateHypotenuse("one", "two"); // throws error
+*/
+
+function calculateHypotenuse(a, b) {
+  if (a <= 0 || b <= 0) {
+    throw new Error(
+      "Invalid arguments: Arguments must be positive numbers and not NaN."
+    );
+  }
+  if (isNaN(a) || isNaN(b)) {
+    throw new Error(
+      "Invalid arguments: Arguments must be positive numbers and not NaN."
+    );
+  }
+
+  if (typeof a === "string" || typeof b === "string") {
+    throw new Error(
+      "Invalid arguments: Arguments must be positive numbers and not NaN."
+    );
+  }
+
+  if (!a || !b) {
+    throw new Error(
+      "Invalid arguments: Arguments must be positive numbers and not NaN."
+    );
+  }
+
+  if (typeof a !== "number" || typeof b !== "number") {
+    throw new Error(
+      "Invalid arguments: Arguments must be positive numbers and not NaN."
+    );
+  }
+
+  return Number(Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)).toFixed(3));
+}
+
+console.log(calculateHypotenuse(1, 1));
+console.log(calculateHypotenuse(3, 4));
+console.log(calculateHypotenuse(2, -3));
+console.log(calculateHypotenuse(2, NaN));
+console.log(calculateHypotenuse(2, "one"));
+console.log(calculateHypotenuse());
+console.log(calculateHypotenuse(true, 1));
