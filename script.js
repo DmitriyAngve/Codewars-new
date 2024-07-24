@@ -10435,7 +10435,7 @@ The string has the following conditions to be alphanumeric:
     Allowed characters are uppercase / lowercase latin letters and digits from 0 to 9
     No whitespaces / underscore
 */
-
+/*
 function alphanumeric(string) {
   let regExp = /[^a-zA-Z0-9]/g;
 
@@ -10450,3 +10450,38 @@ console.log(alphanumeric("Mazinkaiser"));
 console.log(alphanumeric("PassW0rd"));
 console.log(alphanumeric("hello world_"));
 console.log(alphanumeric("   "));
+*/
+
+// #4
+/*
+Finish the solution so that it takes an input n (integer) and returns a string that is the decimal representation of the number grouped by commas after every 3 digits.
+
+Assume: 0 <= n < 2147483647
+Examples
+
+       1  ->           "1"
+      10  ->          "10"
+     100  ->         "100"
+    1000  ->       "1,000"
+   10000  ->      "10,000"
+  100000  ->     "100,000"
+ 1000000  ->   "1,000,000"
+35235235  ->  "35,235,235"
+*/
+
+function groupByCommas(n) {
+  let arr = n.toString().split("");
+
+  // console.log(arr);
+
+  for (let i = arr.length - 4; i >= 0; i -= 3) {
+    arr.splice(i + 1, 0, ",");
+  }
+
+  return `${arr.join("")}`;
+}
+
+console.log(groupByCommas(1));
+console.log(groupByCommas(10));
+console.log(groupByCommas(10000));
+console.log(groupByCommas(35235235));
