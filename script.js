@@ -10646,7 +10646,7 @@ const arr = [1, -3, -4, 0, 5];
 
 catchSignChange(arr) == 2;
 */
-
+/*
 function catchSignChange(arr) {
   if (arr.length < 2) return 0;
 
@@ -10668,3 +10668,46 @@ console.log(catchSignChange([1]));
 console.log(catchSignChange([-1, -3, -4, -5]));
 console.log(catchSignChange([-47, 84, -30, -11, -5, 74, 77]));
 console.log(catchSignChange([1, -3, -4, 0, 5]));
+*/
+
+// #4
+/*
+Remove the parentheses
+
+In this kata you are given a string for example:
+
+"example(unwanted thing)example"
+
+Your task is to remove everything inside the parentheses as well as the parentheses themselves.
+
+The example above would return:
+
+"exampleexample"
+
+Notes
+
+    Other than parentheses only letters and spaces can occur in the string. Don't worry about other brackets like "[]" and "{}" as these will never appear.
+    There can be multiple parentheses.
+    The parentheses can be nested.
+*/
+
+function removeParentheses(s) {
+  let res = "";
+  let depth = 0;
+
+  for (let char of s) {
+    if (char === "(") {
+      depth++;
+    } else if (char === ")") {
+      depth--;
+    } else if (depth === 0) {
+      res += char;
+    }
+  }
+  return res;
+}
+
+console.log(removeParentheses("example (unwanted thing) example"));
+console.log(
+  removeParentheses("hello example (words(more words) here) something")
+);
