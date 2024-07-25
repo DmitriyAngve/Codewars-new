@@ -10607,7 +10607,7 @@ The digit frequencies are:
 
 and so the method would return [1,9,6,3,0,1,1,1,1,1]
 */
-
+/*
 function paintLetterboxes(start, end) {
   let freq = Array(10).fill(0);
 
@@ -10622,3 +10622,49 @@ function paintLetterboxes(start, end) {
 }
 
 console.log(paintLetterboxes(125, 132));
+*/
+
+// #3
+/*
+Count how often sign changes in array.
+result
+
+number from 0 to ... . Empty array returns 0
+example
+
+const arr = [1, -3, -4, 0, 5];
+
+
+| elem | count |
+|------|-------|
+|  1   |  0    |
+| -3   |  1    |
+| -4   |  1    |
+|  0   |  2    |
+|  5   |  2    |
+
+
+catchSignChange(arr) == 2;
+*/
+
+function catchSignChange(arr) {
+  if (arr.length < 2) return 0;
+
+  let count = 0;
+
+  // Цикл до предпоследнего элемента
+  for (let i = 0; i < arr.length - 1; i++) {
+    // Проверяем изменение знака, включая переходы к и от нуля
+    if ((arr[i] < 0 && arr[i + 1] >= 0) || (arr[i] >= 0 && arr[i + 1] < 0)) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(catchSignChange([]));
+console.log(catchSignChange([1]));
+console.log(catchSignChange([-1, -3, -4, -5]));
+console.log(catchSignChange([-47, 84, -30, -11, -5, 74, 77]));
+console.log(catchSignChange([1, -3, -4, 0, 5]));
