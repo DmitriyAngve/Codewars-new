@@ -10499,7 +10499,7 @@ calculateHypotenuse(3,4); // returns 5
 calculateHypotenuse(-2,1); // throws error
 calculateHypotenuse("one", "two"); // throws error
 */
-
+/*
 function calculateHypotenuse(a, b) {
   if (a <= 0 || b <= 0) {
     throw new Error(
@@ -10540,3 +10540,32 @@ console.log(calculateHypotenuse(2, NaN));
 console.log(calculateHypotenuse(2, "one"));
 console.log(calculateHypotenuse());
 console.log(calculateHypotenuse(true, 1));
+*/
+
+// 25.07.2024
+// #1
+/*
+Create a function that takes in the sum and age difference of two people, calculates their individual ages, and returns a pair of values (oldest age first) if those exist or null/None or {-1, -1} in C if:
+
+    sum < 0
+    difference < 0
+    Either of the calculated ages come out to be negative
+*/
+
+function getAges(sum, difference) {
+  if (sum < 0 || difference < 0 || difference > sum) return undefined;
+
+  let a = (sum + difference) / 2;
+  let b = sum - a;
+
+  if (a < 0 || b < 0) return null;
+
+  if (a >= b) {
+    return [a, b];
+  } else {
+    return [b, a];
+  }
+}
+
+console.log(getAges(24, 4));
+console.log(getAges(63, -14));
