@@ -10725,7 +10725,7 @@ In this kata, you will be given an array. Each value represents a meeting room. 
 
 If all rooms are busy, return "None available!"
 */
-
+/*
 function meeting(x) {
   for (let i = 0; i < x.length; i++) {
     if (x[i] === "O") {
@@ -10739,3 +10739,34 @@ function meeting(x) {
 console.log(meeting(["X", "O", "X"]));
 console.log(meeting(["X", "X", "X"]));
 console.log(meeting(["O", "O", "X"]));
+*/
+
+// #2
+/*
+The bloody photocopier is broken... Just as you were sneaking around the office to print off your favourite binary code!
+
+Instead of copying the original, it reverses it: '1' becomes '0' and vice versa.
+
+Given a string of binary, return the version the photocopier gives you as a string.
+*/
+
+function broken(x) {
+  // let arr = x.split("");
+  // console.log(arr);
+  // let res = [];
+  // for (let i = 0; i < arr.length; i++) {
+  //   if (arr[i] === "1") {
+  //     res.push("0");
+  //   } else if (arr[i] === "0") {
+  //     res.push("1");
+  //   }
+  // }
+  // return res.join("");
+
+  return x
+    .split("")
+    .map((a) => (a == "0" ? "1" : "0"))
+    .join("");
+}
+
+console.log(broken("10000000101101111110011001000"));
