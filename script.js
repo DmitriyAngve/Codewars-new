@@ -10749,7 +10749,7 @@ Instead of copying the original, it reverses it: '1' becomes '0' and vice versa.
 
 Given a string of binary, return the version the photocopier gives you as a string.
 */
-
+/*
 function broken(x) {
   // let arr = x.split("");
   // console.log(arr);
@@ -10770,3 +10770,17 @@ function broken(x) {
 }
 
 console.log(broken("10000000101101111110011001000"));
+*/
+
+// #3
+/*
+Complete the code which should return true if the given object is a single ASCII letter (lower or upper case), false otherwise.
+*/
+
+String.prototype.isLetter = function () {
+  return /^[a-zA-Z]$/.test(this);
+};
+
+console.log("7".isLetter());
+console.log("".isLetter());
+console.log("d".isLetter());
