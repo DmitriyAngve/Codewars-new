@@ -10776,7 +10776,7 @@ console.log(broken("10000000101101111110011001000"));
 /*
 Complete the code which should return true if the given object is a single ASCII letter (lower or upper case), false otherwise.
 */
-
+/*
 String.prototype.isLetter = function () {
   return /^[a-zA-Z]$/.test(this);
 };
@@ -10784,3 +10784,28 @@ String.prototype.isLetter = function () {
 console.log("7".isLetter());
 console.log("".isLetter());
 console.log("d".isLetter());
+*/
+
+// #4
+/*
+Write a function that takes a string and an an integer n as parameters and returns a list of all words that are longer than n.
+
+Example:
+
+* With input "The quick brown fox jumps over the lazy dog", 4
+* Return ['quick', 'brown', 'jumps']
+*/
+
+function filterLongWords(sentence, n) {
+  let result = [];
+  let arr = sentence.split(" ");
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > n) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
+
+console.log(filterLongWords("The quick brown fox jumps over the lazy dog", 4));
