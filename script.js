@@ -10887,7 +10887,7 @@ sum(50) // 204226
 sum(80) // 15796476
 sum(100) // 190569292
 */
-
+/*
 function sum(num) {
   // Создаю массив для хранения количества разбиений для каждого числа до num включительно
   const partitions = Array(num + 1).fill(0);
@@ -10906,3 +10906,25 @@ console.log(sum(1));
 console.log(sum(4));
 console.log(sum(5));
 console.log(sum(80));
+*/
+
+// #2
+/*
+Bob is a lazy man.
+
+He needs you to create a method that can determine how many letters (both uppercase and lowercase ASCII letters) and digits are in a given string.
+
+Example:
+
+"hel2!lo" --> 6
+
+"wicked .. !" --> 6
+
+"!?..A" --> 1
+*/
+
+function countLettersAndDigits(input) {
+  return input.replace(/[^A-Za-z0-9]/g, "").length;
+}
+console.log(countLettersAndDigits("hel2!lo"));
+console.log(countLettersAndDigits("!?..A"));
