@@ -10795,7 +10795,7 @@ Example:
 * With input "The quick brown fox jumps over the lazy dog", 4
 * Return ['quick', 'brown', 'jumps']
 */
-
+/*
 function filterLongWords(sentence, n) {
   let result = [];
   let arr = sentence.split(" ");
@@ -10809,3 +10809,100 @@ function filterLongWords(sentence, n) {
 }
 
 console.log(filterLongWords("The quick brown fox jumps over the lazy dog", 4));
+*/
+
+// #5
+/*
+Create the function prefill that returns an array of n elements that all have the same value v. See if you can do this without using a loop.
+
+You have to validate input:
+
+    v can be anything (primitive or otherwise)
+    if v is ommited, fill the array with undefined
+    if n is 0, return an empty array
+    if n is anything other than an integer or integer-formatted string (e.g. '123') that is >=0, throw a TypeError
+
+When throwing a TypeError, the message should be n is invalid, where you replace n for the actual value passed to the function.
+
+Code Examples
+
+    prefill(3,1) --> [1,1,1]
+    
+    prefill(2,"abc") --> ['abc','abc']
+    
+    prefill("1", 1) --> [1]
+    
+    prefill(3, prefill(2,'2d'))
+      --> [['2d','2d'],['2d','2d'],['2d','2d']]
+      
+    prefill("xyz", 1)
+      --> throws TypeError with message "xyz is invalid"
+*/
+/*
+function prefill(n, v) {
+  if (
+    !Number.isInteger(Number(n)) ||
+    n < 0 ||
+    isNaN(n) ||
+    typeof n === "boolean"
+  ) {
+    throw new TypeError(`${n} is invalid`);
+  }
+  return Array(Number(n)).fill(v);
+}
+
+console.log(prefill(3, 1));
+console.log(prefill(2, "abc"));
+*/
+
+// 08.08.2024
+// #1
+/*
+How many ways can you make the sum of a number?
+
+From wikipedia: https://en.wikipedia.org/wiki/Partition_(number_theory)
+
+    In number theory and combinatorics, a partition of a positive integer n, also called an integer partition, is a way of writing n as a sum of positive integers. Two sums that differ only in the order of their summands are considered the same partition. If order matters, the sum becomes a composition. For example, 4 can be partitioned in five distinct ways:
+
+4
+3 + 1
+2 + 2
+2 + 1 + 1
+1 + 1 + 1 + 1
+
+Examples
+Basic
+
+sum(1) // 1
+sum(2) // 2  -> 1+1 , 2
+sum(3) // 3 -> 1+1+1, 1+2, 3
+sum(4) // 5 -> 1+1+1+1, 1+1+2, 1+3, 2+2, 4
+sum(5) // 7 -> 1+1+1+1+1, 1+1+1+2, 1+1+3, 1+2+2, 1+4, 5, 2+3
+
+sum(10) // 42
+
+Explosive
+
+sum(50) // 204226
+sum(80) // 15796476
+sum(100) // 190569292
+*/
+
+function sum(num) {
+  // Создаю массив для хранения количества разбиений для каждого числа до num включительно
+  const partitions = Array(num + 1).fill(0);
+  partitions[0] = 1; // Базовый случай
+  // Проходим по каждому числу, которое может быть использовано в разбиении
+  for (let i = 1; i <= num; i++) {
+    // Обновляем массив partititons для каждого числа от i до num
+    for (let j = i; j <= num; j++) {
+      partitions[j] += partitions[j - i];
+    }
+  }
+  return partitions[num];
+}
+
+console.log(sum(1));
+console.log(sum(4));
+console.log(sum(5));
+console.log(sum(80));
