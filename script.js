@@ -11038,7 +11038,7 @@ In case you haven't come across the map method for arrays, here is how it works:
 ["1","2","3"].map(x => parseInt(x)) === [1,2,3]
 ["random","array","to","be","mapped"].map(x => mapping(x)) === [mapping("random"),mapping("array"),mapping("to"),mapping("be"),mapping("mapped")]
 */
-
+/*
 Array.prototype.map = function (x) {
   let arr = [...this];
   let result = [];
@@ -11051,3 +11051,31 @@ Array.prototype.map = function (x) {
 console.log([1, 2, 3].map((x) => x ** 2));
 console.log([1, 2, 3].map((x) => 2 * x));
 console.log([1, 2, 3].map((x) => x.toString()));
+*/
+
+// #5
+/*
+Oh no, the filter method for arrays has been disabled. Can you fix it?
+
+The filter method works like this:
+
+[1, 2, 3, 4, 5].filter(x => x > 2) === [3, 4, 5]
+["apple", "banana", "cherry"].filter(x => x.includes('a')) === ["apple", "banana"]
+[true, false, true].filter(x => x === true) === [true, true]
+*/
+
+Array.prototype.filtering = function (x) {
+  let arr = [...this];
+  let result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (x(arr[i], i, arr)) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+};
+
+console.log([1, 2, 3, 4, 5].filtering((x) => x > 2));
+console.log(["apple", "banana", "cherry"].filtering((x) => x.includes("a")));
+console.log([true, false, true, true, false].filtering((x) => x === true));
