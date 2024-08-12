@@ -10966,7 +10966,7 @@ x = 256   n = 4  -->  4    # the 4th root of 256 is 4      4^4 = 256
 x = 9     n = 2  -->  3    # the square root of 9 is 3     3^2 = 9
 x = 6.25  n = 2  -->  2.5  #                             2.5^2 = 6.25
 */
-
+/*
 function root(x, n) {
   return Math.pow(x, 1 / n);
 }
@@ -10974,3 +10974,32 @@ function root(x, n) {
 console.log(root(4, 2));
 console.log(root(8, 3));
 console.log(root(256, 4));
+*/
+
+// #2
+/*
+Move every letter in the provided string forward 10 letters through the alphabet.
+
+If it goes past 'z', start again at 'a'.
+
+Input will be a string with length > 0.
+*/
+
+function moveTen(s) {
+  let res = "";
+
+  for (let i = 0; i < s.length; i++) {
+    let code = s.charCodeAt(i);
+    let newCode = code + 10;
+
+    if (newCode > 122) {
+      newCode = ((newCode - 97) % 26) + 97;
+    }
+    res += String.fromCharCode(newCode);
+  }
+
+  return res;
+}
+
+console.log(moveTen("testcase"));
+console.log(moveTen("codewars"));
