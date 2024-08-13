@@ -11203,7 +11203,7 @@ Examples:
 ['1','2'] => false
 [{1:1},{2:2}] => false
 */
-
+/*
 function arrCheck(params) {
   for (let i = 0; i < params.length; i++) {
     if (!Array.isArray(params[i])) return false;
@@ -11214,3 +11214,57 @@ function arrCheck(params) {
 console.log(arrCheck([[1], [2]]));
 console.log(arrCheck(["1", "2"]));
 console.log(arrCheck([{ 1: 1 }, { 2: 2 }]));
+*/
+
+// #3
+/*
+Your distributeEvenly function will take an array as an argument and needs to return a new array with the values distributed evenly.
+
+Example:
+
+Argument: ['one', 'one', 'two', 'two', 'three', 'three', 'four', 'four']
+
+Result: ['one', 'two', 'three', 'four', 'one', 'two', 'three', 'four']
+
+The underlying order will stay the same as in the original array. So in the case of our argument above, one comes before two so it stays this way in the returned array.
+
+The aim is to have the longest possible chain of evenly distributed values (from the left to right), this means that an argument with many of the same elements might have many which are repeated at the end.
+
+Example:
+
+Argument: ['one', 'one', 'one', 'one', 'one', 'two', 'three']
+
+Result: [ 'one', 'two', 'three', 'one', 'one', 'one', 'one' ]
+*/
+
+const distributeEvenly = (array) => {
+  let result = [];
+  const unique = Array.from(new Set(array));
+
+  while (array.length > 0) {
+    unique.forEach((item) => {
+      const index = array.indexOf(item);
+      if (index !== -1) {
+        result.push(item);
+        array.splice(index, 1);
+      }
+    });
+  }
+  return result;
+};
+
+console.log(
+  distributeEvenly(["one", "one", "one", "one", "one", "two", "three"])
+);
+console.log(
+  distributeEvenly([
+    "one",
+    "one",
+    "two",
+    "two",
+    "three",
+    "three",
+    "four",
+    "four",
+  ])
+);
