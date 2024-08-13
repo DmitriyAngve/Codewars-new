@@ -11183,9 +11183,34 @@ AddExtra method adds a new item to the list and returns the list. The new item c
 
 In our test case we check to assure that the returned list has one more item than the input list. However the method needs some modification to pass this test.
 */
-
+/*
 function addExtra(listOfNumbers) {
   const newList = listOfNumbers.slice();
   newList.push(13);
   return newList;
 }
+*/
+
+// #2
+/*
+Is every value in the array an array?
+
+This should only test the second array dimension of the array. The values of the nested arrays don't have to be arrays.
+
+Examples:
+
+[[1],[2]] => true
+['1','2'] => false
+[{1:1},{2:2}] => false
+*/
+
+function arrCheck(params) {
+  for (let i = 0; i < params.length; i++) {
+    if (!Array.isArray(params[i])) return false;
+  }
+  return true;
+}
+
+console.log(arrCheck([[1], [2]]));
+console.log(arrCheck(["1", "2"]));
+console.log(arrCheck([{ 1: 1 }, { 2: 2 }]));
