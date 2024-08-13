@@ -11163,7 +11163,7 @@ var result = solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["
 // result should == "apples, pears\ngrapes\nbananas"
 
 */
-
+/*
 function solution(text, markers) {
   return input
     .split("\n")
@@ -11174,3 +11174,18 @@ function solution(text, markers) {
 console.log(
   solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"])
 );
+*/
+
+// 13.08.2024
+// #1
+/*
+AddExtra method adds a new item to the list and returns the list. The new item can be any object, and it does not matter. (lets say you add an integer value, like 13)
+
+In our test case we check to assure that the returned list has one more item than the input list. However the method needs some modification to pass this test.
+*/
+
+function addExtra(listOfNumbers) {
+  const newList = listOfNumbers.slice();
+  newList.push(13);
+  return newList;
+}
