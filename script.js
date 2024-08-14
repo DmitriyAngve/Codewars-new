@@ -11387,6 +11387,7 @@ beeramid(5000, 3); // should === 16
 */
 
 // Returns number of complete beeramid levels
+/*
 var beeramid = function (bonus, price) {
   if (bonus <= 0 || price <= 0) return 0;
 
@@ -11412,3 +11413,31 @@ var beeramid = function (bonus, price) {
 console.log(beeramid(10, 2));
 console.log(beeramid(454, 4));
 console.log(beeramid(-1, 4));
+*/
+
+// #4
+/*
+Your task in this kata is to return a string that shows if a letter of the input is uppercase or lowercase.
+You should replace every uppercase letter with a 1 and every lowercase letter with a 0.
+
+Example:
+binaryCase('Hello World!') ==> '10000 10000!'
+*/
+
+function binaryCase(inputString) {
+  let result = [];
+
+  for (let i = 0; i < inputString.length; i++) {
+    let char = inputString[i];
+    if (char.toUpperCase() === char && char.toLowerCase() !== char) {
+      result.push("1");
+    } else if (char.toLowerCase() === char && char.toUpperCase() !== char) {
+      result.push("0");
+    } else {
+      result.push(char);
+    }
+  }
+  return result.join("");
+}
+
+console.log(binaryCase("Hello WorlD!!"));
