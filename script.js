@@ -11498,7 +11498,7 @@ The method should be able to handle the case of empty data being passed in.
 
 Note: The only arrays that need to be traversed are those assigned to the "items" property.
 */
-
+/*
 function extractIds(data) {
   let res = [];
 
@@ -11525,5 +11525,49 @@ console.log(
   extractIds({
     id: 1,
     items: [{ id: 2 }, { id: 3, items: [{ id: 4 }, { id: 5 }] }],
+  })
+);
+*/
+
+// #2
+/*
+У вас есть объект, представляющий компанию. Компания имеет уникальный companyId, и каждая компания может содержать список подразделений (departments). Подразделения могут также иметь свой уникальный departmentId и могут содержать список своих собственных подразделений (departments).
+
+Вам нужно написать функцию extractDepartmentIds, которая принимает объект компании и возвращает массив всех companyId и departmentId, присутствующих в этой компании, включая все уровни вложенности.
+*/
+
+function extractsMore(company) {
+  let result = [];
+
+  function recurse(cOrD) {
+    if (cOrD.companyId !== undefined) {
+      result.push(cOrD.companyId);
+    } else if (cOrD.departmentId !== undefined) {
+      result.push(cOrD.departmentId);
+    }
+
+    if (cOrD.departments && Array.isArray(cOrD.departments)) {
+      cOrD.departments.forEach((element) => {
+        recurse(element);
+      });
+    }
+  }
+  recurse(company);
+  return result;
+}
+
+console.log(
+  extractsMore({
+    companyId: 100,
+    departments: [
+      { departmentId: 200 },
+      {
+        departmentId: 300,
+        departments: [
+          { departmentId: 400 },
+          { departmentId: 500, departments: [{ departmentId: 600 }] },
+        ],
+      },
+    ],
   })
 );
