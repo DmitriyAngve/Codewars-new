@@ -11535,7 +11535,7 @@ console.log(
 
 Вам нужно написать функцию extractDepartmentIds, которая принимает объект компании и возвращает массив всех companyId и departmentId, присутствующих в этой компании, включая все уровни вложенности.
 */
-
+/*
 function extractsMore(company) {
   let result = [];
 
@@ -11566,6 +11566,50 @@ console.log(
         departments: [
           { departmentId: 400 },
           { departmentId: 500, departments: [{ departmentId: 600 }] },
+        ],
+      },
+    ],
+  })
+);
+*/
+
+// #3
+/*
+У вас есть объект, представляющий дерево категорий. У каждой категории есть уникальный catId, и каждая категория может содержать вложенные категории (subcategories).
+
+Напишите функцию extractCatIds, которая принимает объект категории и возвращает массив всех catId, присутствующих в этой категории, включая все уровни вложенности.
+*/
+
+function ext(category) {
+  let result = [];
+
+  function recurse(el) {
+    if (el.catId !== undefined) {
+      result.push(el.catId);
+    }
+
+    if (el.subcategories && Array.isArray(el.subcategories)) {
+      el.subcategories.forEach((element) => {
+        recurse(element);
+      });
+    }
+  }
+
+  recurse(category);
+
+  return result;
+}
+
+console.log(
+  ext({
+    catId: 1,
+    subcategories: [
+      { catId: 2 },
+      {
+        catId: 3,
+        subcategories: [
+          { catId: 4 },
+          { catId: 5, subcategories: [{ catId: 6 }] },
         ],
       },
     ],
