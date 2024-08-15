@@ -11423,7 +11423,7 @@ You should replace every uppercase letter with a 1 and every lowercase letter wi
 Example:
 binaryCase('Hello World!') ==> '10000 10000!'
 */
-
+/*
 function binaryCase(inputString) {
   let result = [];
 
@@ -11441,3 +11441,89 @@ function binaryCase(inputString) {
 }
 
 console.log(binaryCase("Hello WorlD!!"));
+*/
+
+// #5
+/*
+In this kata you will have to transform each string so that it contains count for every symbol it contains, starting from 2. The order of symbols should be preserved.
+
+Example: abbreviation => a2b2revi2ton
+*/
+/*
+const transform = (s) => {
+  let ht = {};
+  let res = [];
+  for (const char of s) {
+    ht[char] = (ht[char] || 0) + 1;
+  }
+  console.log(ht);
+
+  for (let i = 0; i < s.length; i++) {
+    const char = s[i];
+    if (ht[char] > 1) {
+      res.push(char + ht[char]);
+      ht[char] = 1;
+    } else {
+      res.push(char);
+    }
+  }
+  return res.join("");
+};
+
+console.log(transform("elevation"));
+console.log(transform("transplantology"));
+console.log(transform("impressive"));
+
+*/
+
+// 15.08.2024
+// #1
+/*
+Complete the method so that it returns an array of all ID's passed in. The data structure will be similar to the following:
+
+var data = {
+  id: 1,
+  items: [
+    {id: 2},
+    {id: 3, items: [
+      {id: 4},
+      {id: 5}
+    ]}
+  ]
+}
+
+extractIds(data) // should return [1,2,3,4,5]
+
+The method should be able to handle the case of empty data being passed in.
+
+Note: The only arrays that need to be traversed are those assigned to the "items" property.
+*/
+
+function extractIds(data) {
+  let res = [];
+
+  function recurse(item) {
+    if (item.id !== undefined) {
+      res.push(item.id);
+    }
+    if (item.items && Array.isArray(item.items)) {
+      item.items.forEach(recurse);
+    }
+  }
+  recurse(data);
+
+  return res;
+}
+
+console.log(
+  extractIds({
+    id: 1,
+    items: [{ id: 2 }, { id: 3 }],
+  })
+);
+console.log(
+  extractIds({
+    id: 1,
+    items: [{ id: 2 }, { id: 3, items: [{ id: 4 }, { id: 5 }] }],
+  })
+);
