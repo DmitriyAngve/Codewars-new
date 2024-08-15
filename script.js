@@ -11579,7 +11579,7 @@ console.log(
 
 Напишите функцию extractCatIds, которая принимает объект категории и возвращает массив всех catId, присутствующих в этой категории, включая все уровни вложенности.
 */
-
+/*
 function ext(category) {
   let result = [];
 
@@ -11589,8 +11589,8 @@ function ext(category) {
     }
 
     if (el.subcategories && Array.isArray(el.subcategories)) {
-      el.subcategories.forEach((element) => {
-        recurse(element);
+      el.subcategories.forEach(element => {
+        recurse(element)
       });
     }
   }
@@ -11615,3 +11615,13 @@ console.log(
     ],
   })
 );
+*/
+
+// #4
+// Simple Time Bomb
+/*
+A bomb has been set to go off! You have to find the wire and cut it in order to stop the timer. There is a global property that holds the key to which wire to cut. Find that and then you can CutTheWire(wireKey);
+*/
+var wire = Object.keys(this).pop();
+
+CutTheWire(this[wire]);
