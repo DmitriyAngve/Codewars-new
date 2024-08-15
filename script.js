@@ -11622,6 +11622,46 @@ console.log(
 /*
 A bomb has been set to go off! You have to find the wire and cut it in order to stop the timer. There is a global property that holds the key to which wire to cut. Find that and then you can CutTheWire(wireKey);
 */
+/*
 var wire = Object.keys(this).pop();
 
 CutTheWire(this[wire]);
+*/
+
+// #5 Calculate age in years
+/*
+Complete the following function that will return the difference in years (age) for a birthdate, and optionally a "now" date. Both arguments to the function are expected to be Date objects. The returned difference can be either positive or negative.
+
+getAge(new Date('1980/01/01')) === 33 // assuming today's date is 2013/08/01
+getAge(new Date('1913/01/01'), new Date('2013/01/01') === 100
+getAge(new Date('2008/02/29'), new Date('2032/03/01')) === 24
+getAge(new Date('2008/01/01'), new Date('2000/01/01')) === -8
+*/
+
+function getAge(birthDate, nowDate = new Date()) {
+  if (!(birthDate instanceof Date) || !(nowDate instanceof Date)) {
+    throw new TypeError("Both arguments must be Date objects");
+  }
+
+  const year = birthDate.getFullYear();
+  const month = birthDate.getMonth();
+  const date = birthDate.getDate();
+
+  const year1 = nowDate.getFullYear();
+  const month1 = nowDate.getMonth();
+  const date1 = nowDate.getDate();
+
+  let age = year1 - year;
+
+  if (month1 < month || (month1 === month && date1 < date)) {
+    age -= 1;
+  }
+
+  return age;
+}
+
+console.log(getAge(new Date("2008/02/29"), new Date("2032/03/01")));
+console.log(getAge(new Date("2008/05/29"), new Date("2032/03/01")));
+console.log(getAge(new Date("2008/01/01"), new Date("2000/01/01")));
+console.log(getAge(new Date("1913/01/01"), new Date("2013/01/01")));
+console.log(getAge(new Date("1976/11/19"), new Date("2013/01/01")));
