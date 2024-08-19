@@ -11797,7 +11797,7 @@ function correctPolishLetters(string) {
 console.log(correctPolishLetters("Jędrzej Błądziński"));
 */
 
-// #2
+// #3
 /*
 Cheesy Cheeseman just got a new monitor! He is happy with it, but he just discovered that his old desktop wallpaper no longer fits. He wants to find a new wallpaper, but does not know which size wallpaper he should be looking for, and alas, he just threw out the new monitor's box. Luckily he remembers the width and the aspect ratio of the monitor from when Bob Mortimer sold it to him. Can you help Cheesy out?
 The Challenge
@@ -11806,7 +11806,7 @@ Given an integer width and a string ratio written as WIDTH:HEIGHT, output the sc
 
 Note: The calculated height should be represented as an integer. If the height is fractional, truncate it.
 */
-
+/*
 function findScreenHeight(width, ratio) {
   let w = width;
   let h1 = ratio.split(":").map(Number);
@@ -11815,3 +11815,38 @@ function findScreenHeight(width, ratio) {
   return `${w}x${h2}`;
 }
 console.log(findScreenHeight(1280, "16:9"));
+*/
+
+// #4
+/*
+Return a new array consisting of elements which are multiple of their own index in input array (length > 1).
+Some cases:
+
+[22, -6, 32, 82, 9, 25] =>  [-6, 32, 25]
+
+[68, -1, 1, -7, 10, 10] => [-1, 10]
+
+[-56,-85,72,-26,-14,76,-27,72,35,-21,-67,87,0,21,59,27,-92,68] => [-85, 72, 0, 68]
+*/
+
+function multipleOfIndex(array) {
+  let result = [];
+  if (array[0] === 0) {
+    result.push(array[0]);
+  }
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] % i === 0) {
+      result.push(array[i]);
+    }
+  }
+  return result;
+}
+
+console.log(multipleOfIndex([22, -6, 32, 82, 9, 25]));
+console.log(multipleOfIndex([0, 2, 3, 6, 9]));
+console.log(
+  multipleOfIndex([
+    -56, -85, 72, -26, -14, 76, -27, 72, 35, -21, -67, 87, 0, 21, 59, 27, -92,
+    68,
+  ])
+);
