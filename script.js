@@ -11687,7 +11687,7 @@ index 2 has a differential of +2 to its left, and nothing to its right,
 
 If there is no distinct highest value (more than one occurence of the largest differential), return -1.
 */
-
+/*
 function firstTooth(gums) {
   const diffs = gums.map(
     (val, i) => (val - gums[i - 1] || 0) + (val - gums[i + 1] || 0)
@@ -11707,3 +11707,43 @@ console.log(firstTooth([1, 2, 3, 4, 3]));
 console.log(firstTooth([1, 2, 5, 7, 1, 0, 9]));
 console.log(firstTooth([15]));
 console.log(firstTooth([]));
+*/
+
+// 19.08.2024
+// #1
+/*
+Remember the triangle of balls in billiards? To build a classic triangle (5 levels) you need 15 balls. With 3 balls you can build a 2-level triangle, etc.
+
+For more examples,
+
+pyramid(1) == 1
+
+pyramid(3) == 2
+
+pyramid(6) == 3
+
+pyramid(10) == 4
+
+pyramid(15) == 5
+
+Write a function that takes number of balls (≥ 1) and calculates how many levels you can build a triangle.
+*/
+
+function pyramid(balls) {
+  let levels = 0;
+  let ballsNeeded = 0;
+  while (ballsNeeded <= balls) {
+    levels++;
+    ballsNeeded += levels;
+
+    if (ballsNeeded > balls) {
+      levels--;
+      break;
+    }
+  }
+  return levels;
+}
+
+console.log(pyramid(1));
+console.log(pyramid(4));
+console.log(pyramid(10));
