@@ -11728,7 +11728,7 @@ pyramid(15) == 5
 
 Write a function that takes number of balls (≥ 1) and calculates how many levels you can build a triangle.
 */
-
+/*
 function pyramid(balls) {
   let levels = 0;
   let ballsNeeded = 0;
@@ -11747,3 +11747,51 @@ function pyramid(balls) {
 console.log(pyramid(1));
 console.log(pyramid(4));
 console.log(pyramid(10));
+*/
+
+// #2
+/*
+There are 32 letters in the Polish alphabet: 9 vowels and 23 consonants.
+
+Your task is to change the letters with diacritics:
+
+ą -> a,
+ć -> c,
+ę -> e,
+ł -> l,
+ń -> n,
+ó -> o,
+ś -> s,
+ź -> z,
+ż -> z
+
+and print out the string without the use of the Polish letters.
+
+For example:
+
+"Jędrzej Błądziński"  -->  "Jedrzej Bladzinski"
+*/
+
+function correctPolishLetters(string) {
+  let dict = {
+    "ą": "a",
+    "ć": "c",
+    "ę": "e",
+    "ł": "l",
+    "ń": "n",
+    "ó": "o",
+    "ś": "s",
+    "ź": "z",
+    "ż": "z",
+  };
+
+  let arr = string.split("");
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    const char = arr[i];
+    result.push(dict[char] || char);
+  }
+  return result.join("");
+}
+
+console.log(correctPolishLetters("Jędrzej Błądziński"));
