@@ -12058,7 +12058,7 @@ Example(Input --> Output)
 
 ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle at position 5" 
 */
-
+/*
 function findNeedle(haystack) {
   let pos = 0;
 
@@ -12071,3 +12071,31 @@ function findNeedle(haystack) {
 }
 
 console.log(findNeedle([324, 324, "needle", 1, 2, 3, 4, 45, 54]));
+*/
+
+// #2
+/*
+Mothers arranged a dance party for the children in school. At that party, there are only mothers and their children. All are having great fun on the dance floor when suddenly all the lights went out. It's a dark night and no one can see each other. But you were flying nearby and you can see in the dark and have ability to teleport people anywhere you want.
+Legend:
+-Uppercase letters stands for mothers, lowercase stand for their children, i.e. "A" mother's children are "aaaa".
+-Function input: String contains only letters, uppercase letters are unique.
+Task:
+Place all people in alphabetical order where Mothers are followed by their children, i.e. "aAbaBb" => "AaaBbb".
+*/
+
+function findChildren(d) {
+  return d
+    .split("")
+    .sort((a, b) => {
+      const lowerA = a.toLowerCase();
+      const lowerB = b.toLowerCase();
+      if (lowerA === lowerB) {
+        return b.localeCompare(a);
+      }
+      return lowerA.localeCompare(lowerB);
+    })
+    .join("");
+}
+
+console.log(findChildren("beeeEBb")); // BbbEeee
+console.log(findChildren("aAbaBb")); // AaaBbb
