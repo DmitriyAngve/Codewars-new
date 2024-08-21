@@ -12177,7 +12177,7 @@ Example
 input =  [[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]
 output = ["Open", "Open", "Senior", "Open", "Open", "Senior"]
 */
-
+/*
 function openOrSenior(data) {
   let res = [];
 
@@ -12205,3 +12205,28 @@ console.log(
     [78, 9],
   ])
 );
+*/
+
+// #6
+/*
+If you can't sleep, just count sheep!!
+Task:
+
+Given a non-negative integer, 3 for example, return a string with a murmur: "1 sheep...2 sheep...3 sheep...". Input will always be valid, i.e. no negative integers.
+*/
+
+var countSheep = function (n) {
+  if (n <= 0) return "";
+  let arr = Array.from({ length: n }, (_, index) => index + 1);
+  console.log(arr);
+  let res = "";
+  for (let i = 0; i < arr.length; i++) {
+    res += `${String(arr[i])} sheep...`;
+  }
+
+  return res;
+};
+
+console.log(countSheep(0));
+console.log(countSheep(1));
+console.log(countSheep(3));
