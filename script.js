@@ -12113,7 +12113,7 @@ true     | false    => true
 false    | true     => false
 false    | false    => false
 */
-
+/*
 function setAlarm(employed, vacation) {
   if (vacation === true) {
     return false;
@@ -12131,3 +12131,31 @@ console.log(setAlarm(true, true));
 console.log(setAlarm(true, false));
 console.log(setAlarm(false, true));
 console.log(setAlarm(false, false));
+*/
+
+// #4
+/*
+Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering.
+
+Write a function which takes a list of strings and returns each line prepended by the correct number.
+
+The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+
+Examples: (Input --> Output)
+
+[] --> []
+["a", "b", "c"] --> ["1: a", "2: b", "3: c"]
+*/
+
+var number = function (arr) {
+  if (!arr.length) return [];
+  let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    let el = `${i + 1}: ${arr[i]}`;
+    res.push(el);
+  }
+  return res;
+};
+
+console.log(number([]));
+console.log(number(["a", "b", "c"]));
