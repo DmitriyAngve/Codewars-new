@@ -12214,7 +12214,7 @@ Task:
 
 Given a non-negative integer, 3 for example, return a string with a murmur: "1 sheep...2 sheep...3 sheep...". Input will always be valid, i.e. no negative integers.
 */
-
+/*
 var countSheep = function (n) {
   if (n <= 0) return "";
   let arr = Array.from({ length: n }, (_, index) => index + 1);
@@ -12230,3 +12230,32 @@ var countSheep = function (n) {
 console.log(countSheep(0));
 console.log(countSheep(1));
 console.log(countSheep(3));
+*/
+
+// #7
+/*
+Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. Return the resulting string.
+
+Note: input will never be an empty string
+*/
+
+function fakeBin(x) {
+  let arr = x.split("").map(Number);
+  console.log(arr);
+
+  let res = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < 5) {
+      res.push(0);
+    }
+    if (arr[i] >= 5) {
+      res.push(1);
+    }
+  }
+
+  return res.join("");
+}
+
+console.log(fakeBin("45385593107843568"));
+console.log(fakeBin("509321967506747"));
