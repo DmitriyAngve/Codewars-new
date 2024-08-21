@@ -12019,7 +12019,7 @@ Examples (input --> output)
 
 Note you should only return a number, the count of divisors. The numbers between parentheses are shown only for you to see which numbers are counted in each case.
 */
-
+/*
 function getDivisorsCnt(n) {
   // let row = Array.from({ length: n }, (_, index) => index + 1);
 
@@ -12041,3 +12041,33 @@ console.log(getDivisorsCnt(10));
 console.log(getDivisorsCnt(11));
 console.log(getDivisorsCnt(30));
 console.log(getDivisorsCnt(54));
+*/
+
+// 21.08.2024
+// #1
+/*
+Can you find the needle in the haystack?
+
+Write a function findNeedle() that takes an array full of junk but containing one "needle"
+
+After your function finds the needle it should return a message (as a string) that says:
+
+"found the needle at position " plus the index it found the needle, so:
+
+Example(Input --> Output)
+
+["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle at position 5" 
+*/
+
+function findNeedle(haystack) {
+  let pos = 0;
+
+  for (let i = 0; i < haystack.length; i++) {
+    if (haystack[i] === "needle") {
+      pos += i;
+    }
+  }
+  return `found the needle at position ${pos}`;
+}
+
+console.log(findNeedle([324, 324, "needle", 1, 2, 3, 4, 45, 54]));
