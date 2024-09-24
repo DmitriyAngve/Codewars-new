@@ -12260,4 +12260,4 @@ function fakeBin(x) {
 console.log(fakeBin("45385593107843568"));
 console.log(fakeBin("509321967506747"));
 
-// 
+// git config --global user.name "Твоё Имя"
