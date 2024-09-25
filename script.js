@@ -12330,6 +12330,7 @@ For example (Input --> Output):
 [1, 3, 10, 0]) --> [3, 10].
 */
 
+/*
 function twoOldestAges(ages) {
   let result = [];
 
@@ -12341,3 +12342,35 @@ function twoOldestAges(ages) {
   return result.reverse();
 }
 console.log(twoOldestAges([1, 2, 10, 8]));
+*/
+
+// #4
+/*
+Given an array, find the duplicates in that array, and return a new array of those duplicates. The elements of the returned array should appear in the order when they first appeared as duplicates.
+
+Note: numbers and their corresponding string representations should not be treated as duplicates (i.e., "1" != 1).
+Examples
+
+[1, 2, 4, 4, 3, 3, 1, 5, 3, "5"]  ==>  [4, 3, 1]
+[0, 1, 2, 3, 4, 5]                ==>  []
+*/
+
+function duplicates(arr) {
+  let counts = new Map(); // используем Map для учета типов данных
+  let result = [];
+
+  // Проходим по массиву и считаем количество вхождений каждого элемента
+  for (let i = 0; i < arr.length; i++) {
+    let item = arr[i];
+    counts.set(item, (counts.get(item) || 0) + 1);
+
+    // Если элемент встречается второй раз (и не добавлен в result), добавляем его в результат
+    if (counts.get(item) === 2) {
+      result.push(item);
+    }
+  }
+
+  return result;
+}
+
+console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, "5"]));
