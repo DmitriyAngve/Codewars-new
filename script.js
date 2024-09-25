@@ -12294,7 +12294,7 @@ If a = 3, b = 5, and margin = 0, then close_compare(a, b, margin) should return 
 
 This is because the distance between a and b is greater than 0, and a is less than b.
 */
-
+/*
 function closeCompare(a, b, margin = 0) {
   if (Math.abs(a - b) <= margin) {
     return 0;
@@ -12303,3 +12303,14 @@ function closeCompare(a, b, margin = 0) {
 }
 
 console.log(closeCompare(3, 5, 0));
+*/
+
+// #2
+/*
+Create a resolved javascript Promise that will return 'Hello World!'.
+*/
+function promiseHelloWorld() {
+  return new Promise((resolve, reject) => {
+    resolve("Hello World!");
+  });
+}
