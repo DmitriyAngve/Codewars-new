@@ -12330,6 +12330,7 @@ For example (Input --> Output):
 [1, 3, 10, 0]) --> [3, 10].
 */
 
+/*
 function twoOldestAges(ages) {
   let result = [];
 
@@ -12341,3 +12342,82 @@ function twoOldestAges(ages) {
   return result.reverse();
 }
 console.log(twoOldestAges([1, 2, 10, 8]));
+*/
+
+// #4
+/*
+Given an array, find the duplicates in that array, and return a new array of those duplicates. The elements of the returned array should appear in the order when they first appeared as duplicates.
+
+Note: numbers and their corresponding string representations should not be treated as duplicates (i.e., "1" != 1).
+Examples
+
+[1, 2, 4, 4, 3, 3, 1, 5, 3, "5"]  ==>  [4, 3, 1]
+[0, 1, 2, 3, 4, 5]                ==>  []
+*/
+/*
+function duplicates(arr) {
+  let counts = new Map(); // используем Map для учета типов данных
+  let result = [];
+
+  // Проходим по массиву и считаем количество вхождений каждого элемента
+  for (let i = 0; i < arr.length; i++) {
+    let item = arr[i];
+    counts.set(item, (counts.get(item) || 0) + 1);
+
+    // Если элемент встречается второй раз (и не добавлен в result), добавляем его в результат
+    if (counts.get(item) === 2) {
+      result.push(item);
+    }
+  }
+
+  return result;
+}
+
+console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, "5"]));
+*/
+
+// 26.09.2024
+
+// #1
+/*
+Write a function that takes a list of strings as an argument and returns a filtered list containing the same elements but with the 'geese' removed.
+
+The geese are any strings in the following array, which is pre-populated in your solution:
+
+  ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
+
+For example, if this array were passed as an argument:
+
+ ["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]
+
+Your function would return the following array:
+
+["Mallard", "Hook Bill", "Crested", "Blue Swedish"]
+
+The elements in the returned array should be in the same order as in the initial array passed to your function, albeit with the 'geese' removed. Note that all of the strings will be in the same case as those provided, and some elements may be repeated.
+*/
+
+function gooseFilter(birds) {
+  var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+
+  let result = [];
+
+  for (let i = 0; i < birds.length; i++) {
+    if (!geese.includes(birds[i])) {
+      result.push(birds[i]);
+    }
+  }
+  return result;
+}
+
+console.log(
+  gooseFilter([
+    "Mallard",
+    "Hook Bill",
+    "African",
+    "Crested",
+    "Pilgrim",
+    "Toulouse",
+    "Blue Swedish",
+  ])
+);
