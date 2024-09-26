@@ -12396,7 +12396,7 @@ Your function would return the following array:
 
 The elements in the returned array should be in the same order as in the initial array passed to your function, albeit with the 'geese' removed. Note that all of the strings will be in the same case as those provided, and some elements may be repeated.
 */
-
+/*
 function gooseFilter(birds) {
   var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
 
@@ -12421,3 +12421,51 @@ console.log(
     "Blue Swedish",
   ])
 );
+*/
+
+// #2
+/*
+The Pied Piper has been enlisted to play his magical tune and coax all the rats out of town.
+
+But some of the rats are deaf and are going the wrong way!
+Kata Task
+
+How many deaf rats are there?
+Legend
+
+    P = The Pied Piper
+    O~ = Rat going left
+    ~O = Rat going right
+
+Example
+
+    ex1 ~O~O~O~O P has 0 deaf rats
+
+    ex2 P O~ O~ ~O O~ has 1 deaf rat
+
+    ex3 ~O~O~O~OP~O~OO~ has 2 deaf rats
+*/
+
+var countDeafRats = function (town) {
+  town = town.replace(/\s/g, "");
+
+  const piperInd = town.indexOf("P");
+
+  let deafRats = 0;
+
+  for (let i = 0; i < piperInd; i += 2) {
+    if (town[i] === "O" && town[i + 1] === "~") {
+      deafRats++;
+    }
+  }
+  for (let i = piperInd + 1; i < town.length; i += 2) {
+    if (town[i] === "~" && town[i + 1] === "O") {
+      deafRats++;
+    }
+  }
+  return deafRats;
+};
+
+console.log(countDeafRats("~O~O~O~O P"));
+console.log(countDeafRats("P O~ O~ ~O O~"));
+console.log(countDeafRats("~O~O~O~OP~O~OO~"));
