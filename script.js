@@ -12675,6 +12675,44 @@ Make a function that will return a greeting statement that uses an input; your p
 
 [Make sure you type the exact thing I wrote or the program may not execute properly]
 */
+/*
 function greet(name) {
   return `Hello, ${name} how are you doing today?`;
 }
+*/
+
+// #6
+/*
+altERnaTIng cAsE <=> ALTerNAtiNG CaSe
+
+Define String.prototype.toAlternatingCase (or a similar function/method such as to_alternating_case/toAlternatingCase/ToAlternatingCase in your selected language; see the initial solution for details) such that each lowercase letter becomes uppercase and each uppercase letter becomes lowercase. For example:
+
+"hello world".toAlternatingCase() === "HELLO WORLD"
+"HELLO WORLD".toAlternatingCase() === "hello world"
+"hello WORLD".toAlternatingCase() === "HELLO world"
+"HeLLo WoRLD".toAlternatingCase() === "hEllO wOrld"
+"12345".toAlternatingCase()       === "12345"                   // Non-alphabetical characters are unaffected
+"1a2b3c4d5e".toAlternatingCase()  === "1A2B3C4D5E"
+"String.prototype.toAlternatingCase".toAlternatingCase() === "sTRING.PROTOTYPE.TOaLTERNATINGcASE"
+*/
+
+String.prototype.toAlternatingCase = function () {
+  let letters = /[a-zA-Z]/;
+  let arr = [...this];
+  let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    let x = arr[i];
+
+    if (x.toUpperCase() === x) {
+      res.push(x.toLowerCase());
+    } else if (!letters.test(x)) {
+      res.push(x);
+    } else if (x.toLowerCase() === x) {
+      res.push(x.toUpperCase());
+    }
+  }
+  return res.join("");
+};
+
+console.log("1a2b3c4d5e".toAlternatingCase());
+console.log("String.prototype.toAlternatingCase".toAlternatingCase());
