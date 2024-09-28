@@ -12589,7 +12589,7 @@ For example 2 is not a factor of 7 because: 7 % 2 = 1
 
 Note: base is a non-negative number, factor is a positive number.
 */
-
+/*
 function checkForFactor(base, factor) {
   return base % factor === 0;
 }
@@ -12597,3 +12597,28 @@ function checkForFactor(base, factor) {
 console.log(checkForFactor(10, 2));
 console.log(checkForFactor(2450, 7));
 console.log(checkForFactor(9, 2));
+*/
+
+// #2
+/*
+Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+
+The output should be two capital letters with a dot separating them.
+
+It should look like this:
+
+Sam Harris => S.H
+
+patrick feeney => P.F
+*/
+function abbrevName(x) {
+  let arr = x.split(" ");
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let word = arr[i].split("");
+    result.push(word[0]);
+  }
+  return result[0].toUpperCase() + "." + result[1].toUpperCase();
+}
+
+console.log(abbrevName("patrick feeney"));
