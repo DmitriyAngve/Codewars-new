@@ -12660,9 +12660,21 @@ Considering these factors, write a function that tells you if it is possible to 
 
 Function should return true if it is possible and false if not.
 */
+/*
 const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
   return fuelLeft * mpg >= distanceToPump;
 };
 
 console.log(zeroFuel(50, 25, 2));
 console.log(zeroFuel(100, 50, 1));
+*/
+
+// #5
+/*
+Make a function that will return a greeting statement that uses an input; your program should return, "Hello, <name> how are you doing today?".
+
+[Make sure you type the exact thing I wrote or the program may not execute properly]
+*/
+function greet(name) {
+  return `Hello, ${name} how are you doing today?`;
+}
