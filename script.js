@@ -12733,7 +12733,7 @@ it should output
 
 You have to use the filter-method which returns each element of the array for which the filter-method returns true.
  */
-
+/*
 function searchNames(logins) {
   return logins.filter((loginPair) => loginPair[0].match(/\w+_$/));
 }
@@ -12744,3 +12744,93 @@ console.log(
     ["bar_", "bar@bar.com"],
   ])
 );
+*/
+
+// #2
+/*
+Your task is to write a function toLeetSpeak that converts a regular english sentence to Leetspeak.
+
+More about LeetSpeak You can read at wiki -> https://en.wikipedia.org/wiki/Leet
+
+Consider only uppercase letters (no lowercase letters, no numbers) and spaces.
+
+For example:
+
+toLeetSpeak("LEET") returns "1337"
+
+In this kata we use a simple LeetSpeak dialect. Use this alphabet:
+
+{
+  A : '@',
+  B : '8',
+  C : '(',
+  D : 'D',
+  E : '3',
+  F : 'F',
+  G : '6',
+  H : '#',
+  I : '!',
+  J : 'J',
+  K : 'K',
+  L : '1',
+  M : 'M',
+  N : 'N',
+  O : '0',
+  P : 'P',
+  Q : 'Q',
+  R : 'R',
+  S : '$',
+  T : '7',
+  U : 'U',
+  V : 'V',
+  W : 'W',
+  X : 'X',
+  Y : 'Y',
+  Z : '2'
+}
+*/
+
+function toLeetSpeak(str) {
+  let al = {
+    A: "@",
+    B: "8",
+    C: "(",
+    D: "D",
+    E: "3",
+    F: "F",
+    G: "6",
+    H: "#",
+    I: "!",
+    J: "J",
+    K: "K",
+    L: "1",
+    M: "M",
+    N: "N",
+    O: "0",
+    P: "P",
+    Q: "Q",
+    R: "R",
+    S: "$",
+    T: "7",
+    U: "U",
+    V: "V",
+    W: "W",
+    X: "X",
+    Y: "Y",
+    Z: "2",
+  };
+  let arr = str.split("");
+  console.log(arr);
+  let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (Object.hasOwn(al, arr[i])) {
+      res.push(al[arr[i]]);
+    } else {
+      res.push(arr[i]);
+    }
+  }
+  return res.join("");
+}
+
+console.log(toLeetSpeak("LEET"));
+console.log(toLeetSpeak("CODEWARS"));
