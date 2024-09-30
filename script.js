@@ -12789,7 +12789,7 @@ In this kata we use a simple LeetSpeak dialect. Use this alphabet:
   Z : '2'
 }
 */
-
+/*
 function toLeetSpeak(str) {
   let al = {
     A: "@",
@@ -12834,3 +12834,29 @@ function toLeetSpeak(str) {
 
 console.log(toLeetSpeak("LEET"));
 console.log(toLeetSpeak("CODEWARS"));
+*/
+
+// #3
+/*
+Please write a function that sums a list, but ignores any duplicated items in the list.
+
+For instance, for the list [3, 4, 3, 6] the function should return 10,
+and for the list [1, 10, 3, 10, 10] the function should return 4.
+ */
+function sumNoDuplicates(numList) {
+  let ht = {};
+
+  for (const el of numList) {
+    ht[el] = (ht[el] || 0) + 1;
+  }
+  console.log(ht);
+
+  return Object.keys(ht).reduce((acc, key) => {
+    if (ht[key] === 1) {
+      return acc + Number(key);
+    }
+    return acc;
+  }, 0);
+}
+
+console.log(sumNoDuplicates([3, 4, 3, 6]));
