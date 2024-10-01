@@ -13095,6 +13095,7 @@ servers = [5, 5, 5]
 
 Результат: -1 (Невозможно распределить задачи)
 */
+/*
 function distributeTasks(tasks, servers) {
   let serverLoad = new Array(servers.length).fill(0); // Текущее время загрузки каждого сервера
 
@@ -13121,3 +13122,22 @@ function distributeTasks(tasks, servers) {
 
 console.log(distributeTasks([5, 8, 3, 7, 2], [10, 15, 5]));
 console.log(distributeTasks([10, 10, 10], [5, 5, 5]));
+*/
+
+// #7
+/*
+Terminal game move function
+
+In this game, the hero moves from left to right. The player rolls the dice and moves the number of spaces indicated by the dice two times.
+
+Create a function for the terminal game that takes the current position of the hero and the roll (1-6) and return the new position.
+Example:
+
+move(3, 6) should equal 15
+*/
+function move(position, roll) {
+  return position + roll + roll;
+}
+
+console.log(move(0, 4));
+console.log(move(3, 6));
