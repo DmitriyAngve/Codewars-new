@@ -12945,6 +12945,7 @@ console.log(
 );
 */
 
+/*
 // #2
 function shortestConsec(x, k) {
   if (x.length === 0 || k > x.length || k <= 0) {
@@ -12968,4 +12969,28 @@ console.log(
     ["this", "is", "a", "test", "of", "the", "shortest", "string"],
     3
   )
+);
+*/
+
+// #3
+function longestUniqueConsec(x, k) {
+  if (x.length === 0 || k > x.length || k <= 0) return "";
+
+  let longestUnique = "";
+
+  for (let i = 0; i <= x.length - k; i++) {
+    let cur = x.slice(i, i + k).join("");
+    // console.log(cur);
+
+    let unique = new Set(cur);
+
+    if (unique.size === cur.length && cur.length > longestUnique.length) {
+      longestUnique = cur;
+    }
+  }
+  return longestUnique;
+}
+
+console.log(
+  longestUniqueConsec(["hello", "world", "this", "is", "javascript"], 2)
 );
