@@ -12995,7 +12995,7 @@ console.log(
   longestUniqueConsec(["hello", "world", "this", "is", "javascript"], 2)
 );
 */
-
+/*
 // #4
 function highestAsciiSumConsec(x, k) {
   if (x.length === 0 || k > x.length || k <= 0) {
@@ -13026,3 +13026,38 @@ function highestAsciiSumConsec(x, k) {
 
 console.log(highestAsciiSumConsec(["abc", "def", "ghi", "jkl", "mno"], 2));
 console.log(highestAsciiSumConsec(["abc", "def", "ghi", "jkl", "mno"], 3));
+*/
+
+// #5
+/*
+There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total time required for all the customers to check out!
+input
+
+    customers: an array of positive integers representing the queue. Each integer represents a customer, and its value is the amount of time they require to check out.
+    n: a positive integer, the number of checkout tills.
+
+output
+
+The function should return an integer, the total time required.
+Important
+
+Please look at the examples and clarifications below, to ensure you understand the task correctly :)
+*/
+
+function queueTime(customers, n) {
+  if (customers.length === 0) return 0;
+
+  let tills = new Array(n).fill(0);
+
+  for (let time of customers) {
+    let idx = tills.indexOf(Math.min(...tills));
+    tills[idx] += time;
+  }
+
+  return Math.max(...tills);
+}
+
+console.log(queueTime([], 1));
+console.log(queueTime([1, 2, 3, 4], 1));
+console.log(queueTime([1, 2, 3, 4, 5], 100));
+console.log(queueTime([10, 2, 3, 3], 2));
