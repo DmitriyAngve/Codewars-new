@@ -12971,7 +12971,7 @@ console.log(
   )
 );
 */
-
+/*
 // #3
 function longestUniqueConsec(x, k) {
   if (x.length === 0 || k > x.length || k <= 0) return "";
@@ -12994,3 +12994,35 @@ function longestUniqueConsec(x, k) {
 console.log(
   longestUniqueConsec(["hello", "world", "this", "is", "javascript"], 2)
 );
+*/
+
+// #4
+function highestAsciiSumConsec(x, k) {
+  if (x.length === 0 || k > x.length || k <= 0) {
+    return "";
+  }
+
+  let maxSum = 0;
+  let result = "";
+
+  for (let i = 0; i <= x.length - k; i++) {
+    let cur = x.slice(i, i + k).join("");
+    // console.log(cur);
+
+    let asciiSum = cur
+      .split("")
+      .reduce((acc, char) => acc + char.charCodeAt(0), 0);
+
+    // console.log(asciiSum);
+
+    if (asciiSum > maxSum) {
+      maxSum = asciiSum;
+      result = cur;
+    }
+  }
+
+  return result;
+}
+
+console.log(highestAsciiSumConsec(["abc", "def", "ghi", "jkl", "mno"], 2));
+console.log(highestAsciiSumConsec(["abc", "def", "ghi", "jkl", "mno"], 3));
