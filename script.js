@@ -12921,7 +12921,7 @@ Note
 
 consecutive strings : follow one after another without an interruption
 */
-
+/*
 function longestConsec(x, k) {
   if (x.length === 0 || k > x.length || k <= 0) {
     return "";
@@ -12942,4 +12942,30 @@ function longestConsec(x, k) {
 
 console.log(
   longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2)
+);
+*/
+
+// #2
+function shortestConsec(x, k) {
+  if (x.length === 0 || k > x.length || k <= 0) {
+    return "";
+  }
+
+  let shortest = x.slice(0, k).join("");
+
+  for (let i = 0; i <= x.length - k; i++) {
+    let current = x.slice(i, i + k).join("");
+
+    if (current.length < shortest.length) {
+      shortest = current;
+    }
+  }
+  return shortest;
+}
+
+console.log(
+  shortestConsec(
+    ["this", "is", "a", "test", "of", "the", "shortest", "string"],
+    3
+  )
 );
