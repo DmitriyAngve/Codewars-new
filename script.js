@@ -13278,10 +13278,32 @@ console.log(mirrorImage([454, 0, 57, 0, 16, 88]));
 /*
 Write a function that merges two sorted arrays into a single one. The arrays only contain integers. Also, the final outcome must be sorted and not have any duplicate.
 */
-
+/*
 function mergeArrays(a, b) {
   return Array.from(new Set([...a, ...b])).sort((a, b) => a - b);
 }
 
 console.log(mergeArrays([2, 4, 8], [2, 4, 6]));
 console.log(mergeArrays([1, 3, 5], [2, 4, 6]));
+*/
+
+// #4
+/*
+Given an array of numbers, sort them in such a manner that all the odd numbers in the array are sorted in ascending order and the even numbers are sorted in descending order after the last odd number. For example [1,2,3,4,5,6,7,8,9] produces the output [1,3,5,7,9,8,6,4,2]. If the array contains decimals, round them down while checking for odd/even. The output must have the original numbers!
+*/
+
+function sortItOut(arr) {
+  let odds = [];
+  let evens = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (Math.floor(arr[i]) % 2 === 0) {
+      evens.push(arr[i]);
+    } else {
+      odds.push(arr[i]);
+    }
+  }
+
+  return [...odds.sort((a, b) => a - b), ...evens.sort((a, b) => b - a)];
+}
+
+console.log(sortItOut([11, 22, 33, 44, 55, 55, 90.4, 4, 78]));
