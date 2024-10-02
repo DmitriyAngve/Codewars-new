@@ -13291,7 +13291,7 @@ console.log(mergeArrays([1, 3, 5], [2, 4, 6]));
 /*
 Given an array of numbers, sort them in such a manner that all the odd numbers in the array are sorted in ascending order and the even numbers are sorted in descending order after the last odd number. For example [1,2,3,4,5,6,7,8,9] produces the output [1,3,5,7,9,8,6,4,2]. If the array contains decimals, round them down while checking for odd/even. The output must have the original numbers!
 */
-
+/*
 function sortItOut(arr) {
   let odds = [];
   let evens = [];
@@ -13307,3 +13307,35 @@ function sortItOut(arr) {
 }
 
 console.log(sortItOut([11, 22, 33, 44, 55, 55, 90.4, 4, 78]));
+*/
+
+// #5
+/*
+Given a varying number of integer arguments, return the digits that are not present in any of them.
+
+Example:
+
+[12, 34, 56, 78]  =>  "09"
+[2015, 8, 26]     =>  "3479"
+
+Note: the digits in the resulting string should be sorted.
+*/
+function unusedDigits() {
+  let arr = [...arguments];
+  let str = arr.join("");
+
+  let unused = [];
+
+  for (let i = 0; i <= 9; i++) {
+    let reg = new RegExp(i);
+    console.log(reg);
+    if (!str.match(reg)) {
+      unused.push(i);
+    }
+  }
+
+  return unused.join("");
+}
+
+console.log(unusedDigits([12, 34, 56, 78]));
+console.log(unusedDigits([2015, 8, 26]));
