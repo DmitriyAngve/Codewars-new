@@ -13247,7 +13247,7 @@ mirrorImage([11,22,33,33,22,11]) should return [33,33]
 mirrorImage([454,86,57,75,16,88]) should return [57,75]
 mirrorImage([454,0,57,0,16,88]) should return [-1,-1]
 */
-
+/*
 function mirrorImage(arr) {
   arr = arr.map(String);
   // console.log(arr);
@@ -13272,3 +13272,16 @@ function mirrorImage(arr) {
 
 console.log(mirrorImage([454, 86, 57, 75, 16, 88]));
 console.log(mirrorImage([454, 0, 57, 0, 16, 88]));
+*/
+
+// #3
+/*
+Write a function that merges two sorted arrays into a single one. The arrays only contain integers. Also, the final outcome must be sorted and not have any duplicate.
+*/
+
+function mergeArrays(a, b) {
+  return Array.from(new Set([...a, ...b])).sort((a, b) => a - b);
+}
+
+console.log(mergeArrays([2, 4, 8], [2, 4, 6]));
+console.log(mergeArrays([1, 3, 5], [2, 4, 6]));
