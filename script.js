@@ -13352,6 +13352,7 @@ When the item isn't present or nothing follows it, the function should return ni
 nextItem([1, 2, 3, 4, 5, 6, 7], 3) # 4
 nextItem("testing", "t") # "e"
 */
+/*
 function nextItem(xs, item) {
   let f = false;
   for (const x of xs) {
@@ -13365,3 +13366,35 @@ function nextItem(xs, item) {
 console.log(nextItem([1, 2, 3, 4, 5, 6, 7], 3));
 
 console.log(nextItem("testing", "t"));
+*/
+
+// #2
+/*
+Write a function that takes in a binary string and returns the equivalent decoded text (the text is ASCII encoded).
+
+Each 8 bits on the binary string represent 1 character on the ASCII table.
+
+The input string will always be a valid binary string.
+
+Characters can be in the range from "00000000" to "11111111" (inclusive)
+
+Note: In the case of an empty binary string your function should return an empty string.
+*/
+
+function binaryToString(binary) {
+  let arr = [];
+
+  for (let i = 0; i < binary.length; i += 8) {
+    arr.push(binary.slice(i, i + 8));
+  }
+
+  return arr.reduce(
+    (acc, curr) => acc + String.fromCharCode(parseInt(curr, 2)),
+    ""
+  );
+}
+
+console.log(binaryToString("01100001"));
+console.log(
+  binaryToString("01001011010101000100100001011000010000100101100101000101")
+);
