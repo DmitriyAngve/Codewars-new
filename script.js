@@ -13644,7 +13644,7 @@ rotate("Hello") // => ["elloH", "lloHe", "loHel", "oHell", "Hello"]
 
 Note: The original string should be included in the output array. The order matters. Each element of the output array should be the rotated version of the previous element. The output array SHOULD be the same length as the input string. The function should return an empty array with a 0 length string, '', as input.
 */
-
+/*
 function rotate(str) {
   let res = [];
 
@@ -13656,3 +13656,50 @@ function rotate(str) {
 }
 
 console.log(rotate("Hello"));
+*/
+
+// #3
+/*
+You receive some random elements as a space-delimited string. Check if the elements are part of an ascending sequence of integers starting with 1, with an increment of 1 (e.g. 1, 2, 3, 4).
+
+Return:
+
+    0 if the elements can form such a sequence, and no number is missing ("not broken", e.g. "1 2 4 3")
+    1 if there are any non-numeric elements in the input ("invalid", e.g. "1 2 a")
+    n if the elements are part of such a sequence, but some numbers are missing, and n is the lowest of them ("broken", e.g. "1 2 4" or "1 5")
+
+Examples
+
+"1 2 3 4"  ==>  return 0, because the sequence is complete
+
+"1 2 4 3"  ==>  return 0, because the sequence is complete (order doesn't matter)
+
+"2 1 3 a"  ==>  return 1, because it contains a non numerical character
+
+"1 3 2 5"  ==>  return 4, because 4 is missing from the sequence
+*/
+
+function findMissingNumber(sequence) {
+  let arr = sequence.split(" ").map(Number);
+
+  if (sequence.trim() === "") return 0;
+
+  if (arr.some(isNaN)) return 1;
+
+  arr = Array.from(new Set(arr)).sort((a, b) => a - b);
+  console.log(arr);
+
+  if (arr[0] !== 1) return 1;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== i + 1) {
+      return i + 1;
+    }
+  }
+  return 0;
+}
+
+console.log(findMissingNumber("1 2 3 5"));
+console.log(findMissingNumber("1 3"));
+console.log(findMissingNumber("1 2 3 4 5"));
+console.log(findMissingNumber("1 2 3 4 a"));
