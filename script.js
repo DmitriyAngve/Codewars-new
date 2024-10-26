@@ -13539,6 +13539,7 @@ Requirements:
 
 eight(dividedBy(three()));
 */
+/*
 function zero(op) {
   return op ? op(0) : 0;
 }
@@ -13592,3 +13593,36 @@ function dividedBy(r) {
 }
 
 console.log(one(plus(two())));
+*/
+
+// #26.10.2024
+// #1
+/*
+Given an array with exactly 5 strings "a", "b" or "c" (chars in Java, characters in Fortran, Chars in Haskell), check if the array contains three and two of the same values.
+Examples
+
+["a", "a", "a", "b", "b"] ==> true  // 3x "a" and 2x "b"
+["a", "b", "c", "b", "c"] ==> false // 1x "a", 2x "b" and 2x "c"
+["a", "a", "a", "a", "a"] ==> false // 5x "a"
+*/
+
+function checkThreeAndTwo(arr) {
+  let count1 = 0;
+  let count2 = 0;
+  let count3 = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "a") {
+      count1++;
+    } else if (arr[i] === "b") {
+      count2++;
+    } else if (arr[i] === "c") {
+      count3++;
+    }
+  }
+  let res = [count1, count2, count3];
+  return res.includes(3) && res.includes(2);
+}
+
+console.log(checkThreeAndTwo(["a", "a", "a", "b", "b"]));
+console.log(checkThreeAndTwo(["a", "a", "a", "a", "a"]));
