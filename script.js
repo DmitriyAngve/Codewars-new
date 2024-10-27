@@ -13740,7 +13740,7 @@ Let's look at another example: if we have the same board and your direction is "
 
 P.S If you wonder about the amazingness of Gordon and Cooper you have to watch Twin Peaks and enjoy at your fullest.
 */
-
+/*
 function findSafeRoute(board, directions) {
   if (directions.length !== board[0].length) {
     return "Coop, it's too risky!";
@@ -13770,3 +13770,19 @@ console.log(
     "Horizontal 1"
   )
 );
+*/
+
+// 27.10.2024
+// #1
+/*
+Given a string of digits confirm whether the sum of all the individual even digits are greater than the sum of all the indiviudal odd digits. Always a string of numbers will be given.
+
+    If the sum of even numbers is greater than the odd numbers return: "Even is greater than Odd"
+
+    If the sum of odd numbers is greater than the sum of even numbers return: "Odd is greater than Even"
+
+    If the total of both even and odd numbers are identical return: "Even and Odd are the same
+*/
+function evenOrOdd(str) {}
+console.log(evenOrOdd("12"));
+console.log(evenOrOdd("123"));
