@@ -13853,6 +13853,7 @@ For example, consider array arr such that arr = [3,4,3,2,3,1,3,3]
 The dominator of arr is 3 because it occurs in 5 out of 8 elements of arr and 5 is more than a half of 8.
 Write a function dominator(arr) that, given a zero-indexed array arr consisting of n integers, returns the dominator of arr. The function should return −1 if array does not have a dominator. All values in arr will be >=0.
 */
+/*
 function dominator(arr) {
   const freq = {};
   const hl = arr.length / 2;
@@ -13873,3 +13874,58 @@ console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3]));
 console.log(dominator([1, 2, 3, 4, 5]));
 console.log(dominator([1, 1, 1, 2, 2, 2, 2]));
 console.log(dominator([1, 1, 1, 2, 2, 2]));
+*/
+
+// #3
+/*
+You will be given an array which will include both integers and characters.
+
+Return an array of length 2 with a[0] representing the mean of the ten integers as a floating point number. There will always be 10 integers and 10 characters. Create a single string with the characters and return it as a[1] while maintaining the original order.
+
+lst = ['u', '6', 'd', '1', 'i', 'w', '6', 's', 't', '4', 'a', '6', 'g', '1', '2', 'w', '8', 'o', '2', '0']
+
+Here is an example of your return
+
+[3.6, "udiwstagwo"]
+*/
+function mean(lst) {
+  let sum = 0;
+  let count = 0;
+  let chars = "";
+  for (let i = 0; i < lst.length; i++) {
+    const num = Number(lst[i]);
+    if (!isNaN(num)) {
+      sum += num;
+      count++;
+    } else {
+      chars += lst[i];
+    }
+  }
+
+  return [sum / count, chars];
+}
+
+console.log(
+  mean([
+    "u",
+    "6",
+    "d",
+    "1",
+    "i",
+    "w",
+    "6",
+    "s",
+    "t",
+    "4",
+    "a",
+    "6",
+    "g",
+    "1",
+    "2",
+    "w",
+    "8",
+    "o",
+    "2",
+    "0",
+  ])
+);
