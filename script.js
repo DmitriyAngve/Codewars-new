@@ -13958,6 +13958,7 @@ console.log(tailSwap(["abc:123", "cde:456"]));
 /*
 Given n number of people in a room, calculate the probability that any two people in that room have the same birthday (assume 365 days every year = ignore leap year). Answers should be two decimals unless whole (0 or 1) eg 0.05
 */
+/*
 function calculateProbability(n) {
   if (n < 2) return "0.00"; // Меньше двух человек не могут иметь совпадающий день рождения
 
@@ -13972,3 +13973,22 @@ function calculateProbability(n) {
 
 console.log(calculateProbability(5));
 console.log(calculateProbability(1000));
+*/
+
+// #2
+/*
+Complete the solution so that it reverses all of the words within the string passed in.
+
+Words are separated by exactly one space and there are no leading or trailing spaces.
+
+Example(Input --> Output):
+
+"The greatest victory is that which requires no battle" --> "battle no requires which that is victory greatest The"
+*/
+function reverseWords(str) {
+  return str.split(" ").reverse().join(" ");
+}
+
+console.log(
+  reverseWords("The greatest victory is that which requires no battle")
+);
