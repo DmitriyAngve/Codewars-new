@@ -14055,7 +14055,7 @@ Examples:
 Example of a string rotated to the left by one position:
 s = "123456" gives "234561".
 */
-
+/*
 function revrot(str, sz) {
   if (sz > str.length || str === "" || sz <= 0) return "";
 
@@ -14079,3 +14079,38 @@ function revrot(str, sz) {
 
 console.log(revrot("123456987654", 6));
 console.log(revrot("66443875", 4));
+*/
+
+// #5
+/*
+Your task is simply to count the total number of lowercase letters in a string.
+Examples
+
+"abc" ===> 3
+
+"abcABC123" ===> 3
+
+"abcABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~" ===> 3
+
+"" ===> 0;
+
+"ABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~" ===> 0
+
+"abcdefghijklmnopqrstuvwxyz" ===> 26
+*/
+
+function lowercaseCount(str) {
+  let lowerReg = /[a-z]/;
+  let arr = str.split("");
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].match(lowerReg)) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(lowercaseCount("abc"));
+console.log(lowercaseCount("aBc"));
+console.log(lowercaseCount("abcABC123!@€£#$%^&*()_-+=}{[]|':;?/>.<,~"));
