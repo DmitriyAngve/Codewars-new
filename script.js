@@ -13942,7 +13942,7 @@ Examples
 ["abc:123", "cde:456"]  -->  ["abc:456", "cde:123"]
 ["a:12345", "777:xyz"]  -->  ["a:xyz", "777:12345"]
 */
-
+/*
 function tailSwap(arr) {
   let f = arr[0].split(":");
   let s = arr[1].split(":");
@@ -13951,3 +13951,24 @@ function tailSwap(arr) {
 }
 
 console.log(tailSwap(["abc:123", "cde:456"]));
+*/
+
+// 15.11.2024
+// #1
+/*
+Given n number of people in a room, calculate the probability that any two people in that room have the same birthday (assume 365 days every year = ignore leap year). Answers should be two decimals unless whole (0 or 1) eg 0.05
+*/
+function calculateProbability(n) {
+  if (n < 2) return "0.00"; // Меньше двух человек не могут иметь совпадающий день рождения
+
+  let probabilityNoShared = 1;
+  for (let i = 0; i < n; i++) {
+    probabilityNoShared *= (365 - i) / 365;
+  }
+
+  const probabilityShared = 1 - probabilityNoShared;
+  return probabilityShared.toFixed(2);
+}
+
+console.log(calculateProbability(5));
+console.log(calculateProbability(1000));
