@@ -13985,10 +13985,44 @@ Example(Input --> Output):
 
 "The greatest victory is that which requires no battle" --> "battle no requires which that is victory greatest The"
 */
+/*
 function reverseWords(str) {
   return str.split(" ").reverse().join(" ");
 }
 
 console.log(
   reverseWords("The greatest victory is that which requires no battle")
+);
+*/
+
+// #3
+/*
+In this kata you need to check the provided 2 dimensional array (x) for good ideas 'good' and bad ideas 'bad'. If there are one or two good ideas, return 'Publish!', if there are more than 2 return 'I smell a series!'. If there are no good ideas, as is often the case, return 'Fail!'.
+
+The sub arrays may not be the same length.
+*/
+function well(x) {
+  let count = 0;
+
+  for (let i = 0; i < x.length; i++) {
+    for (let j = 0; j < x[i].length; j++) {
+      if (typeof x[i][j] === "string" && x[i][j].toLowerCase() === "good") {
+        count++;
+      }
+    }
+  }
+  return count === 1 || count === 2
+    ? "Publish!"
+    : count > 2
+    ? "I smell a series!"
+    : "Fail!";
+}
+
+console.log(well([["bad", "bAd", "bad"]]));
+console.log(well([["gOOd", "bad", "BAD", "bad", "bad"]]));
+console.log(
+  well([
+    ["gOOd", "good"],
+    ["good", "bad", "bad"],
+  ])
 );
