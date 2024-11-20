@@ -14332,6 +14332,7 @@ function mult(num) {
 chain(2, [add, mult]);
 // returns 90;
 */
+/*
 function chain(input, fs) {
   return fs.reduce((acc, func) => func(acc), input);
 }
@@ -14345,3 +14346,27 @@ function mult(num) {
 }
 
 console.log(chain(2, [add, mult]));
+*/
+
+// #4
+/*
+Complete the function that takes an array of words.
+
+You must concatenate the nth letter from each word to construct a new word which should be returned as a string, where n is the position of the word in the list.
+
+For example:
+
+["yoda", "best", "has"]  -->  "yes"
+  ^        ^        ^
+  n=0     n=1     n=2
+
+Note: Test cases contain valid input only - i.e. a string array or an empty array; and each word will have enough letters.
+*/
+
+function nthChar(words) {
+  if (words.length === 0) return "";
+  return words.map((word, index) => word[index]).join("");
+}
+
+console.log(nthChar([]));
+console.log(nthChar(["yoda", "best", "has"]));
