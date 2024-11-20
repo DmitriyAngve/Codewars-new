@@ -14293,6 +14293,7 @@ Examples
 
 If the string to search for is "me", and the array to search is ["home", "milk", "Mercury", "fish"], the method should return ["home", "Mercury"].
 */
+/*
 function wordSearch(query, seq) {
   const pattern = query;
   const flags = "gi";
@@ -14310,3 +14311,37 @@ function wordSearch(query, seq) {
 console.log(wordSearch("ab", ["za", "ab", "abc", "zab", "zbc"]));
 console.log(wordSearch("ab", ["za", "aB", "Abc", "zAB", "zbc"]));
 console.log(wordSearch("abqq", ["za", "aB", "Abc", "zAB", "zbc"]));
+*/
+
+// #3
+/*
+Write a generic function chainer
+
+Write a generic function chainer that takes a starting value, and an array of functions to execute on it (array of symbols for Ruby).
+
+The input for each function is the output of the previous function (except the first function, which takes the starting value as its input). Return the final value after execution is complete.
+
+function add(num) {
+  return num + 1;
+}
+
+function mult(num) {
+  return num * 30;
+}
+
+chain(2, [add, mult]);
+// returns 90;
+*/
+function chain(input, fs) {
+  return fs.reduce((acc, func) => func(acc), input);
+}
+
+function add(num) {
+  return num + 1;
+}
+
+function mult(num) {
+  return num * 30;
+}
+
+console.log(chain(2, [add, mult]));
