@@ -14362,7 +14362,7 @@ For example:
 
 Note: Test cases contain valid input only - i.e. a string array or an empty array; and each word will have enough letters.
 */
-
+/*
 function nthChar(words) {
   if (words.length === 0) return "";
   return words.map((word, index) => word[index]).join("");
@@ -14370,3 +14370,31 @@ function nthChar(words) {
 
 console.log(nthChar([]));
 console.log(nthChar(["yoda", "best", "has"]));
+*/
+
+// #5
+/*
+Write a function that returns a sequence (index begins with 1) of all the even characters from a string. If the string is smaller than two characters or longer than 100 characters, the function should return "invalid string".
+
+For example:
+
+"abcdefghijklm" --> ["b", "d", "f", "h", "j", "l"]
+"a"             --> "invalid string"
+*/
+function evenChars(string) {
+  if (string.length < 2 || string.length > 100) {
+    return "invalid string";
+  }
+  let res = [];
+  let arr = string.split("");
+  console.log(arr);
+  for (let i = 1; i <= arr.length; i++) {
+    if (i % 2 === 0) {
+      res.push(arr[i - 1]);
+    }
+  }
+  return res;
+}
+
+console.log(evenChars("a"));
+console.log(evenChars("abcdefghijklm"));
