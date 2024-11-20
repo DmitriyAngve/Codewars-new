@@ -6,7 +6,6 @@ For example:
 Given an item at $75 sale price after applying a 25% discount, the function should return the original price of that item before applying the sale percentage, which is ($100.00) of course, rounded to two decimal places.
 DiscoverOriginalPrice(75, 25) => 100.00M where 75 is the sale price (discounted price), 25 is the sale percentage and 100 is the original price
 */
-
 /*
 function discoverOriginalPrice(discountedPrice, salePercentage) {
   const discount = salePercentage / 100;
@@ -36,9 +35,7 @@ function vowel2index(str) {
 
 console.log(vowel2index("this is my string"));
 */
-
 // #3
-
 /*
 Converting a 12-hour time like "8:30 am" or "8:30 pm" to 24-hour time (like "0830" or "2030") sounds easy enough, right? Well, let's see if you can do it!
 You will have to define a function, which will be given an hour (always in the range of 1 to 12, inclusive), a minute (always in the range of 0 to 59, inclusive), and a period (either a.m. or p.m.) as input.
@@ -77,9 +74,7 @@ console.log(to24hourtime(1, 0, "am"));
 console.log(to24hourtime(6, 30, "pm"));
 console.log(to24hourtime(1, 0, "pm"));
 */
-
 // #4
-
 /*
 The vowel substrings in the word codewarriors are o,e,a,io. The longest of these has a length of 2. Given a lowercase string that has alphabetic characters only (both vowels and consonants) and no spaces, return the length of the longest vowel substring. Vowels are any of aeiou. 
 */
@@ -100,9 +95,7 @@ function solve(s) {
 
 console.log(solve("codewarriors"));
 */
-
 // #5
-
 /*
 Write a function that takes two arguments, and returns a new array populated with the elements that only appear once, in either one array or the other, taken only once; display order should follow what appears in arr1 first, then arr2:
 hotSingles([1, 2, 3, 3], [3, 2, 1, 4, 5]) // [4, 5]
@@ -117,7 +110,6 @@ function hotSingles(arr1, arr2) {
   return [...new Set([...diff(arr1, arr2), ...diff(arr2, arr1)])];
 }
 */
-
 // SOLUTION #2
 /*
 function hotSingles(arr1, arr2) {
@@ -130,9 +122,7 @@ console.log(hotSingles(["tartar", "blanket", "domino"], ["blanket"]));
 console.log(hotSingles([77, "basketweave"], [78, 42, "basketweave"]));
 console.log(hotSingles([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]));
 */
-
 // ALGORITHMS
-
 // Linear_search
 /*
 const array = [1, 2, 3, 4, 8, 6, 7, 4, 1, 3, 6];
@@ -150,7 +140,6 @@ function linearSearch(array, item) {
 console.log(linearSearch(array, 8));
 console.log("count:", count);
 */
-
 // Binary_search
 /*
 const array = [0, 1, 2, 3, 4, 6, 7, 8, 10, 12, 15, 17, 82, 91];
@@ -220,7 +209,6 @@ function bin(arr, item) {
 
 console.log(bin(arr, 2));
 */
-
 // 08.10.2023
 /*
 Write a function that removes every lone 9 that is inbetween 7s.
@@ -243,7 +231,6 @@ function sevenAte9(str) {
 console.log(sevenAte9("79712312"));
 console.log(sevenAte9("797"));
 */
-
 // #2
 /*
 #Permutation position In this kata you will have to permutate through a string of lowercase letters, each permutation will start at a and you must calculate how many iterations it takes to reach the current permutation.
@@ -263,7 +250,6 @@ console.log(permutationPosition("c"));
 console.log(permutationPosition("z"));
 console.log(permutationPosition("aaa"));
 */
-
 // #3
 /*
 Just a simple sorting usage. Create a function that returns the elements of the input-array / list sorted in lexicographical order.
@@ -275,9 +261,7 @@ sortme = function (names) {
 
 console.log(sortme(["one", "two", "three"]));
 */
-
 // 10.10.2023
-
 // #1
 /*
 Description:
@@ -321,7 +305,6 @@ console.log(removeSmallest([1, 2, 3, 4, 5]));
 console.log(removeSmallest([5, 3, 2, 1, 4]));
 console.log(removeSmallest([2, 2, 1, 2, 1]));
 */
-
 // #2
 /*
 Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
@@ -349,7 +332,6 @@ console.log(spinWords("Welcome"));
 console.log(spinWords("This is a test"));
 console.log(spinWords("This is another test"));
 */
-
 // #3
 /*
 Digital root is the recursive sum of all the digits in a number.
@@ -373,7 +355,6 @@ console.log(digitalRoot(16));
 console.log(digitalRoot(942));
 console.log(digitalRoot(132189));
 */
-
 // #4
 /*
 Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary representation of that number. You can guarantee that input is non-negative.
@@ -401,7 +382,6 @@ console.log(countBits(4));
 console.log(countBits(7));
 console.log(countBits(1234));
 */
-
 // #5
 /*
 You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. Write a method that takes the array as an argument and returns this "outlier" N.
@@ -434,7 +414,6 @@ function findOutlier(integers) {
 console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]));
 console.log(findOutlier([160, 3, 1719, 19, 11, 13, -21]));
 */
-
 // 12.10.2023
 /*
 Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
@@ -467,7 +446,6 @@ console.log(maskify("4556364607935616"));
 console.log(maskify("1"));
 console.log(maskify("11111"));
 */
-
 // #2
 /*
 When provided with a String, capitalize all vowels
@@ -495,7 +473,6 @@ console.log(swap("Friday"));
 console.log(swap("abracadabra"));
 console.log(swap("   @@@"));
 */
-
 // #3
 /*
 Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case). The next words should be always capitalized.
@@ -517,7 +494,6 @@ console.log(toCamelCase(""));
 console.log(toCamelCase("the_stealth_warrior"));
 console.log(toCamelCase("The-Stealth-Warrior"));
 */
-
 // #4
 /*
 A Narcissistic Number (or Armstrong Number) is a positive number which is the sum of its own digits, each raised to the power of the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10).
@@ -543,7 +519,6 @@ console.log(narcissistic(1652));
 console.log(narcissistic(153));
 console.log(narcissistic(7));
 */
-
 // #5
 /*
 Complete the solution so that it splits the string into pairs of two characters. If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
@@ -569,7 +544,6 @@ console.log(solution("abcdef"));
 console.log(solution("abcdefg"));
 console.log(solution(""));
 */
-
 // #6
 /*
 Find the missing letter
@@ -598,7 +572,6 @@ function findMissingLetter(arr) {
 console.log(findMissingLetter(["a", "b", "c", "d", "f"]));
 console.log(findMissingLetter(["O", "Q", "R", "S"]));
 */
-
 // #6
 /*
 Create a function named divisors/Divisors that takes an integer n > 1 and returns an array with all of the integer's divisors(except for 1 and the number itself), from smallest to largest. If the number is prime return the string '(integer) is prime' (null in C#, empty table in COBOL) (use Either String a in Haskell and Result<Vec<u32>, String> in Rust).
@@ -624,7 +597,6 @@ console.log(divisors(15));
 console.log(divisors(12));
 console.log(divisors(13));
 */
-
 // #7
 /*
 Write a function that takes a string of braces, and determines if the order of the braces is valid. It should return true if the string is valid, and false if it's invalid.
@@ -666,9 +638,7 @@ console.log(validBraces("(){}[]"));
 console.log(validBraces("([{}])"));
 console.log(validBraces("[(])"));
 */
-
 // 16.10.2023
-
 // #1
 /*
 Return the number (count) of vowels in the given string.
@@ -694,7 +664,6 @@ function getCount(str) {
 console.log(getCount("dewefwrsqqeieueu"));
 console.log(getCount("abracadabra"));
 */
-
 // #2
 /*
 Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
@@ -715,7 +684,6 @@ console.log(squareDigits(9119));
 console.log(squareDigits(765));
 console.log(squareDigits(3212));
 */
-
 // #3
 /*
 In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
@@ -736,7 +704,6 @@ function highAndLow(numbers) {
 console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
 console.log(highAndLow("1 2 3"));
 */
-
 // #4
 /*
 Make a program that filters a list of strings and returns a list with only your friends name in it.
@@ -758,7 +725,6 @@ function friend(friends) {
 
 console.log(friend(["Ryan", "Kieran", "Mark"]));
 */
-
 // #5
 /*
 In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. The start and the end number are both inclusive!
@@ -783,7 +749,6 @@ function dontGiveMeFive(start, end) {
 
 console.log(dontGiveMeFive(1, 81));
 */
-
 // #6
 /*
 Your task is to split the chocolate bar of given dimension n x m into small squares. Each square is of size 1x1 and unbreakable. Implement a function that will return minimum number of breaks needed.
@@ -803,7 +768,6 @@ function breakChocolate(n, m) {
 
 console.log(breakChocolate(5, 5));
 */
-
 // #7
 /*
 Write a method (or function, depending on the language) that converts a string to camelCase, that is, all words must have their first letter capitalized and spaces must be removed.
@@ -821,7 +785,6 @@ String.prototype.camelCase = function () {
     .join("");
 };
 */
-
 // 18.10.2023
 //#1
 /*
@@ -863,7 +826,6 @@ console.log(palindromeChainLength(88));
 console.log(palindromeChainLength(87));
 console.log(palindromeChainLength(89));
 */
-
 // #2
 /*
 Given two arrays of strings a1 and a2 return a sorted array r in lexicographical order of the strings of a1 which are substrings of strings of a2.
@@ -899,7 +861,6 @@ console.log(
   )
 );
 */
-
 // #3
 /*
 Write a function that accepts a string, and returns the same string with all even indexed characters in each word upper cased, and all odd indexed characters in each word lower cased. The indexing just explained is zero based, so the zero-ith index is even, therefore that character should be upper cased and you need to start over for each word.
@@ -933,7 +894,6 @@ function toWeirdCase(string) {
 
 console.log(toWeirdCase("This is a test"));
 */
-
 // #4
 /*
 The two oldest ages function/method needs to be completed. It should take an array of numbers as its argument and return the two highest numbers within the array. The returned value should be an array in the format [second oldest age,  oldest age].
@@ -954,7 +914,6 @@ function twoOldestAges(ages) {
 console.log(twoOldestAges([1, 2, 10, 8]));
 console.log(twoOldestAges([1, 5, 87, 45, 8, 8]));
 */
-
 // #5
 /*
 Write an algorithm that will identify valid IPv4 addresses in dot-decimal format. IPs should be considered valid if they consist of four octets, with values between 0 and 255, inclusive.
@@ -1005,7 +964,6 @@ console.log(isValidIP(" 1.2.3.4"));
 console.log(isValidIP("abc.def.ghi.jkl"));
 console.log(isValidIP(""));
 */
-
 // #6
 /*
 Write a simple parser that will parse and run Deadfish.
@@ -1046,7 +1004,6 @@ function parse(data) {
 console.log(parse("iiisdoso"));
 console.log(parse("iiisxxxdoso"));
 */
-
 // 19.10.2023
 // #1
 /*
@@ -1071,7 +1028,6 @@ function solution(digits) {
 
 console.log(solution("1234567898765"));
 */
-
 // #2
 /*
 Are the numbers in order?
@@ -1098,7 +1054,6 @@ console.log(inAscOrder([1, 2, 4, 7, 19]));
 console.log(inAscOrder([1, 2, 3, 4, 5]));
 console.log(inAscOrder([9, 8, 7, 6, 5, 4, 3, 2, 1]));
 */
-
 // #3
 /*
 Let us consider this example (array written in general format):
@@ -1138,7 +1093,6 @@ console.log(partsSums([]));
 console.log(partsSums([0, 1, 3, 6, 10]));
 console.log(partsSums([1, 2, 3, 4, 5, 6]));
 */
-
 // #4
 /*
 Your task is to remove all duplicate words from a string, leaving only single (first) words entries.
@@ -1167,7 +1121,6 @@ console.log(
   )
 );
 */
-
 // #5
 /*
 An Arithmetic Progression is defined as one in which there is a constant difference between the consecutive terms of a given series of numbers. You are provided with consecutive elements of an Arithmetic Progression. There is however one hitch: exactly one term from the original series is missing from the set of numbers which have been given to you. The rest of the given series is the same as the original AP. Find the missing term.
@@ -1191,7 +1144,6 @@ var findMissing = function (list) {
 console.log(findMissing([1, 3, 5, 9, 11]));
 console.log(findMissing([1, 3, 4]));
 */
-
 // #6
 /*
 You will be given an array of objects (hashes in ruby) representing data about developers who have signed up to attend the coding meetup that you are organising for the first time.
@@ -1265,7 +1217,6 @@ console.log(
   ])
 );
 */
-
 // #7
 /*
 Assume "#" is like a backspace in string. This means that string "a#bc#d" actually is "bd"
@@ -1296,9 +1247,7 @@ console.log(cleanString("abc#d##c"));
 console.log(cleanString("abc##d######"));
 console.log(cleanString(""));
 */
-
 // 20.10.2023
-
 // #1
 /*
 Return an array containing the numbers from 1 to N, where N is the parametered value.
@@ -1332,7 +1281,6 @@ console.log(fizzbuzz(3));
 console.log(fizzbuzz(4));
 console.log(fizzbuzz(15));
 */
-
 // #2
 /*
 Triangular numbers are so called because of the equilateral triangular shape that they occupy when laid out as dots. i.e.
@@ -1360,7 +1308,6 @@ console.log(triangular(2));
 console.log(triangular(4));
 console.log(triangular(-454));
 */
-
 // #3
 /*
 Write a function that takes a positive integer n, sums all the cubed values from 1 to n (inclusive), and returns that sum.
@@ -1381,7 +1328,6 @@ function sumCubes(n) {
 console.log(sumCubes(2));
 console.log(sumCubes(3));
 */
-
 // #4
 /*
 Given a number, write a function to output its reverse digits. (e.g. given 123 the answer is 321)
@@ -1412,7 +1358,6 @@ console.log(reverseNumber(123));
 console.log(reverseNumber(1000));
 console.log(reverseNumber(-456));
 */
-
 // #5
 /*
 In this kata you should simply determine, whether a given year is a leap year or not. In case you don't know the rules, here they are:
@@ -1440,7 +1385,6 @@ console.log(isLeapYear(2000));
 console.log(isLeapYear(2015));
 console.log(isLeapYear(2100));
 */
-
 // #6
 /*
 Write a function that accepts a string, and returns true if it is in the form of a phone number.
@@ -1480,7 +1424,6 @@ console.log(validPhoneNumber("(123) 456-7890"));
 console.log(validPhoneNumber("(1111)555 2345"));
 console.log(validPhoneNumber("(098) 123 4567"));
 */
-
 // #7
 /*
 Write a function
@@ -1514,7 +1457,6 @@ console.log(tripledouble(451999277, 41177722899));
 console.log(tripledouble(1222345, 12345));
 console.log(tripledouble(10560002, 100));
 */
-
 // #8
 /*
 Description:
@@ -1564,9 +1506,7 @@ console.log(validate(123));
 console.log(validate(1));
 console.log(validate(2121));
 */
-
 // 21.10.2023
-
 // #1
 /*
 Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
@@ -1590,7 +1530,6 @@ function moveZeros(arr) {
 console.log(moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1]));
 console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]));
 */
-
 // #2
 /*
 Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
@@ -1624,7 +1563,6 @@ function pigIt(str) {
 console.log(pigIt("Pig latin is cool"));
 console.log(pigIt("This is my string"));
 */
-
 // #3
 /*
 Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
@@ -1651,9 +1589,7 @@ console.log(humanReadable(59));
 console.log(humanReadable(60));
 console.log(humanReadable(3600));
 */
-
 // 24.10.2023
-
 //#1
 /*
 The rgb function is incomplete. Complete it so that passing in RGB decimal values will result in a hexadecimal representation being returned. Valid decimal values for RGB are 0 - 255. Any values that fall out of that range must be rounded to the closest valid value.
@@ -1686,7 +1622,6 @@ console.log(rgb(255, 255, 255));
 console.log(rgb(255, 255, 300));
 console.log(rgb(148, 0, 211));
 */
-
 // #2
 /*
 The marketing team is spending way too much time typing in hashtags.
@@ -1740,7 +1675,6 @@ console.log(generateHashtag("Do We have A Hashtag"));
 console.log(generateHashtag("Codewars is nice"));
 console.log(generateHashtag("Codewars"));
 */
-
 // #3
 /*
 Pete likes to bake some cakes. He has some recipes and ingredients. Unfortunately he is not good in maths. Can you help him to find out, how many cakes he could bake considering his recipes?
@@ -1784,7 +1718,6 @@ console.log(
   )
 );
 */
-
 // #4
 /*
 Write a function named first_non_repeating_letter that takes a string input, and returns the first character that is not repeated anywhere in the string.
@@ -1814,7 +1747,6 @@ console.log(firstNonRepeatingLetter("a"));
 console.log(firstNonRepeatingLetter("stress"));
 console.log(firstNonRepeatingLetter("moonmen"));
 */
-
 // #5
 /*
 As the name may already reveal, it works basically like a Fibonacci, but summing the last 3 (instead of 2) numbers of the sequence to generate the next. And, worse part of it, regrettably I won't get to hear non-native Italian speakers trying to pronounce it :(
@@ -1840,7 +1772,6 @@ function tribonacci(arr, n) {
 
 console.log(tribonacci([1, 1, 1], 10));
 */
-
 // #6
 /*
 Complete the function scramble(str1, str2) that returns true if a portion of str1 characters can be rearranged to match str2, otherwise returns false.
@@ -1876,7 +1807,6 @@ function scramble(str1, str2) {
 console.log(scramble("rkqodlw", "world"));
 console.log(scramble("katas", "steak"));
 */
-
 // #7
 /*
 Given a list of digits, return the smallest number that could be formed from these digits, using the digits only once (ignore duplicates).
@@ -1909,9 +1839,7 @@ console.log(minValue([4, 7, 5, 7]));
 console.log(minValue([1, 9, 1, 3, 7, 4, 6, 6, 7]));
 console.log(minValue([5, 6, 9, 9, 7, 6, 4]));
 */
-
 // 25.10.2023
-
 // #1
 /*
 My friend John and I are members of the "Fat to Fit Club (FFC)". John is worried because each month a list with the weights of members is published and each month he is the last on the list which means he is the heaviest.
@@ -1957,7 +1885,6 @@ function sum(el) {
 console.log(orderWeight("103 123 4444 99 2000"));
 console.log(orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123"));
 */
-
 // #2
 /*
 Greed is a dice game played with five six-sided dice. Your mission, should you choose to accept it, is to score a throw according to these rules. You will always be given an array with five six-sided dice values.
@@ -2014,7 +1941,6 @@ function score(dice) {
 
 console.log(score([2, 4, 4, 5, 4]));
 */
-
 // #3
 /*
 Complete the function that takes a sequence of numbers as single parameter. Your function must return the sum of the even values of this sequence.
@@ -2038,7 +1964,6 @@ function sumEvenNumbers(input) {
 console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 console.log(sumEvenNumbers([]));
 */
-
 // #4
 /*
 Description:
@@ -2093,7 +2018,6 @@ console.log(
   ])
 );
 */
-
 // #5
 /*
 Write a program to determine if a string contains only unique characters. Return true if it does and false otherwise.
@@ -2110,7 +2034,6 @@ console.log(hasUniqueChars("abcdef"));
 console.log(hasUniqueChars("  nAa"));
 console.log(hasUniqueChars("++-"));
 */
-
 // #6
 /*
 Two red beads are placed between every two blue beads. There are N blue beads. After looking at the arrangement below work out the number of red beads.
@@ -2132,7 +2055,6 @@ console.log(countRedBeads(1));
 console.log(countRedBeads(3));
 console.log(countRedBeads(5));
 */
-
 // #7
 /*
 You will be given an array of objects representing data about developers who have signed up to attend the next coding meetup that you are organising.
@@ -2195,7 +2117,6 @@ console.log(
   ])
 );
 */
-
 // #8
 /*
 You are the greatest chef on earth. No one boils eggs like you! Your restaurant is always full of guests, who love your boiled eggs. But when there is a greater order of boiled eggs, you need some time, because you have only one pot for your job. How much time do you need?
@@ -2224,7 +2145,6 @@ console.log(cookingTime(16));
 console.log(cookingTime(5));
 console.log(cookingTime(0));
 */
-
 // #9
 /*
 Given a positive integer n, calculate the following sum:
@@ -2250,7 +2170,6 @@ function halvingSum(n) {
 console.log(halvingSum(25));
 console.log(halvingSum(127));
 */
-
 // #10
 /*
 An ordered sequence of numbers from 1 to N is given. One number might have deleted from it, then the remaining numbers were mixed. Find the number that was deleted.
@@ -2274,9 +2193,7 @@ function findDeletedNumber(arr, mixArr) {
 }
 console.log(findDeletedNumber([1, 2, 3, 4, 5], [3, 4, 1, 5]));
 */
-
 // 26.10.2023
-
 // #1
 /*
 In this Kata, you will be given an array of numbers in which two numbers occur once and the rest occur only twice. Your task will be to return the sum of the numbers that occur only once.
@@ -2302,7 +2219,6 @@ function repeats(arr) {
 }
 console.log(repeats([4, 5, 7, 5, 4, 8]));
 */
-
 // #2
 /*
 Your task is to add up letters to one letter.
@@ -2342,7 +2258,6 @@ function addLetters(...letters) {
 console.log(addLetters("a", "b", "c"));
 console.log(addLetters());
 */
-
 // #3
 /*
 Consider the array [3,6,9,12]. If we generate all the combinations with repetition that sum to 12, we get 5 combinations: [12], [6,6], [3,9], [3,3,6], [3,3,3,3]. The length of the sub-arrays (such as [3,3,3,3] should be less than or equal to the length of the initial array ([3,6,9,12]).
@@ -2363,7 +2278,6 @@ function find(arr, n, depth = arr.length) {
 console.log(find([1, 2, 3], 5));
 console.log(find([3, 6, 9, 12], 12));
 */
-
 // #4
 /*
 In this Kata, you will be given an integer array and your task is to return the sum of elements occupying prime-numbered indices.
@@ -2394,7 +2308,6 @@ function isPrime(num) {
 
 console.log(total([1, 2, 3, 4]));
 */
-
 // #5
 /*
 You are given a dictionary/hash/object containing some languages and your test results in the given languages. Return the list of languages where your test score is at least 60, in descending order of the scores.
@@ -2423,7 +2336,6 @@ console.log(myLanguages({ "Java": 10, "Ruby": 80, "Python": 65 }));
 console.log(myLanguages({ "Hindi": 60, "Dutch": 93, "Greek": 71 }));
 console.log(myLanguages({ "C++": 50, "ASM": 10, "Haskell": 20 }));
 */
-
 // 28.10.2023
 // #1
 /*
@@ -2470,7 +2382,6 @@ function sumPairs(ints, s) {
 
 console.log(sumPairs([1, 4, 8, 7, 3, 15], 8));
 */
-
 // #2
 /*
 Given an array/list [] of n integers , find maximum triplet sum in the array Without duplications .
@@ -2505,7 +2416,6 @@ console.log(maxTriSum([3, 2, 6, 8, 2, 3]));
 console.log(maxTriSum([2, 9, 13, 10, 5, 2, 9, 5]));
 console.log(maxTriSum([2, 1, 8, 0, 6, 4, 8, 6, 2, 4]));
 */
-
 // #3
 /*
 Write a method, that gets an array of integer-numbers and return an array of the averages of each integer-number and his follower, if there is one.
@@ -2531,7 +2441,6 @@ function averages(arr) {
 console.log(averages([2, 2, 2, 2, 2]));
 console.log(averages([2, -2, 2, -2, 2]));
 */
-
 // #4
 /*
 Given a string of words (x), you need to return an array of the words, sorted alphabetically by the final character in each.
@@ -2547,9 +2456,7 @@ function last(x) {
 
 console.log(last("man i need a taxi up to ubud"));
 */
-
 // 29.10.2023
-
 // #1
 /*
 In this Kata, you will be given an array of integers whose elements have both a negative and a positive value, except for one integer that is either only negative or only positive. Your task will be to find that integer.
@@ -2571,7 +2478,6 @@ function solve(arr) {
 
 console.log(solve([1, -1, 2, -2, 3]));
 */
-
 // #2
 /*
 Given an input of an array of digits, return the array with each digit incremented by its position in the array: the first digit will be incremented by 1, the second digit by 2, etc. Make sure to start counting your positions from 1 ( and not 0 ).
@@ -2600,7 +2506,6 @@ function incrementer(nums) {
 console.log(incrementer([4, 6, 9, 1, 3]));
 console.log(incrementer([3, 6, 9, 8, 9]));
 */
-
 // #3
 /*
 Debug   function getSumOfDigits that takes positive integer to calculate sum of its digits. Assume that argument is an integer.
@@ -2622,7 +2527,6 @@ function getSumOfDigits(integer) {
 console.log(getSumOfDigits(123));
 console.log(getSumOfDigits(223));
 */
-
 // 30.10.2023
 // #1
 /*
@@ -2668,7 +2572,6 @@ function findEvenIndex(arr) {
 
 console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
 */
-
 // #2
 /*
 Your job is to create a calculator which evaluates expressions in Reverse Polish notation.
@@ -2709,9 +2612,7 @@ console.log(calc(""));
 console.log(calc("3.5"));
 console.log(calc("1 3 +"));
 */
-
 // 02.11.2023
-
 // #1
 /*
 Find the greatest common divisor of two positive integers. The integers can be large, so you need to find a clever solution.
@@ -2729,7 +2630,6 @@ function mygcd(x, y) {
 
 console.log(mygcd(30, 12));
 */
-
 // #2
 /*
 The code provided is supposed return a person's Full Name given their first and last names.
@@ -2751,7 +2651,6 @@ class Dinglemouse {
   }
 }
 */
-
 // #3
 /*
 Given a string and an array of integers representing indices, capitalize all letters at the given indices.
@@ -2778,7 +2677,6 @@ function capitalize(s, arr) {
 
 console.log(capitalize("abcdef", [1, 2, 5]));
 */
-
 // #4
 /*
 In this Kata, you will be given an array of strings and your task is to remove all consecutive duplicate letters from each string in the array.
@@ -2812,7 +2710,6 @@ console.log(
   dup(["ccooddddddewwwaaaaarrrrsssss", "piccaninny", "hubbubbubboo"])
 );
 */
-
 // #5
 /*
 Input:
@@ -2850,9 +2747,7 @@ console.log(
   containAllRots("bsjq", ["bsjq", "qbsj", "sjqb", "twZNsslC", "jqbs"])
 );
 */
-
 // 06.11.2023
-
 // #1
 /*
 Suppose you have 4 numbers: 0, 9, 6, 4 and 3 strings composed with them:
@@ -2904,7 +2799,6 @@ console.log(
   )
 );
 */
-
 // #2
 /*
 n number theory, an abundant number or an excessive number is one for which the sum of it's proper divisors is greater than the number itself. The integer 12 is the first abundant number. Its proper divisors are 1, 2, 3, 4 and 6 for a total of 16. The amount by which the sum exceeds the number is the abundance. The number 12 has an abundance of 4, for example. Other initial abundant numbers are : 12, 18, 20, 24, 30, 36, 40, 42, 48, 54 etc . Infinitely many odd and even abundant numbers exist.
@@ -2954,7 +2848,6 @@ function abundant(h) {
 
 console.log(abundant(15));
 */
-
 // #3
 /*
  Timed Reading is an educational tool used in many schools to improve and advance reading skills. A young elementary student has just finished his very first timed reading exercise. Unfortunately he's not a very good reader yet, so whenever he encountered a word longer than maxLength, he simply skipped it and read on.
@@ -2986,7 +2879,6 @@ function timedReading(maxLength, text) {
 
 console.log(timedReading(4, "The Fox asked the stork, 'How is the soup?'"));
 */
-
 // #4
 /*
 Given any number of boolean flags function should return true if and only if one of them is true while others are false. If function is called without arguments it should return false.
@@ -3013,7 +2905,6 @@ console.log(onlyOne());
 console.log(onlyOne(true, false, false));
 console.log(onlyOne(true, false, false, true));
 */
-
 // #5
 /*
 Here we have a strange looking expression.
@@ -3036,7 +2927,6 @@ var a = {
 
 console.log(a == 2 && a == 3);
 */
-
 // #6
 /*
 Write a function that takes one or more arrays and returns a new array of unique values in the order of the original provided arrays.
@@ -3065,7 +2955,6 @@ function uniteUnique() {
 
 console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
 */
-
 // #6
 /*
 Is the number even?
@@ -3080,7 +2969,6 @@ var isEven = function (n) {
 console.log(isEven(2));
 console.log(isEven(3));
 */
-
 // #7
 /*
 You are given an array with several "even" words, one "odd" word, and some numbers mixed in.
@@ -3138,7 +3026,6 @@ console.log(
   ])
 );
 */
-
 // #8
 /*
 Given an array (or list or vector) of arrays (or, guess what, lists or vectors) of integers, your goal is to return the sum of a specific set of numbers, starting with elements whose position is equal to the main array length and going down by one at each step.
@@ -3168,7 +3055,6 @@ console.log(
   ])
 );
 */
-
 // 09.11.2023
 // #1
 /*
@@ -3190,7 +3076,6 @@ const closestMultiple10 = (num) => {
 
 console.log(closestMultiple10(22));
 */
-
 // #2
 /*
 Given a string "abc" and assuming that each letter in the string has a value equal to its position in the alphabet, our string will have a value of 1 + 2 + 3 = 6. This means that: a = 1, b = 2, c = 3 ....z = 26.
@@ -3212,7 +3097,6 @@ function wordValue(arr) {
 
 console.log(wordValue(["codewars", "abc", "xyz"]));
 */
-
 // #3
 /*
 Your task in this kata is to implement a function that calculates the sum of the integers inside a string. For example, in the string "The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog", the sum of the integers is 3635.
@@ -3238,9 +3122,7 @@ console.log(
   sumOfIntegersInString("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy ")
 );
 */
-
 // 13.11.2023
-
 // #1
 /*
 Every now and then people in the office moves teams or departments. Depending what people are doing with their time they can become more or less boring. Time to assess the current team.
@@ -3308,7 +3190,6 @@ console.log(
   })
 );
 */
-
 // #2
 /*
 You have to write a function pattern which returns the following Pattern(See Pattern & Examples) upto n number of rows.
@@ -3364,7 +3245,6 @@ console.log(pattern(1));
 console.log(pattern(2));
 console.log(pattern(5));
 */
-
 // #3
 /*
 Friday 13th or Black Friday is considered as unlucky day. Calculate how many unlucky days are in the given year.
@@ -3391,7 +3271,6 @@ function unluckyDays(year) {
 console.log(unluckyDays(2015));
 console.log(unluckyDays(1001));
 */
-
 // #4
 /*
 Given an array of numbers (in string format), you must return a string. The numbers correspond to the letters of the alphabet in reverse order: a=26, z=1 etc. You should also account for '!', '?' and ' ' that are represented by '27', '28' and '29' respectively.
@@ -3453,18 +3332,13 @@ console.log(result(2, 2));
 // console.log(z);
 console.log(result());
 */
-
 // const daughter = {
 //   name: "dina",
 // };
-
 // daughter.mama = "sasha";
-
 // console.log(daughter);
-
 // daughter.name = "andrei";
 // console.log(daughter);
-
 // const dinka = {
 //   hairStyle: "kavardak",
 //   height: 1.3,
@@ -3488,15 +3362,12 @@ console.log(result());
 // // 4
 // delete dinka.toys.dinosaur.number;
 // console.log(dinka.toys.dinosaur);
-
 // //
-
 // const toys = {
 //   title: "snake",
 //   name: "anaconda",
 //   number: 2,
 // };
-
 // // 1
 // delete toys.title;
 // console.log(toys);
@@ -3506,32 +3377,23 @@ console.log(result());
 // // 3
 // toys.number = undefined;
 // console.log(toys);
-
 // //
-
 // const child = {
 //   name: "dina",
 //   age: 5,
 // };
-
 // const secondChild = {
 //   name: "dina",
 //   age: 5,
 // };
-
 // console.log(child === secondChild);
-
 // //
-
 // const book = {
 //   title: "Hobbit",
 //   number: 1,
 // };
-
 // const anotherBook = book;
-
 // console.log(book === anotherBook);
-
 //
 /*
 const toy = {
@@ -3562,9 +3424,7 @@ console.log(architect);
 architect.student = true;
 console.log(architect);
 */
-
 // 27.11.2023
-
 // #1
 /*
 An array consisting of 0s and 1s, also called a binary array, is given as an input.
@@ -3611,7 +3471,6 @@ function binarray(a) {
 console.log(binarray([0]));
 console.log(binarray([0, 1, 1, 0, 1, 1, 1, 0, 0, 0]));
 */
-
 // #2
 /*
 I'm new to coding and now I want to get the sum of two arrays... Actually the sum of all their elements. I'll appreciate for your help.
@@ -3625,7 +3484,6 @@ function arrayPlusArray(arr1, arr2) {
 
 console.log(arrayPlusArray([-1, -2, -3], [-4, -5, -6]));
 */
-
 // #3
 /*
 You are given an initial 2-value array (x). You will use this to calculate a score.
@@ -3663,7 +3521,6 @@ console.log(explode(["a", "b"]));
 console.log(explode(["a", 6]));
 console.log(explode([6, "a"]));
 */
-
 // #4
 /*
 Peter enjoys taking risks, and this time he has decided to take it up a notch!
@@ -3690,9 +3547,7 @@ function getChance(n, x, a) {
 console.log(getChance(2, 1, 1));
 console.log(getChance(4, 1, 3));
 */
-
 // 05.12.2023
-
 // #1
 /*
 You need to return a string that looks like a diamond shape when printed on the screen, using asterisk (*) characters. Trailing spaces should be removed, and every line must be terminated with a newline character (\n).
@@ -3742,7 +3597,6 @@ console.log(diamond(3));
 console.log(diamond(5));
 console.log(diamond(-3));
 */
-
 // #2
 /*
 Given a string, remove any characters that are unique from the string.
@@ -3772,7 +3626,6 @@ function onlyDuplicates(str) {
 
 console.log(onlyDuplicates("abccdefee"));
 */
-
 // #3
 /*
 You are given a string of letters and an array of numbers.
@@ -3811,7 +3664,6 @@ function lastSurvivor(letters, coords) {
 
 console.log(lastSurvivor("abc", [1, 1]));
 */
-
 // #4
 /*
 A sequence or a series, in mathematics, is a string of objects, like numbers, that follow a particular pattern. The individual elements in a sequence are called terms. A simple example is 3, 6, 9, 12, 15, 18, 21, ..., where the pattern is: "add 3 to the previous term".
@@ -3845,7 +3697,6 @@ function sumOfN(n) {
 console.log(sumOfN(3));
 console.log(sumOfN(-4));
 */
-
 // #5
 /*
 Define a method/function that removes from a given array of integers all the values contained in a second array.
@@ -3855,7 +3706,6 @@ Examples (input -> output):
 * [8, 2, 7, 2, 3, 4, 6, 5, 4, 4, 1, 2, 3], [2, 4, 3] -> [8, 7, 6, 5, 1]
 Enjoy it!!
 */
-
 // FIRST
 /*
 function remove(arr1, arr2) {
@@ -3880,7 +3730,6 @@ console.log(remove([1, 1, 2, 3, 1, 2, 3, 4], [1, 3]));
 Array.prototype.remove_ = (x, y) => x.filter((e) => !y.includes(e));
 
 */
-
 // #6
 /*
 This Kata is intended as a small challenge for my students
@@ -3902,7 +3751,6 @@ console.log(
   removeVowels("jfv psqjsz lmpkbtxms mdscps pxej rzmepc smcw zln kwdvj")
 );
 */
-
 // 11.12.2023
 // #1
 /*
@@ -3939,9 +3787,7 @@ console.log(pyramid(1));
 console.log(pyramid(2));
 console.log(pyramid(3));
 */
-
 // 12.12.2023
-
 // #1
 /*
 Given an array/list [] of integers , Construct a product array Of same size Such That prod[i] is equal to The Product of all the elements of Arr[] except Arr[i].
@@ -3992,7 +3838,6 @@ function productArray(numbers) {
 
 console.log(productArray([3, 27, 4, 2]));
 */
-
 // #2
 /*
 Positive integers have so many gorgeous features. Some of them could be expressed as a sum of two or more consecutive positive numbers.
@@ -4018,7 +3863,6 @@ function consecutiveDucks(num) {
 console.log(consecutiveDucks(69));
 console.log(consecutiveDucks(8));
 */
-
 // #3
 /*
 With Cereal crops like wheat or rice, before we can eat the grain kernel, we need to remove that inedible hull, or to separate the wheat from the chaff.
@@ -4038,7 +3882,6 @@ function wheatFromChaff(values) {
 
 console.log(wheatFromChaff([16, 25, -48, -47, -37, 41, -2]));
 */
-
 // #4
 /*
 Given a List [] of n integers , find minimum number to be inserted in a list, so that sum of all elements of list should equal the closest prime number .
@@ -4061,7 +3904,6 @@ function minimumNumber(numbers) {
 
 console.log(minimumNumber([3, 2, 1]));
 */
-
 // #5
 /*
 Given an array of N integers, you have to find how many times you have to add up the smallest numbers in the array until their Sum becomes greater or equal to K.
@@ -4093,9 +3935,7 @@ function minimumSteps(numbers, value) {
 // console.log(minimumSteps([4, 6, 3], 7));
 console.log(minimumSteps([8, 9, 10, 4, 2], 23));
 */
-
 // 15.12.2023
-
 // #1
 /*
 Since the sum of its digits' factorial of 1! + 2! + 3! = 9 is not equal to number itself, then it's Not Strong .
@@ -4121,7 +3961,6 @@ function strong(n) {
 console.log(strong(145));
 console.log(strong(123));
 */
-
 // #2
 /*
 The deleteValues function takes an array and removes elements that answer true to the pred function.
@@ -4139,7 +3978,6 @@ function deleteValues(array, pred) {
   return array;
 }
 */
-
 // function deleteValues(array, pred) {
 //   for (var i = 0; i < array.length; i++) {
 //     if (pred(array[i])) {
@@ -4148,7 +3986,6 @@ function deleteValues(array, pred) {
 //   }
 //   return array;
 // }
-
 // #3
 /*
  Given an array of positive integers, replace every element with the least greater element to its right. If there is no greater element to its right, replace it with -1. For instance, given the array
@@ -4175,7 +4012,6 @@ console.log(
   arrayManip([8, 58, 71, 18, 31, 32, 63, 92, 43, 3, 91, 93, 25, 80, 28])
 );
 */
-
 // 19.12.2023
 // #1
 /*
@@ -4233,7 +4069,6 @@ console.log(jumpingNumber(8987));
 //   prop1: "1",
 //   prop2: "2",
 // };
-
 // console.log(obj.hasOwnProperty("prop1"));
 // console.log("prop1" in obj);
 // console.log(obj["prop1"]);
@@ -4247,7 +4082,6 @@ const squares = nums.map(function (num) {
 console.log(squares);
 console.log(nums);
 */
-
 // 27.12.2023
 // #1
 /*
@@ -4293,7 +4127,6 @@ console.log(automorphic(1));
 console.log(automorphic(225));
 console.log(automorphic(625));
 */
-
 // #2
 /*
 Generate user links
@@ -4315,7 +4148,6 @@ console.log(generateLink("matt c"));
 
 console.log(generateLink("matt c"));
 */
-
 // #3
 /*
 Implement a function, multiples(m, n), which returns an array of the first m multiples of the real number n. Assume that m is a positive integer.
@@ -4337,7 +4169,6 @@ function multiples(m, n) {
 
 console.log(multiples(3, 5));
 */
-
 // #4
 /*
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
@@ -4358,7 +4189,6 @@ function solution(number) {
 
 console.log(solution(10));
 */
-
 // #5
 /*
 Complete the function to find the count of the most frequent item of an array. You can assume that input is an array of integers. For an empty array return 0
@@ -4390,7 +4220,6 @@ function mostFrequentItemCount(collection) {
 
 console.log(mostFrequentItemCount([3, -1, -1]));
 */
-
 // #6
 /*
 You have stumbled across the divine pleasure that is owning a dog and a garden. Now time to pick up all the cr@p! :D
@@ -4469,9 +4298,7 @@ console.log(
   )
 );
 */
-
 // #7
-
 /*
 In this Kata, you will be given two strings a and b and your task will be to return the characters that are not common in the two strings.
 For example:
@@ -4492,7 +4319,6 @@ function solve(a, b) {
 
 console.log(solve("xyab", "xzca"));
 */
-
 // #8
 /*
 Time to win the lottery!
@@ -4532,7 +4358,6 @@ console.log(
   )
 );
 */
-
 // 28.12.2023
 // #1
 /*
@@ -4559,7 +4384,6 @@ var splitInParts = function (s, len) {
 
 console.log(splitInParts("supercalifragilisticexpialidocious", 3));
 */
-
 // #2
 /*
 A stream of data is received and needs to be reversed.
@@ -4591,7 +4415,6 @@ const inputData = [
 const reversedOutput = dataReverse(inputData);
 console.log(reversedOutput);
 */
-
 // #3
 /*
 Now that the competition gets tough it will Sort out the men from the boys .
@@ -4638,7 +4461,6 @@ function menFromBoys(arr) {
 
 console.log(menFromBoys([82, 91, 72, 76, 76, 100, 85]));
 */
-
 // #4
 /*
 Write a program that outputs the top n elements from a list.
@@ -4656,9 +4478,7 @@ function largest(n, array) {
 
 console.log(largest(2, [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]));
 */
-
 // 04.01.2023
-
 // ASTON
 // #1
 /*
@@ -4681,7 +4501,6 @@ console.log(opposite(1));
 console.log(opposite(14));
 console.log(opposite(4.25));
 */
-
 // #2
 /*
 Your task is to create a function that does four basic mathematical operations.
@@ -4714,7 +4533,6 @@ console.log(basicOp("-", 15, 18));
 console.log(basicOp("*", 5, 5));
 console.log(basicOp("/", 49, 7));
 */
-
 // #3
 /*
 Description:
@@ -4732,7 +4550,6 @@ function printArray(array) {
 
 console.log(printArray(["h", "o", "l", "a"]));
 */
-
 // #4
 /*
 Can Santa save Christmas?
@@ -4752,7 +4569,6 @@ const determineTime = (durations) => {
 
 console.log(determineTime(["00:30:00", "02:30:00", "00:15:00"]));
 */
-
 // #5
 /*
 You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
@@ -4781,7 +4597,6 @@ console.log(getMiddle("testing"));
 console.log(getMiddle("middle"));
 console.log(getMiddle("A"));
 */
-
 // #6
 /*
 In software engineering, the singleton pattern is a design pattern that restricts the instantiation of a class to one object. This is useful when exactly one object is needed to coordinate actions across the system.
@@ -4815,7 +4630,6 @@ console.log(obj1 === obj2); // Output: true
 obj1.test = 1;
 console.log(obj2.test); // Output: 1
 */
-
 // #7
 /*
 You are given a string containing a sequence of character sequences separated by commas.
@@ -4848,7 +4662,6 @@ console.log(array("1,2,3"));
 console.log(array("1,2,3,4"));
 console.log(array("1,2,3,4,5"));
 */
-
 // #8
 /*
 Create the function prefill that returns an array of n elements that all have the same value v. See if you can do this without using a loop.
@@ -4888,7 +4701,6 @@ console.log(prefill(3, 1));
 console.log(prefill(2, "abc"));
 console.log(prefill("1", 1));
 */
-
 // #9
 /*
 Make a function called crossProduct that takes two 3 dimensional vectors (in the form of two arrays) and returns their cross product. You need to check if the passed arguments are of the expected format, otherwise throw the message: "Arguments are not 3D vectors!".
@@ -4931,7 +4743,6 @@ console.log(crossProduct([3, 2, 1], [1, 2, 3]));
 console.log(crossProduct([1, 0, 0], [0, 1, 0]));
 console.log(crossProduct("gobbledigook", [0, 1, 0]));
 */
-
 // #10
 /*
 Write a function that outputs the transpose of a matrix - a new matrix where the columns and rows of the original are swapped.
@@ -4966,7 +4777,6 @@ console.log(
   ])
 ); // [[1,4],[2,5],[3,6]]
 */
-
 // #11
 /*
 Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
@@ -4988,7 +4798,6 @@ const createPhoneNumber = (numbers) => {
 console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
 // "(123) 456-7890"
 */
-
 // #12
 /*
 We want to create a function, which returns an array of functions, which return their index in the array. For better understanding, here an example:
@@ -5017,7 +4826,6 @@ function createFunctions(n) {
   return callbacks;
 }
 */
-
 // #13
 /*
 This time we want to write calculations using functions and get the results. Let's have a look at some examples:
@@ -5085,7 +4893,6 @@ function dividedBy(right) {
   };
 }
 */
-
 // #14
 /*
 There's no such thing as private properties on a coffeescript object! But, maybe there are?
@@ -5111,7 +4918,6 @@ const createSecretHolder = (secret) => {
 
 console.log(createSecretHolder());
 */
-
 // #15
 /*
 In object-oriented programming, it is sometimes useful to have private shared state among all instances of a class; in other languages, like ruby, this shared state would be tracked with a class variable. In javascript we achieve this through closures and immediately-invoked function expressions.
@@ -5140,7 +4946,6 @@ Summary of requirements:
     Cat.averageWeight() method should give the average weight of all cat instances created with Cat, even after if the instance's properties have changed.
     Must use Object.defineProperty
 */
-
 // #16
 /*
 We want to create a function that will add numbers together when called in succession.
@@ -5174,7 +4979,6 @@ function add(num) {
 }
 
 */
-
 // #17
 /*
 If you are calculating complex things or execute time-consuming API calls, you sometimes want to cache the results. In this case we want you to create a function wrapper, which takes a function and caches its results depending on the arguments, that were applied to the function.
@@ -5202,7 +5006,6 @@ function cache(func) {
   };
 }
 */
-
 // #18
 /*
 Count the number of Duplicates
@@ -5238,7 +5041,6 @@ console.log(duplicateCount("aabBcde"));
 console.log(duplicateCount("Indivisibility"));
 console.log(duplicateCount("Indivisibilities"));
 */
-
 // #19
 /*
 Javascript functions can be combined to form new functions. For example the functions addOne and multTwo can be combined to form a new function which first adds one and then multiplies by two, as follows:
@@ -5262,7 +5064,6 @@ const compose = (...functions) => {
 
 console.log(compose());
 */
-
 // #20
 /*
 Implement a function that receives a string, and lets you extend it with repeated calls. When no argument is passed you should return a string consisting of space-separated words you've received earlier.
@@ -5292,7 +5093,6 @@ function createMessage(...initialWords) {
 const message = createMessage("Hello")("World!")("how")("are")("you?");
 console.log(message());
 */
-
 // #21
 /*
 NOTE: The test cases for this kata are broken, but for some reason CodeWars has locked them and I cannot edit them. Specifically, the returned function is not propertly testing that old values are remembered. If and when I can fix the problem, I will, but I don't see any way to do that due to the lock.
@@ -5345,7 +5145,6 @@ function spyOn(func) {
   return spy;
 }
 */
-
 // #22
 /*
 You probably know, that in Javascript (and also Ruby) there is no concept of interfaces. There is only a concept of inheritance, but you can't assume that a certain method or property exists, just because it exists in the parent prototype / class. We want to find out, whether a given object fulfils the requirements to implement the "SantaClausable" interface. We need to implement a method which checks for this interface.
@@ -5401,7 +5200,6 @@ var notSanta = {
 console.log(isSantaClausable(santa));
 console.log(isSantaClausable(notSanta));
 */
-
 // #23
 /*
 In JavaScript we can create objects using the new operator.
@@ -5455,7 +5253,6 @@ function construct(Class, ...arg) {
   return new Class(...arg);
 }
 */
-
 // #24
 /*
 You are given a complex object that has many deeply nested variables. You don't want to go the usual if obj.property == null route. Create a prototype method that given a nested path, either return the value or undefined.
@@ -5482,7 +5279,6 @@ Object.prototype.hash = function (string) {
     .reduce((result = this, item) => (result = result[item]), this);
 };
 */
-
 // #25
 /*
 This kata is designed to test your ability to extend the functionality of built-in classes. In this case, we want you to extend the built-in Array class with the following methods: square(), cube(), average(), sum(), even() and odd().
@@ -5525,7 +5321,6 @@ Object.assign(Array.prototype, {
   },
 });
 */
-
 // #26
 /*
 Your task is to sort a given string. Each word in the string will contain a single number. This number is the position the word should have in the result.
@@ -5548,7 +5343,6 @@ function order(words) {
 
 console.log(order("is2 Thi1s T4est 3a"));
 */
-
 // #27
 /*
 Digital root is the recursive sum of all the digits in a number.
@@ -5568,9 +5362,7 @@ function digitalRoot(n) {
   return digitalRoot(result);
 }
 */
-
 // 08.01.2024
-
 // #1
 /*
 You are given a String of one or more words. Your task is to check the length of each word and if it's less than 4, you keep it unmodified otherwise you find out the first vowel which is coming after 3-rd character and replace vowel and rest of word with a dot. Finally, you should return the same string but shorten (only if the length of words is more then 3 characters).
@@ -5586,9 +5378,7 @@ shortenSpeech( "This is a test") => returns "This is a test"
 // var shortenSpeech = function (str) {
 //   return str.replace(/\b(\S{3,}?)[aeiou]\S*/g, "$1.");
 // };
-
 // console.log(shortenSpeech("Hello, do you want a coffee ? "));
-
 // #2
 /*
 In a certain kingdom, strange mathematics is taught at school. Its main difference from ordinary mathematics is that the numbers in it are not ordered in ascending order, but lexicographically, as in a dictionary (first by the first digit, then, if the first digit is equal, by the second, and so on). In addition, we do not consider an infinite set of natural numbers, but only the first n numbers.
@@ -5620,7 +5410,6 @@ function strangeMath(n, k) {
 console.log(strangeMath(15, 5));
 // const arr = Array.from({ length: n }, (_, index) => index + 1);
 */
-
 // #3
 /*
 Coding in function threeInOne. function accept 1 parameters arr, it's a 1D number array. Your task is to merge each of the 3 elements into 1 elements (sum value) and return the result.
@@ -5646,7 +5435,6 @@ console.log(threeInOne([1, 2, 3]));
 console.log(threeInOne([1, 2, 3, 4, 5, 6, 7, 8, 9]));
 console.log(threeInOne([1, 3, 5, 2, 4, 6, 7, 7, 7]));
 */
-
 // 09.01.2024
 // #1
 /*
@@ -5697,7 +5485,6 @@ function rndCode() {
 
 console.log(rndCode());
 */
-
 // #2
 /*
 Coding in function thinkingAndTesting.
@@ -5713,7 +5500,6 @@ const thinkingAndTesting = (number, base) =>
   number - Math.pow(base, Math.floor(Math.log(number) / Math.log(base)));
 console.log(thinkingAndTesting(100, 2));
 */
-
 // #3
 /*
 Coding in function infiniteLoop. function accept 3 parameters. The 1st parameter is arr, it's a 2D array, it contains three 1D array. The 2nd parameter is d ，it's a string. The 3rd parameter is n, it's a number.
@@ -5774,7 +5560,6 @@ console.log(
   )
 );
 */
-
 // #4
 /*
 Coding in function sortIt. function accept 1 parameters arr, it's a number array. Your task is to sort the array according to the specified conditions, and returns a new array(should not modify the original array).
@@ -5809,7 +5594,6 @@ for (var index = 0; index < numbers.length; index++);
   console.log(`The number is ${numbers[index]}`);
 }
 */
-
 // 10.01.2024
 // #1
 /*
@@ -5838,7 +5622,6 @@ function isolateIt(arr) {
 console.log(isolateIt(["abcd", "efgh"]));
 console.log(isolateIt(["abcde", "efghg"]));
 */
-
 // #2
 /*
 Coding in function countGrade. function accept 1 parameters scores, it's a number array. Your task is to count the grade distribution of the scores, to return an object like this:
@@ -5912,11 +5695,8 @@ const uniqueArray = arrayWithDuplicates.filter((value, index, self) => {
 
 console.log(uniqueArray);
 */
-
 // 22.01.2024
-
 // #1
-
 /*
 Take the following IPv4 address: 128.32.10.1. This address has 4 octets where each octet is a single byte (or 8 bits).
     1st octet 128 has the binary representation: 10000000
@@ -5946,7 +5726,6 @@ function ipToInt32(ip) {
 
 console.log(ipToInt32("128.32.10.1"));
 */
-
 // #2
 /*
 Write a function insert_dash(num) / insertDash(num) / InsertDash(int num) that will insert dashes ('-') between each two odd digits in num. For example: if num is 454793 the output should be 4547-9-3.
@@ -5969,9 +5748,7 @@ function insertDash(num) {
 console.log(insertDash(454793));
 console.log(insertDash(123456));
 */
-
 // 23.01.2024
-
 // #1
 /*
 Coding in function colorOf. function accept 3 parameter:r g b. It means value of color red green and blue. the value range is 0-255.
@@ -6001,7 +5778,6 @@ function colorOf(r, g, b) {
 console.log(colorOf(255, 0, 0));
 console.log(colorOf(1, 2, 3));
 */
-
 // #2
 /*
 Coding in function howManySmaller, function accept 2 parameter:arr and n. arr is a decimal array. n is a decimal.
@@ -6021,7 +5797,6 @@ function howManySmaller(arr, n) {
 
 console.log(howManySmaller([1.234, 1.235, 1.228], 1.24));
 */
-
 // #3
 /*
 Coding in function cutIt, function accept 1 parameter:arr. arr is a string array.
@@ -6046,7 +5821,6 @@ function cutIt(arr) {
 console.log(cutIt(["codewars", "javascript", "java"]));
 console.log(cutIt(["abc", "defgh", "ijklmn"]));
 */
-
 // #4
 /*
 Create a function that returns the average of an array of numbers ("scores"), rounded to the nearest whole number. You are not allowed to use any loops (including for, for/in, while, and do/while loops).
@@ -6065,7 +5839,6 @@ function average(scores) {
 
 console.log(average([90.1, 98, 89, 100, 100, 86, 94]));
 */
-
 // #5
 /*
 Enjoying your holiday, you head out on a scuba diving trip!
@@ -6083,7 +5856,6 @@ console.log(
   )
 );
 */
-
 // #6
 /*
 Coding in function firstToLast, function accept 2 parameters:str and c. str is a string. c is a char.
@@ -6108,7 +5880,6 @@ console.log(firstToLast("ababc", "a"));
 console.log(firstToLast("ababc", "c"));
 console.log(firstToLast("ababc", "d"));
 */
-
 /*
 console.log("100" / "2"); // 50
 console.log("100" * 5); // 500
@@ -6659,7 +6430,6 @@ console.log(d.greeting); //
 
 
 */
-
 /*
 ДАНО
 строка слов "apple banana orange apple"
@@ -6728,7 +6498,6 @@ flatten([[[1,2,3]]]) // => [[1,2,3]]
 //   }
 //   return arr;
 // };
-
 // console.log(
 //   flatten([
 //     [1, 2, 3],
@@ -6737,9 +6506,7 @@ flatten([[[1,2,3]]]) // => [[1,2,3]]
 //   ])
 // );
 // console.log(flatten([[3, 4, 5], [[9, 9, 9]], ["a,b,c"]]));
-
 // 10.05.2024
-
 // #1
 /*
 Compare two strings by comparing the sum of their values (ASCII character code).
@@ -6774,7 +6541,6 @@ console.log(compare("AD", "DD"));
 console.log(compare("gf", "FG"));
 console.log(compare("##", "1176"));
 */
-
 // #2
 /*
 Implement a function that returns the minimal and the maximal value of a list (in this order).
@@ -6801,7 +6567,6 @@ console.log(getMinMax([1, 1]));
 console.log(getMinMax([1, 2]));
 console.log(getMinMax([2, 1]));
 */
-
 // #3
 /*
 Create a function that checks if a number n is divisible by two numbers x AND y. All inputs are positive, non-zero numbers.
@@ -6829,9 +6594,7 @@ console.log(isDivisible(3, 3, 4));
 console.log(isDivisible(12, 3, 4));
 console.log(isDivisible(48, 3, 4));
 */
-
 // 14.05.2024
-
 // #1
 /*
 Write a function filterLucky/filter_lucky() that accepts a list of integers and filters the list to only include the elements that contain the digit 7.
@@ -6857,7 +6620,6 @@ var filterLucky = (x) => {
 
 console.log(filterLucky([1, 2, 3, 4, 5, 6, 7, 68, 69, 70, 15, 17]));
 */
-
 // #2
 /*
 Given a string, write a function that returns the string with a question mark ("?") appends to the end, unless the original string ends with a question mark, in which case, returns the original string.
@@ -6880,7 +6642,6 @@ function ensureQuestion(s) {
 console.log(ensureQuestion("Yes"));
 console.log(ensureQuestion("No?"));
 */
-
 // #3
 /*
 Given a string of space separated words, return the longest word.
@@ -6904,7 +6665,6 @@ function longestWord(stringOfWords) {
 console.log(longestWord("red white blue"));
 console.log(longestWord("red blue gold"));
 */
-
 // #4
 /*
 back·ro·nym
@@ -6920,7 +6680,6 @@ Examples
 "dgm" ==> "disturbing gregarious mustache"
 "lkj" ==> "literal klingon joke"
 */
-
 /*
 //preload variable: dict
 var makeBackronym = function (string) {
@@ -6935,7 +6694,6 @@ var makeBackronym = function (string) {
 
 console.log(makeBackronym("dgm"));
 */
-
 // #5
 /*
 ###Lucky number
@@ -6953,7 +6711,6 @@ console.log(isLucky(1892376));
 console.log(isLucky(189237));
 console.log(isLucky(0));
 */
-
 // #6
 /*
 This kata is about converting numbers to their binary or hexadecimal representation:
@@ -6969,7 +6726,6 @@ function evensAndOdds(num) {
 console.log(evensAndOdds(2));
 console.log(evensAndOdds(13));
 */
-
 // #7
 /*
 In this kata, your job is to return the two distinct highest values in a list. If there're less than 2 unique values, return as many of them, as possible.
@@ -6990,7 +6746,6 @@ console.log(twoHighest([4, 10, 10, 9]));
 console.log(twoHighest([15]));
 console.log(twoHighest([]));
 */
-
 // #8
 /*
 There are two lists, possibly of different lengths. The first one consists of keys, the second one consists of values. Write a function createDict(keys, values) that returns a dictionary created from keys and values. If there are not enough values, the rest of keys should have a None (JS null)value. If there not enough keys, just ignore the rest of values.
@@ -7020,7 +6775,6 @@ console.log(createDict(["a", "b", "c"], [1, 2, 3]));
 console.log(createDict(["a", "b", "c"], [1, 2, 3, 4]));
 console.log(createDict(["a", "b", "c", "d"], [1, 2, 3]));
 */
-
 // #9
 /*
 Say hello!
@@ -7030,7 +6784,6 @@ greet("Niks") === "hello Niks!";
 greet("") === null; // Return null if input is empty string
 greet(null) === null; // Return null if input is null
 */
-
 /*
 function greet(name) {
   if (name === null) return null;
@@ -7041,13 +6794,11 @@ console.log(greet("Niks"));
 console.log(greet(""));
 console.log(greet(null));
 */
-
 // #10
 /*
 Kevin is noticing his space run out! Write a function that removes the spaces from the values and returns an array showing the space decreasing.
 For example, running this function on the array ['i', 'have','no','space'] would produce ['i','ihave','ihaveno','ihavenospace']
 */
-
 // function spacey(arr) {
 //   let res = [];
 //   let curr = "";
@@ -7055,14 +6806,10 @@ For example, running this function on the array ['i', 'have','no','space'] would
 //     curr += arr[i].split(" ").join("");
 //     res.push(curr);
 //   }
-
 //   return res;
 // }
-
 // console.log(spacey(["i", "have", "no", "space"]));
-
 // 04.06.2024
-
 // #1
 /*
 In this kata the function returns an array/list of numbers without its last element. The function is already written for you and the basic tests pass, but random tests fail. Your task is to figure out why and fix it.
@@ -7076,15 +6823,12 @@ function withoutLast(arr) {
 console.log(withoutLast([53, 50, 10, 84, 66, 70, 64, 5, 65, 63, 100, 10]));
 
 */
-
 // #2
-
 /*
 It's the academic year's end, fateful moment of your school report. The averages must be calculated. All the students come to you and entreat you to calculate their average for them. Easy ! You just need to write a script.
 Return the average of the given array rounded down to its nearest integer.
 The array will never be empty.
 */
-
 /*
 function getAverage(marks) {
   return Math.floor(marks.reduce((curr, acc) => acc + curr, 0) / marks.length);
@@ -7094,7 +6838,6 @@ console.log(getAverage([2, 2, 2, 2]));
 console.log(getAverage([1, 2, 3, 4, 5]));
 console.log(getAverage([1, 5, 87, 45, 8, 8]));
 */
-
 // #3
 /*
 In this exercise, a string is passed to a method and a new string has to be returned with the first character of each word in the string.
@@ -7102,7 +6845,6 @@ For example:
 "This Is A Test" ==> "TIAT"
 Strings will only contain letters and spaces, with exactly 1 space between words, and no leading/trailing spaces.
 */
-
 /*
 function makeString(s) {
   let res = s.split(" ");
@@ -7117,11 +6859,8 @@ function makeString(s) {
 
 console.log(makeString("This Is A Test"));
 */
-
 // 05.06.2024
-
 // #1
-
 /*
 Find the missing letter
 Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
@@ -7134,7 +6873,6 @@ Example:
 Have fun coding it and please don't forget to vote and rank this kata! :-)
 I have also created other katas. Take a look if you enjoyed this kata!
 */
-
 /*
 function findMissingLetter(arr) {
   const mapArr = arr.map((el) => el.charCodeAt(0));
@@ -7152,7 +6890,6 @@ console.log(findMissingLetter(["a", "b", "c", "d", "f"]));
 // const arr = Array.from({ length: n }, (_, index) => index + 1);
 // char.charCodeAt(0) - 96
 */
-
 // 2
 /*
 The Stanton measure of an array is computed as follows: count the number of occurences for value 1 in the array. Let this count be n. The Stanton measure is the number of times that n appears in the array.
@@ -7189,7 +6926,6 @@ console.log(stantonMeasure([-2, 1, -15, 1, 3, 1, -11, 1, -3, 1]));
   }
   console.log(ht);
 */
-
 // #3
 /*
 Some numbers are more important to get right during data entry than others: a common example is product codes.
@@ -7258,7 +6994,6 @@ function addCheckDigit(number) {
 }
 
 */
-
 // #4
 /*
 Gigi is a clever monkey, living in the zoo, his teacher (animal keeper) recently taught him some knowledge of "0".
@@ -7289,7 +7024,6 @@ function countzero(s) {
 console.log(countzero("1234567890"));
 console.log(countzero("abcdefghijklmnopqrstuvwxyz"));
 */
-
 // #5
 /*
 Given a sequence of integers, return the sum of all the integers that have an even index (odd index in COBOL), multiplied by the integer at the last index.
@@ -7312,7 +7046,6 @@ function evenLast(numbers) {
 console.log(evenLast([2, 3, 4, 5]));
 console.log(evenLast([]));
 */
-
 // #6
 /*
 You receive the name of a city as a string, and you need to return a string that shows how many times each letter shows up in the string by using asterisks (*).
@@ -7355,7 +7088,6 @@ function getStrings(city) {
 console.log(getStrings("Chicago"));
 console.log(getStrings("Las Vegas"));
 */
-
 // #7
 /*
 Write a function that returns the number of arguments it received.
@@ -7373,14 +7105,12 @@ console.log(args_count(1, 2));
 console.log(args_count());
 console.log(args_count(["foo", "bar"]));
 */
-
 // #8
 /*
 You are given a list of unique integers arr, and two integers a and b. Your task is to find out whether or not a and b appear consecutively in arr, and return a boolean value (True if a and b are consecutive, False otherwise).
 
 It is guaranteed that a and b are both present in arr.
 */
-
 /*
 function consecutive(arr, a, b) {
   for (let i = 0; i < arr.length - 1; i++) {
@@ -7397,7 +7127,6 @@ function consecutive(arr, a, b) {
 console.log(consecutive([1, 3, 5, 7], 3, 7)); // false
 console.log(consecutive([1, 3, 5, 7], 3, 1)); // true
 */
-
 // #9
 /*
 Fellow code warrior, we need your help! We seem to have lost one of our sequence elements, and we need your help to retrieve it!
@@ -7428,7 +7157,6 @@ function getMissingElement(arr) {
 console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4])); // 8
 console.log(getMissingElement([9, 2, 4, 5, 7, 0, 8, 6, 1])); // 3
 */
-
 // #10
 /*
 A mad sociopath scientist just came out with a brilliant invention! He extracted his own memories to forget all the people he hates! Now there's a lot of information in there, so he needs your talent as a developer to automatize that task for him.
@@ -7479,9 +7207,7 @@ console.log(
   )
 );
 */
-
 // 07.06.2024
-
 // #1
 /*
 There is a war and nobody knows - the alphabet war!
@@ -7533,7 +7259,6 @@ function alphabetWar(fight) {
 console.log(alphabetWar("zdqmwpbs"));
 console.log(alphabetWar("zzzzs"));
 */
-
 // #2
 /*
 Write a function that finds the sum of all its arguments.
@@ -7555,7 +7280,6 @@ console.log(sum(12, 1, 1, 1, 1));
 console.log(sum(11));
 console.log(sum(5, 7, 9));
 */
-
 // #3
 /*
 Create a method each_cons that accepts a list and a number n, and returns cascading subsets of the list of size n, like so:
@@ -7582,7 +7306,6 @@ function eachCons(array, n) {
 console.log(eachCons([1, 2, 3, 4], 2));
 console.log(eachCons([1, 2, 3, 4], 3));
 */
-
 // #4
 /*
 Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
@@ -7604,7 +7327,6 @@ console.log(descendingOrder(145263));
 console.log(descendingOrder(123456789));
 console.log(descendingOrder(467994600));
 */
-
 // #5
 /*
 In your class, you have started lessons about geometric progression. Since you are also a programmer, you have decided to write a function that will print first n elements of the sequence with the given constant r and first element a.
@@ -7629,7 +7351,6 @@ console.log(geometricSequenceElements(2, 3, 5));
 console.log(geometricSequenceElements(2, 2, 10));
 console.log(geometricSequenceElements(1, -2, 10));
 */
-
 // #6
 /*
 In this Kata, you will be given a string that may have mixed uppercase and lowercase letters and your task is to convert that string to either lowercase only or uppercase only based on:
@@ -7664,7 +7385,6 @@ console.log(solve("coDe"));
 console.log(solve("CODe"));
 console.log(solve("coDE"));
 */
-
 // #7
 /*
 Remove the duplicates from a list of integers, keeping the last ( rightmost ) occurrence of each element.
@@ -7689,7 +7409,6 @@ console.log(solve([3, 4, 4, 3, 6, 3]));
 console.log(solve([1, 2, 1, 2, 1, 2, 3]));
 console.log(solve([1, 2, 1, 2, 1, 2, 3]));
 */
-
 // #8
 /*
 Given a two-dimensional array of integers, return the flattened version of the array with all the integers in the sorted (ascending) order.
@@ -7710,7 +7429,6 @@ function flattenAndSort(array) {
 console.log(flattenAndSort([[1, 3, 5], [100], [2, 4, 6]]));
 console.log(flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]]));
 */
-
 // #8
 /*
 Our standard numbering system is base-10, that uses digits 0 through 9. Binary is base-2, using only 1s and 0s. And hexadecimal is base-16, using digits 0 to 9 and A to F. A hexadecimal F has a base-10 value of 15.
@@ -7815,7 +7533,6 @@ console.log(base64toBase10("WIN"));
 console.log(base64toBase10("/"));
 console.log(base64toBase10("BA"));
 */
-
 // #9
 /*
 Create an any? (JS: any) function that accepts an array and a block (JS: function), and returns true if the block (/function) returns true for any item in the array. If the array is empty, the function should return false.
@@ -7850,7 +7567,6 @@ console.log(
   })
 );
 */
-
 // #10
 /*
 Create a function called one that accepts two params:
@@ -7891,7 +7607,6 @@ console.log(
   })
 );
 */
-
 // #11
 /*
 Each exclamation mark's weight is 2; each question mark's weight is 3. Putting two strings left and right on the balance - are they balanced?
@@ -7934,9 +7649,7 @@ console.log(balance("!!", "??"));
 console.log(balance("!??", "?!!"));
 console.log(balance("!!???!????", "??!!?!!!!!!!"));
 */
-
 // 11.06.2024
-
 // #1
 /*
 Let's imagine we have a popular online RPG. A player begins with a score of 0 in class E5. A1 is the highest level a player can achieve.
@@ -7959,7 +7672,6 @@ function playerRankUp(points) {
 console.log(playerRankUp(64));
 console.log(playerRankUp(101));
 */
-
 // #2
 /*
 Create a function that takes a number as an argument and returns a grade based on that number.
@@ -8001,7 +7713,6 @@ console.log(grader(0.9));
 console.log(grader(0.6));
 console.log(grader(1.6));
 */
-
 // #3
 /*
 You are the "computer expert" of a local Athletic Association (C.A.A.). Many teams of runners come to compete. Each time you get a string of all race results of every team who has run. For example here is a string showing the individual results of a team of 5 runners:
@@ -8077,7 +7788,6 @@ function stat(strg) {
 
 console.log(stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17"));
 */
-
 // #4
 /*
 You will be given a string (x) featuring a cat 'C' and a mouse 'm'. The rest of the string will be made up of '.'.
@@ -8098,7 +7808,6 @@ console.log(catMouse("C...m"));
 console.log(catMouse("C..m"));
 console.log(catMouse("C....m"));
 */
-
 // #5
 /*
 Let us consider this example (array written in general format):
@@ -8140,7 +7849,6 @@ function partsSums(ls) {
 
 console.log(partsSums([1, 2, 3, 4, 5, 6]));
 */
-
 // #6
 /*
 Welcome to the Codewars Bar!
@@ -8166,7 +7874,6 @@ function hydrate(s) {
 
 console.log(hydrate("1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer"));
 */
-
 // #7
 /*
 Complete the solution so that it takes the object (JavaScript/CoffeeScript) or hash (ruby) passed in and generates a human readable string from its key/value pairs.
@@ -8186,9 +7893,7 @@ console.log(solution({ "a": 1, "b": 2 }));
 console.log(solution({ "a": 1, "b": 2, "c": 3 }));
 console.log(solution({}));
 */
-
 // 12.06.2024
-
 // #1
 /*
 Aspect-oriented programming (AOP) is programming that adds additional behavior (advice) to existing functionality without actually modifying that functionality.
@@ -8213,7 +7918,6 @@ function adviseBefore(target, advice) {
 
 console.log(adviseBefore());
 */
-
 // #2
 /*
 You are a(n) novice/average/senior/professional/world-class (choose one) Computer Scientist and Web Developer who specialises in Javascript (choose the language of your choice). One day, while you were away, your naughty little brother fiddles with your computer and somehow manages to disable the sort() method for arrays!
@@ -8224,7 +7928,6 @@ Extension
 
 If you wish, you could also fix the sort() method for arrays such that it also works on String arrays (sorting them into alphabetical order) but please note that it is not required and will not be tested.
 */
-
 // Fix the sort() method for arrays here.
 /*
 Array.prototype.sort = function () {
@@ -8247,7 +7950,6 @@ const arr = [9, 7, 2, 4, 5, 3, 6, 8, 1];
 arr.sort();
 console.log(arr); // Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 */
-
 // #3
 /*
 In this kata, you will do addition and subtraction on a given string. The return value must be also a string.
@@ -8256,7 +7958,6 @@ Examples
 "1plus2plus3plus4"  --> "10"
 "1plus2plus3minus4" -->  "2"
 */
-
 /*
 function calculate(str) {
   let replaced = str.replace(/plus/g, "+").replace(/minus/g, "-");
@@ -8279,9 +7980,7 @@ console.log(calculate("1plus2plus3plus4"));
 console.log(calculate("1minus2minus3minus4"));
 console.log(calculate("1plus2plus3minus4"));
 */
-
 // 17.06.2024
-
 // #1
 /*
 Write a function, nicknameGenerator that takes a string name as an argument and returns the first 3 or 4 letters as a nickname.
@@ -8320,7 +8019,6 @@ console.log(nicknameGenerator("Sam"));
 console.log(nicknameGenerator("Samantha"));
 console.log(nicknameGenerator("Roby"));
 */
-
 // #2
 /*
 My friend wants a new band name for her band. She like bands that use the formula: "The" + a noun with the first letter capitalized, for example:
@@ -8348,7 +8046,6 @@ function bandNameGenerator(str) {
 console.log(bandNameGenerator("knife"));
 console.log(bandNameGenerator("tart"));
 */
-
 // #3
 /*
 Oh no, our Math object was "accidently" reset. Can you re-implement some of those functions? We can assure, that only non-negative numbers are passed as arguments. So you don't have to consider things like undefined, null, NaN, negative numbers, strings and so on.
@@ -8380,7 +8077,6 @@ Math.floor = function (number) {
   return number - (number % 1);
 };
 */
-
 // #4
 /*
 Express is a minimalist web framework for Node.js.
@@ -8422,9 +8118,7 @@ const solution = () => {
 };
 
 */
-
 // 20.06.2024
-
 // #1
 /*
 Complete function padIt, which accepts 2 parameters:
@@ -8458,7 +8152,6 @@ console.log(padIt("a", 3));
 console.log(padIt("a", 4));
 console.log(padIt("a", 5));
 */
-
 // #2
 /*
 The other day I saw an amazing video where a guy hacked some wifi controlled lightbulbs by flying a drone past them. Brilliant.
@@ -8482,7 +8175,6 @@ function flyBy(l, d) {
 console.log(flyBy("xxxxxx", "====T"));
 console.log(flyBy("xxxxxxxxxxxxxxx", "=========T"));
 */
-
 // 01.07.2024
 // #1
 /*
@@ -8504,7 +8196,6 @@ function reverseBits(n) {
 
 console.log(reverseBits(417));
 */
-
 // #2
 /*
 HELP! Jason can't find his textbook! It is two days before the test date, and Jason's textbooks are all out of order! Help him sort a list (ArrayList in java) full of textbooks by subject, so he can study before the test.
@@ -8524,7 +8215,6 @@ function sorter(textbooks) {
 
 console.log(sorter(["Algebra", "History", "Geometry", "English"]));
 */
-
 // #3
 /*
 Not all integers can be represented by JavaScript/TypeScript. It has space to to represent 53bit signed integers. In this Kata, we've to determine if it is safe to use the integer or not. Make use of the latest ES6 features to find this.
@@ -8542,7 +8232,6 @@ console.log(SafeInteger(9007199254740992));
 console.log(SafeInteger(-90));
 console.log(SafeInteger(9007199254740992));
 */
-
 // #4
 /*
 JavaScript has sparse arrays, in which not all of its elements are necessarily set. As a result, the length of a javascript array may be greater than the number of its elements. It would be useful to have an array method that checks whether or not an array is sparse.
@@ -8561,7 +8250,6 @@ Array.prototype.isSparse = function () {
 
 console.log([1, 2, 3].isSparse());
 */
-
 // #5
 /*
 Write a function that takes as its parameters one or more numbers which are the diameters of circles.
@@ -8586,7 +8274,6 @@ console.log(sumCircles(2));
 console.log(sumCircles(2, 3, 4));
 console.log(sumCircles(1, 1, 1));
 */
-
 // #6
 /*
 Array.prototype.sort() is a pretty handy feature of the JS core, but when it comes to order an array of numbers, sometimes it can pollute our code.
@@ -8619,7 +8306,6 @@ console.log([2, 3, 4, 3, 2, 9, 1].sortReloaded("desc"));
 console.log([2, 3, 4, 3, 2, 9, 1].sortReloaded("foo"));
 console.log([4, 7, 2].sortReloaded());
 */
-
 // #7
 /*
 You have an array of numbers 1 through n (where 1 <= n <= 10). The array needs to be formatted correctly for the person reading the countdown of a spaceship launch.
@@ -8650,7 +8336,6 @@ function liftoff(instructions) {
 console.log(liftoff([8, 1, 10, 2, 7, 9, 6, 3, 4, 5]));
 console.log(liftoff([1, 2, 4, 3, 5]));
 */
-
 // #8
 /*
 Exponential/scientific notation is used to write very large or small numbers in JavaScript. It uses positive and negative exponents to write multiples and submultiples of 10 and simplifies numbers by getting rid of zeros. If a number greater than 21 digits, in JavaScript, it is displayed in exponential notation and if you try to get the length of it by converting to the string you would get wrong number of length because of the specific way of its display.
@@ -8667,7 +8352,6 @@ console.log(getNumberLength(7005623021525000000000000000));
 console.log(getNumberLength(5236200000000000));
 console.log(getNumberLength(9000000000000000000000));
 */
-
 // #9
 /*
 Calculate the sum of all the arguments passed to a function.
@@ -8697,7 +8381,6 @@ function sum() {
 console.log(sum(6, 2, 3));
 console.log(sum(1, -32, undefined, 1076));
 */
-
 // #10
 /*
 Complete the function/method so that it takes a PascalCase string and returns the string in snake_case notation. Lowercase characters can be numbers. If the method gets a number as input, it should return a string.
@@ -8723,7 +8406,6 @@ console.log(toUnderscore("TestController"));
 console.log(toUnderscore("MoviesAndBooks"));
 console.log(toUnderscore("App7Test"));
 */
-
 // #11
 /*
 Your task is to write a function called valid_spacing() or validSpacing() which checks if a string has valid spacing. The function should return either true or false (or the corresponding value in each language).
@@ -8753,9 +8435,7 @@ console.log(validSpacing("Hello world  "));
 console.log(validSpacing("  "));
 console.log(validSpacing(""));
 */
-
 // 02.07.2024
-
 // #1
 /*
 Your task is to write a higher order function for chaining together a list of unary functions. In other words, it should return a function that does a left fold on the given functions.
@@ -8773,7 +8453,6 @@ function chained(functions) {
   };
 }
 */
-
 // #2
 /*
 Some people just have a first name; some people have first and last names and some people have first, middle and last names.
@@ -8807,7 +8486,6 @@ console.log(initializeNames("Dimitri"));
 console.log(initializeNames("Lois Mary Lane"));
 console.log(initializeNames("Alice Betty Catherine Davis"));
 */
-
 // #3
 /*
 Create a function that returns True if a given number is divisible by 4, otherwise it should return False.
@@ -8817,7 +8495,6 @@ function dividedByFour(x) {
   return x % 4 === 0 
 }
 */
-
 // #4
 /*
 Create a function that rounds a number to 2 decimal places and returns it as a string.
@@ -8837,7 +8514,6 @@ function Round(n) {
 console.log(Round(1.56888));
 console.log(Round(0.3333));
 */
-
 // #4
 /*
 Here is a piece of code:
@@ -8856,7 +8532,6 @@ Function should return a dictionary/Object/Hash with "status" as a key, whose va
 
 But as you will see after clicking RUN or ATTEMPT this code has several bugs, please fix them.
 */
-
 /*
 function getStatus(isBusy) {
   var msg = isBusy ? "busy" : "available";
@@ -8866,7 +8541,6 @@ function getStatus(isBusy) {
 
 console.log(getStatus(1));
 */
-
 // #5
 /*
 Every Friday and Saturday night, farmer counts sheep coming back to his farm (sheep returned on Friday stay and don't leave).
@@ -8901,7 +8575,6 @@ console.log(lostSheep([1, 2], [3, 4], 15));
 console.log(lostSheep([5, 1, 4], [5, 4], 29));
 console.log(lostSheep([], [], 15));
 */
-
 // #6
 /*
 An IPv4 address is a 32-bit number that identifies a device on the internet.
@@ -8971,7 +8644,6 @@ console.log(ipToNum("10.0.0.0"));
 console.log(numToIp(3232235777));
 console.log(numToIp(167772160));
 */
-
 // #7
 /*
 Create a function that takes a positive integer and returns the next bigger number that can be formed by rearranging its digits. For example:
@@ -9023,7 +8695,6 @@ console.log(nextBigger(414));
 console.log(nextBigger(111));
 console.log(nextBigger(9));
 */
-
 // #8
 /*
 Define a class named MyClass inside a namespace MyNamespace. The class constructor should accept a single string argument. It should also have a function named sayHello that returns the string passed into the constructor.
@@ -9047,7 +8718,6 @@ MyNamespace.MyClass.prototype.sayHello = function () {
   return this.phrase;
 };
 */
-
 // #9
 /*
 Sys Admins are always on your case to improve the strength of your passwords. You could really use a handy function to make your passwords completely un-hackable.
@@ -9080,9 +8750,7 @@ function createSSP(password) {
 console.log(createSSP("haxorpassword"));
 console.log(createSSP("HaxorPassword"));
 */
-
 // 08.07.2024
-
 // #1
 /*
 Complete the function that returns an array of length n, starting with the given number x and the squares of the previous number. If n is negative or zero, return an empty array/list.
@@ -9106,7 +8774,6 @@ function squares(x, n) {
 console.log(squares(3, 3));
 console.log(squares(2, 5));
 */
-
 // #2
 /*
 Write a function that calculates the original product price, without VAT.
@@ -9134,7 +8801,6 @@ function excludingVatPrice(price) {
 console.log(excludingVatPrice(230));
 console.log(excludingVatPrice(123));
 */
-
 // #3
 /*
 For this game of BINGO, you will receive a single array of 10 numbers from 1 to 26 as an input. Duplicate numbers within the array are possible.
@@ -9158,9 +8824,7 @@ function bingo(a) {
 console.log(bingo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 console.log(bingo([21, 13, 2, 7, 5, 14, 7, 15, 9, 10]));
 */
-
 // 15.07.2024
-
 // #1
 /*
 Jack really likes his number five: the trick here is that you have to multiply each number by 5 raised to the number of digits of each numbers, so, for example:
@@ -9187,7 +8851,6 @@ function multiply(number) {
 // console.log(multiply(0));
 console.log(multiply(-3));
 */
-
 // #2
 /*
 Implement function sequence, which returns new n-size Array filled according to pattern.
@@ -9239,7 +8902,6 @@ console.log(sequence(3, "s"));
 console.log(sequence(3, []));
 console.log(sequence(3, (x, idx) => idx % 2));
 */
-
 // #3
 /*
 Write a function changeTime which increases or decreases given time. Input param is string in HH:MM format and delta is integer value -1 or 1 in minutes. Let see some examples:
@@ -9270,7 +8932,6 @@ console.log(changeTime("10:00", 1));
 console.log(changeTime("23:59", 1));
 console.log(changeTime("00:00", -1));
 */
-
 // #4
 /*
 You are a(n) novice/average/experienced/professional/world-famous Web Developer (choose one) who owns a(n) simple/clean/slick/beautiful/complicated/professional/business website (choose one or more) which contains form fields so visitors can send emails or leave a comment on your website with ease. However, with ease comes danger. Every now and then, a hacker visits your website and attempts to compromise it through the use of XSS (Cross Site Scripting). This is done by injecting script tags into the website through form fields which may contain malicious code (e.g. a redirection to a malicious website that steals personal information).
@@ -9311,7 +8972,6 @@ console.log(htmlspecialchars("<h2>Hello World</h2>"));
 console.log(htmlspecialchars("Hello, how would you & I fare?"));
 console.log(htmlspecialchars("<script>alert('Website Hacked!');</script>"));
 */
-
 // #5
 /*
 This is a simple exercise to understand the feature in the javascript language called closure.
@@ -9334,7 +8994,6 @@ function buildFun(n) {
 
 console.log(buildFun(10));
 */
-
 // #6
 /*
 Amicable numbers are two different numbers so related that the sum of the proper divisors of each is equal to the other number. (A proper divisor of a number is a positive factor of that number other than the number itself. For example, the proper divisors of 6 are 1, 2, and 3.)
@@ -9367,7 +9026,6 @@ console.log(amicableNumbers(220, 284));
 console.log(amicableNumbers(220, 280));
 console.log(amicableNumbers(1184, 1210));
 */
-
 // #7
 /*
 vowelOne
@@ -9397,7 +9055,6 @@ function vowelOne(s) {
 console.log(vowelOne("vowelOne"));
 console.log(vowelOne("123, arou"));
 */
-
 // #8
 /*
 In this kata you will be given a leaderboard of unique names for example:
@@ -9466,9 +9123,7 @@ console.log(
   )
 );
 */
-
 // 19.07.2024
-
 // #1
 /*
 Create a function that always returns True/true for every item in a given list.
@@ -9503,7 +9158,6 @@ function flickSwitch(arr) {
 console.log(flickSwitch(["codewars", "flick", "code", "wars"]));
 console.log(flickSwitch(["flick", "chocolate", "adventure", "sunshine"]));
 */
-
 // #2
 /*
 Given two strings comprised of + and -, return a new string which shows how the two strings interact in the following way:
@@ -9545,7 +9199,6 @@ function neutralise(s1, s2) {
 console.log(neutralise("--++--", "++--++"));
 console.log(neutralise("-+-+-+", "-+-+-+"));
 */
-
 // #3
 /*
 Write a function that takes an array of unique integers and returns the minimum number of integers needed to make the values of the array consecutive from the lowest number to the highest number.
@@ -9578,9 +9231,7 @@ console.log(consecutive([-1, -5]));
 console.log(consecutive([1]));
 console.log(consecutive([]));
 */
-
 // 21.07.2024
-
 // #1
 /*
 Given an array of 4 integers
@@ -9612,7 +9263,6 @@ console.log(slope([19, 3, 20, 3]));
 console.log(slope([2, 7, 4, -7]));
 console.log(slope([-10, 6, -10, 3]));
 */
-
 // #2
 /*
 In this Kata, you will be given two numbers, a and b, and your task is to determine if the first number a is divisible by all the prime factors of the second number b. For example: solve(15,12) = False because 15 is not divisible by all the prime factors of 12 (which include2).
@@ -9653,7 +9303,6 @@ console.log(solve(15, 12));
 console.log(solve(9, 243));
 console.log(solve(21, 2893401));
 */
-
 // #3
 /*
 Create a function that checks if the first argument n is divisible by all other arguments (return true if no other arguments)
@@ -9684,7 +9333,6 @@ console.log(isDivisible(3, 3, 4));
 console.log(isDivisible(12, 3, 4));
 console.log(isDivisible(8, 3, 4, 2, 5));
 */
-
 // #4
 /*
 In your class, you have started lessons about arithmetic progression. Since you are also a programmer, you have decided to write a function that will return the first n elements of the sequence with the given common difference d and first element a. Note that the difference may be zero!
@@ -9707,7 +9355,6 @@ function arithmeticSequenceElements(a, d, n) {
 console.log(arithmeticSequenceElements(1, 2, 5));
 console.log(arithmeticSequenceElements(1, 0, 5));
 */
-
 // #5
 /*
 Each floating-point number should be formatted that only the first two decimal places are returned. You don't need to check whether the input is a valid number because only valid numbers are used in the tests.
@@ -9748,7 +9395,6 @@ console.log(twoDecimalPlaces(10.1289767789));
 console.log(twoDecimalPlaces(-7488.83485834983));
 console.log(twoDecimalPlaces(4.653725356));
 */
-
 // #6
 /*
 Simple enough this one - you will be given an array. The values in the array will either be numbers or strings, or a mix of both. You will not get an empty array, nor a sparse one.
@@ -9778,7 +9424,6 @@ function dbSort(arr) {
 console.log(dbSort([6, 2, 3, 4, 5]));
 console.log(dbSort(["Banana", "Orange", "Apple", "Mango", 0, 2, 2]));
 */
-
 // #7
 /*
 A Nice array is defined to be an array where for every value n in the array, there is also an element n - 1 or n + 1 in the array.
@@ -9822,7 +9467,6 @@ function isNice(arr) {
 console.log(isNice([2, 10, 9, 3]));
 console.log(isNice([3, 4, 5, 7]));
 */
-
 // #8
 /*
 Write a solution to cleanup arrays. This can exist entirely in the squeakyClean function or contain multiple helper functions.
@@ -9854,7 +9498,6 @@ function squeakyClean(arr) {
 
 console.log(squeakyClean(["click1", "click2", null, "", "", "submitForm"]));
 */
-
 // #9
 /*
 You will be given a 2D array of the maze and an array of directions. Your task is to follow the directions given. If you reach the end point before all your moves have gone, you should return Finish. If you hit any walls or go outside the maze border, you should return Dead. If you find yourself still in the maze after using all the moves, you should return Lost.
@@ -9993,7 +9636,6 @@ console.log(
   )
 );
 */
-
 // #10
 /*
 You are walking on the sidwalk, you notice your friend is also walking on the sidewalk. You need to give a shout to your friend in order to grab their attention.
@@ -10045,7 +9687,6 @@ function madShout(sidewalk) {
 // console.log(madShout("-----------------Y--------F--------------"));
 console.log(madShout("------------Y-F------------------"));
 */
-
 // 22.07.2024
 // #1
 /*
@@ -10072,7 +9713,6 @@ console.log(
   })
 );
 */
-
 // #2
 /*
 Coding in function whatNumberIsIt. function accept 1 parameter:n. it's a number.
@@ -10116,7 +9756,6 @@ console.log(whatNumberIsIt(100));
 console.log(whatNumberIsIt(5e-324));
 console.log(whatNumberIsIt(NaN));
 */
-
 // #3
 /*
 You are given an array. Complete the function that returns the number of ALL elements within an array, including any nested arrays.
@@ -10149,7 +9788,6 @@ console.log(deepCount([1, 2, 3]));
 console.log(deepCount(["x", "y", ["z"]]));
 console.log(deepCount([1, 2, [3, 4, [5]]]));
 */
-
 // #4
 /*
 Given a string, return a new string that has transformed based on the input:
@@ -10197,7 +9835,6 @@ function changeCase(word) {
 
 console.log(stringTransformer("Example Input"));
 */
-
 // #5
 /*
 Implement the function which should return true if given object is a vowel (meaning a, e, i, o, u, uppercase or lowercase), and false otherwise.
@@ -10215,7 +9852,6 @@ console.log("ou".vowel());
 
 // const vowels = "aeiou"
 */
-
 // #6
 /*
 Given an array (a list in Python) of integers and an integer n, find all occurrences of n in the given array and return another array containing all the index positions of n in the given array.
@@ -10241,9 +9877,7 @@ const findAll = (arr, n) => {
 
 console.log(findAll([6, 9, 3, 4, 3, 82, 11], 3));
 */
-
 // 23.07.2024
-
 // #1
 /*
 Given 2 strings, a and b, return a string of the form: shorter+reverse(longer)+shorter.
@@ -10267,7 +9901,6 @@ console.log(shorterReverseLonger("first", "abcde"));
 console.log(shorterReverseLonger("hello", "bau"));
 console.log(shorterReverseLonger("fghi", "abcde"));
 */
-
 // #2
 /*
 Create a function that rounds a number n to p decimal places and returns it as a string.
@@ -10284,7 +9917,6 @@ function round(n, p) {
 console.log(round(1.56881, 4));
 console.log(round(0.3333, 2));
 */
-
 // #3
 /*
 You love coffee and want to know what beans you can afford to buy it.
@@ -10317,7 +9949,6 @@ function search(budget, prices) {
 console.log(search(3, [6, 1, 2, 9, 2]));
 console.log(search(14, [7, 3, 23, 9, 14, 20, 7]));
 */
-
 // #4
 /*
 You're in a restaurant with your friends and it's time to go, but there's still one big problem...the bill. Who will pay what? Lucky for you, you've got your computer handy! One simple function and the bill is paid——fairly, too!
@@ -10365,7 +9996,6 @@ function splitTheBill(x) {
 
 console.log(splitTheBill({ A: 20, B: 15, C: 10 }));
 */
-
 // 24.07.2024
 // #1
 /*
@@ -10397,7 +10027,6 @@ console.log(numberJoy(1));
 console.log(numberJoy(1729));
 console.log(numberJoy(1458));
 */
-
 // #2
 /*
 Complete the function that takes a string of English-language text and returns the number of consonants in the string.
@@ -10424,7 +10053,6 @@ console.log(
   )
 );
 */
-
 // #3
 /*
 In this example you have to validate if a user input string is alphanumeric. The given string is not nil/null/NULL/None, so you don't have to check that.
@@ -10451,7 +10079,6 @@ console.log(alphanumeric("PassW0rd"));
 console.log(alphanumeric("hello world_"));
 console.log(alphanumeric("   "));
 */
-
 // #4
 /*
 Finish the solution so that it takes an input n (integer) and returns a string that is the decimal representation of the number grouped by commas after every 3 digits.
@@ -10486,7 +10113,6 @@ console.log(groupByCommas(10));
 console.log(groupByCommas(10000));
 console.log(groupByCommas(35235235));
 */
-
 // #5
 /*
 To solve this Kata, complete the function, calculateHypotenuse(a,b), which will return the length of the hyptenuse for a right angled triangle with the other two sides having a length equal to the inputs. More details:
@@ -10541,7 +10167,6 @@ console.log(calculateHypotenuse(2, "one"));
 console.log(calculateHypotenuse());
 console.log(calculateHypotenuse(true, 1));
 */
-
 // 25.07.2024
 // #1
 /*
@@ -10570,7 +10195,6 @@ function getAges(sum, difference) {
 console.log(getAges(24, 4));
 console.log(getAges(63, -14));
 */
-
 // #2
 /*
 You and a group of friends are earning some extra money in the school holidays by re-painting the numbers on people's letterboxes for a small fee.
@@ -10623,7 +10247,6 @@ function paintLetterboxes(start, end) {
 
 console.log(paintLetterboxes(125, 132));
 */
-
 // #3
 /*
 Count how often sign changes in array.
@@ -10669,7 +10292,6 @@ console.log(catchSignChange([-1, -3, -4, -5]));
 console.log(catchSignChange([-47, 84, -30, -11, -5, 74, 77]));
 console.log(catchSignChange([1, -3, -4, 0, 5]));
 */
-
 // #4
 /*
 Remove the parentheses
@@ -10712,7 +10334,6 @@ console.log(
   removeParentheses("hello example (words(more words) here) something")
 );
 */
-
 // 02.08.2024
 // #1
 /*
@@ -10740,7 +10361,6 @@ console.log(meeting(["X", "O", "X"]));
 console.log(meeting(["X", "X", "X"]));
 console.log(meeting(["O", "O", "X"]));
 */
-
 // #2
 /*
 The bloody photocopier is broken... Just as you were sneaking around the office to print off your favourite binary code!
@@ -10771,7 +10391,6 @@ function broken(x) {
 
 console.log(broken("10000000101101111110011001000"));
 */
-
 // #3
 /*
 Complete the code which should return true if the given object is a single ASCII letter (lower or upper case), false otherwise.
@@ -10785,7 +10404,6 @@ console.log("7".isLetter());
 console.log("".isLetter());
 console.log("d".isLetter());
 */
-
 // #4
 /*
 Write a function that takes a string and an an integer n as parameters and returns a list of all words that are longer than n.
@@ -10810,7 +10428,6 @@ function filterLongWords(sentence, n) {
 
 console.log(filterLongWords("The quick brown fox jumps over the lazy dog", 4));
 */
-
 // #5
 /*
 Create the function prefill that returns an array of n elements that all have the same value v. See if you can do this without using a loop.
@@ -10854,7 +10471,6 @@ function prefill(n, v) {
 console.log(prefill(3, 1));
 console.log(prefill(2, "abc"));
 */
-
 // 08.08.2024
 // #1
 /*
@@ -10907,7 +10523,6 @@ console.log(sum(4));
 console.log(sum(5));
 console.log(sum(80));
 */
-
 // #2
 /*
 Bob is a lazy man.
@@ -10929,7 +10544,6 @@ function countLettersAndDigits(input) {
 console.log(countLettersAndDigits("hel2!lo"));
 console.log(countLettersAndDigits("!?..A"));
 */
-
 // #3
 /*
 In this Kata, you will be given an array of unique elements, and your task is to rearrange the values so that the first max value is followed by the first minimum, followed by second max value then second min value, etc.
@@ -10953,7 +10567,6 @@ function solve(arr) {
 
 console.log(solve([15, 11, 10, 7, 12])); // [15,7,12,10,11]
 */
-
 // 12.08.2024
 // #1
 /*
@@ -10975,7 +10588,6 @@ console.log(root(4, 2));
 console.log(root(8, 3));
 console.log(root(256, 4));
 */
-
 // #2
 /*
 Move every letter in the provided string forward 10 letters through the alphabet.
@@ -11004,7 +10616,6 @@ function moveTen(s) {
 console.log(moveTen("testcase"));
 console.log(moveTen("codewars"));
 */
-
 // #3
 /*
 Unscramble the eggs.
@@ -11024,7 +10635,6 @@ function unscrambleEggs(word) {
 
 console.log(unscrambleEggs("Beggegeggineggneggeregg"));
 */
-
 // #4
 /*
 Oh no, the map method for arrays has been disabled. Can you fix it?
@@ -11052,7 +10662,6 @@ console.log([1, 2, 3].map((x) => x ** 2));
 console.log([1, 2, 3].map((x) => 2 * x));
 console.log([1, 2, 3].map((x) => x.toString()));
 */
-
 // #5
 /*
 Oh no, the filter method for arrays has been disabled. Can you fix it?
@@ -11080,7 +10689,6 @@ console.log([1, 2, 3, 4, 5].filtering((x) => x > 2));
 console.log(["apple", "banana", "cherry"].filtering((x) => x.includes("a")));
 console.log([true, false, true, true, false].filtering((x) => x === true));
 */
-
 // #6
 /*
 You need to create a function that will validate if given parameters are valid geographical coordinates.
@@ -11138,7 +10746,6 @@ console.log(isValidCoordinates("2342.43536, 34.324236"));
 console.log(isValidCoordinates("-23, 225"));
 console.log(isValidCoordinates("-91, 181"));
 */
-
 // #7
 /*
 Complete the solution so that it strips all text that follows any of a set of comment markers passed in. Any whitespace at the end of the line should also be stripped out.
@@ -11175,7 +10782,6 @@ console.log(
   solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"])
 );
 */
-
 // 13.08.2024
 // #1
 /*
@@ -11190,7 +10796,6 @@ function addExtra(listOfNumbers) {
   return newList;
 }
 */
-
 // #2
 /*
 Is every value in the array an array?
@@ -11215,7 +10820,6 @@ console.log(arrCheck([[1], [2]]));
 console.log(arrCheck(["1", "2"]));
 console.log(arrCheck([{ 1: 1 }, { 2: 2 }]));
 */
-
 // #3
 /*
 Your distributeEvenly function will take an array as an argument and needs to return a new array with the values distributed evenly.
@@ -11269,7 +10873,6 @@ console.log(
   ])
 );
 */
-
 // #4
 /*
 Your task is to return an output string that translates an input string s by replacing each character in s with a number representing the number of times that character occurs in s and separating each number with the sep character(s).
@@ -11298,7 +10901,6 @@ function freqSeq(str, sep) {
 console.log(freqSeq("hello world", "-"));
 console.log(freqSeq("^^^**$", "x"));
 */
-
 // 14.08.2024
 // #1
 /*
@@ -11340,7 +10942,6 @@ console.log(nextHappyYear(1001));
 console.log(nextHappyYear(2334));
 console.log(nextHappyYear(8999));
 */
-
 // #2
 /*
 You take your son to the forest to see the monkeys. You know that there are a certain number there (n), but your son is too young to just appreciate the full number, he has to start counting them from 1.
@@ -11352,7 +10953,6 @@ For example(Input --> Output):
 10 --> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
  1 --> [1]
 */
-
 /*
 function monkeyCount(n) {
   // let arr = [];
@@ -11367,7 +10967,6 @@ function monkeyCount(n) {
 
 console.log(monkeyCount(5));
 */
-
 // #3
 /*
 Let's pretend your company just hired your friend from college and paid you a referral bonus. Awesome! To celebrate, you're taking your team out to the terrible dive bar next door and using the referral bonus to buy, and build, the largest three-dimensional beer can pyramid you can. And then probably drink those beers, because let's pretend it's Friday too.
@@ -11385,7 +10984,6 @@ For example:
 beeramid(1500, 2); // should === 12
 beeramid(5000, 3); // should === 16
 */
-
 // Returns number of complete beeramid levels
 /*
 var beeramid = function (bonus, price) {
@@ -11414,7 +11012,6 @@ console.log(beeramid(10, 2));
 console.log(beeramid(454, 4));
 console.log(beeramid(-1, 4));
 */
-
 // #4
 /*
 Your task in this kata is to return a string that shows if a letter of the input is uppercase or lowercase.
@@ -11442,7 +11039,6 @@ function binaryCase(inputString) {
 
 console.log(binaryCase("Hello WorlD!!"));
 */
-
 // #5
 /*
 In this kata you will have to transform each string so that it contains count for every symbol it contains, starting from 2. The order of symbols should be preserved.
@@ -11475,7 +11071,6 @@ console.log(transform("transplantology"));
 console.log(transform("impressive"));
 
 */
-
 // 15.08.2024
 // #1
 /*
@@ -11528,7 +11123,6 @@ console.log(
   })
 );
 */
-
 // #2
 /*
 У вас есть объект, представляющий компанию. Компания имеет уникальный companyId, и каждая компания может содержать список подразделений (departments). Подразделения могут также иметь свой уникальный departmentId и могут содержать список своих собственных подразделений (departments).
@@ -11572,7 +11166,6 @@ console.log(
   })
 );
 */
-
 // #3
 /*
 У вас есть объект, представляющий дерево категорий. У каждой категории есть уникальный catId, и каждая категория может содержать вложенные категории (subcategories).
@@ -11616,7 +11209,6 @@ console.log(
   })
 );
 */
-
 // #4
 // Simple Time Bomb
 /*
@@ -11627,7 +11219,6 @@ var wire = Object.keys(this).pop();
 
 CutTheWire(this[wire]);
 */
-
 // #5 Calculate age in years
 /*
 Complete the following function that will return the difference in years (age) for a birthdate, and optionally a "now" date. Both arguments to the function are expected to be Date objects. The returned difference can be either positive or negative.
@@ -11666,7 +11257,6 @@ console.log(getAge(new Date("2008/01/01"), new Date("2000/01/01")));
 console.log(getAge(new Date("1913/01/01"), new Date("2013/01/01")));
 console.log(getAge(new Date("1976/11/19"), new Date("2013/01/01")));
 */
-
 // #6
 /*
 Baby is getting his frst tooth. This means more sleepless nights, but with the fun of feeling round his gums and trying to guess which will be first out!
@@ -11708,7 +11298,6 @@ console.log(firstTooth([1, 2, 5, 7, 1, 0, 9]));
 console.log(firstTooth([15]));
 console.log(firstTooth([]));
 */
-
 // 19.08.2024
 // #1
 /*
@@ -11748,7 +11337,6 @@ console.log(pyramid(1));
 console.log(pyramid(4));
 console.log(pyramid(10));
 */
-
 // #2
 /*
 There are 32 letters in the Polish alphabet: 9 vowels and 23 consonants.
@@ -11796,7 +11384,6 @@ function correctPolishLetters(string) {
 
 console.log(correctPolishLetters("Jędrzej Błądziński"));
 */
-
 // #3
 /*
 Cheesy Cheeseman just got a new monitor! He is happy with it, but he just discovered that his old desktop wallpaper no longer fits. He wants to find a new wallpaper, but does not know which size wallpaper he should be looking for, and alas, he just threw out the new monitor's box. Luckily he remembers the width and the aspect ratio of the monitor from when Bob Mortimer sold it to him. Can you help Cheesy out?
@@ -11816,7 +11403,6 @@ function findScreenHeight(width, ratio) {
 }
 console.log(findScreenHeight(1280, "16:9"));
 */
-
 // #4
 /*
 Return a new array consisting of elements which are multiple of their own index in input array (length > 1).
@@ -11851,7 +11437,6 @@ console.log(
   ])
 );
 */
-
 // 20.08.2024
 // #1
 /*
@@ -11900,7 +11485,6 @@ console.log(
   points(["0:1", "0:2", "0:3", "0:4", "1:2", "1:3", "1:4", "2:3", "2:4", "3:4"])
 );
 */
-
 // #2
 /*
 Given an array of integers.
@@ -11942,7 +11526,6 @@ console.log(
 );
 console.log(countPositivesSumNegatives([0, 0]));
 */
-
 // #3
 /*
 Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
@@ -11967,7 +11550,6 @@ function reverseWords(str) {
 
 console.log(reverseWords("This is an example!"));
 */
-
 // #4
 /*
 ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
@@ -12004,7 +11586,6 @@ console.log(validatePIN("123456"));
 console.log(validatePIN("090909"));
 console.log(validatePIN("000000"));
 */
-
 // #4
 /*
 Count the number of divisors of a positive integer n.
@@ -12042,7 +11623,6 @@ console.log(getDivisorsCnt(11));
 console.log(getDivisorsCnt(30));
 console.log(getDivisorsCnt(54));
 */
-
 // 21.08.2024
 // #1
 /*
@@ -12072,7 +11652,6 @@ function findNeedle(haystack) {
 
 console.log(findNeedle([324, 324, "needle", 1, 2, 3, 4, 45, 54]));
 */
-
 // #2
 /*
 Mothers arranged a dance party for the children in school. At that party, there are only mothers and their children. All are having great fun on the dance floor when suddenly all the lights went out. It's a dark night and no one can see each other. But you were flying nearby and you can see in the dark and have ability to teleport people anywhere you want.
@@ -12100,7 +11679,6 @@ function findChildren(d) {
 console.log(findChildren("beeeEBb")); // BbbEeee
 console.log(findChildren("aAbaBb")); // AaaBbb
 */
-
 // #3
 /*
 Write a function named setAlarm/set_alarm/set-alarm/setalarm (depending on language) which receives two parameters. The first parameter, employed, is true whenever you are employed and the second parameter, vacation is true whenever you are on vacation.
@@ -12132,7 +11710,6 @@ console.log(setAlarm(true, false));
 console.log(setAlarm(false, true));
 console.log(setAlarm(false, false));
 */
-
 // #4
 /*
 Your team is writing a fancy new text editor and you've been tasked with implementing the line numbering.
@@ -12160,7 +11737,6 @@ var number = function (arr) {
 console.log(number([]));
 console.log(number(["a", "b", "c"]));
 */
-
 // #5
 /*
 The Western Suburbs Croquet Club has two categories of membership, Senior and Open. They would like your help with an application form that will tell prospective members which category they will be placed.
@@ -12206,7 +11782,6 @@ console.log(
   ])
 );
 */
-
 // #6
 /*
 If you can't sleep, just count sheep!!
@@ -12231,7 +11806,6 @@ console.log(countSheep(0));
 console.log(countSheep(1));
 console.log(countSheep(3));
 */
-
 // #7
 /*
 Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. Return the resulting string.
@@ -12261,7 +11835,6 @@ console.log(fakeBin("45385593107843568"));
 console.log(fakeBin("509321967506747"));
 
 */
-
 // 25.08
 // #1
 /*
@@ -12304,7 +11877,6 @@ function closeCompare(a, b, margin = 0) {
 
 console.log(closeCompare(3, 5, 0));
 */
-
 // #2
 /*
 Create a resolved javascript Promise that will return 'Hello World!'.
@@ -12316,7 +11888,6 @@ function promiseHelloWorld() {
   });
 }
 */
-
 // #3
 /*
 The two oldest ages function/method needs to be completed. It should take an array of numbers as its argument and return the two highest numbers within the array. The returned value should be an array in the format [second oldest age,  oldest age].
@@ -12329,7 +11900,6 @@ For example (Input --> Output):
 [1, 5, 87, 45, 8, 8] --> [45, 87]
 [1, 3, 10, 0]) --> [3, 10].
 */
-
 /*
 function twoOldestAges(ages) {
   let result = [];
@@ -12343,7 +11913,6 @@ function twoOldestAges(ages) {
 }
 console.log(twoOldestAges([1, 2, 10, 8]));
 */
-
 // #4
 /*
 Given an array, find the duplicates in that array, and return a new array of those duplicates. The elements of the returned array should appear in the order when they first appeared as duplicates.
@@ -12375,9 +11944,7 @@ function duplicates(arr) {
 
 console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, "5"]));
 */
-
 // 26.09.2024
-
 // #1
 /*
 Write a function that takes a list of strings as an argument and returns a filtered list containing the same elements but with the 'geese' removed.
@@ -12422,7 +11989,6 @@ console.log(
   ])
 );
 */
-
 // #2
 /*
 The Pied Piper has been enlisted to play his magical tune and coax all the rats out of town.
@@ -12470,7 +12036,6 @@ console.log(countDeafRats("~O~O~O~O P"));
 console.log(countDeafRats("P O~ O~ ~O O~"));
 console.log(countDeafRats("~O~O~O~OP~O~OO~"));
 */
-
 // #3
 /*
 I have a cat and a dog.
@@ -12519,7 +12084,6 @@ console.log(humanYearsCatYearsDogYears(1));
 console.log(humanYearsCatYearsDogYears(2));
 console.log(humanYearsCatYearsDogYears(10));
 */
-
 // #4
 /*
 Create a function finalGrade, which calculates the final grade of a student depending on two parameters: a grade for the exam and a number of completed projects.
@@ -12569,7 +12133,6 @@ console.log(finalGrade(51, 5));
 console.log(finalGrade(55, 0));
 console.log(finalGrade(20, 2));
 */
-
 //28.09.2024
 // #1
 /*
@@ -12598,7 +12161,6 @@ console.log(checkForFactor(10, 2));
 console.log(checkForFactor(2450, 7));
 console.log(checkForFactor(9, 2));
 */
-
 // #2
 /*
 Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
@@ -12624,7 +12186,6 @@ function abbrevName(x) {
 
 console.log(abbrevName("patrick feeney"));
 */
-
 // #3
 /*
 An NBA game runs 48 minutes (Four 12 minute quarters). Players do not typically play the full game, subbing in and out as necessary. Your job is to extrapolate a player's points per game if they played the full 48 minutes.
@@ -12651,7 +12212,6 @@ function pointsPer48(ppg, mpg) {
 
 console.log(pointsPer48(12, 20));
 */
-
 // #4
 /*
 You were camping with your friends far away from home, but when it's time to go back, you realize that your fuel is running out and the nearest pump is 50 miles away! You know that on average, your car runs on about 25 miles per gallon. There are 2 gallons left.
@@ -12668,7 +12228,6 @@ const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
 console.log(zeroFuel(50, 25, 2));
 console.log(zeroFuel(100, 50, 1));
 */
-
 // #5
 /*
 Make a function that will return a greeting statement that uses an input; your program should return, "Hello, <name> how are you doing today?".
@@ -12680,7 +12239,6 @@ function greet(name) {
   return `Hello, ${name} how are you doing today?`;
 }
 */
-
 // #6
 /*
 altERnaTIng cAsE <=> ALTerNAtiNG CaSe
@@ -12717,7 +12275,6 @@ String.prototype.toAlternatingCase = function () {
 console.log("1a2b3c4d5e".toAlternatingCase());
 console.log("String.prototype.toAlternatingCase".toAlternatingCase());
 */
-
 // 30.09.2024
 // #1
 /*
@@ -12745,7 +12302,6 @@ console.log(
   ])
 );
 */
-
 // #2
 /*
 Your task is to write a function toLeetSpeak that converts a regular english sentence to Leetspeak.
@@ -12835,7 +12391,6 @@ function toLeetSpeak(str) {
 console.log(toLeetSpeak("LEET"));
 console.log(toLeetSpeak("CODEWARS"));
 */
-
 // #3
 /*
 Please write a function that sums a list, but ignores any duplicated items in the list.
@@ -12862,7 +12417,6 @@ function sumNoDuplicates(numList) {
 
 console.log(sumNoDuplicates([3, 4, 3, 6]));
 */
-
 // #4
 /*
 Complete the function which will return the area of a circle with the given radius.
@@ -12892,7 +12446,6 @@ console.log(circleArea(68));
 console.log(circleArea(0));
 console.log(circleArea(-1));
 */
-
 // 01.10.2024
 // #1
 /*
@@ -12944,7 +12497,6 @@ console.log(
   longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2)
 );
 */
-
 /*
 // #2
 function shortestConsec(x, k) {
@@ -13027,7 +12579,6 @@ function highestAsciiSumConsec(x, k) {
 console.log(highestAsciiSumConsec(["abc", "def", "ghi", "jkl", "mno"], 2));
 console.log(highestAsciiSumConsec(["abc", "def", "ghi", "jkl", "mno"], 3));
 */
-
 // #5
 /*
 There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total time required for all the customers to check out!
@@ -13062,7 +12613,6 @@ console.log(queueTime([1, 2, 3, 4], 1));
 console.log(queueTime([1, 2, 3, 4, 5], 100));
 console.log(queueTime([10, 2, 3, 3], 2));
 */
-
 // #6
 /*
 Задача: Распределение задач между серверами
@@ -13123,7 +12673,6 @@ function distributeTasks(tasks, servers) {
 console.log(distributeTasks([5, 8, 3, 7, 2], [10, 15, 5]));
 console.log(distributeTasks([10, 10, 10], [5, 5, 5]));
 */
-
 // #7
 /*
 Terminal game move function
@@ -13143,7 +12692,6 @@ function move(position, roll) {
 console.log(move(0, 4));
 console.log(move(3, 6));
 */
-
 // #8
 /*
 Wolves have been reintroduced to Great Britain. You are a sheep farmer, and are now plagued by wolves which pretend to be sheep. Fortunately, you are good at spotting them.
@@ -13191,7 +12739,6 @@ console.log(
 );
 console.log(warnTheSheep(["wolf"]));
 */
-
 // 02.10.2024
 /*
 Coding in function grabDoll. function accept 1 parameter:dolls. it's a string array, a list of some dolls.
@@ -13233,7 +12780,6 @@ console.log(
   ])
 );
 */
-
 // #2
 /*
 Coding in function mirrorImage. function accept 1 parameter arr, it's a number array. Your task is find the first pair of mirror-image number and return as an array. The two number must be adjacent, and the returned array is in accordance with the order from left to right.
@@ -13273,7 +12819,6 @@ function mirrorImage(arr) {
 console.log(mirrorImage([454, 86, 57, 75, 16, 88]));
 console.log(mirrorImage([454, 0, 57, 0, 16, 88]));
 */
-
 // #3
 /*
 Write a function that merges two sorted arrays into a single one. The arrays only contain integers. Also, the final outcome must be sorted and not have any duplicate.
@@ -13286,7 +12831,6 @@ function mergeArrays(a, b) {
 console.log(mergeArrays([2, 4, 8], [2, 4, 6]));
 console.log(mergeArrays([1, 3, 5], [2, 4, 6]));
 */
-
 // #4
 /*
 Given an array of numbers, sort them in such a manner that all the odd numbers in the array are sorted in ascending order and the even numbers are sorted in descending order after the last odd number. For example [1,2,3,4,5,6,7,8,9] produces the output [1,3,5,7,9,8,6,4,2]. If the array contains decimals, round them down while checking for odd/even. The output must have the original numbers!
@@ -13308,7 +12852,6 @@ function sortItOut(arr) {
 
 console.log(sortItOut([11, 22, 33, 44, 55, 55, 90.4, 4, 78]));
 */
-
 // #5
 /*
 Given a varying number of integer arguments, return the digits that are not present in any of them.
@@ -13341,7 +12884,6 @@ function unusedDigits() {
 console.log(unusedDigits([12, 34, 56, 78]));
 console.log(unusedDigits([2015, 8, 26]));
 */
-
 // 07.10.2024
 // #1
 /*
@@ -13367,7 +12909,6 @@ console.log(nextItem([1, 2, 3, 4, 5, 6, 7], 3));
 
 console.log(nextItem("testing", "t"));
 */
-
 // #2
 /*
 Write a function that takes in a binary string and returns the equivalent decoded text (the text is ASCII encoded).
@@ -13399,7 +12940,6 @@ console.log(
   binaryToString("01001011010101000100100001011000010000100101100101000101")
 );
 */
-
 // #3
 /*
 To participate in a prize draw each one gives his/her firstname.
@@ -13479,7 +13019,6 @@ console.log(
   )
 );
 */
-
 // 25.10.2024
 // #1
 /*
@@ -13519,7 +13058,6 @@ function nbDig(n, d) {
 console.log(nbDig(5750, 0));
 console.log(nbDig(11011, 2));
 */
-
 // #2
 /*
 This time we want to write calculations using functions and get the results. Let's have a look at some examples:
@@ -13594,7 +13132,6 @@ function dividedBy(r) {
 
 console.log(one(plus(two())));
 */
-
 // #26.10.2024
 // #1
 /*
@@ -13627,7 +13164,6 @@ function checkThreeAndTwo(arr) {
 console.log(checkThreeAndTwo(["a", "a", "a", "b", "b"]));
 console.log(checkThreeAndTwo(["a", "a", "a", "a", "a"]));
 */
-
 // #2
 /*
 This Kata is intended as a small challenge for my students
@@ -13657,7 +13193,6 @@ function rotate(str) {
 
 console.log(rotate("Hello"));
 */
-
 // #3
 /*
 You receive some random elements as a space-delimited string. Check if the elements are part of an ascending sequence of integers starting with 1, with an increment of 1 (e.g. 1, 2, 3, 4).
@@ -13704,7 +13239,6 @@ console.log(findMissingNumber("1 3"));
 console.log(findMissingNumber("1 2 3 4 5"));
 console.log(findMissingNumber("1 2 3 4 a"));
 */
-
 // #4
 /*
 Description:
@@ -13771,7 +13305,6 @@ console.log(
   )
 );
 */
-
 // 27.10.2024
 // #1
 /*
@@ -13789,7 +13322,6 @@ function evenOrOdd(str) {}
 console.log(evenOrOdd("12"));
 console.log(evenOrOdd("123"));
 */
-
 // 03.11.2024
 // #1
 /*
@@ -13845,7 +13377,6 @@ function change(string) {
 
 console.log(change("a **&  bZ"));
 */
-
 // #2
 /*
 A zero-indexed array arr consisting of n integers is given. The dominator of array arr is the value that occurs in more than half of the elements of arr.
@@ -13875,7 +13406,6 @@ console.log(dominator([1, 2, 3, 4, 5]));
 console.log(dominator([1, 1, 1, 2, 2, 2, 2]));
 console.log(dominator([1, 1, 1, 2, 2, 2]));
 */
-
 // #3
 /*
 You will be given an array which will include both integers and characters.
@@ -13931,7 +13461,6 @@ console.log(
   ])
 );
 */
-
 // #4
 /*
 You'll be given a list of two strings, and each will contain exactly one colon (":") in the middle (but not at beginning or end). The length of the strings, before and after the colon, are random.
@@ -13952,7 +13481,6 @@ function tailSwap(arr) {
 
 console.log(tailSwap(["abc:123", "cde:456"]));
 */
-
 // 15.11.2024
 // #1
 /*
@@ -13974,7 +13502,6 @@ function calculateProbability(n) {
 console.log(calculateProbability(5));
 console.log(calculateProbability(1000));
 */
-
 // #2
 /*
 Complete the solution so that it reverses all of the words within the string passed in.
@@ -13994,7 +13521,6 @@ console.log(
   reverseWords("The greatest victory is that which requires no battle")
 );
 */
-
 // #3
 /*
 In this kata you need to check the provided 2 dimensional array (x) for good ideas 'good' and bad ideas 'bad'. If there are one or two good ideas, return 'Publish!', if there are more than 2 return 'I smell a series!'. If there are no good ideas, as is often the case, return 'Fail!'.
@@ -14028,7 +13554,6 @@ console.log(
   ])
 );
 */
-
 // #4
 /*
 The input is a string str of digits. Cut the string into chunks (a chunk here is a substring of the initial string) of size sz (ignore the last chunk if its size is less than sz).
@@ -14080,7 +13605,6 @@ function revrot(str, sz) {
 console.log(revrot("123456987654", 6));
 console.log(revrot("66443875", 4));
 */
-
 // #5
 /*
 Your task is simply to count the total number of lowercase letters in a string.
@@ -14115,7 +13639,6 @@ console.log(lowercaseCount("abc"));
 console.log(lowercaseCount("aBc"));
 console.log(lowercaseCount("abcABC123!@€£#$%^&*()_-+=}{[]|':;?/>.<,~"));
 */
-
 // #6
 /*
 Description:
@@ -14199,7 +13722,6 @@ console.log(
   )
 );
 */
-
 // #7
 /*
 This program tests the life of an evaporator containing a gas.
@@ -14225,24 +13747,19 @@ function evaporator(content, evap_per_day, threshold) {
 console.log(evaporator(10, 10, 10));
 console.log(evaporator(10, 10, 5));
 */
-
 // // Возможные символы для барабанов
 // const symbols = ["🍒", "🍋", "🍊", "🍉", "⭐", "💎"];
-
 // function spinReel() {
 //   // Случайный выбор символа из массива
 //   const randomIndex = Math.floor(Math.random() * symbols.length);
 //   return symbols[randomIndex];
 // }
-
 // function playSlotMachine() {
 //   // Запуск трех барабанов
 //   const reel1 = spinReel();
 //   const reel2 = spinReel();
 //   const reel3 = spinReel();
-
 //   console.log(`🎰 ${reel1} | ${reel2} | ${reel3} 🎰`);
-
 //   // Проверка на выигрыш
 //   if (reel1 === reel2 && reel2 === reel3) {
 //     console.log("🎉 Congratulations! You won! 🎉");
@@ -14250,10 +13767,8 @@ console.log(evaporator(10, 10, 5));
 //     console.log("😢 Try again!");
 //   }
 // }
-
 // // Запуск слот-машины
 // playSlotMachine();
-
 // 20.11.2024
 // #1
 /*
@@ -14281,7 +13796,6 @@ function solve(arr) {
 console.log(solve([1, 21, 4, 7, 5]));
 console.log(solve([5, 4, 3, 2, 1]));
 */
-
 // #2
 /*
 Write a method that will search an array of strings for all strings that contain another string, ignoring capitalization. Then return an array of the found strings.
@@ -14312,7 +13826,6 @@ console.log(wordSearch("ab", ["za", "ab", "abc", "zab", "zbc"]));
 console.log(wordSearch("ab", ["za", "aB", "Abc", "zAB", "zbc"]));
 console.log(wordSearch("abqq", ["za", "aB", "Abc", "zAB", "zbc"]));
 */
-
 // #3
 /*
 Write a generic function chainer
@@ -14347,7 +13860,6 @@ function mult(num) {
 
 console.log(chain(2, [add, mult]));
 */
-
 // #4
 /*
 Complete the function that takes an array of words.
@@ -14371,7 +13883,6 @@ function nthChar(words) {
 console.log(nthChar([]));
 console.log(nthChar(["yoda", "best", "has"]));
 */
-
 // #5
 /*
 Write a function that returns a sequence (index begins with 1) of all the even characters from a string. If the string is smaller than two characters or longer than 100 characters, the function should return "invalid string".
@@ -14400,7 +13911,6 @@ function evenChars(string) {
 console.log(evenChars("a"));
 console.log(evenChars("abcdefghijklm"));
 */
-
 // #6
 /*
 Dot Calculator
@@ -14456,7 +13966,6 @@ console.log(dotCalculator("..... - ..."));
 console.log(dotCalculator("..... * ..."));
 console.log(dotCalculator("..... // .."));
 */
-
 // #7
 /*
 Given a string of digits confirm whether the sum of all the individual even digits are greater than the sum of all the indiviudal odd digits. Always a string of numbers will be given.
@@ -14495,7 +14004,6 @@ console.log(evenOrOdd("123"));
 console.log(evenOrOdd("112"));
 
 */
-
 // #8
 /*
 Wilson primes satisfy the following condition. Let PPP represent a prime number.
@@ -14516,7 +14024,6 @@ console.log(amIWilson(5));
 console.log(amIWilson(9));
 console.log(amIWilson(563));
 */
-
 // #9
 /*
 I've got a crazy mental illness. I dislike numbers a lot. But it's a little complicated: The number I'm afraid of depends on which day of the week it is... This is a concrete description of my mental illness:
@@ -14537,6 +14044,7 @@ Sunday --> 666 or -666
 
 Write a function which takes a string (day of the week) and an integer (number to be tested) so it tells the doctor if I'm afraid or not. (return a boolean)
 */
+/*
 var AmIAfraid = function (day, num) {
   switch (day) {
     case "Monday":
@@ -14561,3 +14069,31 @@ console.log(AmIAfraid("Sunday", -666));
 console.log(AmIAfraid("Tuesday", 2));
 console.log(AmIAfraid("Tuesday", 965));
 console.log(AmIAfraid("Friday", 2));
+*/
+// #10
+/*
+Given a string, return true if the first instance of "x" in the string is immediately followed by the string "xx".
+
+"abraxxxas" → true
+"xoxotrololololololoxxx" → false
+"softX kitty, warm kitty, xxxxx" → true
+"softx kitty, warm kitty, xxxxx" → false
+
+Note :
+
+    capital X's do not count as an occurrence of "x".
+    if there are no "x"'s then return false
+*/
+
+function tripleX(str) {
+  let first = str.indexOf("x");
+
+  if (first === -1 || first + 2 >= str.length) {
+    return false;
+  }
+
+  return str[first] === "x" && str[first + 1] === "x" && str[first + 2] === "x";
+}
+
+console.log(tripleX("abraxxxas"));
+console.log(tripleX("xoxotrololololololoxxx"));
