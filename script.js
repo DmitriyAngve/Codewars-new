@@ -14138,6 +14138,7 @@ sunday = [6737, 7244, 5776, 9826, 7057, 9247, 5842, 5484, 6543, 5153, 6832, 8274
 
 Your function should return the 20 year estimate of the stairs climbed using the formula above.
 */
+/*
 function stairsIn20(s) {
   const oneYearTotal = s.flat().reduce((total, count) => total + count, 0);
 
@@ -14197,3 +14198,85 @@ console.log(
     ])
   )
 );
+*/
+
+// #7
+/*
+This program tests the life of an evaporator containing a gas.
+
+We know the content of the evaporator (content in ml), the percentage of foam or gas lost every day (evap_per_day) and the threshold (threshold) in percentage beyond which the evaporator is no longer useful. All numbers are strictly positive.
+
+The program reports the nth day (as an integer) on which the evaporator will be out of use.
+Example:
+
+evaporator(10, 10, 5) -> 29
+
+Note:
+
+Content is in fact not necessary in the body of the function "evaporator", you can use it or not use it, as you wish. Some people might prefer to reason with content, some other with percentages only. It's up to you but you must keep it as a parameter because the tests have it as an argument.
+*/
+/*
+function evaporator(content, evap_per_day, threshold) {
+  let count = 0;
+
+  while()
+}
+
+console.log(evaporator(10, 10, 10));
+console.log(evaporator(10, 10, 5));
+*/
+
+// // Возможные символы для барабанов
+// const symbols = ["🍒", "🍋", "🍊", "🍉", "⭐", "💎"];
+
+// function spinReel() {
+//   // Случайный выбор символа из массива
+//   const randomIndex = Math.floor(Math.random() * symbols.length);
+//   return symbols[randomIndex];
+// }
+
+// function playSlotMachine() {
+//   // Запуск трех барабанов
+//   const reel1 = spinReel();
+//   const reel2 = spinReel();
+//   const reel3 = spinReel();
+
+//   console.log(`🎰 ${reel1} | ${reel2} | ${reel3} 🎰`);
+
+//   // Проверка на выигрыш
+//   if (reel1 === reel2 && reel2 === reel3) {
+//     console.log("🎉 Congratulations! You won! 🎉");
+//   } else {
+//     console.log("😢 Try again!");
+//   }
+// }
+
+// // Запуск слот-машины
+// playSlotMachine();
+
+// 20.11.2024
+// #1
+/*
+An element in an array is dominant if it is greater than all elements to its right. You will be given an array and your task will be to return a list of all dominant elements. For example:
+
+solve([1,21,4,7,5]) = [21,7,5] because 21, 7 and 5 are greater than elments to their right. 
+solve([5,4,3,2,1]) = [5,4,3,2,1]
+
+Notice that the last element is always included. All numbers will be greater than 0.
+*/
+
+function solve(arr) {
+  let res = [];
+  let max = -Infinity;
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (arr[i] > max) {
+      res.push(arr[i]);
+      max = arr[i];
+      console.log(res);
+    }
+  }
+  return res.reverse();
+}
+
+console.log(solve([1, 21, 4, 7, 5]));
+console.log(solve([5, 4, 3, 2, 1]));
