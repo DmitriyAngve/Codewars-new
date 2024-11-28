@@ -14084,7 +14084,7 @@ Note :
     capital X's do not count as an occurrence of "x".
     if there are no "x"'s then return false
 */
-
+/*
 function tripleX(str) {
   let first = str.indexOf("x");
 
@@ -14097,3 +14097,28 @@ function tripleX(str) {
 
 console.log(tripleX("abraxxxas"));
 console.log(tripleX("xoxotrololololololoxxx"));
+*/
+
+// 28.11.2024
+// #1
+/*
+The function takes in 2 inputs x and y, and should return x to the power of y
+
+Simple, right? But you're NOT allowed to use Math.pow();
+
+Obs: x and y will be naturals, so DON'T take fractions into consideration;
+
+Note : zero to the power of zero equals one in this kata
+*/
+
+function power(x, y) {
+  let res = 1;
+  for (let i = 0; i < y; i++) {
+    res *= x;
+  }
+
+  return res;
+}
+
+console.log(power(2, 2));
+console.log(power(3, 2));
