@@ -14110,7 +14110,7 @@ Obs: x and y will be naturals, so DON'T take fractions into consideration;
 
 Note : zero to the power of zero equals one in this kata
 */
-
+/*
 function power(x, y) {
   let res = 1;
   for (let i = 0; i < y; i++) {
@@ -14122,3 +14122,76 @@ function power(x, y) {
 
 console.log(power(2, 2));
 console.log(power(3, 2));
+*/
+
+// #2
+/*
+You will be given an array of objects (associative arrays in PHP, table in COBOL, dictionaries in Python) representing data about developers who have signed up to attend the next coding meetup that you are organising.
+
+Your task is to return an object (associative array in PHP, table in COBOL, dictionary in Python) which includes the count of each coding language represented at the meetup.
+
+For example, given the following input array:
+
+var list1 = [
+  { firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'C' },
+  { firstName: 'Anna', lastName: 'R.', country: 'Liechtenstein', continent: 'Europe', age: 52, language: 'JavaScript' },
+  { firstName: 'Ramon', lastName: 'R.', country: 'Paraguay', continent: 'Americas', age: 29, language: 'Ruby' },
+  { firstName: 'George', lastName: 'B.', country: 'England', continent: 'Europe', age: 81, language: 'C' },
+];
+your function should return the following object (associative array in PHP, table in COBOL):
+
+{ C: 2, JavaScript: 1, Ruby: 1 }
+*/
+function countLanguages(list) {
+  let arr = [];
+
+  for (let i = 0; i < list.length; i++) {
+    let el = list[i].language;
+    arr.push(el);
+  }
+
+  let ht = {};
+
+  for (const x of arr) {
+    ht[x] = (ht[x] || 0) + 1;
+  }
+
+  return ht;
+}
+
+var list1 = [
+  {
+    firstName: "Noah",
+    lastName: "M.",
+    country: "Switzerland",
+    continent: "Europe",
+    age: 19,
+    language: "C",
+  },
+  {
+    firstName: "Anna",
+    lastName: "R.",
+    country: "Liechtenstein",
+    continent: "Europe",
+    age: 52,
+    language: "JavaScript",
+  },
+  {
+    firstName: "Ramon",
+    lastName: "R.",
+    country: "Paraguay",
+    continent: "Americas",
+    age: 29,
+    language: "Ruby",
+  },
+  {
+    firstName: "George",
+    lastName: "B.",
+    country: "England",
+    continent: "Europe",
+    age: 81,
+    language: "C",
+  },
+];
+
+console.log(countLanguages(list1));
