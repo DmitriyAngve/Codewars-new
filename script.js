@@ -14314,10 +14314,99 @@ function testit(a,b){
   return a?b;
 }
 */
-
+/*
 function testit(a, b) {
   return a | b;
 }
 
 console.log(testit(0, 1));
 console.log(testit(1, 2));
+*/
+
+// #2
+/*
+const {assert} = require("chai");
+
+describe("Sample tests", () => {
+  //return s ?
+  it("\"\"", () => assert.strictEqual(testit(""), ""));
+  it("a",    () => assert.strictEqual(testit("a"), "a"));
+  it("b",    () => assert.strictEqual(testit("b"), "b"));
+  //return s.substr(0,1) ?
+  it("aa", () => assert.strictEqual(testit("aa"), "a"));
+  it("ab", () => assert.strictEqual(testit("ab"), "a"));
+  it("bc", () => assert.strictEqual(testit("bc"), "b"));
+  //return s.substr(0,s.length/2) ?
+  it("aaaa",   () => assert.strictEqual(testit("aaaa"), "aa"));
+  it("aaaaaa", () => assert.strictEqual(testit("aaaaaa"), "aaa"));
+  //click "Submit" try more testcase...
+});
+*/
+/*
+function testit(s) {
+  return s.replace(/../g, (s) =>
+    String.fromCharCode((s.charCodeAt(0) + s.charCodeAt(1)) / 2)
+  );
+}
+
+console.log(testit(""));
+console.log(testit("a"));
+
+console.log(testit("aa"));
+console.log(testit("ba"));
+
+console.log(testit("abab"));
+console.log(testit("aaaaaa"));
+*/
+
+// #3
+/*
+Your task is to add a new property usersAnswer to every object in the array questions. The value of usersAnswer should be set to null. The solution should work for array of any length.
+
+For example:
+
+var questions = [{
+    question: "What's the currency of the USA?",
+    choices: ["US dollar", "Ruble", "Horses", "Gold"],
+    corAnswer: 0
+}, {
+    question: "Where was the American Declaration of Independence signed?",
+    choices: ["Philadelphia", "At the bottom", "Frankie's Pub", "China"],
+    corAnswer: 0
+}];
+
+After adding the property the result should be:
+
+var questions = [{
+    question: "What's the currency of the USA?",
+    choices: ["US dollar", "Ruble", "Horses", "Gold"],
+    corAnswer: 0,
+    usersAnswer: null
+}, {
+    question: "Where was the American Declaration of Independence signed?",
+    choices: ["Philadelphia", "At the bottom", "Frankie's pub", "China"],
+    corAnswer: 0,
+    usersAnswer: null
+}];
+
+The questions array is already defined for you and is not the same as the one in the example.
+*/
+
+questions.forEach(function (i) {
+  i.usersAnswer = null;
+});
+
+var questions = [
+  {
+    question: "What's the currency of the USA?",
+    choices: ["US dollar", "Ruble", "Horses", "Gold"],
+    corAnswer: 0,
+  },
+  {
+    question: "Where was the American Declaration of Independence signed?",
+    choices: ["Philadelphia", "At the bottom", "Frankie's Pub", "China"],
+    corAnswer: 0,
+  },
+];
+
+console.log(propertyToObj(questions));
