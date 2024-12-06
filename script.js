@@ -14391,7 +14391,7 @@ var questions = [{
 
 The questions array is already defined for you and is not the same as the one in the example.
 */
-
+/*
 questions.forEach(function (i) {
   i.usersAnswer = null;
 });
@@ -14410,3 +14410,67 @@ var questions = [
 ];
 
 console.log(propertyToObj(questions));
+*/
+
+// #4
+/*
+In this Kata, we will check if a string contains consecutive letters as they appear in the English alphabet and if each letter occurs only once.
+
+Rules are: (1) the letters are adjacent in the English alphabet, and (2) each letter occurs only once.
+
+For example: 
+solve("abc") = True, because it contains a,b,c
+solve("abd") = False, because a, b, d are not consecutive/adjacent in the alphabet, and c is missing.
+solve("dabc") = True, because it contains a, b, c, d
+solve("abbc") = False, because b does not occur once.
+solve("v") = True
+
+All inputs will be lowercase letters.
+
+More examples in test cases. Good luck!
+*/
+
+function solve(s) {
+  if (s.length === 1) return true;
+
+  let ht = {};
+
+  for (const char of s) {
+    ht[char] = (ht[char] || 0) + 1;
+  }
+
+  if (findRepeated(ht)) {
+    return false;
+  }
+
+  let arr = [];
+  for (let i = 0; i < s.length; i++) {
+    let letter = s[i];
+    arr.push(letter.charCodeAt(0) - 96);
+  }
+
+  arr.sort((a, b) => a - b);
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] + 1 !== arr[i + 1]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function findRepeated(ht) {
+  for (let [key, value] of Object.entries(ht)) {
+    if (value > 1) {
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(solve("abc"));
+console.log(solve("abd"));
+console.log(solve("dabc"));
+console.log(solve("abbc"));
+console.log(solve("v"));
