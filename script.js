@@ -14260,6 +14260,7 @@ Have fun coding it and please don't forget to vote and rank this kata! :-)
 
 I have created other katas. Have a look if you like coding and challenges.
 */
+/*
 function timeCorrect(timestring) {
   if (!timestring) return timestring; // Если строка пуста, вернем её как есть.
 
@@ -14302,3 +14303,21 @@ console.log(timeCorrect(""));
 console.log(timeCorrect("09:10:01"));
 console.log(timeCorrect("11:70:10"));
 console.log(timeCorrect("19:99:99"));
+*/
+
+// 06.12.2024
+// #3
+/*
+function testit(a,b){
+  //return a+b ?
+  //return a*b ?
+  return a?b;
+}
+*/
+
+function testit(a, b) {
+  return a | b;
+}
+
+console.log(testit(0, 1));
+console.log(testit(1, 2));
