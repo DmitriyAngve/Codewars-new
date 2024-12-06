@@ -14314,10 +14314,45 @@ function testit(a,b){
   return a?b;
 }
 */
-
+/*
 function testit(a, b) {
   return a | b;
 }
 
 console.log(testit(0, 1));
 console.log(testit(1, 2));
+*/
+
+// #2
+/*
+const {assert} = require("chai");
+
+describe("Sample tests", () => {
+  //return s ?
+  it("\"\"", () => assert.strictEqual(testit(""), ""));
+  it("a",    () => assert.strictEqual(testit("a"), "a"));
+  it("b",    () => assert.strictEqual(testit("b"), "b"));
+  //return s.substr(0,1) ?
+  it("aa", () => assert.strictEqual(testit("aa"), "a"));
+  it("ab", () => assert.strictEqual(testit("ab"), "a"));
+  it("bc", () => assert.strictEqual(testit("bc"), "b"));
+  //return s.substr(0,s.length/2) ?
+  it("aaaa",   () => assert.strictEqual(testit("aaaa"), "aa"));
+  it("aaaaaa", () => assert.strictEqual(testit("aaaaaa"), "aaa"));
+  //click "Submit" try more testcase...
+});
+*/
+function testit(s) {
+  return s.replace(/../g, (s) =>
+    String.fromCharCode((s.charCodeAt(0) + s.charCodeAt(1)) / 2)
+  );
+}
+
+console.log(testit(""));
+console.log(testit("a"));
+
+console.log(testit("aa"));
+console.log(testit("ba"));
+
+console.log(testit("abab"));
+console.log(testit("aaaaaa"));
