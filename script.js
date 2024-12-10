@@ -14537,7 +14537,7 @@ The strings representing a given language will always be formatted in the same w
 
 This kata is part of the Coding Meetup series which includes a number of short and easy to follow katas which have been designed to allow mastering the use of higher-order functions. In JavaScript this includes methods like: forEach, filter, map, reduce, some, every, find, findIndex. Other approaches to solving the katas are of course possible.
 */
-
+/*
 function findAdmin(list, lang) {
   let res = [];
 
@@ -14589,3 +14589,25 @@ var list = [
   },
 ];
 console.log(findAdmin(list, "JavaScript"));
+*/
+
+// #3
+/*
+You are to write a function that takes a string as its first parameter. This string will be a string of words.
+
+You are expected to then use the second parameter, which will be an integer, to find the corresponding word in the given string. The first word would be represented by 0.
+
+Once you have the located string you are finally going to multiply by it the third provided parameter, which will also be an integer. You are additionally required to add a hyphen in between each word.
+
+Example
+
+modifyMultiply ("This is a string", 3, 5) 
+*/
+function modifyMultiply(str, loc, num) {
+  let arr = str.split(" ");
+  let word = arr[loc];
+  let res = Array.from({ length: num }, (_, index) => word);
+  return res.join("-");
+}
+
+console.log(modifyMultiply("This is a string", 3, 5));
