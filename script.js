@@ -14391,7 +14391,7 @@ var questions = [{
 
 The questions array is already defined for you and is not the same as the one in the example.
 */
-
+/*
 questions.forEach(function (i) {
   i.usersAnswer = null;
 });
@@ -14410,3 +14410,182 @@ var questions = [
 ];
 
 console.log(propertyToObj(questions));
+*/
+
+// #4
+/*
+In this Kata, we will check if a string contains consecutive letters as they appear in the English alphabet and if each letter occurs only once.
+
+Rules are: (1) the letters are adjacent in the English alphabet, and (2) each letter occurs only once.
+
+For example: 
+solve("abc") = True, because it contains a,b,c
+solve("abd") = False, because a, b, d are not consecutive/adjacent in the alphabet, and c is missing.
+solve("dabc") = True, because it contains a, b, c, d
+solve("abbc") = False, because b does not occur once.
+solve("v") = True
+
+All inputs will be lowercase letters.
+
+More examples in test cases. Good luck!
+*/
+/*
+function solve(s) {
+  if (s.length === 1) return true;
+
+  let ht = {};
+
+  for (const char of s) {
+    ht[char] = (ht[char] || 0) + 1;
+  }
+
+  if (findRepeated(ht)) {
+    return false;
+  }
+
+  let arr = [];
+  for (let i = 0; i < s.length; i++) {
+    let letter = s[i];
+    arr.push(letter.charCodeAt(0) - 96);
+  }
+
+  arr.sort((a, b) => a - b);
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] + 1 !== arr[i + 1]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function findRepeated(ht) {
+  for (let [key, value] of Object.entries(ht)) {
+    if (value > 1) {
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(solve("abc"));
+console.log(solve("abd"));
+console.log(solve("dabc"));
+console.log(solve("abbc"));
+console.log(solve("v"));
+*/
+
+// 10.12.2024
+// #1
+/*
+Javascript has a handy built-in Math.round(x) method that rounds a number to the nearest integer:
+
+Math.round(3.14); // Returns 3
+Math.round(17.43); // 17
+Math.round(198.499); // 198
+Math.round(200.5); // 201
+Math.round(1784.76); // 1785
+But that is sometimes not enough! What if we wanted to round 3.1415926535 to two decimal places? While some languages (such as PHP) has a round() function that supports rounding to a specified number of decimal places (e.g. <?php round(3.1415926535, 4); /* 3.1416 (rounded to 4 d.p. as specified)  ?>), Javascript does not!
+
+Task
+Your task is to create a method, Math.roundTo(number, precision) which rounds a given number to precision decimal places.
+
+You may find the following Math methods useful:
+
+Math.round(x) (of course)
+Math.pow(x,y) (returns x to the power of y - e.g. Math.pow(3,4) == 81)
+*/
+
+// Math.roundTo = function (number, precision) {
+//   return 0;
+// };
+/*
+function roundTo(number, precision) {
+  return parseFloat(number.toFixed(precision));
+}
+
+console.log(roundTo(3.1415926535, 4));
+console.log(roundTo(4.1235343424, 6));
+*/
+
+// #2
+/*
+You will be given an array of objects representing data about developers who have signed up to attend the next coding meetup that you are organising.
+
+Given the following input array:
+
+var list1 = [
+  { firstName: 'Harry', lastName: 'K.', country: 'Brazil', continent: 'Americas', age: 22, language: 'JavaScript', githubAdmin: 'yes' },
+  { firstName: 'Kseniya', lastName: 'T.', country: 'Belarus', continent: 'Europe', age: 49, language: 'Ruby', githubAdmin: 'no' },
+  { firstName: 'Jing', lastName: 'X.', country: 'China', continent: 'Asia', age: 34, language: 'JavaScript', githubAdmin: 'yes' },
+  { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'JavaScript', githubAdmin: 'no' }
+];
+write a function that when executed as findAdmin(list1, 'JavaScript') returns only the JavaScript developers who are GitHub admins:
+
+[
+  { firstName: 'Harry', lastName: 'K.', country: 'Brazil', continent: 'Americas', age: 22, language: 'JavaScript', githubAdmin: 'yes' },
+  { firstName: 'Jing', lastName: 'X.', country: 'China', continent: 'Asia', age: 34, language: 'JavaScript', githubAdmin: 'yes' }
+]
+Notes:
+
+The original order should be preserved.
+If there are no GitHub admin developers in a given language then return an empty array [].
+The input array will always be valid and formatted as in the example above.
+The strings representing whether someone is a GitHub admin will always be formatted as 'yes' and 'no' (all lower-case).
+The strings representing a given language will always be formatted in the same way (e.g. 'JavaScript' will always be formatted with upper-case 'J' and 'S'.
+
+This kata is part of the Coding Meetup series which includes a number of short and easy to follow katas which have been designed to allow mastering the use of higher-order functions. In JavaScript this includes methods like: forEach, filter, map, reduce, some, every, find, findIndex. Other approaches to solving the katas are of course possible.
+*/
+
+function findAdmin(list, lang) {
+  let res = [];
+
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].language === lang && list[i].githubAdmin === "yes") {
+      res.push(list[i]);
+    }
+  }
+
+  return res;
+}
+
+var list = [
+  {
+    firstName: "Harry",
+    lastName: "K.",
+    country: "Brazil",
+    continent: "Americas",
+    age: 22,
+    language: "JavaScript",
+    githubAdmin: "yes",
+  },
+  {
+    firstName: "Kseniya",
+    lastName: "T.",
+    country: "Belarus",
+    continent: "Europe",
+    age: 49,
+    language: "Ruby",
+    githubAdmin: "no",
+  },
+  {
+    firstName: "Jing",
+    lastName: "X.",
+    country: "China",
+    continent: "Asia",
+    age: 34,
+    language: "JavaScript",
+    githubAdmin: "yes",
+  },
+  {
+    firstName: "Piotr",
+    lastName: "B.",
+    country: "Poland",
+    continent: "Europe",
+    age: 128,
+    language: "JavaScript",
+    githubAdmin: "no",
+  },
+];
+console.log(findAdmin(list, "JavaScript"));
