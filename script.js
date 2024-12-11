@@ -14689,7 +14689,7 @@ Examples
 
 Note: x & y are always positive integers, but they are not always in order of precendence... For example you can be given either (5, 11) or (11, 5) - both are valid.
 */
-
+/*
 function isPrime(num) {
   if (num <= 1) return false;
   if (num === 2) return true;
@@ -14715,3 +14715,24 @@ console.log(sexyPrime(2, 3));
 console.log(sexyPrime(4, 6));
 console.log(sexyPrime(1, 7));
 console.log(sexyPrime(83, 89));
+*/
+
+// #3
+/*
+Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
+Examples (Input -> Output):
+
+* "String"      -> "SSttrriinngg"
+* "Hello World" -> "HHeelllloo  WWoorrlldd"
+* "1234!_ "     -> "11223344!!__  "
+*/
+function doubleChar(str) {
+  let res = "";
+  for (let i = 0; i < str.length; i++) {
+    res += str[i] + str[i];
+  }
+  return res;
+}
+
+console.log(doubleChar("String"));
+console.log(doubleChar("1234!_ "));
