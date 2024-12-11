@@ -14647,7 +14647,7 @@ console.log(last("xyz"));
 */
 
 // 11.12.2024
-// #5
+// #1
 /*
 Given a list of integers values, your job is to return the sum of the values; however, if the same integer value appears multiple times in the list, you can only count it once in your sum.
 
@@ -14661,12 +14661,11 @@ For example:
 
 [] ==> null
 */
-
+/*
 function uniqueSum(lst) {
   if (!lst.length) return null;
 
   let set = Array.from(new Set(lst));
-  console.log(set);
 
   return set.reduce((curr, acc) => curr + acc, 0);
 }
@@ -14675,3 +14674,44 @@ console.log(uniqueSum([1, 2, 3]));
 console.log(uniqueSum([1, 3, 8, 1, 8]));
 console.log(uniqueSum([-1, -1, 5, 2, -7]));
 console.log(uniqueSum([]));
+*/
+
+// #2
+/*
+Sexy primes are pairs of two primes that are 6 apart. In this kata, your job is to complete the function which returns true if x & y are sexy, false otherwise.
+Examples
+
+5, 11   -->  true
+61, 67  -->  true
+7, 13   -->  true
+5, 7    -->  false
+1, 7    -->  false  (1 is not a prime)
+
+Note: x & y are always positive integers, but they are not always in order of precendence... For example you can be given either (5, 11) or (11, 5) - both are valid.
+*/
+
+function isPrime(num) {
+  if (num <= 1) return false;
+  if (num === 2) return true;
+  if (num % 2 === 0) return false;
+
+  for (let i = 3; i * i <= num; i += 2) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function sexyPrime(x, y) {
+  if (!isPrime(x) || !isPrime(y)) return false;
+
+  return Math.abs(x - y) === 6;
+}
+
+console.log(sexyPrime(5, 11));
+console.log(sexyPrime(11, 5));
+console.log(sexyPrime(2, 3));
+console.log(sexyPrime(4, 6));
+console.log(sexyPrime(1, 7));
+console.log(sexyPrime(83, 89));
