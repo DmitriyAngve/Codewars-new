@@ -14798,6 +14798,7 @@ is_square([3, 4, 7, 9]) --> False
 
 is_square([]) --> None
 */
+/*
 var isSquare = function (arr) {
   if (!arr.length) return undefined;
 
@@ -14815,3 +14816,33 @@ console.log(isSquare([1, 4, 9, 16]));
 console.log(isSquare([5, 4, 9, 16]));
 console.log(isSquare([]));
 console.log(isSquare([1, 2, 3, 4, 5, 6]));
+*/
+
+// #2
+/*
+You might know some pretty large perfect squares. But what about the NEXT one?
+
+Complete the findNextSquare method that finds the next integral perfect square after the one passed as a parameter. Recall that an integral perfect square is an integer n such that sqrt(n) is also an integer.
+
+If the argument is itself not a perfect square then return either -1 or an empty value like None or null, depending on your language. You may assume the argument is non-negative.
+
+Examples ( Input --> Output )
+121 --> 144
+625 --> 676
+114 --> -1  #  because 114 is not a perfect square
+*/
+
+function findNextSquare(sq) {
+  if (Math.sqrt(sq) % 1 !== 0) {
+    return -1;
+  }
+
+  let i = sq + 1;
+  while (Math.sqrt(i) % 1 !== 0) {
+    i++;
+  }
+  return i;
+}
+
+console.log(findNextSquare(121));
+console.log(findNextSquare(625));
