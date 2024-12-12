@@ -14757,7 +14757,7 @@ Good Luck!
 
 Note: Assume that all values in the list are positive integer values > 0 and each value in the list is unique.
 */
-
+/*
 function factorial(num) {
   if (num === 0 || num === 1) return 1;
   let fact = 1;
@@ -14773,3 +14773,45 @@ function sumFactorial(arr) {
 
 console.log(sumFactorial([4, 6]));
 console.log(sumFactorial([5, 4, 1]));
+*/
+
+// 12.12.2024
+// #1
+/*
+Write a function that checks whether all elements in an array are square numbers. The function should be able to take any number of array elements.
+
+Your function should return true if all elements in the array are square numbers and false if not.
+
+An empty array should return undefined / None / nil /false (for C). You can assume that all array elements will be positive integers.
+
+Examples:
+
+isSquare([1, 4, 9, 16]) --> true
+
+isSquare([3, 4, 7, 9]) --> false
+
+isSquare([]) --> undefined
+
+is_square([1, 4, 9, 16]) --> True
+
+is_square([3, 4, 7, 9]) --> False
+
+is_square([]) --> None
+*/
+var isSquare = function (arr) {
+  if (!arr.length) return undefined;
+
+  for (let i = 0; i < arr.length; i++) {
+    let num = Math.sqrt(arr[i]);
+
+    if (num % 1 !== 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
+console.log(isSquare([1, 4, 9, 16]));
+console.log(isSquare([5, 4, 9, 16]));
+console.log(isSquare([]));
+console.log(isSquare([1, 2, 3, 4, 5, 6]));
