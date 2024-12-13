@@ -15018,10 +15018,22 @@ Calculator.add(1,4) should return 5.
 
 Only integers are expected to be passed in as arguments, and the divide method should return 'false' when trying the divide by zero.
 */
-
+/*
 var Calculator = {
   add: (a, b) => a + b,
   subtract: (a, b) => a - b,
   multiply: (a, b) => a * b,
   divide: (a, b) => (b === 0 ? false : a / b),
 };
+*/
+
+// #6
+/*
+Write reverseList function that simply reverses lists.
+*/
+
+function reverseList(arr) {
+  return arr.reverse();
+}
+
+console.log(reverseList([1, 2, 3]));
