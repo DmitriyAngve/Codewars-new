@@ -14895,6 +14895,7 @@ Rules:
 
 Obviously the words should be Caps, Every word should end with '!!!!', Any letter 'a' or 'A' should become '@', Any other vowel should become '*'.
 */
+/*
 function gordon(a) {
   let res = "";
   let arr = a.split(" ");
@@ -14911,3 +14912,33 @@ function gordon(a) {
 
 console.log(gordon("What feck damn cake")); // WH@T!!!! F*CK!!!! D@MN!!!! C@K*!!!!
 console.log(gordon("i am a chef")); // *!!!! @M!!!! @!!!! CH*F!!!!
+*/
+
+// #2
+/*
+Complete the method that takes a sequence of objects with two keys each: country or state, and capital. Keys may be symbols or strings.
+
+The method should return an array of sentences declaring the state or country and its capital.
+Examples
+
+state_capitals = [{state: 'Maine', capital: 'Augusta'}]
+capital(state_capitals)[0] // returns "The capital of Maine is Augusta"
+
+country_capitals = [{'country' : 'Spain', 'capital' : 'Madrid'}]
+capital(country_capitals)[0]  // returns "The capital of Spain is Madrid"
+
+mixed_capitals: [{"state" : 'Maine', capital: 'Augusta'}, {country: 'Spain', "capital" : "Madrid"}]
+capital(mixed_capitals)[1] // returns "The capital of Spain is Madrid"
+*/
+
+function capital(capitals) {
+  return capitals.map((el) => {
+    // Проверяем, есть ли ключ "state" или "country"
+    let region = el.state || el.country;
+    return `The capital of ${region} is ${el.capital}`;
+  });
+}
+
+console.log(capital([{ "country": "Spain", "capital": "Madrid" }]));
+// "The capital of Spain is Madrid"
+// console.log(capital([{ state: "Maine", capital: "Augusta" }]));
