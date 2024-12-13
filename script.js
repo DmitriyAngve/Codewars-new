@@ -14831,7 +14831,7 @@ Examples ( Input --> Output )
 625 --> 676
 114 --> -1  #  because 114 is not a perfect square
 */
-
+/*
 function findNextSquare(sq) {
   if (Math.sqrt(sq) % 1 !== 0) {
     return -1;
@@ -14846,3 +14846,68 @@ function findNextSquare(sq) {
 
 console.log(findNextSquare(121));
 console.log(findNextSquare(625));
+*/
+
+// #3
+/*
+Write a function with the signature shown below:
+
+function isIntArray(arr) {
+  return true
+}
+returns true  / True if every element in an array is an integer or a float with no decimals.
+returns true  / True if array is empty.
+returns false / False for every other input.
+*/
+/*
+function isIntArray(arr) {
+  if (!arr.length) return true;
+  let count = 0;
+  // for (let i = 0; i < arr.length; i++) {}
+  return arr.map((el) => {
+    return isInteger(el);
+    // if (el === true) {
+    //   count++;
+    // }
+    // if (count === arr.length) {
+    //   return true;
+    // }
+  });
+}
+
+function isInteger(num) {
+  return typeof num === "number" && num % 1 === 0;
+}
+
+console.log(isIntArray([]));
+console.log(isIntArray([1, 2, 3, 4]));
+console.log(isIntArray([1, 2, 3, NaN]));
+*/
+
+// 13.12.2024
+// #1
+/*
+Gordon Ramsay shouts. He shouts and swears. There may be something wrong with him.
+
+Anyway, you will be given a string of four words. Your job is to turn them in to Gordon language.
+
+Rules:
+
+Obviously the words should be Caps, Every word should end with '!!!!', Any letter 'a' or 'A' should become '@', Any other vowel should become '*'.
+*/
+function gordon(a) {
+  let res = "";
+  let arr = a.split(" ");
+  for (let i = 0; i < arr.length; i++) {
+    let word =
+      arr[i]
+        .replace(/a/g, "@")
+        .replace(/[aeiou]/gi, "*")
+        .toUpperCase() + "!!!!";
+    res += word + " ";
+  }
+  return res.trim();
+}
+
+console.log(gordon("What feck damn cake")); // WH@T!!!! F*CK!!!! D@MN!!!! C@K*!!!!
+console.log(gordon("i am a chef")); // *!!!! @M!!!! @!!!! CH*F!!!!
