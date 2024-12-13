@@ -14930,7 +14930,7 @@ capital(country_capitals)[0]  // returns "The capital of Spain is Madrid"
 mixed_capitals: [{"state" : 'Maine', capital: 'Augusta'}, {country: 'Spain', "capital" : "Madrid"}]
 capital(mixed_capitals)[1] // returns "The capital of Spain is Madrid"
 */
-
+/*
 function capital(capitals) {
   return capitals.map((el) => {
     // Проверяем, есть ли ключ "state" или "country"
@@ -14942,3 +14942,28 @@ function capital(capitals) {
 console.log(capital([{ "country": "Spain", "capital": "Madrid" }]));
 // "The capital of Spain is Madrid"
 // console.log(capital([{ state: "Maine", capital: "Augusta" }]));
+*/
+
+// #3
+/*
+Implement a function which takes a sequence of objects and a property name, and returns a sequence containing the named property of each object.
+
+For example:
+
+pluck([{a:1}, {a:2}], 'a')      // -> [1,2]
+pluck([{a:1, b:3}, {a:2}], 'b') // -> [3, undefined]
+
+If an object is missing the property, you should just leave it as undefined/None in the output array
+*/
+
+function pluck(objs, name) {
+  let res = [];
+  for (let i = 0; i < objs.length; i++) {
+    let obj = objs[i];
+    res.push(obj[name]);
+  }
+  return res;
+}
+
+console.log(pluck([{ a: 1 }, { a: 2 }], "a"));
+console.log(pluck([{ a: 1, b: 3 }, { a: 2 }], "b"));
