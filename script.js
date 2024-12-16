@@ -15053,7 +15053,7 @@ You cannot use if statements, and you cannot use the ternary operator ? :.
 
 In fact the word if and the character ? are not allowed in your code. 
 */
-
+/*
 function noIfsNoButs(a, b) {
   switch (true) {
     case a > b:
@@ -15068,3 +15068,33 @@ function noIfsNoButs(a, b) {
 console.log(noIfsNoButs(5, 4));
 console.log(noIfsNoButs(-4, -7));
 console.log(noIfsNoButs(2, 2));
+*/
+
+// 16.12.2024
+// #1
+/*
+You have a quiver of arrows, but some have been damaged. The quiver contains arrows with an optional range information (different types of targets are positioned at different ranges), so each item is an arrow.
+
+You need to verify that you have some good ones left, in order to prepare for battle:
+
+anyArrows([{range: 5}, {range: 10, damaged: true}, {damaged: true}])
+
+If an arrow in the quiver does not have a damaged status, it means it's new.
+
+The expected result is a boolean, indicating whether you have any good arrows left.
+*/
+function anyArrows(arrows) {
+  let res = 0;
+
+  for (let i = 0; i < arrows.length; i++) {
+    if (arrows[i].damaged === true) {
+      res++;
+    }
+  }
+  return arrows.length > res;
+}
+
+console.log(
+  anyArrows([{ range: 5 }, { range: 10, damaged: true }, { damaged: true }])
+);
+console.log(anyArrows([{ range: 10, damaged: true }, { damaged: true }]));
