@@ -15135,7 +15135,7 @@ Do not use the eval() function or the Function() constructor in JavaScript.
 
 Note: Always return a boolean value, even if there're no negations.
 */
-
+/*
 function negationValue(string, value) {
   let len = string.length;
   let bool = Boolean(value);
@@ -15148,3 +15148,27 @@ function negationValue(string, value) {
 
 console.log(negationValue("!", false));
 console.log(negationValue("!!!", []));
+*/
+
+// #3
+/*
+Find the number with the most digits.
+
+If two numbers in the argument array have the same number of digits, return the first one in the array.
+*/
+function findLongest(array) {
+  let maxLength = 0;
+  let longestNumb = array[0];
+
+  for (let i = 0; i < array.length; i++) {
+    let length = String(array[i]).length;
+    if (length > maxLength) {
+      maxLength = length;
+      longestNumb = array[i];
+    }
+  }
+  return longestNumb;
+}
+
+console.log(findLongest([1, 10, 100]));
+console.log(findLongest([31440, 94944]));
