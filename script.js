@@ -15107,6 +15107,7 @@ Determine the total number of digits in the integer (n>=0) given as input to the
 
 All inputs will be valid.
 */
+/*
 function digits(n) {
   let arr = String(n).split("").map(Number);
   console.log(arr);
@@ -15115,3 +15116,35 @@ function digits(n) {
 
 console.log(digits(9876543210));
 console.log(digits(9));
+*/
+
+// #2
+/*
+In programming you know the use of the logical negation operator (!), it reverses the meaning of a condition.
+
+!false = true
+!!false = false
+
+Your task is to complete the function 'negationValue()' that takes a string of negations with a value and returns what the value would be if those negations were applied to it.
+
+negationValue("!", false); //=> true
+negationValue("!!!!!", true); //=> false
+negationValue("!!", []); //=> true
+
+Do not use the eval() function or the Function() constructor in JavaScript.
+
+Note: Always return a boolean value, even if there're no negations.
+*/
+
+function negationValue(string, value) {
+  let len = string.length;
+  let bool = Boolean(value);
+  if (len % 2 === 0) {
+    return bool;
+  } else {
+    return !bool;
+  }
+}
+
+console.log(negationValue("!", false));
+console.log(negationValue("!!!", []));
