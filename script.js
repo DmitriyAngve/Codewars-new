@@ -15184,6 +15184,7 @@ Your goal is to create a function named one_two_three (oneTwoThree for Java or O
 Do not try to cheat returning repeating non-random sequences. There is a randomness test especially for this case.
 
 */
+/*
 function one_two_three() {
   while (true) {
     let a = one_two();
@@ -15195,3 +15196,39 @@ function one_two_three() {
     }
   }
 }
+*/
+
+// #5
+/*
+A family of kookaburras are in my backyard.
+
+I can't see them all, but I can hear them!
+How many kookaburras are there?
+Hint
+
+The trick to counting kookaburras is to listen carefully
+
+    The males sound like HaHaHa...
+
+    The females sound like hahaha...
+
+    And they always alternate male/female
+
+Examples
+
+    ha = female => 1
+    Ha = male => 1
+    Haha = male + female => 2
+    haHa = female + male => 2
+    hahahahaha = female => 1
+    hahahahahaHaHaHa = female + male => 2
+    HaHaHahahaHaHa = male + female + male => 3
+
+*/
+var kookaCounter = function (laughing) {
+  return (laughing.match(/(Ha)+|(ha)+/g) || []).length;
+};
+
+console.log(kookaCounter(""));
+console.log(kookaCounter("hahahahaha"));
+console.log(kookaCounter("HaHaHahahaHaHa"));
