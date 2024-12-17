@@ -15083,6 +15083,7 @@ If an arrow in the quiver does not have a damaged status, it means it's new.
 
 The expected result is a boolean, indicating whether you have any good arrows left.
 */
+/*
 function anyArrows(arrows) {
   let res = 0;
 
@@ -15098,3 +15099,19 @@ console.log(
   anyArrows([{ range: 5 }, { range: 10, damaged: true }, { damaged: true }])
 );
 console.log(anyArrows([{ range: 10, damaged: true }, { damaged: true }]));
+*/
+
+// 17.12.2024
+/*
+Determine the total number of digits in the integer (n>=0) given as input to the function. For example, 9 is a single digit, 66 has 2 digits and 128685 has 6 digits. Be careful to avoid overflows/underflows.
+
+All inputs will be valid.
+*/
+function digits(n) {
+  let arr = String(n).split("").map(Number);
+  console.log(arr);
+  return arr.length;
+}
+
+console.log(digits(9876543210));
+console.log(digits(9));
