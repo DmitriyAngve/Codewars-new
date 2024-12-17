@@ -15156,6 +15156,7 @@ Find the number with the most digits.
 
 If two numbers in the argument array have the same number of digits, return the first one in the array.
 */
+/*
 function findLongest(array) {
   let maxLength = 0;
   let longestNumb = array[0];
@@ -15172,3 +15173,25 @@ function findLongest(array) {
 
 console.log(findLongest([1, 10, 100]));
 console.log(findLongest([31440, 94944]));
+*/
+
+// #4
+/*
+You have to create a function namedone_two (oneTwo for Java or Preloaded.OneTwo for C#) that returns 1 or 2 with equal probabilities. one_two is already defined in a global scope and can be called everywhere.
+
+Your goal is to create a function named one_two_three (oneTwoThree for Java or OneTwoThree for C#) that returns 1, 2 or 3 with equal probabilities using only the one_two function.
+
+Do not try to cheat returning repeating non-random sequences. There is a randomness test especially for this case.
+
+*/
+function one_two_three() {
+  while (true) {
+    let a = one_two();
+    let b = one_two();
+
+    let result = (a - 1) * 2 + (b - 1);
+    if (result < 3) {
+      return result + 1;
+    }
+  }
+}
