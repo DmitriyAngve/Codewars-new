@@ -15278,10 +15278,36 @@ Sort the given array of strings in alphabetical order, case insensitive. For exa
 ["Hello", "there", "I'm", "fine"]  -->  ["fine", "Hello", "I'm", "there"]
 ["C", "d", "a", "B"])              -->  ["a", "B", "C", "d"]
 */
-
+/*
 sortme = function (names) {
   return names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 };
 
 console.log(sortme(["Hello", "there", "I'm", "fine"]));
 console.log(sortme(["time", "my", "Problem", "Tell"]));
+*/
+
+// #2
+/*
+This time the input is a sequence of course-ids that are formatted in the following way:
+
+name-yymm
+
+The return of the function shall first be sorted by yymm, then by the name (which varies in length).
+*/
+
+sortme1 = function (courses) {
+  return courses.sort((a, b) => {
+    let [nameA, dateA] = a.split("-");
+    let [nameB, dateB] = b.split("-");
+
+    if (dateA !== dateB) {
+      return dateA - dateB;
+    }
+
+    return nameA.localeCompare(nameB);
+  });
+};
+
+console.log(sortme1(["web-1305", "site-1305", "web-1304", "site-1304"]));
+//  ["site-1304", "web-1304", "site-1305", "web-1305"]
