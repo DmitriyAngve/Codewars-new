@@ -15249,6 +15249,7 @@ comes_after("r8 your friend")                # => "i"
 
 Return an empty string if there are no instances of letter in the given string.
 */
+/*
 function comes_after(str, l) {
   let result = ""; // Строка для хранения результата
 
@@ -15267,3 +15268,20 @@ function comes_after(str, l) {
 }
 
 console.log(comes_after("are you really learning Ruby?", "r"));
+*/
+
+// 22.12.2024
+// #1
+/*
+Sort the given array of strings in alphabetical order, case insensitive. For example:
+
+["Hello", "there", "I'm", "fine"]  -->  ["fine", "Hello", "I'm", "there"]
+["C", "d", "a", "B"])              -->  ["a", "B", "C", "d"]
+*/
+
+sortme = function (names) {
+  return names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+};
+
+console.log(sortme(["Hello", "there", "I'm", "fine"]));
+console.log(sortme(["time", "my", "Problem", "Tell"]));
