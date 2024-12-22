@@ -15225,6 +15225,7 @@ Examples
     HaHaHahahaHaHa = male + female + male => 3
 
 */
+/*
 var kookaCounter = function (laughing) {
   return (laughing.match(/(Ha)+|(ha)+/g) || []).length;
 };
@@ -15232,3 +15233,55 @@ var kookaCounter = function (laughing) {
 console.log(kookaCounter(""));
 console.log(kookaCounter("hahahahaha"));
 console.log(kookaCounter("HaHaHahahaHaHa"));
+*/
+
+// #6
+/*
+You will be given two inputs: a string of words and a letter. For each string, return the alphabetic character after every instance of letter(case insensitive).
+
+If there is a number, punctuation or underscore following the letter, it should not be returned.
+
+If letter = 'r':
+comes_after("are you really learning Ruby?") # => "eenu"
+comes_after("Katy Perry is on the radio!")   # => "rya"
+comes_after("Pirates say arrrrrrrrr.")       # => "arrrrrrrr"
+comes_after("r8 your friend")                # => "i"
+
+Return an empty string if there are no instances of letter in the given string.
+*/
+/*
+function comes_after(str, l) {
+  let result = ""; // Строка для хранения результата
+
+  // Пройдем по строке и ищем буквы
+  for (let i = 0; i < str.length - 1; i++) {
+    // Проверяем, совпадает ли текущий символ (без учета регистра) с заданной буквой
+    if (str[i].toLowerCase() === l.toLowerCase()) {
+      // Если следующий символ - это буква, добавляем его в результат
+      if (/[a-zA-Z]/.test(str[i + 1])) {
+        result += str[i + 1];
+      }
+    }
+  }
+
+  return result;
+}
+
+console.log(comes_after("are you really learning Ruby?", "r"));
+*/
+
+// 22.12.2024
+// #1
+/*
+Sort the given array of strings in alphabetical order, case insensitive. For example:
+
+["Hello", "there", "I'm", "fine"]  -->  ["fine", "Hello", "I'm", "there"]
+["C", "d", "a", "B"])              -->  ["a", "B", "C", "d"]
+*/
+
+sortme = function (names) {
+  return names.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+};
+
+console.log(sortme(["Hello", "there", "I'm", "fine"]));
+console.log(sortme(["time", "my", "Problem", "Tell"]));
