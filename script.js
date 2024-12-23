@@ -15356,7 +15356,7 @@ Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9
 
 If the array is empty or the array has only one element the result should be 0 (Nothing in Haskell, None in Rust).
 */
-
+/*
 function sumOfDifferences(arr) {
   let res = [];
   if (arr.length === 1 || !arr.length) return 0;
@@ -15373,3 +15373,26 @@ function sumOfDifferences(arr) {
 
 console.log(sumOfDifferences([2, 1, 10])); // [10, 2, 1]
 console.log(sumOfDifferences([-3, -2, -1])); // [-1, -2, -3]
+*/
+
+// #2
+/*
+Given an integer n and two other values, build an array of size n filled with these two values alternating.
+Examples
+
+5, true, false     -->  [true, false, true, false, true]
+10, "blue", "red"  -->  ["blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red"]
+0, "one", "two"    -->  []
+*/
+function alternate(n, f, s) {
+  let arr = Array.from({ length: n }, (_, index) => f);
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 === 1) {
+      arr[i] = s;
+    }
+  }
+  return arr;
+}
+
+console.log(alternate(5, true, false));
+// const arr = Array.from({ length: n }, (_, index) => index + 1);
