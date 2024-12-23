@@ -15492,6 +15492,7 @@ Points:
     The arrays may be of different lengths, with at least one character/digit.
     One array will be of string characters (in lower case, a-z), a second of integers (all positive starting at 1).
 */
+/*
 function mergeArrays(a, b) {
   let res = [];
   let lenMin = Math.min(a.length, b.length);
@@ -15511,3 +15512,16 @@ console.log(mergeArrays(["a", "b", "c", "d", "e"], [1, 2, 3, 4, 5]));
 // [a, 1, b, 2, c, 3, d, 4, e, 5]
 console.log(mergeArrays([1, 2, 3], ["a", "b", "c", "d", "e", "f"]));
 // [1, a, 2, b, 3, c, d, e, f]
+*/
+
+// #8
+/*
+This code should store "codewa.rs" as a variable called name but it's not working. Can you figure out why?
+var a == "code";
+var b == "wa.rs";
+var name == a + b;
+*/
+var a = "code";
+var b = "wa.rs";
+var name = a + b;
+console.log(name);
