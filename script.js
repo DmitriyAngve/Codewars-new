@@ -15295,7 +15295,7 @@ name-yymm
 
 The return of the function shall first be sorted by yymm, then by the name (which varies in length).
 */
-
+/*
 sortme1 = function (courses) {
   return courses.sort((a, b) => {
     let [nameA, dateA] = a.split("-");
@@ -15311,3 +15311,32 @@ sortme1 = function (courses) {
 
 console.log(sortme1(["web-1305", "site-1305", "web-1304", "site-1304"]));
 //  ["site-1304", "web-1304", "site-1305", "web-1305"]
+*/
+
+// #3
+/*
+You have to write an algorithm that flatten an arrays structure to 2 levels. It means that each array under the second level will be merge to its parent. Only two levels are kept.
+
+Empty arrays are ignored.
+
+var array = [1, [2, 3], [4, 5, [6, 7, 8], 9, 10, [11, [12, [13, 14], 15], 16], 17], 18];
+flattenTwoLevels(array); // should return [1,[2,3],[4,5,6,7,8,9,10,11,12,13,14,15,16,17], 18]
+
+flattenTwoLevels([1,[2, 3, [], [4, [], 5]]]) // should return [1,[2,3,4,5]]
+
+*/
+
+function flattenTwoLevels(array) {
+  return array.map((x) => (Array.isArray(x) ? x.flat(Infinity) : x));
+}
+
+console.log(
+  flattenTwoLevels([
+    1,
+    [2, 3],
+    [4, 5, [6, 7, 8], 9, 10, [11, [12, [13, 14], 15], 16], 17],
+    18,
+  ])
+); //  [1,[2,3],[4,5,6,7,8,9,10,11,12,13,14,15,16,17], 18]
+console.log(flattenTwoLevels([1, [2, 3, [], [4, [], 5]]]));
+//[1,[2,3,4,5]]
