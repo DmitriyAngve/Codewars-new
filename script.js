@@ -15521,7 +15521,67 @@ var a == "code";
 var b == "wa.rs";
 var name == a + b;
 */
+/*
 var a = "code";
 var b = "wa.rs";
 var name = a + b;
 console.log(name);
+*/
+
+// #9
+/*
+As a part of this Kata, you need to create three functions that one needs to be able to call upon an array:
+
+    all
+
+    This function returns true only if the predicate supplied returns true for all the items in the array [1, 2, 3].all(isGreaterThanZero) => true [-1, 0, 2].all(isGreaterThanZero) => false
+
+    none
+
+    This function returns true only if the predicate supplied returns false for all the items in the array [-1, 2, 3].none(isLessThanZero) => false [-1, -2, -3].none(isGreaterThanZero) => true
+
+    any
+
+    This function returns true if at least one of the items in the array returns true for the predicate supplied [-1, 2, 3].any(isGreaterThanZero) => true [-1, -2, -3].any(isGreaterThanZero) => false
+
+You do not need to worry about the data supplied, it will be an array at all times.
+*/
+Array.prototype.all = function (p) {
+  // Для all нужно, чтобы все элементы удовлетворяли предикату
+  for (let i = 0; i < this.length; i++) {
+    if (!p(this[i])) {
+      return false; // Если хотя бы один элемент не удовлетворяет, возвращаем false
+    }
+  }
+  return true; // Если все элементы прошли предикат, возвращаем true
+};
+
+Array.prototype.none = function (p) {
+  // Для none нужно, чтобы все элементы не удовлетворяли предикату
+  for (let i = 0; i < this.length; i++) {
+    if (p(this[i])) {
+      return false; // Если хотя бы один элемент удовлетворяет предикату, возвращаем false
+    }
+  }
+  return true; // Если все элементы не удовлетворяют, возвращаем true
+};
+
+Array.prototype.any = function (p) {
+  // Для any нужно, чтобы хотя бы один элемент удовлетворял предикату
+  for (let i = 0; i < this.length; i++) {
+    if (p(this[i])) {
+      return true; // Если хотя бы один элемент удовлетворяет предикату, возвращаем true
+    }
+  }
+  return false; // Если ни один элемент не удовлетворяет, возвращаем false
+};
+
+const isGreaterThanZero = (el) => el > 0;
+const isLessThanZero = (el) => el < 0;
+
+console.log([1, 2, 3].all(isGreaterThanZero)); // true
+console.log([1, -2, 3].all(isGreaterThanZero)); // false
+console.log([-1, 2, 3].none(isLessThanZero)); // false
+console.log([-1, -2, -3].none(isGreaterThanZero)); // true
+console.log([-1, 2, 3].any(isGreaterThanZero)); // true
+console.log([-1, -2, -3].any(isGreaterThanZero)); // false
