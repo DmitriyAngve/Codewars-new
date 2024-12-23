@@ -15600,9 +15600,34 @@ For example (Input --> Output):
 [1, 5, 87, 45, 8, 8] --> [45, 87]
 [1, 3, 10, 0]) --> [3, 10]
 */
+/*
 function twoOldestAges(ages) {
   ages.sort((a, b) => b - a);
   return [ages[1], ages[0]];
 }
 
 console.log(twoOldestAges([1, 2, 10, 8]));
+*/
+
+// #11
+/*
+Complete the keysAndValues function so that it takes in an object and returns the keys and values as separate arrays.
+
+Example:
+
+keysAndValues({a: 1, b: 2, c: 3}) // should return [['a', 'b', 'c'], [1, 2, 3]]
+
+Style Points (JS/CoffeeScript only): This kata only tests for data that uses object literal notation (simple objects). For extra style, can you get your method to check for objects that extend their prototype?
+*/
+function keysAndValues(data) {
+  let arr1 = [];
+  let arr2 = [];
+
+  for (let i = 0; i < Object.keys(data).length; i++) {
+    const key = Object.keys(data)[i];
+    arr1.push(key);
+    arr2.push(data[key]);
+  }
+  return [arr1, arr2];
+}
+console.log(keysAndValues({ a: 1, b: 2, c: 3 }));
