@@ -15546,6 +15546,7 @@ As a part of this Kata, you need to create three functions that one needs to be 
 
 You do not need to worry about the data supplied, it will be an array at all times.
 */
+/*
 Array.prototype.all = function (p) {
   // Для all нужно, чтобы все элементы удовлетворяли предикату
   for (let i = 0; i < this.length; i++) {
@@ -15585,3 +15586,23 @@ console.log([-1, 2, 3].none(isLessThanZero)); // false
 console.log([-1, -2, -3].none(isGreaterThanZero)); // true
 console.log([-1, 2, 3].any(isGreaterThanZero)); // true
 console.log([-1, -2, -3].any(isGreaterThanZero)); // false
+*/
+
+// #10
+/*
+The two oldest ages function/method needs to be completed. It should take an array of numbers as its argument and return the two highest numbers within the array. The returned value should be an array in the format [second oldest age,  oldest age].
+
+The order of the numbers passed in could be any order. The array will always include at least 2 items. If there are two or more oldest age, then return both of them in array format.
+
+For example (Input --> Output):
+
+[1, 2, 10, 8] --> [8, 10]
+[1, 5, 87, 45, 8, 8] --> [45, 87]
+[1, 3, 10, 0]) --> [3, 10]
+*/
+function twoOldestAges(ages) {
+  ages.sort((a, b) => b - a);
+  return [ages[1], ages[0]];
+}
+
+console.log(twoOldestAges([1, 2, 10, 8]));
