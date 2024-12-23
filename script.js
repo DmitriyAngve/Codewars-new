@@ -15453,7 +15453,7 @@ You are using a library (Game.Logic in C#) that already has the functions below.
 - rollDice
 - move
 */
-
+/*
 function doTurn() {
   rollDice();
   move();
@@ -15462,3 +15462,52 @@ function doTurn() {
   buyHealth();
   printStatus();
 }
+*/
+
+// #6
+/*
+Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
+*/
+/*
+function evenOrOdd(number) {
+  return number % 2 === 0 ? "Even" : "Odd";
+}
+
+console.log(evenOrOdd(12));
+console.log(evenOrOdd(11));
+*/
+
+// #7
+/*
+Write a function that combines two arrays by alternatingly taking elements from each array in turn.
+
+Examples:
+
+[a, b, c, d, e], [1, 2, 3, 4, 5] becomes  [a, 1, b, 2, c, 3, d, 4, e, 5]
+
+[1, 2, 3], [a, b, c, d, e, f] becomes [1, a, 2, b, 3, c, d, e, f]
+
+Points:
+
+    The arrays may be of different lengths, with at least one character/digit.
+    One array will be of string characters (in lower case, a-z), a second of integers (all positive starting at 1).
+*/
+function mergeArrays(a, b) {
+  let res = [];
+  let lenMin = Math.min(a.length, b.length);
+
+  for (let i = 0; i < lenMin; i++) {
+    res.push(a[i]);
+    res.push(b[i]);
+  }
+
+  res = res.concat(a.slice(lenMin));
+  res = res.concat(b.slice(lenMin));
+
+  return res;
+}
+
+console.log(mergeArrays(["a", "b", "c", "d", "e"], [1, 2, 3, 4, 5]));
+// [a, 1, b, 2, c, 3, d, 4, e, 5]
+console.log(mergeArrays([1, 2, 3], ["a", "b", "c", "d", "e", "f"]));
+// [1, a, 2, b, 3, c, d, e, f]
