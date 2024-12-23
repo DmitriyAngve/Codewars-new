@@ -15409,6 +15409,7 @@ For example (Input --> Output):
 999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2, there are 4 multiplications)
 4 --> 0 (because 4 is already a one-digit number, there is no multiplication)
 */
+/*
 function persistence(num) {
   let count = 0;
   while (num >= 10) {
@@ -15429,3 +15430,11 @@ function multiple(num) {
 console.log(persistence(39));
 console.log(persistence(999));
 console.log(persistence(4));
+*/
+
+// #4
+/*
+There is an object/class already created called MrFreeze. Mark this object as frozen so that no other changes can be made to it. 
+*/
+
+Object.freeze(MrFreeze);
