@@ -15325,7 +15325,7 @@ flattenTwoLevels(array); // should return [1,[2,3],[4,5,6,7,8,9,10,11,12,13,14,1
 flattenTwoLevels([1,[2, 3, [], [4, [], 5]]]) // should return [1,[2,3,4,5]]
 
 */
-
+/*
 function flattenTwoLevels(array) {
   return array.map((x) => (Array.isArray(x) ? x.flat(Infinity) : x));
 }
@@ -15340,3 +15340,36 @@ console.log(
 ); //  [1,[2,3],[4,5,6,7,8,9,10,11,12,13,14,15,16,17], 18]
 console.log(flattenTwoLevels([1, [2, 3, [], [4, [], 5]]]));
 //[1,[2,3,4,5]]
+*/
+
+// 23.12.2024
+// #1
+/*
+Your task is to sum the differences between consecutive pairs in the array in descending order.
+Example
+
+[2, 1, 10]  -->  9
+
+In descending order: [10, 2, 1]
+
+Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9
+
+If the array is empty or the array has only one element the result should be 0 (Nothing in Haskell, None in Rust).
+*/
+
+function sumOfDifferences(arr) {
+  let res = [];
+  if (arr.length === 1 || !arr.length) return 0;
+  arr.sort((a, b) => b - a);
+
+  for (let i = 0; i < arr.length; i++) {
+    let x = arr[i] - arr[i + 1];
+
+    res.push(x);
+  }
+
+  return res.slice(0, -1).reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(sumOfDifferences([2, 1, 10])); // [10, 2, 1]
+console.log(sumOfDifferences([-3, -2, -1])); // [-1, -2, -3]
