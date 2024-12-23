@@ -15453,7 +15453,7 @@ You are using a library (Game.Logic in C#) that already has the functions below.
 - rollDice
 - move
 */
-
+/*
 function doTurn() {
   rollDice();
   move();
@@ -15462,3 +15462,15 @@ function doTurn() {
   buyHealth();
   printStatus();
 }
+*/
+
+// #6
+/*
+Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
+*/
+function evenOrOdd(number) {
+  return number % 2 === 0 ? "Even" : "Odd";
+}
+
+console.log(evenOrOdd(12));
+console.log(evenOrOdd(11));
