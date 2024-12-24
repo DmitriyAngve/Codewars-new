@@ -15619,6 +15619,7 @@ keysAndValues({a: 1, b: 2, c: 3}) // should return [['a', 'b', 'c'], [1, 2, 3]]
 
 Style Points (JS/CoffeeScript only): This kata only tests for data that uses object literal notation (simple objects). For extra style, can you get your method to check for objects that extend their prototype?
 */
+/*
 function keysAndValues(data) {
   let arr1 = [];
   let arr2 = [];
@@ -15631,3 +15632,65 @@ function keysAndValues(data) {
   return [arr1, arr2];
 }
 console.log(keysAndValues({ a: 1, b: 2, c: 3 }));
+*/
+
+// 24.12.2024
+// #1
+/*
+Create a function taking a positive integer between 1 and 3999 (both included) as its parameter and returning a string containing the Roman Numeral representation of that integer.
+
+Modern Roman numerals are written by expressing each digit separately starting with the leftmost digit and skipping any digit with a value of zero. There cannot be more than 3 identical symbols in a row.
+
+In Roman numerals:
+
+    1990 is rendered: 1000=M + 900=CM + 90=XC; resulting in MCMXC.
+    2008 is written as 2000=MM, 8=VIII; or MMVIII.
+    1666 uses each Roman symbol in descending order: MDCLXVI.
+
+Example:
+
+   1 -->       "I"
+1000 -->       "M"
+1666 --> "MDCLXVI"
+
+Help:
+
+Symbol    Value
+I          1
+V          5
+X          10
+L          50
+C          100
+D          500
+M          1,000
+*/
+function solution(num) {
+  let res = "";
+  // Словарь римских цифр, упорядоченных по убыванию
+  const dictionary = [
+    { symbol: "M", value: 1000 },
+    { symbol: "CM", value: 900 },
+    { symbol: "D", value: 500 },
+    { symbol: "CD", value: 400 },
+    { symbol: "C", value: 100 },
+    { symbol: "XC", value: 90 },
+    { symbol: "L", value: 50 },
+    { symbol: "XL", value: 40 },
+    { symbol: "X", value: 10 },
+    { symbol: "IX", value: 9 },
+    { symbol: "V", value: 5 },
+    { symbol: "IV", value: 4 },
+    { symbol: "I", value: 1 },
+  ];
+
+  for (let i = 0; i < dictionary.length; i++) {
+    while (num >= dictionary[i].value) {
+      res += dictionary[i].symbol;
+      num -= dictionary[i].value;
+    }
+  }
+  return res;
+}
+
+console.log(solution(2008));
+console.log(solution(1990));
