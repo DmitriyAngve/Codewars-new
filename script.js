@@ -15745,6 +15745,7 @@ E.g. Input: "aa", "bb" , "cc" => Output: "abcabc"
 
 Note: You can expect all of the inputs to be the same length.
 */
+/*
 function tripleTrouble(one, two, three) {
   let len = one.length;
   let res = "";
@@ -15755,3 +15756,37 @@ function tripleTrouble(one, two, three) {
 }
 
 console.log(tripleTrouble("aaa", "bbb", "ccc"));
+*/
+
+// #4
+/*
+Write a method, that will get an integer array as parameter and will process every number from this array.
+
+Return a new array with processing every number of the input-array like this:
+
+If the number has an integer square root, take this, otherwise square the number.
+Example
+
+[4,3,9,7,2,1] -> [2,9,3,49,4,1]
+
+Notes
+
+The input array will always contain only positive numbers, and will never be empty or null.
+*/
+function squareOrSquareRoot(array) {
+  let res = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if (Math.sqrt(array[i]) % 1 === 0) {
+      res.push(Math.sqrt(array[i]));
+    } else {
+      res.push(Math.pow(array[i], 2));
+    }
+  }
+  return res;
+}
+
+console.log(Math.sqrt(7) % 1 === 0);
+
+console.log(squareOrSquareRoot([4, 3, 9, 7, 2, 1]));
+//  if (Math.sqrt(sq) % 1 !== 0) {
