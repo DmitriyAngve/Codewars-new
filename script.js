@@ -15711,6 +15711,7 @@ Examples:
 
 3.1 needs to become $3.10
 */
+/*
 function formatMoney(amount) {
   let arr = String(amount).split(".");
   let res = "";
@@ -15732,3 +15733,25 @@ console.log(formatMoney(3));
 console.log(formatMoney(39.99));
 console.log(formatMoney(631.9));
 console.log(formatMoney(631.99));
+*/
+
+// #3
+/*
+Triple Trouble
+
+Create a function that will return a string that combines all of the letters of the three inputed strings in groups. Taking the first letter of all of the inputs and grouping them next to each other. Do this for every letter, see example below!
+
+E.g. Input: "aa", "bb" , "cc" => Output: "abcabc"
+
+Note: You can expect all of the inputs to be the same length.
+*/
+function tripleTrouble(one, two, three) {
+  let len = one.length;
+  let res = "";
+  for (let i = 0; i < len; i++) {
+    res += one[i] + two[i] + three[i];
+  }
+  return res;
+}
+
+console.log(tripleTrouble("aaa", "bbb", "ccc"));
