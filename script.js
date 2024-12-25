@@ -15902,6 +15902,7 @@ Note
     start < stop
     step > 0
 */
+/*
 function generateRange(min, max, step) {
   let res = [];
   for (let i = min; i < max + 1; i += step) {
@@ -15913,3 +15914,18 @@ function generateRange(min, max, step) {
 // console.log(generateRange(1, 10, 1));
 console.log(generateRange(2, 10, 2));
 // console.log(generateRange(-10, 1, 1));
+*/
+
+// #3
+/*
+Some new animals have arrived at the zoo. The zoo keeper is concerned that perhaps the animals do not have the right tails. To help her, you must correct the broken function to make sure that the second argument (tail), is the same as the last letter of the first argument (body) - otherwise the tail wouldn't fit!
+
+If the tail is right return true, else return false.
+
+The arguments will always be non empty strings, and normal letters.
+*/
+function correctTail(body, tail) {
+  return body[body.length - 1] === tail ? true : false;
+}
+
+console.log(correctTail("Fox", "x"));
