@@ -15924,8 +15924,31 @@ If the tail is right return true, else return false.
 
 The arguments will always be non empty strings, and normal letters.
 */
+/*
 function correctTail(body, tail) {
   return body[body.length - 1] === tail ? true : false;
 }
 
 console.log(correctTail("Fox", "x"));
+*/
+
+// #4
+/*
+Your task is to write a function, which takes two arguments and returns a sequence. First argument is a sequence of values, second is multiplier. The function should filter all non-numeric values and multiply the rest by given multiplier.
+*/
+function multiplyAndFilter(arr, m) {
+  let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "number" && !Number.isNaN(arr[i])) {
+      res.push(arr[i]);
+    }
+  }
+  return res.map((el) => el * m);
+}
+
+console.log(
+  multiplyAndFilter(
+    [1, null, function () {}, 2.5, "string", 10, undefined, NaN, {}, []],
+    3
+  )
+);
