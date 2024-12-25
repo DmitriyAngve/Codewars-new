@@ -15835,7 +15835,7 @@ Output:
 
 Return "Battle Result: Good triumphs over Evil" if good wins, "Battle Result: Evil eradicates all trace of Good" if evil wins, or "Battle Result: No victor on this battle field" if it ends in a tie.
 */
-
+/*
 function goodVsEvil(good, evil) {
   // Оценка силы для хороших и плохих существ
   const fine = {
@@ -15886,3 +15886,30 @@ function goodVsEvil(good, evil) {
 
 console.log(goodVsEvil("1 1 1 1 1 1", "1 1 1 1 1 1 1"));
 console.log(goodVsEvil("0 0 0 0 0 10", "0 1 1 1 1 0 0"));
+*/
+
+// #2
+/*
+Implement the function generateRange which takes three arguments (start, stop, step) and returns the range of integers from start to stop (inclusive) in increments of step.
+Examples
+
+(1, 10, 1) -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+(-10, 1, 1) -> [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1]
+(1, 15, 20) -> [1]
+
+Note
+
+    start < stop
+    step > 0
+*/
+function generateRange(min, max, step) {
+  let res = [];
+  for (let i = min; i < max + 1; i += step) {
+    res.push(i);
+  }
+  return res;
+}
+
+// console.log(generateRange(1, 10, 1));
+console.log(generateRange(2, 10, 2));
+// console.log(generateRange(-10, 1, 1));
