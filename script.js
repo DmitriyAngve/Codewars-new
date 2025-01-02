@@ -15970,6 +15970,7 @@ with size 12 should return : '101010101010'.
 
 The size will always be positive and will only use whole numbers.
 */
+/*
 function stringy(size) {
   let res = "";
 
@@ -15986,3 +15987,38 @@ function stringy(size) {
 
 console.log(stringy(25));
 console.log(stringy(4));
+*/
+
+// #2
+/*
+Is it possible to write a book without the letter 'e' ?
+
+Task
+Given String str, return:
+
+How many "e" does it contain (case-insensitive) in string format.
+If given String doesn't contain any "e", return: "There is no "e"."
+If given String is empty, return empty String.
+If given String is `null`/`None`/`nil`, return `null`/`None`/`nil`
+*/
+const fizzBuzz = (n) => {
+  switch (true) {
+    case n === 1:
+      return n;
+    case n % 3 === 0 && n % 5 !== 0:
+      return "Fizz";
+    case n % 5 === 0 && n % 3 !== 0:
+      return "Buzz";
+    case n % 3 !== 0 && n % 5 !== 0:
+      return n;
+    case n % 3 === 0 && n % 5 === 0:
+      return "FizzBuzz";
+  }
+};
+
+console.log(fizzBuzz(1));
+console.log(fizzBuzz(3));
+console.log(fizzBuzz(6));
+console.log(fizzBuzz(7));
+console.log(fizzBuzz(10));
+console.log(fizzBuzz(30));
