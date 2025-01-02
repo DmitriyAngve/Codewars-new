@@ -16001,6 +16001,7 @@ If given String doesn't contain any "e", return: "There is no "e"."
 If given String is empty, return empty String.
 If given String is `null`/`None`/`nil`, return `null`/`None`/`nil`
 */
+/*
 const fizzBuzz = (n) => {
   switch (true) {
     case n === 1:
@@ -16022,3 +16023,39 @@ console.log(fizzBuzz(6));
 console.log(fizzBuzz(7));
 console.log(fizzBuzz(10));
 console.log(fizzBuzz(30));
+*/
+
+// #3
+/*
+In this Kata, you will be given a multi-dimensional array containing 2 or more sub-arrays of integers. Your task is to find the maximum product that can be formed by taking any one element from each sub-array.
+
+Examples:
+solve( [[1, 2],[3, 4]] ) = 8. The max product is given by 2 * 4
+solve( [[10,-15],[-1,-3]] ) = 45, given by (-15) * (-3)
+solve( [[1,-1],[2,3],[10,-100]] ) = 300, given by (-1) * 3 * (-100)
+*/
+function solve(a) {
+  let min = 1,
+    max = 1;
+  for (let x of a) {
+    let cur = [];
+    for (let y of x) cur.push(y * min), cur.push(y * max);
+    min = Math.min(...cur);
+    max = Math.max(...cur);
+  }
+  return max;
+}
+
+console.log(
+  solve([
+    [-1, 2, -3, 4],
+    [1, -2, 3, -4],
+  ])
+);
+console.log(
+  solve([
+    [14, 2],
+    [0, -16],
+    [-12, -16],
+  ])
+);
