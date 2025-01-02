@@ -15936,6 +15936,7 @@ console.log(correctTail("Fox", "x"));
 /*
 Your task is to write a function, which takes two arguments and returns a sequence. First argument is a sequence of values, second is multiplier. The function should filter all non-numeric values and multiply the rest by given multiplier.
 */
+/*
 function multiplyAndFilter(arr, m) {
   let res = [];
   for (let i = 0; i < arr.length; i++) {
@@ -15952,3 +15953,36 @@ console.log(
     3
   )
 );
+*/
+
+// 02.01.2024
+// #1
+/*
+write me a function stringy that takes a size and returns a string of alternating 1s and 0s.
+
+the string should start with a 1.
+
+a string with size 6 should return :'101010'.
+
+with size 4 should return : '1010'.
+
+with size 12 should return : '101010101010'.
+
+The size will always be positive and will only use whole numbers.
+*/
+function stringy(size) {
+  let res = "";
+
+  for (let i = 1; i <= Math.floor(size / 2); i++) {
+    res += "10";
+  }
+
+  if (size % 2 !== 0) {
+    res += "1";
+  }
+
+  return res;
+}
+
+console.log(stringy(25));
+console.log(stringy(4));
