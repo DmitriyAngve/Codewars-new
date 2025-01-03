@@ -16034,6 +16034,7 @@ solve( [[1, 2],[3, 4]] ) = 8. The max product is given by 2 * 4
 solve( [[10,-15],[-1,-3]] ) = 45, given by (-15) * (-3)
 solve( [[1,-1],[2,3],[10,-100]] ) = 300, given by (-1) * 3 * (-100)
 */
+/*
 function solve(a) {
   let min = 1,
     max = 1;
@@ -16059,3 +16060,43 @@ console.log(
     [-12, -16],
   ])
 );
+*/
+
+// 03.01.2025
+// #1
+/*
+In this kata you need to write a function that will receive two strings (n1 and n2), each representing an integer as a binary number. A third parameter will be provided (o) as a string representing one of the following operators: add, subtract, multiply.
+
+Your task is to write the calculate function so that it will perform the arithmetic and the result returned should be a string representing the binary result.
+
+Examples:
+
+1 + 1 === 10
+10 + 10 === 100
+
+Negative binary numbers are usually preceded by several 1's. For this kata, negative numbers can be represented with the negative symbol at the beginning of the string.
+
+Examples of negatives:
+
+1 - 10 === -1
+10 - 100 === -10
+ */
+function calculate(n1, n2, o) {
+  n1 = parseInt(n1, 2);
+  n2 = parseInt(n2, 2);
+
+  switch (o) {
+    case "add":
+      return (n1 + n2).toString(2);
+    case "subtract":
+      return (n1 - n2).toString(2);
+    case "multiply":
+      return (n1 * n2).toString(2);
+  }
+}
+
+console.log(calculate("1", "1", "add"));
+console.log(calculate("100", "10", "subtract"));
+console.log(calculate("10", "10", "multiply"));
+console.log(calculate("100", "10", "add"));
+console.log(calculate("100", "10", "add"));
