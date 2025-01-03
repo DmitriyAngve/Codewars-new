@@ -16081,6 +16081,7 @@ Examples of negatives:
 1 - 10 === -1
 10 - 100 === -10
  */
+/*
 function calculate(n1, n2, o) {
   n1 = parseInt(n1, 2);
   n2 = parseInt(n2, 2);
@@ -16100,3 +16101,28 @@ console.log(calculate("100", "10", "subtract"));
 console.log(calculate("10", "10", "multiply"));
 console.log(calculate("100", "10", "add"));
 console.log(calculate("100", "10", "add"));
+*/
+
+// #2
+/*
+Implement a function that receives two IPv4 addresses, and returns the number of addresses between them (including the first one, excluding the last one).
+
+All inputs will be valid IPv4 addresses in the form of strings. The last address will always be greater than the first one.
+Examples
+
+* With input "10.0.0.0", "10.0.0.50"  => return   50 
+* With input "10.0.0.0", "10.0.1.0"   => return  256 
+* With input "20.0.0.10", "20.0.1.0"  => return  246
+*/
+function ipsBetween(start, end) {
+  function ipToNum(ip) {
+    return ip.split(".").reduce((acc, octet) => acc * 256 + parseInt(octet), 0);
+  }
+  let startNum = ipToNum(start);
+  let endNum = ipToNum(end);
+  // console.log(startNum, endNum);
+  return endNum - startNum;
+}
+
+console.log(ipsBetween("10.0.0.0", "10.0.0.50")); // 50
+console.log(ipsBetween("10.11.12.13", "10.11.13.0")); // 243
