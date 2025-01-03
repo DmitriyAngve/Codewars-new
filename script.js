@@ -16164,6 +16164,7 @@ Examples
 Program "iiisdoso" should return numbers [8, 64].
 Program "iiisdosodddddiso" should return numbers [8, 64, 3600].
 */
+/*
 function parse(data) {
   let res = [];
   let count = 0;
@@ -16191,3 +16192,35 @@ function parse(data) {
 
 console.log(parse("iiisdoso"));
 console.log(parse("iiisxxxdoso"));
+*/
+
+// #5
+/*
+Given a Divisor and a Bound , Find the largest integer N , Such That ,
+Conditions :
+
+    N is divisible by divisor
+
+    N is less than or equal to bound
+
+    N is greater than 0.
+
+Notes
+
+    The parameters (divisor, bound) passed to the function are only positive values .
+    It's guaranteed that a divisor is Found
+*/
+
+function maxMultiple(divisor, bound) {
+  // let n = 0;
+  // for (let i = divisor; i <= bound; i++) {
+  //   if (i % divisor === 0) {
+  //     n = i;
+  //   }
+  // }
+  // return n;
+  return Math.floor(bound / divisor) * divisor;
+}
+
+console.log(maxMultiple(2, 7));
+console.log(maxMultiple(10, 50));
