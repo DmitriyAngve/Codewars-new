@@ -16133,6 +16133,7 @@ console.log(ipsBetween("10.11.12.13", "10.11.13.0")); // 243
 /*
 Oh no, Timmy's created an infinite loop! Help Timmy find and fix the bug in his unfinished for loop!
 */
+/*
 function createArray(number) {
   var newArray = [];
 
@@ -16142,3 +16143,51 @@ function createArray(number) {
 
   return newArray;
 }
+*/
+
+// #4
+/*
+Create a parser to interpret and execute the Deadfish language.
+
+Deadfish operates on a single value in memory, which is initially set to 0.
+
+It uses four single-character commands:
+
+    i: Increment the value
+    d: Decrement the value
+    s: Square the value
+    o: Output the value to a result array
+
+All other instructions are no-ops and have no effect.
+Examples
+
+Program "iiisdoso" should return numbers [8, 64].
+Program "iiisdosodddddiso" should return numbers [8, 64, 3600].
+*/
+function parse(data) {
+  let res = [];
+  let count = 0;
+  for (let i = 0; i < data.length; i++) {
+    switch (data[i]) {
+      case "i":
+        count++;
+        break;
+      case "d":
+        count--;
+        break;
+      case "s":
+        count = count * count;
+        break;
+      case "o":
+        res.push(count);
+        break;
+      // Игнорируем любые другие символы
+      default:
+        break;
+    }
+  }
+  return res;
+}
+
+console.log(parse("iiisdoso"));
+console.log(parse("iiisxxxdoso"));
