@@ -16114,6 +16114,7 @@ Examples
 * With input "10.0.0.0", "10.0.1.0"   => return  256 
 * With input "20.0.0.10", "20.0.1.0"  => return  246
 */
+/*
 function ipsBetween(start, end) {
   function ipToNum(ip) {
     return ip.split(".").reduce((acc, octet) => acc * 256 + parseInt(octet), 0);
@@ -16126,3 +16127,18 @@ function ipsBetween(start, end) {
 
 console.log(ipsBetween("10.0.0.0", "10.0.0.50")); // 50
 console.log(ipsBetween("10.11.12.13", "10.11.13.0")); // 243
+*/
+
+// #3
+/*
+Oh no, Timmy's created an infinite loop! Help Timmy find and fix the bug in his unfinished for loop!
+*/
+function createArray(number) {
+  var newArray = [];
+
+  for (var counter = 1; counter <= number; counter++) {
+    newArray.push(counter);
+  }
+
+  return newArray;
+}
