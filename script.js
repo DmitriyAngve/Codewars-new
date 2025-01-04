@@ -16307,11 +16307,100 @@ Your dad doesn't really get punctuation, and he's always putting extra commas in
 
 Write a function that takes a string as an argument and returns a string with the extraneous commas removed. The returned string should not end with a comma or have any trailing whitespace.
 */
+/*
 function dadFilter(str) {
-  return str.replace(/,(?=,)|,\s*$/g, "");
+
+  // return str.replace(/,(?=,)|,\s*$/g,'')
+
+  let result = "";
+  let commaFound = false; // Флаг для отслеживания первой запятой в группе подряд
+  let lastComma = false; // Флаг для отслеживания последней запятой в строке
+
+  // Проходим по строке
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === ",") {
+      if (!commaFound) {
+        // Если запятая первая, добавляем её
+        result += str[i];
+        commaFound = true; // Первая запятая добавлена
+      }
+    } else {
+      // Если это не запятая, просто добавляем символ
+      result += str[i];
+      commaFound = false; // После любой другой буквы сбрасываем флаг
+    }
+
+    // Флаг для последней запятой
+    if (i === str.length - 1 && str[i] === ",") {
+      isLastCharComma = true;
+    }
+  }
+
+  // Убираем последнюю запятую, если она была
+  if (isLastCharComma) {
+    result = result.slice(0, -1);
+  }
+
+  return result;
 }
 
 console.log(dadFilter("all this,,,, used to be trees,,,,,,"));
 console.log(
   dadFilter("i,, don't believe this round earth,,, show me evadence!!")
 );
+*/
+
+// #3
+/*
+ Given an integer product, find the smallest positive integer the product of whose digits is equal to product. If there is no such integer, return -1 instead.
+Example
+
+For product = 1, the output should be 11;
+
+1 x 1 = 1 (1 is not a valid result, because it has only 1 digit)
+
+For product = 12, the output should be 26;
+
+2 x 6 = 12
+
+For product = 19, the output should be -1.
+
+No valid result found.
+
+For product = 450, the output should be 2559.
+
+2 x 5 x 5 x 9 = 450
+
+For product = 581, the output should be -1.
+
+No valid result found.
+
+Someone says the output should be 783, because 7 x 83 = 581.
+
+Please note: 83 is not a DIGIT.
+Input/Output
+
+    [input] integer product
+
+    Constraints: 0 ≤ product ≤ 600.
+
+    [output] a positive integer
+*/
+function digitsProduct(product) {
+  let res = "";
+
+  if (product < 10) return product + 10;
+
+  for (let i = 9; i > 1; i--) {
+    while (!(product % i)) {
+      product /= i;
+      res = i + res;
+    }
+  }
+  return product - 1 ? -1 : +res;
+}
+
+console.log(digitsProduct(1));
+console.log(digitsProduct(5));
+console.log(digitsProduct(19));
+console.log(digitsProduct(450));
