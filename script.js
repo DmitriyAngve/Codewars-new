@@ -16386,6 +16386,7 @@ Input/Output
 
     [output] a positive integer
 */
+/*
 function digitsProduct(product) {
   let res = "";
 
@@ -16404,3 +16405,43 @@ console.log(digitsProduct(1));
 console.log(digitsProduct(5));
 console.log(digitsProduct(19));
 console.log(digitsProduct(450));
+*/
+
+// #4
+/*
+Description: John is really excited about coffee. He wrote some text messages earlier, but he's worried that they didn't convey his enthusiasm for coffee, so he's decided to resend them with coffee in all-caps:
+
+COFFEE
+
+Task: Write a function "coffee" that accepts a string as a parameter and returns that string with every instance of coffee in all caps.
+
+Input: string. The word "coffee" may occur more than once. It may have some capital letters or already be in all-caps. There may be punctuation in the string too. It will not be part of another word like "Coffeeburger", which isn't a word anyway.
+
+Output: string with all instances of coffee in all-caps:
+
+Examples:
+
+Input: "Did I only have two cups of coffee this morning? I need more." Output: "Did I only have two cups of COFFEE this morning? I need more."
+
+Input: "Coffee! Buy me a COFFEE!" Output: "COFFEE! Buy me a COFFEE!"
+*/
+function coffee(str) {
+  let res = [];
+  let arr = str.split(" "); // Разбиваем строку на слова
+
+  for (let word of arr) {
+    // Убираем пунктуацию для проверки, но сохраняем её
+    let cleanWord = word.replace(/[^\w]/g, "").toLowerCase();
+
+    // Если слово — "coffee", заменяем его на "COFFEE"
+    if (cleanWord === "coffee") {
+      res.push(word.replace(/coffee/i, "COFFEE"));
+    } else {
+      res.push(word);
+    }
+  }
+
+  return res.join(" "); // Собираем слова обратно с пробелами
+}
+
+console.log(coffee("Coffee! Buy me a COFFEE!"));
