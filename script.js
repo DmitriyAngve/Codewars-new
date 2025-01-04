@@ -16245,6 +16245,7 @@ Examples:
       * "ONE", "NEO"  -> "Tie!"
 
 */
+/*
 function battle(x, y) {
   // Сравниваем суммы сил строк
   let powerX = count(x);
@@ -16270,3 +16271,30 @@ function count(string) {
 
 console.log(battle("AAA", "Z"));
 console.log(battle("ONE", "NEO"));
+*/
+
+// 04.01.2025
+// #1
+/*
+Your coworker was supposed to write a simple helper function to capitalize a string (that contains a single word) before they went on vacation.
+
+Unfortunately, they have now left and the code they gave you doesn't work. Fix the helper function they wrote so that it works as intended (i.e. it must make the first character in the string upper case).
+
+The string will always start with a letter and will never be empty.
+
+Examples:
+
+"hello" --> "Hello"
+"Hello" --> "Hello" (the first letter was already capitalized)
+"a"     --> "A"
+*/
+function capitalizeWord(word) {
+  let first = word[0];
+
+  let remaining = word.slice(1);
+
+  return first.toUpperCase() + remaining;
+}
+
+console.log(capitalizeWord("wello"));
+console.log(capitalizeWord("Hello"));
