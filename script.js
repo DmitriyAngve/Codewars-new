@@ -16581,6 +16581,7 @@ twoCount(17280)
 should return 7, since the factorization of 17280 is 2^7 x 5 x 3^3
 The number passed to two_count (twoCount) will always be a positive integer greater than or equal to 1.
 */
+/*
 function twoCount(n) {
   let count = 0;
   while (n % 2 === 0) {
@@ -16591,3 +16592,100 @@ function twoCount(n) {
 }
 
 console.log(twoCount(17280));
+*/
+
+// #6
+/*
+A nested list (or array in JavaScript) is a list that appears as a value inside another list,
+
+[item, item, [item, item], item]
+
+in the above list, [item, item] is a nested list.
+
+Your goal is to write a function that determines the depth of the deepest nested list within a given list.
+return 1 if there are no nested lists. The list passed to your function can contain any data types.
+
+A few examples:
+
+arrayDepth([true]) // returns 1
+
+arrayDepth([]) // returns 1
+
+arrayDepth([2, "yes", [true, false]]) // returns 2
+
+arrayDepth([1, [2, [3, [4, [5, [6], 5], 4], 3], 2], 1]) // returns 6
+
+arrayDepth([2.0, [2, 0], 3.7, [3, 7], 6.7, [6, 7]]) // returns 2
+*/
+/*
+function arrayDepth(arr) {
+  if (!arr.length) return 1;
+  let maxDepth = 1;
+  for (let i = 0; i < arr.length; i++) {
+    let el = arr[i];
+    if (Array.isArray(el)) {
+      let depth = arrayDepth(el) + 1;
+      maxDepth = Math.max(maxDepth, depth);
+    }
+  }
+  return maxDepth;
+}
+
+console.log(arrayDepth([]));
+console.log(arrayDepth([1]));
+console.log(arrayDepth([2, "yes", [true, false]]));
+console.log(arrayDepth([1, [2, [3, [4, [5, [6], 5], 4], 3], 2], 1]));
+*/
+
+// #7
+/*
+Based on Project Euler problem 35
+
+A circular prime is a prime in which every circular permutation of that number is also prime. Circular permutations are created by rotating the digits of the number, for example: 197, 971, 719. One-digit primes are circular primes by definition.
+
+Complete the function that dertermines if a number is a circular prime.
+
+There are 100 random tests for numbers up to 10000.
+*/
+
+function isPrime(num) {
+  if (num <= 1) return false;
+  if (num === 2) return true;
+  if (num % 2 === 0) return false;
+
+  for (let i = 3; i <= Math.sqrt(num); i += 2) {
+    if (num % 2 === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function getCircular(num) {
+  let strNum = num.toString();
+  let permutations = [];
+  for (let i = 0; i < strNum.length; i++) {
+    permutations.push(strNum.slice(i) + strNum.slice(0, i));
+  }
+
+  return permutations.map(Number);
+}
+
+function circular_prime(num) {
+  if (!isPrime(num)) {
+    return false;
+  }
+
+  let permutations = getCircular(num);
+
+  for (let perm of permutations) {
+    if (!isPrime(perm)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(circular_prime(197));
+console.log(circular_prime(9377));
+console.log(circular_prime(222));
