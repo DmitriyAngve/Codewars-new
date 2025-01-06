@@ -16581,6 +16581,7 @@ twoCount(17280)
 should return 7, since the factorization of 17280 is 2^7 x 5 x 3^3
 The number passed to two_count (twoCount) will always be a positive integer greater than or equal to 1.
 */
+/*
 function twoCount(n) {
   let count = 0;
   while (n % 2 === 0) {
@@ -16591,3 +16592,50 @@ function twoCount(n) {
 }
 
 console.log(twoCount(17280));
+*/
+
+// #6
+/*
+A nested list (or array in JavaScript) is a list that appears as a value inside another list,
+
+[item, item, [item, item], item]
+
+in the above list, [item, item] is a nested list.
+
+Your goal is to write a function that determines the depth of the deepest nested list within a given list.
+return 1 if there are no nested lists. The list passed to your function can contain any data types.
+
+A few examples:
+
+arrayDepth([true]) // returns 1
+
+arrayDepth([]) // returns 1
+
+arrayDepth([2, "yes", [true, false]]) // returns 2
+
+arrayDepth([1, [2, [3, [4, [5, [6], 5], 4], 3], 2], 1]) // returns 6
+
+arrayDepth([2.0, [2, 0], 3.7, [3, 7], 6.7, [6, 7]]) // returns 2
+*/
+
+function arrayDepth(arr) {
+  if (!arr.length) return 1;
+  let maxDepth = 1;
+  for (let i = 0; i < arr.length; i++) {
+    let el = arr[i];
+    if (Array.isArray(el)) {
+      let depth = arrayDepth(el) + 1;
+      maxDepth = Math.max(maxDepth, depth);
+    }
+  }
+  return maxDepth;
+}
+
+console.log(arrayDepth([]));
+console.log(arrayDepth([1]));
+console.log(arrayDepth([2, "yes", [true, false]]));
+console.log(arrayDepth([1, [2, [3, [4, [5, [6], 5], 4], 3], 2], 1]));
+
+// function flattenTwoLevels(array) {
+//   return array.map((x) => (Array.isArray(x) ? x.flat(Infinity) : x));
+// }
