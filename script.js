@@ -16425,6 +16425,7 @@ Input: "Did I only have two cups of coffee this morning? I need more." Output: "
 
 Input: "Coffee! Buy me a COFFEE!" Output: "COFFEE! Buy me a COFFEE!"
 */
+/*
 function coffee(str) {
   let res = [];
   let arr = str.split(" "); // Разбиваем строку на слова
@@ -16445,3 +16446,59 @@ function coffee(str) {
 }
 
 console.log(coffee("Coffee! Buy me a COFFEE!"));
+*/
+
+// 06.01.2025
+// #1
+/*
+Write a function with the signature shown below:
+
+function isIntArray(arr) {
+  return true
+}
+
+    returns true  / True if every element in an array is an integer or a float with no decimals.
+    returns true  / True if array is empty.
+    returns false / False for every other input.
+*/
+function isIntArray(arr) {
+  if (!Array.isArray) return false;
+  if (arr.length === 0) return true;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] !== "number" && !Number.isInteger(arr[i])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(isIntArray([]));
+console.log(isIntArray([1, 2, 3, 4]));
+console.log(isIntArray([1, 2, 3, NaN]));
+
+/*
+function isIntArray(arr) {
+  if (!arr.length) return true;
+  let count = 0;
+  // for (let i = 0; i < arr.length; i++) {}
+  return arr.map((el) => {
+    return isInteger(el);
+    // if (el === true) {
+    //   count++;
+    // }
+    // if (count === arr.length) {
+    //   return true;
+    // }
+  });
+}
+
+function isInteger(num) {
+  return typeof num === "number" && num % 1 === 0;
+}
+
+console.log(isIntArray([]));
+console.log(isIntArray([1, 2, 3, 4]));
+console.log(isIntArray([1, 2, 3, NaN]));
+*/
