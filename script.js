@@ -16514,7 +16514,7 @@ Examples:
 [0, 5, 1, 3, 2, 9, 7, 6, 4] --> 8
 [9, 2, 4, 5, 7, 0, 8, 6, 1] --> 3
 */
-
+/*
 function getMissingElement(superImportantArray) {
   if (!superImportantArray.length) return 0;
   let arr = superImportantArray.sort((a, b) => a - b);
@@ -16535,3 +16535,33 @@ function getMissingElement(superImportantArray) {
 console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4]));
 console.log(getMissingElement([8, 5, 1, 3, 2, 9, 7, 6, 4]));
 console.log(getMissingElement([3, 2, 4, 5, 7, 0, 8, 6, 1]));
+*/
+
+// #4
+/*
+Write a function named numbers.
+
+function should return True if all parameters are of the Number type.
+
+The function should accept any number of parameters.
+
+Example usage:
+
+numbers(1, 4, 3, 2, 5); // true
+numbers(1, "a", 3); // false
+numbers(1, 3, NaN); // true
+*/
+
+function numbers(nums) {
+  let arr = [...arguments];
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] !== "number") {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(numbers(1, 4, 3, 2, 5));
+console.log(numbers(1, "a", 3));
+console.log(numbers(1, 3, NaN));
