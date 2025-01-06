@@ -16617,7 +16617,7 @@ arrayDepth([1, [2, [3, [4, [5, [6], 5], 4], 3], 2], 1]) // returns 6
 
 arrayDepth([2.0, [2, 0], 3.7, [3, 7], 6.7, [6, 7]]) // returns 2
 */
-
+/*
 function arrayDepth(arr) {
   if (!arr.length) return 1;
   let maxDepth = 1;
@@ -16635,7 +16635,9 @@ console.log(arrayDepth([]));
 console.log(arrayDepth([1]));
 console.log(arrayDepth([2, "yes", [true, false]]));
 console.log(arrayDepth([1, [2, [3, [4, [5, [6], 5], 4], 3], 2], 1]));
+*/
 
-// function flattenTwoLevels(array) {
-//   return array.map((x) => (Array.isArray(x) ? x.flat(Infinity) : x));
-// }
+// #7
+/*
+
+*/
