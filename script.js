@@ -16461,8 +16461,9 @@ function isIntArray(arr) {
     returns true  / True if array is empty.
     returns false / False for every other input.
 */
+/*
 function isIntArray(arr) {
-  if (!Array.isArray) return false;
+  if (!Array.isArray(arr)) return false;
   if (arr.length === 0) return true;
 
   for (let i = 0; i < arr.length; i++) {
@@ -16478,27 +16479,23 @@ console.log(isIntArray([]));
 console.log(isIntArray([1, 2, 3, 4]));
 console.log(isIntArray([1, 2, 3, NaN]));
 
-/*
-function isIntArray(arr) {
-  if (!arr.length) return true;
-  let count = 0;
-  // for (let i = 0; i < arr.length; i++) {}
-  return arr.map((el) => {
-    return isInteger(el);
-    // if (el === true) {
-    //   count++;
-    // }
-    // if (count === arr.length) {
-    //   return true;
-    // }
-  });
-}
-
-function isInteger(num) {
-  return typeof num === "number" && num % 1 === 0;
-}
-
-console.log(isIntArray([]));
-console.log(isIntArray([1, 2, 3, 4]));
-console.log(isIntArray([1, 2, 3, NaN]));
 */
+
+// #2
+/*
+Finish the solution so that it sorts the passed in array of numbers. If the function passes in an empty array or null/nil value then it should return an empty array.
+
+For example:
+
+solution([1, 2, 10, 50, 5]); // should return [1,2,5,10,50]
+solution(null); // should return []
+*/
+function solution(nums) {
+  if (!Array.isArray(nums)) return [];
+  if (nums.length === 0) return [];
+
+  return nums.sort((a, b) => a - b);
+}
+
+console.log(solution([]));
+console.log(solution([20, 2, 10]));
