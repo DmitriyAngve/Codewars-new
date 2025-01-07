@@ -16711,6 +16711,7 @@ cup_volume(13.123, 123.12, 1)==4436.57
 
 cup_volume(5, 12, 31)==1858.51
 */
+/*
 function cupVolume(d1, d2, height) {
   let volume =
     (1 / 3) *
@@ -16722,3 +16723,30 @@ function cupVolume(d1, d2, height) {
 
 console.log(cupVolume(1, 1, 1));
 console.log(cupVolume(10, 8, 10));
+*/
+
+// 07.01.2025
+// #1
+/*
+The function pickIt accepts 1 parameter, arr, which is an array of numbers. We need to traverse arr by using a for loop. If an element is an odd number, push it to the odd array, and if it's an even number, push it to the evenarray.
+
+I've defined two arrays odd and even in the function, and also wrote the return statement. Your work is to write a for loop.
+
+If you forgot how to push an element to an array, please refer to lesson 4.
+*/
+function pickIt(arr) {
+  var odd = [],
+    even = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      even.push(arr[i]);
+    } else {
+      odd.push(arr[i]);
+    }
+  }
+
+  return [odd, even];
+}
+
+console.log(pickIt([8, 1, 5, 4, 6, 1, 1]));
