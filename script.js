@@ -16807,6 +16807,7 @@ In the second example, the alarm sounds 4 times in a day.
 
 More examples in test cases. Good luck!
 */
+/*
 function solve(arr) {
   var sortedAsMinutes = arr.map((x) => timeToMinutes(x)).sort((a, b) => a - b);
   sortedAsMinutes.push(sortedAsMinutes[0] + 60 * 24);
@@ -16838,3 +16839,24 @@ console.log(solve(["14:51"])); // "23:59"
 console.log(solve(["23:00", "04:22", "18:05", "06:24"])); // "11:40"
 console.log(solve(["5:22", "13:43", "12:19"])); // "6:21"
 console.log(solve(["23:00", "23:59", "00:00"])); // "23:59"
+*/
+
+// 08.01.2024
+// #1
+/*
+An arrow is formed in a rectangle with sides a and b by joining the bottom corners to the midpoint of the top edge and the centre of the rectangle.
+
+arrow
+
+a and b are integers and > 0
+
+Write a function which returns the area of the arrow.
+*/
+function arrowArea(a, b) {
+  let gip = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)).toFixed(2);
+  gip = Number(gip / 2);
+  let h = b / 2;
+  return (a * h) / 2;
+}
+
+console.log(arrowArea(7, 6));
