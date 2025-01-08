@@ -16914,6 +16914,7 @@ password("ABCD1234"); ===> false
 password("Ab1!@#$%^&*()-_+={}[]|\:;?/>.<,"); ===> true;
 password("!@#$%^&*()-_+={}[]|\:;?/>.<,"); ===> false;
 */
+/*
 function password(str) {
   if (
     str.length >= 8 &&
@@ -16932,3 +16933,42 @@ console.log(password("Abcd123"));
 console.log(password("abcd1234"));
 console.log(password("Ab1!@#$%^&*()-_+={}[]|:;?/>.<,"));
 console.log(password("ABCD1234"));
+*/
+
+// #4
+/*
+There were and still are many problem in CW about palindrome numbers and palindrome strings. We suposse that you know which kind of numbers they are. If not, you may search about them using your favourite search engine.
+
+In this kata you will be given a positive integer, val and you have to create the function next_pal()(nextPal Javascript) that will output the smallest palindrome number higher than val.
+
+Let's see:
+
+For Javascript
+nextPal(11) == 22
+
+nextPal(188) == 191
+
+nextPal(191) == 202
+
+nextPal(2541) == 2552
+
+You will be receiving values higher than 10, all valid.
+
+Enjoy it!!
+
+*/
+function nextPal(val) {
+  val++;
+  while (!palindrome(val)) {
+    val++;
+  }
+  return val;
+}
+
+function palindrome(num) {
+  let pal = num.toString().split("").reverse().join("");
+  return Number(pal) === num;
+}
+
+console.log(nextPal(11));
+console.log(nextPal(188));
