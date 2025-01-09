@@ -17007,6 +17007,7 @@ Don't forget to check for whether it's a leap year! Three criteria must be taken
     If the year can be evenly divided by 100, it is NOT a leap year, unless;
     The year is also evenly divisible by 400. Then it is a leap year.
 */
+/*
 function toDayOfYear(arr) {
   const [day, month, year] = arr;
 
@@ -17028,3 +17029,117 @@ function toDayOfYear(arr) {
 }
 
 console.log(toDayOfYear([25, 12, 2017]));
+*/
+
+// #3
+/*
+Given a list of directions to spin, "left" or "right", return an integer of how many full 360° rotations were made. Note that each word in the array counts as a 90° rotation in that direction.
+Worked Example
+
+["right", "right", "right", "right", "left", "right"] ➞ 1
+# You spun right 4 times (90 * 4 = 360)
+# You spun left once (360 - 90 = 270)
+# But you spun right once more to make a full rotation (270 + 90 = 360)
+
+Examples
+
+["left", "right", "left", "right"] ➞ 0
+
+["right", "right", "right", "right", "right", "right", "right", "right"] ➞ 2
+
+["left", "left", "left", "left"] ➞ 1
+
+Notes
+
+    Return a positive number.
+    All tests will only include the words "right" and "left".
+*/
+function spinAround(turns) {
+  let t = 0;
+  for (let x of turns) {
+    t += x === "left" ? -1 : 1;
+  }
+  return Math.floor(Math.abs(t) / 4);
+}
+
+console.log(spinAround(["left", "right", "left", "right"]));
+console.log(
+  spinAround([
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+  ])
+);
+console.log(
+  spinAround([
+    "left",
+    "left",
+    "right",
+    "left",
+    "left",
+    "left",
+    "left",
+    "left",
+    "left",
+    "right",
+    "left",
+    "left",
+    "right",
+    "right",
+    "right",
+    "right",
+    "left",
+    "left",
+    "right",
+    "right",
+  ])
+);
+console.log(
+  spinAround([
+    "left",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+    "right",
+  ])
+);
