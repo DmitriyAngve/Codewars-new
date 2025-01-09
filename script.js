@@ -16980,6 +16980,7 @@ console.log(nextPal(188));
 /*
 I have four positive integers, A, B, C and D, where A < B < C < D. The input is a list of the integers A, B, C, D, AxB, BxC, CxD, DxA in some order. Your task is to return the value of D.
 */
+/*
 function alphabet(ns) {
   let sorted = ns.sort((a, b) => a - b);
 
@@ -16990,3 +16991,40 @@ console.log(alphabet([20, 10, 6, 5, 4, 3, 2, 12]));
 console.log(alphabet([2, 6, 18, 3, 6, 7, 42, 14]));
 console.log(alphabet([7, 96, 8, 240, 12, 140, 20, 56]));
 console.log(alphabet([3950, 79, 1600, 64, 158, 2, 50, 32]));
+*/
+
+// #2
+/*
+Work out what number day of the year it is.
+
+toDayOfYear([1, 1, 2000]) => 1
+
+The argument passed into the function is an array with the format [D, M, YYYY], e.g. [1, 2, 2000] for February 1st, 2000 or [22, 12, 1999] for December 22nd, 1999.
+
+Don't forget to check for whether it's a leap year! Three criteria must be taken into account to identify leap years:
+
+    The year can be evenly divided by 4;
+    If the year can be evenly divided by 100, it is NOT a leap year, unless;
+    The year is also evenly divisible by 400. Then it is a leap year.
+*/
+function toDayOfYear(arr) {
+  const [day, month, year] = arr;
+
+  function isLeap(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+  }
+
+  const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  if (isLeap(year)) {
+    daysInMonth[1] = 29;
+  }
+
+  let daysBeforeMonth = 0;
+  for (let i = 0; i < month - 1; i++) {
+    daysBeforeMonth += daysInMonth[i];
+  }
+  return daysBeforeMonth + day;
+}
+
+console.log(toDayOfYear([25, 12, 2017]));
