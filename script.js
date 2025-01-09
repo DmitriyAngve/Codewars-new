@@ -16957,6 +16957,7 @@ You will be receiving values higher than 10, all valid.
 Enjoy it!!
 
 */
+/*
 function nextPal(val) {
   val++;
   while (!palindrome(val)) {
@@ -16972,3 +16973,20 @@ function palindrome(num) {
 
 console.log(nextPal(11));
 console.log(nextPal(188));
+*/
+
+// 09.01.2025
+// #1
+/*
+I have four positive integers, A, B, C and D, where A < B < C < D. The input is a list of the integers A, B, C, D, AxB, BxC, CxD, DxA in some order. Your task is to return the value of D.
+*/
+function alphabet(ns) {
+  let sorted = ns.sort((a, b) => a - b);
+
+  return sorted[7] / sorted[sorted[0] * sorted[1] == sorted[2] ? 3 : 2];
+}
+// A, B, C, D, AxB, BxC, CxD, DxA
+console.log(alphabet([20, 10, 6, 5, 4, 3, 2, 12]));
+console.log(alphabet([2, 6, 18, 3, 6, 7, 42, 14]));
+console.log(alphabet([7, 96, 8, 240, 12, 140, 20, 56]));
+console.log(alphabet([3950, 79, 1600, 64, 158, 2, 50, 32]));
