@@ -17093,6 +17093,7 @@ There is some strange error. Can you find it out, what has changed?
 Tip: if in doubt, take a look at Mozilla's Lexical Grammar (thanks jpot for link!). Answer is somewhere here.
 
 */
+/*
 var time = Date.now();
 var data = (function returnSomeData(time) {
   return {
@@ -17106,3 +17107,20 @@ var data = (function returnSomeData(time) {
 })(time);
 
 console.log(returnSomeData());
+*/
+
+// #2
+/*
+Complete the function that calculates the area of the red square, when the length of the circular arc A is given as the input. Return the result rounded to two decimals.
+
+Graph
+
+Note: use the π value provided in your language (Math::PI, M_PI, math.pi, etc)
+*/
+function squareArea(A) {
+  let radius = (A * 4) / (2 * Math.PI);
+  return parseFloat((radius * radius).toFixed(2));
+}
+
+console.log(squareArea(2));
+// return parseFloat(volume.toFixed(2));
