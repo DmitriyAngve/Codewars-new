@@ -17161,6 +17161,7 @@ Constraints
 
 1 <= x <= 105
 */
+/*
 function minimum(a, x) {
   if (a % x === 0) return 0;
   let add = x - (a % x);
@@ -17170,3 +17171,43 @@ function minimum(a, x) {
 }
 
 console.log(minimum(10, 6));
+*/
+
+// #5
+/*
+Create a function that returns twice the supplied value unless it is a tricky double.
+
+The trick: if the number passed in is a double, simply return the value that was passed.
+
+Examples of a double number include:
+
+    44
+    77
+    3333
+    8787
+    100100
+
+In the example 8787, the number 87 is doubled (appears twice).
+
+trickyDoubles(15)   // should return 30
+trickyDoubles(100)  // should return 200
+trickyDoubles(4343) // should return 4343
+*/
+function trickyDoubles(n) {
+  let arr = n.toString().split("").map(Number);
+  let left = parseFloat(arr.slice(0, Math.floor(arr.length / 2)).join(""));
+
+  let right = parseFloat(
+    arr.slice(Math.floor(arr.length / 2), arr.length).join("")
+  );
+
+  if (left === right) {
+    return n;
+  } else {
+    return n + n;
+  }
+}
+
+console.log(trickyDoubles(4));
+console.log(trickyDoubles(4343));
+console.log(trickyDoubles(100100));
