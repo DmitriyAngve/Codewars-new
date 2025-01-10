@@ -17117,10 +17117,26 @@ Graph
 
 Note: use the π value provided in your language (Math::PI, M_PI, math.pi, etc)
 */
+/*
 function squareArea(A) {
   let radius = (A * 4) / (2 * Math.PI);
   return parseFloat((radius * radius).toFixed(2));
 }
 
 console.log(squareArea(2));
-// return parseFloat(volume.toFixed(2));
+*/
+
+// #3
+/*
+Given a number n, return the number of positive odd numbers below n, EASY!
+Examples (Input -> Output)
+
+7  -> 3 (because odd numbers below 7 are [1, 3, 5])
+15 -> 7 (because odd numbers below 15 are [1, 3, 5, 7, 9, 11, 13])
+*/
+function oddCount(n) {
+  return Math.floor(n / 2);
+}
+
+console.log(oddCount(15));
+console.log(oddCount(15023));
