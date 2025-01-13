@@ -17227,6 +17227,7 @@ format("This is an {} for {}.", ["example", "you"]);
 
 Should return - "This is an example for you."
 */
+/*
 function format(str, arr) {
   let result = [];
   let arrIndex = 0;
@@ -17245,3 +17246,27 @@ function format(str, arr) {
 console.log(
   format("Hello, my name is {}, and I am {} years old!", ["Emilio", "24"])
 );
+*/
+
+// #2
+/*
+Thick Boston Accent Translate Words From English into a Boston Accent There are two distinct features of the accent. The letter O becomes A. "Boston" --> "bastan" "Oxen" --> "axen"
+
+Any instance of "ar" becomes "ah" "Park" --> "pahk" "Department" --> "depahtment"
+
+However, portrait --> partrait
+
+Return every word in lower case.
+*/
+
+var boston = function (str) {
+  str = str.toLowerCase();
+
+  str = str.replace(/o/g, "a");
+  str = str.replace(/ar/g, "ah");
+
+  return str;
+};
+
+console.log(boston("Boston"));
+console.log(boston("Department"));
