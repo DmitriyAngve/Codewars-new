@@ -17193,6 +17193,7 @@ trickyDoubles(15)   // should return 30
 trickyDoubles(100)  // should return 200
 trickyDoubles(4343) // should return 4343
 */
+/*
 function trickyDoubles(n) {
   let arr = n.toString().split("").map(Number);
   let left = parseFloat(arr.slice(0, Math.floor(arr.length / 2)).join(""));
@@ -17211,3 +17212,36 @@ function trickyDoubles(n) {
 console.log(trickyDoubles(4));
 console.log(trickyDoubles(4343));
 console.log(trickyDoubles(100100));
+*/
+
+// 13.01.2025
+// #1
+/*
+Complete the 'format' method - so that when a string is passed in, all empty curly braces (' {} ') are replaced with the strings in the array.
+
+The array can be of any length, and the returned string must have the correct values, in the correct places, in the same order as they were in the initial array.
+
+Example:
+
+format("This is an {} for {}.", ["example", "you"]);
+
+Should return - "This is an example for you."
+*/
+function format(str, arr) {
+  let result = [];
+  let arrIndex = 0;
+  let parts = str.split("{}");
+  for (let i = 0; i < parts.length; i++) {
+    result.push(parts[i]);
+    if (arrIndex < arr.length) {
+      result.push(arr[arrIndex]);
+      arrIndex++;
+    }
+  }
+
+  return result.join("");
+}
+
+console.log(
+  format("Hello, my name is {}, and I am {} years old!", ["Emilio", "24"])
+);
