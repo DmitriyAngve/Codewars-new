@@ -17282,8 +17282,37 @@ ie:
 baby says("yum");
 you say("yum yum");
 */
+/*
 function babyRepeat(babble) {
   return `${babble} ${babble}`;
 }
 
 console.log(babyRepeat("ow"));
+*/
+
+// #4
+/*
+Your goal is to create a function called range().
+
+It takes the follow parameters and returns an array(range of numbers):
+
+start: starting point.
+edge: ending point.
+step: incrementing value.
+
+for example:
+
+range(0, 500, 50) => [0,50,100,150,200,250,300,350,400,450]
+
+If the start or step is bigger or equals the edge: return empty array.
+
+I will only provide non-negative integers. No need to check for null, undefined etc.
+*/
+function range(start, edge, step) {
+  const length = Math.floor((edge - start) / step) + 1;
+
+  console.log(length);
+  return Array.from({ length }, (_, index) => start + index * step);
+}
+
+console.log(range(0, 500, 50));
