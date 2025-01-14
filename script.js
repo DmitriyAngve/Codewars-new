@@ -17308,11 +17308,63 @@ If the start or step is bigger or equals the edge: return empty array.
 
 I will only provide non-negative integers. No need to check for null, undefined etc.
 */
+/*
 function range(start, edge, step) {
   const length = Math.floor((edge - start) / step) + 1;
 
-  console.log(length);
   return Array.from({ length }, (_, index) => start + index * step);
 }
 
 console.log(range(0, 500, 50));
+*/
+
+// 14.01.2025
+// #1
+/*
+Groups of characters decided to make a battle. Help them to figure out what group is more powerful. Create a function that will accept 2 variables and return the one who's stronger.
+Rules
+
+    Each character has its own power:
+
+      A = 1, B = 2, ... Y = 25, Z = 26
+      a = 0.5, b = 1, ... y = 12.5, z = 13
+
+    Only alphabetical characters can and will participate in a battle.
+    Only two groups to a fight.
+    Group whose total power (a + B + c + ...) is bigger wins.
+    If the powers are equal, it's a tie.
+
+Examples
+
+"One", "Two"  -->  "Two"
+"ONE", "NEO"  -->  "Tie!"
+*/
+function battle(x, y) {
+  if (charactersCount(x) === charactersCount(y)) {
+    return "Tie!";
+  }
+
+  if (charactersCount(x) > charactersCount(y)) {
+    return x;
+  } else {
+    return y;
+  }
+}
+
+function charactersCount(word) {
+  let result = 0;
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] >= "A" && word[i] <= "Z") {
+      result += word[i].charCodeAt(0) - 64;
+    } else if (word[i] >= "a" && word[i] <= "z") {
+      result += (word[i].charCodeAt(0) - 96) / 2;
+    }
+  }
+  return result;
+}
+
+console.log(charactersCount("a"));
+
+console.log(battle("One", "Two"));
+console.log(battle("One", "Neo"));
+console.log(battle("One", "Tie!"));
