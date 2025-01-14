@@ -17398,6 +17398,7 @@ Input domain:
     a will always be less than the length of items.
     b may be greater than the length of items.
 */
+/*
 function inverseSlice(items, a, b) {
   return items.slice(0, a).concat(items.slice(b));
 }
@@ -17405,3 +17406,44 @@ function inverseSlice(items, a, b) {
 console.log(inverseSlice([12, 14, 63, 72, 55, 24], 2, 4));
 console.log(inverseSlice([12, 14, 63, 72, 55, 24], 2, 0));
 console.log(inverseSlice([12, 14, 63, 72, 55, 24], 0, 3));
+*/
+
+// #3
+/*
+Create an algorithm to count the number of zeros that appear between 1 and N.
+
+Examples:
+
+There are 2 zeros from 1 to 20: 10, 20
+
+There are 11 zeros from 1 to 100: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100
+
+countZeros(10); // returns 1
+countZeros(100); // returns 11
+countZeros(200); // returns 31
+*/
+function countZeros(n) {
+  // let zerosCount = 0;
+  // for (let i = n; i > 0; i--) {
+  //   let arr = i.toString().split("");
+  //   arr.forEach((value) => {
+  //     if (value === "0") zerosCount++;
+  //   });
+  // }
+  // return zerosCount;
+  let zeros = 0;
+  for (let i = 1; i <= n; i++) {
+    let num = i;
+    while (num > 0) {
+      if (num % 10 === 0) {
+        zeros++;
+      }
+      num = Math.floor(num / 10);
+    }
+  }
+  return zeros;
+}
+
+console.log(countZeros(10));
+console.log(countZeros(100));
+console.log(countZeros(200));
