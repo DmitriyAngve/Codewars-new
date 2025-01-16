@@ -17674,6 +17674,45 @@ console.log(toQueryString({ foo: [1, 3], bar: [2, 4] }));
 /*
 Write a function that takes two integers as input and returns their product, but do not use the 'return' reserved word.
 */
+/*
 multiply = (a, b) => a * b;
 
 console.log(multiply(1, 2));
+*/
+
+//#3
+/*
+Complete the method that returns true if 2 integers share at least two 1 bits, otherwise return false. For simplicity assume that all numbers are non-negative.
+Examples
+
+ 7  =  0111 in binary
+10  =  1010
+15  =  1111
+
+    7 and 10 share only a single 1-bit (at index 2) --> false
+    7 and 15 share 3 1-bits (at indexes 1, 2, and 3) --> true
+    10 and 15 share 2 1-bits (at indexes 0 and 2) --> true
+
+Hint: you can do this with just string manipulation, but binary operators will make your life much easier.
+*/
+function sharedBits(a, b) {
+  a = a.toString(2).split("").map(Number);
+  b = b.toString(2).split("").map(Number);
+  if (a.length > b.length) {
+    b.unshift(...Array(Math.abs(b.length - a.length)).fill(0));
+  } else {
+    a.unshift(...Array(Math.abs(a.length - b.length)).fill(0));
+  }
+  let bitCount = 0;
+  console.log(a);
+  console.log(b);
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] === 1 && b[i] === 1) {
+      bitCount++;
+    }
+  }
+  return bitCount >= 2;
+}
+
+console.log(sharedBits(7, 15));
+console.log(sharedBits(7, 10));
