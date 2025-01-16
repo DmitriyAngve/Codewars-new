@@ -17650,6 +17650,7 @@ So, your task is to write a function that convert an object to query string:
 
 toQueryString({ foo: 1, bar: [ 2, 3 ] }) // => "foo=1&bar=2&bar=3"
 */
+/*
 function toQueryString(obj) {
   let result = [];
 
@@ -17667,3 +17668,12 @@ function toQueryString(obj) {
 
 console.log(toQueryString({ foo: [1, 3], bar: [2, 4] }));
 // 'foo=1&foo=3&bar=2&bar=4'
+*/
+
+// #2
+/*
+Write a function that takes two integers as input and returns their product, but do not use the 'return' reserved word.
+*/
+multiply = (a, b) => a * b;
+
+console.log(multiply(1, 2));
