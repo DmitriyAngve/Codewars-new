@@ -17753,6 +17753,7 @@ Assume that all dates are in the XXI century.
 
 Your task is to write a function that returns true or false if the expiry date is not in the past. Note, current month should still return true.
 */
+/*
 function checkExpiryValid(date) {
   let arr = date.match(/\d+/g);
 
@@ -17779,3 +17780,66 @@ console.log(checkExpiryValid("03/33"));
 console.log(checkExpiryValid("03-15"));
 console.log(checkExpiryValid("03 / 15"));
 console.log(checkExpiryValid("03-2015"));
+*/
+
+// #6
+/*
+Given two arrays of integers, find the pair of values with the smallest difference and return that difference.
+
+If both arrays are empty, return -1.
+
+If one array is empty, return the smallest value from the non-empty array.
+
+Note: Try to solve this without brute force.
+
+Example:
+
+  arr1 = [1, 3, 5, 23, 5]
+  arr2 = [45, 34, 67, 2, 0]
+  
+  Output = 1
+  
+Example empty array:
+
+  arr1 = [1, 3, 5, 23, 5]
+  arr2 = []
+  
+  Output = 1
+  
+Example two empty arrays:
+
+  arr1 = []
+  arr2 = []
+  
+  Output = -1
+*/
+function smallestDiff(arr1, arr2) {
+  if (!arr1.length && !arr2.length) return -1; // Оба массива пустые
+  if (!arr1.length) return Math.min(...arr2); // Первый массив пустой
+  if (!arr2.length) return Math.min(...arr1); // Второй массив пустой
+
+  // Сортируем массивы
+  arr1.sort((a, b) => a - b);
+  arr2.sort((a, b) => a - b);
+
+  let i = 0;
+  let j = 0;
+  let minDiff = Infinity;
+
+  while (i < arr1.length && j < arr2.length) {
+    let diff = Math.abs(arr1[i] - arr2[j]);
+
+    minDiff = Math.min(minDiff, diff);
+
+    if (arr1[i] < arr2[j]) {
+      i++;
+    } else {
+      j++;
+    }
+  }
+  return minDiff;
+}
+
+console.log(smallestDiff([1, 3, 5, 23, 5], [45, 34, 67, 2, 0]));
+console.log(smallestDiff([1, 3, 5, 23, 5], []));
+console.log(smallestDiff([], []));
