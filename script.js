@@ -17727,7 +17727,7 @@ Because this could happen again I will param de solution with correct grade scal
 
 Ex. invertGrades(5,1) ret 5 invertGrades(5,5) ret 1 invertGrades(7,1) ret 7 invertGrades(8,2) ret 7
 */
-
+/*
 function invertGrades(scale, value) {
   let arr = Array.from({ length: scale + 1 }, (_, index) => scale - index);
 
@@ -17738,3 +17738,44 @@ console.log(invertGrades(5, 1));
 console.log(invertGrades(5, 2));
 console.log(invertGrades(7, 1));
 console.log(invertGrades(7, 4));
+*/
+
+// #5
+/*
+It is a simple, real world task. You will receive a single string as input. It will have the month (2 digits) and year(2 or 4 digits). These are separated by one character ("-" or "/", maybe some spaces too). For example:
+
+    02/21
+    02 / 21
+    02 / 2021
+    02-2021
+
+Assume that all dates are in the XXI century.
+
+Your task is to write a function that returns true or false if the expiry date is not in the past. Note, current month should still return true.
+*/
+function checkExpiryValid(date) {
+  let arr = date.match(/\d+/g);
+
+  if (!arr || arr.length < 2) return false;
+
+  let month = Number(arr[0]);
+  let year = Number(arr[arr.length - 1]);
+
+  year = year < 100 ? 2000 + year : year;
+
+  if (month < 1 || month > 12) return false;
+
+  let now = new Date();
+  let nowMonth = now.getMonth() + 1;
+  let nowYear = now.getFullYear();
+
+  if (year > nowYear) return true;
+  if (year === nowYear && month >= nowMonth) return true;
+  return false;
+}
+
+console.log(checkExpiryValid("03/15"));
+console.log(checkExpiryValid("03/33"));
+console.log(checkExpiryValid("03-15"));
+console.log(checkExpiryValid("03 / 15"));
+console.log(checkExpiryValid("03-2015"));
