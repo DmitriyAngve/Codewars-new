@@ -17695,6 +17695,7 @@ Examples
 
 Hint: you can do this with just string manipulation, but binary operators will make your life much easier.
 */
+/*
 function sharedBits(a, b) {
   a = a.toString(2).split("").map(Number);
   b = b.toString(2).split("").map(Number);
@@ -17716,3 +17717,24 @@ function sharedBits(a, b) {
 
 console.log(sharedBits(7, 15));
 console.log(sharedBits(7, 10));
+*/
+
+// #4
+/*
+I have a friend who is a school teacher and his wife made a mistake. He evaluated the students in a wrong way. Insted of given the student a 5 / 5 she gave a 1 / 5, instead of a 4 / 5 she did a 2 / 5. So the grades are inverted. I want to help my friend to correct his grades.
+
+Because this could happen again I will param de solution with correct grade scale.
+
+Ex. invertGrades(5,1) ret 5 invertGrades(5,5) ret 1 invertGrades(7,1) ret 7 invertGrades(8,2) ret 7
+*/
+
+function invertGrades(scale, value) {
+  let arr = Array.from({ length: scale + 1 }, (_, index) => scale - index);
+
+  return arr[value - 1];
+}
+
+console.log(invertGrades(5, 1));
+console.log(invertGrades(5, 2));
+console.log(invertGrades(7, 1));
+console.log(invertGrades(7, 4));
