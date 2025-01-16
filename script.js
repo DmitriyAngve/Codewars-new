@@ -17813,6 +17813,7 @@ Example two empty arrays:
   
   Output = -1
 */
+/*
 function smallestDiff(arr1, arr2) {
   if (!arr1.length && !arr2.length) return -1; // Оба массива пустые
   if (!arr1.length) return Math.min(...arr2); // Первый массив пустой
@@ -17843,3 +17844,43 @@ function smallestDiff(arr1, arr2) {
 console.log(smallestDiff([1, 3, 5, 23, 5], [45, 34, 67, 2, 0]));
 console.log(smallestDiff([1, 3, 5, 23, 5], []));
 console.log(smallestDiff([], []));
+*/
+
+// #7
+/*
+This is the simple version of Shortest Code series. If you need some challenges, please try the challenge version
+Task:
+
+Every uppercase letter is Father, The corresponding lowercase letters is the Son.
+
+Give you a string s, If the father and son both exist, keep them. If it is a separate existence, delete them. Return the result.
+
+For example:
+
+sc("Aab") should return "Aa"
+
+sc("AabBc") should return "AabB"
+
+sc("AaaaAaab") should return "AaaaAaa"(father can have a lot of son)
+
+sc("aAAAaAAb") should return "aAAAaAA"(son also can have a lot of father ;-)
+*/
+
+function sc(str) {
+  const set = new Set(str);
+  console.log(set);
+
+  const result = [...str].filter((char) => {
+    if (char >= "A" && char <= "Z") {
+      return set.has(char.toLowerCase());
+    } else if (char >= "a" && char <= "z") {
+      return set.has(char.toUpperCase());
+    }
+    return false;
+  });
+
+  return result.join("");
+}
+
+console.log(sc("Aab"));
+console.log(sc("FfAaTtHhEeRr"));
