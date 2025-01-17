@@ -17865,7 +17865,7 @@ sc("AaaaAaab") should return "AaaaAaa"(father can have a lot of son)
 
 sc("aAAAaAAb") should return "aAAAaAA"(son also can have a lot of father ;-)
 */
-
+/*
 function sc(str) {
   const set = new Set(str);
   console.log(set);
@@ -17884,3 +17884,34 @@ function sc(str) {
 
 console.log(sc("Aab"));
 console.log(sc("FfAaTtHhEeRr"));
+*/
+
+// 17.01.2025
+// #1
+/*
+You'll implement once, a function that takes another function as an argument, and returns a new version of that function that can only be called once.
+
+Subsequent calls to the resulting function should have no effect (and should return undefined).
+
+For example:
+
+logOnce = once(console.log)
+logOnce("foo") // -> "foo"
+logOnce("bar") // -> no effect
+*/
+function once(fn) {
+  let call = false;
+
+  return function (...args) {
+    if (!call) {
+      call = true;
+      return fn(...args);
+    }
+    return undefined;
+  };
+}
+
+const logOnce = once(console.log);
+
+logOnce("foo");
+logOnce("bar");
