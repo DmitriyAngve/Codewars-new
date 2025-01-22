@@ -17899,6 +17899,7 @@ logOnce = once(console.log)
 logOnce("foo") // -> "foo"
 logOnce("bar") // -> no effect
 */
+/*
 function once(fn) {
   let call = false;
 
@@ -17915,3 +17916,28 @@ const logOnce = once(console.log);
 
 logOnce("foo");
 logOnce("bar");
+*/
+
+// 22.01.2025
+// #1
+/*
+In Bali, as far as I can gather, when ex-pats speak to locals, they basically insert the word 'Pak' as often as possible. I am assured it means something like 'mate' or 'sir' but that could be completely wrong.
+
+Anyway, as some basic language education(??) this kata requires you to turn any sentence provided (s) into ex-pat balinese waffle by inserting the word 'pak' between every other word. Simple 8kyu :D
+
+Pak should not be the first or last word. Strings of just spaces should return an empty string.
+*/
+function pak(s) {
+  if (!s.trim()) return "";
+
+  let words = s.trim().split(" ");
+  let result = [];
+  for (let i = 0; i < words.length; i++) {
+    result.push(words[i]);
+    if (i < words.length - 1) result.push("pak");
+  }
+  return result.join(" ");
+}
+
+console.log(pak("Man I need a taxi up to Ubud"));
+// 'Man pak I pak need pak a pak taxi pak up pak to pak Ubud'
