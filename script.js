@@ -17969,6 +17969,7 @@ console.log(validateBase(ABCDEF, 16));
 /*
 Make your strings more nerdy: Replace all 'a'/'A' with 4, 'e'/'E' with 3 and 'l' with 1 e.g. "Fundamentals" --> "Fund4m3nt41s"
 */
+/*
 function nerdify(txt) {
   let res = "";
   for (let i = 0; i < txt.length; i++) {
@@ -17986,3 +17987,35 @@ function nerdify(txt) {
 }
 
 console.log(nerdify("Fundamentals"));
+*/
+
+// #2
+/*
+Timothy (age: 16) really likes to smoke. Unfortunately, he is too young to buy his own cigarettes and that's why he has to be extremely efficient in smoking.
+
+It's now your task to create a function that calculates how many cigarettes Timothy can smoke out of the given amounts of bars and boxes:
+
+    a bar has 10 boxes of cigarettes,
+    a box has 18 cigarettes,
+    out of 5 stubs (cigarettes ends) Timothy is able to roll a new one,
+    of course the self made cigarettes also have an end which can be used to create a new one...
+
+Please note that Timothy never starts smoking cigarettes that aren't "full size" so the amount of smoked cigarettes is always an integer.
+*/
+function startSmoking(bars, boxes) {
+  let cig = bars * 10 * 18 + boxes * 18;
+
+  let stubs = cig;
+
+  while (stubs >= 5) {
+    let newCig = Math.floor(stubs / 5);
+    cig += newCig;
+
+    stubs = (stubs % 5) + newCig;
+  }
+
+  return cig;
+}
+
+console.log(startSmoking(1, 1));
+console.log(startSmoking(10, 2));
