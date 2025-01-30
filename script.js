@@ -18002,6 +18002,7 @@ It's now your task to create a function that calculates how many cigarettes Timo
 
 Please note that Timothy never starts smoking cigarettes that aren't "full size" so the amount of smoked cigarettes is always an integer.
 */
+/*
 function startSmoking(bars, boxes) {
   let cig = bars * 10 * 18 + boxes * 18;
 
@@ -18019,3 +18020,43 @@ function startSmoking(bars, boxes) {
 
 console.log(startSmoking(1, 1));
 console.log(startSmoking(10, 2));
+*/
+
+// #3
+/*
+You get an array of different numbers to sum up. But there is one problem, those numbers all have different bases. For example:
+
+You get an array of numbers with their base as an input:
+
+[["101",16],["7640",8],["1",9]]
+
+The output should be the sum as an integer value with a base of 10, so according to the example this would be:
+
+4258
+
+A few more examples:
+[["101",2], ["10",8]] --> 13
+[["ABC",16], ["11",2]] --> 2751
+
+Bases can be between 2 and 36 (2<=base<=36)
+*/
+function sumItUp(nums) {
+  let res = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    let num = nums[i][0];
+    let base = nums[i][1];
+    console.log(num, base);
+
+    res += parseInt(num, base);
+  }
+
+  return res;
+}
+
+console.log(
+  sumItUp([
+    ["ABC", 16],
+    ["11", 2],
+  ])
+);
