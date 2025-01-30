@@ -18080,6 +18080,7 @@ number = 5 => returns false
 
 number = 841 => returns true -> 8 + 4 + 1 = 13 -> 1 + 3 => 4 is even
 */
+/*
 function isVeryEvenNumber(n) {
   if (n < 10) return even(n); // если однозначное число, проверяем четность
 
@@ -18099,3 +18100,35 @@ console.log(isVeryEvenNumber(88));
 console.log(isVeryEvenNumber(6));
 console.log(isVeryEvenNumber(222));
 console.log(isVeryEvenNumber(221));
+*/
+
+// #5
+/*
+A palindrome is a word, phrase, number, or other sequence of characters which reads the same backward as forward. Examples of numerical palindromes are:
+
+2332
+110011
+54322345
+
+For a given number num, write a function to test if it's a numerical palindrome or not and return a boolean (true if it is and false if not).
+
+Return "Not valid" if the input is not an integer or less than 0.
+*/
+function palindrome(num) {
+  if (
+    typeof num !== "number" ||
+    Number.isNaN(num) ||
+    num < 0 ||
+    !Number.isInteger(num)
+  )
+    return "Not valid";
+
+  let reverse = Number(num.toString().split("").reverse().join(""));
+
+  return num === reverse;
+}
+
+console.log(palindrome(1221));
+console.log(palindrome(12211));
+console.log(palindrome(NaN));
+console.log(palindrome("1221"));
