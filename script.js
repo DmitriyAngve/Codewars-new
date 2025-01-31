@@ -18277,6 +18277,7 @@ And your function should return:
 
 Don't forget to rate this kata! Thanks :)
 */
+/*
 const theBiggestSearchKeys = (...args) =>
   ((maxLength, arr) => `'${arr.sort().join("', '")}'`)(
     Math.max(...args.map((s) => s.length)),
@@ -18294,9 +18295,33 @@ console.log(
   )
 );
 // "'I like Ruby!!!', 'how to coding?', 'very nice kata'"
-// function sortByValueAndIndex(array) {
-//   return array
-//     .map((num, i) => [num, num * (i + 1)])
-//     .sort((a, b) => a[1] - b[1])
-//     .map((pair) => pair[0]);
-// }
+*/
+
+// #6
+/*
+Define a method that accepts 2 strings as parameters. The method returns the first string sorted by the second.
+
+sortString("foos", "of")       => "oofs"
+sortString("string", "gnirts") => "gnirts"
+sortString("banana", "abn")    => "aaabnn"
+
+To elaborate, the second string defines the ordering. It is possible that in the second string characters repeat, so you should remove repeating characters, leaving only the first occurrence.
+
+Any character in the first string that does not appear in the second string should be sorted to the end of the result in original order.
+*/
+function sortString(str, ord) {
+  let orderMap = new Map([...new Set(ord)].map((c, i) => [c, i]));
+
+  let sortedPart = [...str]
+    .filter((c) => orderMap.has(c))
+    .sort((a, b) => orderMap.get(a) - orderMap.get(b));
+
+  console.log(sortedPart);
+
+  let remain = [...str].filter((c) => !orderMap.has(c));
+  console.log(remain);
+
+  return [...sortedPart, ...remain].join("");
+}
+
+console.log(sortString("foos", "of"));
