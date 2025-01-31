@@ -18251,7 +18251,7 @@ Don't forget to rate this kata! Thanks :)
 //   return word.charAt(0).toUpperCase() + word.slice(1);
 // })
 // .join("");
-
+/*
 String.prototype.camelCase = function () {
   return this.split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -18259,3 +18259,44 @@ String.prototype.camelCase = function () {
 };
 
 console.log("hello case".camelCase());
+*/
+
+// #5
+/*
+You're a programmer in a SEO company. The SEO specialist of your company gets the list of all project keywords everyday, then he looks for the longest keys to analyze them.
+
+You will get the list with keywords and must write a simple function that returns the biggest search keywords and sorts them in lexicographical order.
+
+For instance you might get:
+
+'key1', 'key2', 'key3', 'key n', 'bigkey2', 'bigkey1'
+
+And your function should return:
+
+"'bigkey1', 'bigkey2'"
+
+Don't forget to rate this kata! Thanks :)
+*/
+const theBiggestSearchKeys = (...args) =>
+  ((maxLength, arr) => `'${arr.sort().join("', '")}'`)(
+    Math.max(...args.map((s) => s.length)),
+    args.filter((s) => s.length === Math.max(...args.map((s) => s.length)))
+  );
+
+console.log(theBiggestSearchKeys("key1", "key22", "key333"));
+console.log(
+  theBiggestSearchKeys(
+    "small keyword",
+    "how to coding?",
+    "very nice kata",
+    "a lot of keys",
+    "I like Ruby!!!"
+  )
+);
+// "'I like Ruby!!!', 'how to coding?', 'very nice kata'"
+// function sortByValueAndIndex(array) {
+//   return array
+//     .map((num, i) => [num, num * (i + 1)])
+//     .sort((a, b) => a[1] - b[1])
+//     .map((pair) => pair[0]);
+// }
