@@ -18184,6 +18184,7 @@ Save the animals by switching them back. You will be given an array which will h
 
 Same goes for all the other arrays/lists that you will get in the tests: you have to change the element positions with the same exact logics
 */
+/*
 function fixTheMeerkat(arr) {
   return arr.reverse();
 }
@@ -18193,3 +18194,42 @@ console.log(fixTheMeerkat(["tails", "body", "heads"]));
 console.log(fixTheMeerkat(["bottom", "middle", "top"]));
 console.log(fixTheMeerkat(["lower legs", "torso", "upper legs"]));
 console.log(fixTheMeerkat(["ground", "rainbow", "sky"]));
+*/
+
+// #3
+/*
+Write a function that takes a string of parentheses, and determines if the order of the parentheses is valid. The function should return true if the string is valid, and false if it's invalid.
+Examples
+
+"()"              =>  true
+")(()))"          =>  false
+"("               =>  false
+"(())((()())())"  =>  true
+
+Constraints
+
+0 <= length of input <= 100
+
+    All inputs will be strings, consisting only of characters ( and ).
+    Empty strings are considered balanced (and therefore valid), and will be tested.
+    For languages with mutable strings, the inputs should not be mutated.
+*/
+function validParentheses(str) {
+  if (!str.length) return true;
+
+  let balance = 0;
+  for (let char of str) {
+    if (char === "(") {
+      balance++;
+    } else {
+      balance--;
+      if (balance < 0) return false;
+    }
+  }
+  return balance === 0;
+}
+
+console.log(validParentheses("()"));
+console.log(validParentheses(""));
+console.log(validParentheses(")(()))"));
+console.log(validParentheses("(())((()())())"));
