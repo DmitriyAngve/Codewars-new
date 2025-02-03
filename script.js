@@ -18404,6 +18404,7 @@ Hints
     A word is an anagram of another word if they have the same letters (usually in a different order).
     Do not worry about case. All inputs will be lowercase.
 */
+/*
 function anagramDifference(w1, w2) {
   const countChars = (word) => {
     const count = {};
@@ -18436,3 +18437,49 @@ function anagramDifference(w1, w2) {
 }
 
 console.log(anagramDifference("codewars", "hackerrank"));
+*/
+
+// #5
+/*
+Lately, feature requests have been piling up and you need a way to make global estimates of the time it would take to implement them all. If you estimate feature A to take 4 to 6 hours to implement, and feature B to take 2 to 5 hours, then in the best case it will only take you 6 (4 + 2) hours to implement both features, and in the worst case it will take you 11 (6 + 5). In the average case, it will take you 8.5 hours.
+
+To help you streamline the estimation process, write a function that returns a tuple (JS: array) of the global best case, average case and worst case given a tuple of tuples (JS: array of arrays) representing best case and worst case guesses.
+
+For example,
+
+estimates = ((1, 2), (3, 4))
+global_estimate(estimates) == (4, 5, 6)
+
+For example,
+
+estimates = [[1, 2], [3, 4]]
+globalEstimate(estimates) == [4, 5, 6]
+
+Don't worry about rounding or invalid input.
+*/
+function globalEstimate(e) {
+  let minSum = 0,
+    maxSum = 0;
+
+  for (let [min, max] of e) {
+    minSum += min;
+    maxSum += max;
+  }
+
+  let avgSum = (minSum + maxSum) / 2;
+  return [minSum, avgSum, maxSum];
+}
+// an array of values : [minimum, average, maximum]
+
+console.log(
+  globalEstimate([
+    [4, 6],
+    [2, 5],
+  ])
+);
+console.log(
+  globalEstimate([
+    [1, 2],
+    [3, 4],
+  ])
+);
