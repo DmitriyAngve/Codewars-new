@@ -18365,6 +18365,7 @@ Write a function isReallyNaN that returns true only if passed in an argument tha
 
 Any solution is acceptable!
 */
+/*
 const isReallyNaN = (val) => {
   return Number.isNaN(val);
 };
@@ -18373,3 +18374,16 @@ console.log(isReallyNaN(NaN));
 console.log(isReallyNaN(1));
 console.log(isReallyNaN("1"));
 console.log(isReallyNaN(undefined));
+*/
+
+// #3
+/*
+Implement a function to calculate the sum of the numerical values in a nested list. For example :
+
+sumNested([1, [2, [3, [4]]]]) => 10
+*/
+const sumNested = (arr) => {
+  return arr.flat(Infinity).reduce((acc, curr) => acc + curr, 0);
+};
+
+console.log(sumNested([1, [2, [3, [4]]]]));
