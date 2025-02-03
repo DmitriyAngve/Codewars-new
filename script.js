@@ -18309,6 +18309,7 @@ To elaborate, the second string defines the ordering. It is possible that in the
 
 Any character in the first string that does not appear in the second string should be sorted to the end of the result in original order.
 */
+/*
 function sortString(str, ord) {
   let orderMap = new Map([...new Set(ord)].map((c, i) => [c, i]));
 
@@ -18325,3 +18326,35 @@ function sortString(str, ord) {
 }
 
 console.log(sortString("foos", "of"));
+*/
+
+// 03.02.2025
+// #1
+/*
+Write a function changeTime which increases or decreases given time. Input param is string in HH:MM format and delta is integer value -1 or 1 in minutes. Let see some examples:
+
+changeTime('10:00', 1) //return '10:01'
+changeTime('10:00', -1) //return '09:59'
+changeTime('23:59', 1) //return '00:00'
+changeTime('00:00', -1) //return '23:59'
+*/
+function changeTime(input, delta) {
+  let [h, m] = input.split(":").map(Number);
+
+  let date = new Date();
+  date.setHours(h);
+  date.setMinutes(m + delta);
+
+  let newH = date.getHours().toString().padStart(2, "0");
+  let newM = date.getMinutes().toString().padStart(2, "0");
+
+  return `${newH}:${newM}`;
+}
+
+console.log(changeTime("10:00", 1));
+console.log(changeTime("10:00", -1));
+
+// let newH = date.getHours().toString().padStart(2, "0");
+// let newM = date.getMinutes().toString().padStart(2, "0");
+
+// return `${newH}:${newM}`;
