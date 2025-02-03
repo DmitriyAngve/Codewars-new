@@ -18382,8 +18382,57 @@ Implement a function to calculate the sum of the numerical values in a nested li
 
 sumNested([1, [2, [3, [4]]]]) => 10
 */
+/*
 const sumNested = (arr) => {
   return arr.flat(Infinity).reduce((acc, curr) => acc + curr, 0);
 };
 
 console.log(sumNested([1, [2, [3, [4]]]]));
+*/
+
+// #4
+/*
+Given two words, how many letters do you have to remove from them to make them anagrams?
+Example
+
+    First word : c od e w ar s (4 letters removed)
+    Second word : ha c k er r a nk (6 letters removed)
+    Result : 10
+
+Hints
+
+    A word is an anagram of another word if they have the same letters (usually in a different order).
+    Do not worry about case. All inputs will be lowercase.
+*/
+function anagramDifference(w1, w2) {
+  const countChars = (word) => {
+    const count = {};
+
+    for (const char of word) {
+      count[char] = (count[char] || 0) + 1;
+    }
+    return count;
+  };
+
+  const count1 = countChars(w1);
+  const count2 = countChars(w2);
+
+  let diff = 0;
+
+  for (const char in count1) {
+    if (char in count2) {
+      diff += Math.abs(count1[char] - count2[char]);
+    } else {
+      diff += count1[char];
+    }
+  }
+
+  for (const char in count2) {
+    if (!(char in count1)) {
+      diff += count2[char];
+    }
+  }
+  return diff;
+}
+
+console.log(anagramDifference("codewars", "hackerrank"));
