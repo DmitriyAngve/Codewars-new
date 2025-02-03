@@ -18338,6 +18338,7 @@ changeTime('10:00', -1) //return '09:59'
 changeTime('23:59', 1) //return '00:00'
 changeTime('00:00', -1) //return '23:59'
 */
+/*
 function changeTime(input, delta) {
   let [h, m] = input.split(":").map(Number);
 
@@ -18354,7 +18355,21 @@ function changeTime(input, delta) {
 console.log(changeTime("10:00", 1));
 console.log(changeTime("10:00", -1));
 
-// let newH = date.getHours().toString().padStart(2, "0");
-// let newM = date.getMinutes().toString().padStart(2, "0");
+*/
 
-// return `${newH}:${newM}`;
+// #2
+/*
+I've hit a few bugs in my Java/Type/Coffee-script code recently, and I've traced the problem back to the global isNaN function I was using. I had expected it to be more discerning, but it's returning true for undefined right now.
+
+Write a function isReallyNaN that returns true only if passed in an argument that evalutes to NaN, and returns false otherwise.
+
+Any solution is acceptable!
+*/
+const isReallyNaN = (val) => {
+  return Number.isNaN(val);
+};
+
+console.log(isReallyNaN(NaN));
+console.log(isReallyNaN(1));
+console.log(isReallyNaN("1"));
+console.log(isReallyNaN(undefined));
