@@ -18457,6 +18457,7 @@ globalEstimate(estimates) == [4, 5, 6]
 
 Don't worry about rounding or invalid input.
 */
+/*
 function globalEstimate(e) {
   let minSum = 0,
     maxSum = 0;
@@ -18483,3 +18484,53 @@ console.log(
     [3, 4],
   ])
 );
+*/
+
+// 05.02.2025
+// #1
+/*
+With your birthday coming up soon, your eccentric friend sent you a message to say "happy birthday":
+
+hhhappyyyy biirrrrrthddaaaayyyyyyy to youuuu
+hhapppyyyy biirtttthdaaay too youuu
+happy birrrthdayy to youuu
+happpyyyy birrtthdaaay tooooo youu
+
+At first it looks like a song, but upon closer investigation, you realize that your friend hid the phrase "happy birthday" thousands of times inside his message. In fact, it contains it more than 2 million times! To thank him, you'd like to reply with exactly how many times it occurs.
+
+To count all the occurences, the procedure is as follows: look through the paragraph and find a 'h'; then find an 'a' later in the paragraph; then find an 'p' after that, and so on. Now count the number of ways in which you can choose letters in this way to make the full phrase.
+
+More precisely, given a text string, you are to determine how many times the search string appears as a sub-sequence of that string.
+
+Write a function called countSubsequences that takes two arguments: needle, the string to be search for and haystack, the string to search in. In our example, "happy birthday" is the needle and the birthday message is the haystack. The function should return the number of times needle occurs as a sub-sequence of haystack. Spaces are also considered part of the needle.
+
+Since the answers can be very large, return only the last 8 digits of the answer in case it exceeds 8 digits. The answers to the test cases will all be shorter than 8 digits.
+*/
+function countSubsequences(needle, haystack) {
+  let m = needle.length,
+    n = haystack.length; // создаю таблицу DP нужного размера
+  console.log(m, n);
+  let dp = Array(m + 1).fill(0); // создаю массив dp размером m+1, заполненный нулями для отслеживания количества способов собрать needle в haystack
+  console.log(dp);
+
+  dp[0] = 1; // пустая строка needle, встречается всего 1 раз (является последовательностью любой строки ровно 1 раз, если просто ничего не выбирать)
+
+  // Цикл для прохода haystack посимвольно, начиная с 1-го символа (j - индекс в haystack)
+  for (let j = 1; j <= n; j++) {
+    // Проходим needle с конца к началу (чтобы не перезаписать данные, которые еще нужны)
+    for (let i = m; i > 0; i--) {
+      // Проверяю, совпадают ли символы needle[i-1] и haystack[j-1]
+      if (needle[i - 1] === haystack[j - 1]) {
+        // если совпали, то мы можем использовать этот символ и добавить количество способов
+        dp[i] = (dp[i] + dp[i - 1]) % 100000000;
+        // dp[i-1] показывает, сколько раз можно было собрать первые i=1 сиволов needle до текущей позиции
+        // если needle[i] и haystack[j] совпали, то все найденные способы можно расширить этим совпадением
+      }
+    }
+  }
+  return dp[m];
+}
+
+console.log(countSubsequences("happy birthday", "appyh appy birth day"));
+console.log(countSubsequences("happy birthday", "happybirthday"));
+console.log(countSubsequences("happy birthday", "hhaappyy bbiirrtthhddaayy"));
