@@ -18506,6 +18506,7 @@ Write a function called countSubsequences that takes two arguments: needle, the 
 
 Since the answers can be very large, return only the last 8 digits of the answer in case it exceeds 8 digits. The answers to the test cases will all be shorter than 8 digits.
 */
+/*
 function countSubsequences(needle, haystack) {
   let m = needle.length,
     n = haystack.length; // создаю таблицу DP нужного размера
@@ -18534,3 +18535,45 @@ function countSubsequences(needle, haystack) {
 console.log(countSubsequences("happy birthday", "appyh appy birth day"));
 console.log(countSubsequences("happy birthday", "happybirthday"));
 console.log(countSubsequences("happy birthday", "hhaappyy bbiirrtthhddaayy"));
+*/
+
+// #2
+/*
+We need to sum big numbers and we require your help.
+
+Write a function that returns the sum of two numbers. The input numbers are strings and the function must return a string.
+Example
+
+add("123", "321"); -> "444"
+add("11", "99");   -> "110"
+
+Notes
+
+    The input numbers are big.
+    The input is a string of only digits
+    The numbers are positives
+*/
+function add(a, b) {
+  let res = "";
+  let carry = 0;
+
+  a = a.split("").reverse();
+  b = b.split("").reverse();
+
+  let maxLength = Math.max(a.length, b.length);
+
+  for (let i = 0; i < maxLength; i++) {
+    // Беру i-тый разряд каждого числа, если i меньше длины "a", берем "a[i]", иначе 0 (число закончилось)
+    let dig1 = i < a.length ? parseInt(a[i]) : 0;
+    let dig2 = i < b.length ? parseInt(b[i]) : 0;
+
+    // записываю последнюю цифру в начало результата. Если сумма больше 9, то вычисляю перенос (carry) в начало результата
+    let sum = dig1 + dig2 + carry;
+    res = (sum % 10) + res;
+    carry = Math.floor(sum / 10);
+  }
+  if (carry) res = carry + res; // если остался перенос, то добавляем его в начало
+  return res;
+}
+
+console.log(add("63829983432984289347293874", "90938498237058927340892374089"));
