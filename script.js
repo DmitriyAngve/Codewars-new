@@ -18693,7 +18693,7 @@ Final Note - IMPORTANT
 Your recovered toString() methods should only return the stringified version of the input - it should NOT alter the original value. Test cases have been created to confirm this.
 Kata in this Series
 */
-
+/*
 Number.prototype.toString = function () {
   return "" + this;
 };
@@ -18721,3 +18721,72 @@ console.log([2, 4, 8, 17].toString()); // "[2, 4, 8, 17]"
 console.log([Math.PI, Math.E].toString()); // "[3.141592653589793, 2.718281828459045]"
 
 console.log("123".toString()); // "123" (Должно остаться без изменений)
+*/
+
+//
+
+// #4
+/*
+Write a function that takes a positive integer and returns the next smaller positive integer containing the same digits.
+
+For example:
+
+nextSmaller(21) == 12
+nextSmaller(531) == 513
+nextSmaller(2071) == 2017
+
+Return -1 (for Haskell: return Nothing, for Rust: return None), when there is no smaller number that contains the same digits. Also return -1 when the next smaller number with the same digits would require the leading digit to be zero.
+
+nextSmaller(9) == -1
+nextSmaller(111) == -1
+nextSmaller(135) == -1
+nextSmaller(1027) == -1 // 0721 is out since we don't write numbers with leading zeros
+
+    some tests will include very large numbers.
+    test data only employs positive integers.
+
+The function you write for this challenge is the inverse of this kata: "Next bigger number with the same digits."
+*/
+function nextSmaller(n) {
+  if (n <= 9) return -1;
+  let num = n.toString().split("").map(Number);
+  console.log(num);
+  let len = num.length;
+  // console.log(len);
+  let i;
+  // i = len - 2 - это предпоследний элемент массива
+  for (i = len - 2; i >= 0; i--) {
+    // console.log(num[i]);
+    if (num[i] > num[i + 1]) break;
+  }
+  if (i === -1) return -1; // нет перестановки, уже минимальное
+
+  // нахожу максимальную цифру справа, которая меньше num[i]
+  let maxInd = i + 1;
+  for (let j = i + 1; j < len; j++) {
+    if (num[j] < num[i] && num[j] > num[maxInd]) {
+      maxInd = j;
+    }
+  }
+
+  // меняю местами
+  [num[i], num[maxInd]] = [num[maxInd], num[i]];
+
+  // сортирую num[i+1] во убыванию
+  let left = num.slice(0, [i + 1]);
+  let right = num.slice(i + 1).sort((a, b) => b - a);
+
+  // собираю вместе
+  let result = [...left, ...right].join("");
+  console.log(result);
+
+  if (result[0] === "0") return -1;
+
+  return parseInt(result, 10);
+}
+
+console.log(nextSmaller(21));
+console.log(nextSmaller(907));
+console.log(nextSmaller(135));
+console.log(nextSmaller(9));
+console.log(nextSmaller(123456789));
