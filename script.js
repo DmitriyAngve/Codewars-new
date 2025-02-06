@@ -18586,7 +18586,7 @@ console.log(countSubsequences("happy birthday", "hhaappyy bbiirrtthhddaayy"));
 /*
 Напиши функцию countSubsequence(needle, haystack), которая подсчитает, сколько раз needle встречается как подпоследовательность в haystack
 */
-
+/*
 function countSubsequence(needle, haystack) {
   let m = needle.length,
     n = haystack.length;
@@ -18608,3 +18608,43 @@ console.log(countSubsequence("abc", "abcabc")); // 4
 console.log(countSubsequence("abc", "acbacb")); // 1
 console.log(countSubsequence("xyz", "axybzcxyz")); // 4
 console.log(countSubsequence("a", "aaaaaaa")); // 7
+*/
+
+// #2
+/*
+Create a function strCount (takes an object as argument) that will count all string values inside an object. For example:
+
+strCount({
+  first: "1",
+  second: "2",
+  third: false,
+  fourth: ["anytime",2,3,4],
+  fifth:  null
+  })
+  //returns 3
+*/
+
+function strCount(obj) {
+  let count = 0;
+
+  for (let key in obj) {
+    let value = obj[key];
+
+    if (typeof value === "string") {
+      count++;
+    } else if (typeof value === "object" && value !== null) {
+      count += strCount(value);
+    }
+  }
+  return count;
+}
+
+console.log(
+  strCount({
+    first: "1",
+    second: "2",
+    third: false,
+    fourth: ["anytime", 2, 3, 4],
+    fifth: null,
+  })
+);
