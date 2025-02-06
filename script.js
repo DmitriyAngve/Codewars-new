@@ -18487,6 +18487,50 @@ console.log(
 */
 
 // 05.02.2025
+
+// #2
+/*
+We need to sum big numbers and we require your help.
+
+Write a function that returns the sum of two numbers. The input numbers are strings and the function must return a string.
+Example
+
+add("123", "321"); -> "444"
+add("11", "99");   -> "110"
+
+Notes
+
+    The input numbers are big.
+    The input is a string of only digits
+    The numbers are positives
+*/
+/*
+function add(a, b) {
+  let res = "";
+  let carry = 0;
+
+  a = a.split("").reverse();
+  b = b.split("").reverse();
+
+  let maxLength = Math.max(a.length, b.length);
+
+  for (let i = 0; i < maxLength; i++) {
+    // Беру i-тый разряд каждого числа, если i меньше длины "a", берем "a[i]", иначе 0 (число закончилось)
+    let dig1 = i < a.length ? parseInt(a[i]) : 0;
+    let dig2 = i < b.length ? parseInt(b[i]) : 0;
+
+    // записываю последнюю цифру в начало результата. Если сумма больше 9, то вычисляю перенос (carry) в начало результата
+    let sum = dig1 + dig2 + carry;
+    res = (sum % 10) + res;
+    carry = Math.floor(sum / 10);
+  }
+  if (carry) res = carry + res; // если остался перенос, то добавляем его в начало
+  return res;
+}
+
+console.log(add("63829983432984289347293874", "90938498237058927340892374089"));
+*/
+
 // #1
 /*
 With your birthday coming up soon, your eccentric friend sent you a message to say "happy birthday":
@@ -18524,7 +18568,7 @@ function countSubsequences(needle, haystack) {
       if (needle[i - 1] === haystack[j - 1]) {
         // если совпали, то мы можем использовать этот символ и добавить количество способов
         dp[i] = (dp[i] + dp[i - 1]) % 100000000;
-        // dp[i-1] показывает, сколько раз можно было собрать первые i=1 сиволов needle до текущей позиции
+        // dp[i-1] показывает, сколько раз можно было собрать первые i=1 символов needle до текущей позиции
         // если needle[i] и haystack[j] совпали, то все найденные способы можно расширить этим совпадением
       }
     }
@@ -18537,43 +18581,30 @@ console.log(countSubsequences("happy birthday", "happybirthday"));
 console.log(countSubsequences("happy birthday", "hhaappyy bbiirrtthhddaayy"));
 */
 
-// #2
+// 06.02.2025
+// #1
 /*
-We need to sum big numbers and we require your help.
-
-Write a function that returns the sum of two numbers. The input numbers are strings and the function must return a string.
-Example
-
-add("123", "321"); -> "444"
-add("11", "99");   -> "110"
-
-Notes
-
-    The input numbers are big.
-    The input is a string of only digits
-    The numbers are positives
+Напиши функцию countSubsequence(needle, haystack), которая подсчитает, сколько раз needle встречается как подпоследовательность в haystack
 */
-function add(a, b) {
-  let res = "";
-  let carry = 0;
 
-  a = a.split("").reverse();
-  b = b.split("").reverse();
-
-  let maxLength = Math.max(a.length, b.length);
-
-  for (let i = 0; i < maxLength; i++) {
-    // Беру i-тый разряд каждого числа, если i меньше длины "a", берем "a[i]", иначе 0 (число закончилось)
-    let dig1 = i < a.length ? parseInt(a[i]) : 0;
-    let dig2 = i < b.length ? parseInt(b[i]) : 0;
-
-    // записываю последнюю цифру в начало результата. Если сумма больше 9, то вычисляю перенос (carry) в начало результата
-    let sum = dig1 + dig2 + carry;
-    res = (sum % 10) + res;
-    carry = Math.floor(sum / 10);
+function countSubsequence(needle, haystack) {
+  let m = needle.length,
+    n = haystack.length;
+  let dp = Array(m + 1).fill(0);
+  dp[0] = 1; // Пустая строка встречается 1 раз
+  for (let j = 1; j <= n; j++) {
+    for (let i = 1; i <= m; i++) {
+      // 🔥 Обновляем dp[i] в прямом порядке!
+      if (needle[i - 1] === haystack[j - 1]) {
+        dp[i] = dp[i] + dp[i - 1];
+      }
+    }
   }
-  if (carry) res = carry + res; // если остался перенос, то добавляем его в начало
-  return res;
+  return dp[m];
 }
 
-console.log(add("63829983432984289347293874", "90938498237058927340892374089"));
+console.log(countSubsequence("abc", "aabbcc")); // 8
+console.log(countSubsequence("abc", "abcabc")); // 4
+console.log(countSubsequence("abc", "acbacb")); // 1
+console.log(countSubsequence("xyz", "axybzcxyz")); // 4
+console.log(countSubsequence("a", "aaaaaaa")); // 7
