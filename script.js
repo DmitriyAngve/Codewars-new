@@ -18747,6 +18747,7 @@ nextSmaller(1027) == -1 // 0721 is out since we don't write numbers with leading
 
 The function you write for this challenge is the inverse of this kata: "Next bigger number with the same digits."
 */
+/*
 function nextSmaller(n) {
   if (n <= 9) return -1;
   let num = n.toString().split("").map(Number);
@@ -18790,3 +18791,46 @@ console.log(nextSmaller(907));
 console.log(nextSmaller(135));
 console.log(nextSmaller(9));
 console.log(nextSmaller(123456789));
+*/
+
+// #5
+/*
+Backwards Read Primes are primes that when read backwards in base 10 (from right to left) are a different prime. (This rules out primes which are palindromes.)
+
+Examples:
+13 17 31 37 71 73 are Backwards Read Primes
+
+13 is such because it's prime and read from right to left writes 31 which is prime too. Same for the others.
+Task
+
+Find all Backwards Read Primes between two positive given numbers (both inclusive), the second one always being greater than or equal to the first one. The resulting array or the resulting string will be ordered following the natural order of the prime numbers.
+Examples (in general form):
+
+backwardsPrime(2, 100) => [13, 17, 31, 37, 71, 73, 79, 97] backwardsPrime(9900, 10000) => [9923, 9931, 9941, 9967] backwardsPrime(501, 599) => []
+*/
+function backwardsPrime(start, stop) {
+  let res = [];
+  for (let i = start; i <= stop; i++) {
+    let x = Number(i.toString().split("").reverse().join(""));
+
+    if (i !== x && isPrime(i) && isPrime(x)) {
+      res.push(i);
+    }
+  }
+  return res;
+}
+
+function isPrime(num) {
+  if (num < 2) return false;
+  if (num === 2 || num === 3) return true;
+  if (num % 2 === 0 || num % 3 === 0) return false;
+
+  for (let i = 5; i * i <= num; i += 6) {
+    if (num % i === 0 || num % (i + 2) === 0) return false;
+  }
+
+  return true;
+}
+
+console.log(backwardsPrime(9900, 10000));
+console.log(backwardsPrime(2, 100));
