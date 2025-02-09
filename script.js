@@ -18808,6 +18808,7 @@ Examples (in general form):
 
 backwardsPrime(2, 100) => [13, 17, 31, 37, 71, 73, 79, 97] backwardsPrime(9900, 10000) => [9923, 9931, 9941, 9967] backwardsPrime(501, 599) => []
 */
+/*
 function backwardsPrime(start, stop) {
   let res = [];
   for (let i = start; i <= stop; i++) {
@@ -18834,3 +18835,36 @@ function isPrime(num) {
 
 console.log(backwardsPrime(9900, 10000));
 console.log(backwardsPrime(2, 100));
+*/
+
+// 09.02.2025
+// #1
+/*
+
+Your mission: write a function nouveau (that's French for "new") which takes one function parameter (the constructor), plus an unknown number of additional parameters of any type (arguments for the constructor). When invoked, nouveau should do everything new does and return the same object new would evaluate to, as specified above.
+
+var john = nouveau(Person, 'John', 30); // same result as above
+
+Good luck!
+*/
+
+function nouveau(Constructor, ...args) {
+  // Создаем новый объект, привязывая его прототип к Constructor.prototype
+  let instance = Object.create(Constructor.prototype);
+
+  // Вызываем Constructor, передавая "instance" как "this"
+  let result = Constructor.apply(instance, args);
+
+  // Если Constructor вернул объект, используем его, иначе - instance
+  return result !== null &&
+    (typeof result === "object" || typeof result === "function")
+    ? result
+    : instance;
+}
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+console.log();
