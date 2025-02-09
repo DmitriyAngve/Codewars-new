@@ -18885,6 +18885,7 @@ Example
 42   --> false  
 // cannot be expressed as the sum of two cubes in 2 different ways
 */
+/*
 function hasTwoCubeSums(n) {
   let cubeSums = new Map();
 
@@ -18906,3 +18907,49 @@ function hasTwoCubeSums(n) {
 
 console.log(hasTwoCubeSums(42));
 console.log(hasTwoCubeSums(1729));
+*/
+
+// #3
+/*
+Implement a function to calculate the sum of the numerical values in a nested list. For example :
+
+sumNested([1, [2, [3, [4]]]]) => 10
+*/
+/*
+function sumNested(arr) {
+  let result = arr.flat(Infinity);
+  console.log(result);
+  return result.reduce((acc, curr) => acc + curr, 0);
+  // return arr.flat(Infinity).reduce((acc, curr) => acc * curr, 1);
+}
+
+console.log(sumNested([1, [2, [3, [4, [1, 7]]]]]));
+*/
+
+// #4
+/*
+Implement a function that computes the difference between two lists. The function should remove all occurrences of elements from the first list (a) that are present in the second list (b). The order of elements in the first list should be preserved in the result.
+Examples
+
+If a = [1, 2] and b = [1], the result should be [2].
+
+If a = [1, 2, 2, 2, 3] and b = [2], the result should be [1, 3].
+*/
+function arrayDiff(a, b) {
+  let res = [];
+  for (let i = 0; i < a.length; i++) {
+    let found = false;
+    for (let j = 0; j < b.length; j++) {
+      if (a[i] === b[j]) {
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      res.push(a[i]);
+    }
+  }
+  return res;
+}
+
+console.log(arrayDiff([1, 2, 2, 2, 3], [1, 2]));
