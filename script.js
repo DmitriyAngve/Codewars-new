@@ -18847,7 +18847,7 @@ var john = nouveau(Person, 'John', 30); // same result as above
 
 Good luck!
 */
-
+/*
 function nouveau(Constructor, ...args) {
   // Создаем новый объект, привязывая его прототип к Constructor.prototype
   let instance = Object.create(Constructor.prototype);
@@ -18868,3 +18868,41 @@ function Person(name, age) {
 }
 
 console.log();
+*/
+
+// #2
+/*
+Create a function which checks if a given number n can be written as the sum of two cubes in two different ways:
+
+n=a3+b3=c3+d3n = a^3+b^3 = c^3+d^3n=a3+b3=c3+d3
+
+All the numbers a, b, c and d should be different and greater than 0.
+Example
+
+1729 --> true   
+// 1729 = 9³ + 10³ = 1³ + 12³
+
+42   --> false  
+// cannot be expressed as the sum of two cubes in 2 different ways
+*/
+function hasTwoCubeSums(n) {
+  let cubeSums = new Map();
+
+  for (let a = 1; a <= Math.cbrt(n); a++) {
+    let a3 = a ** 3;
+    if (a3 >= n) break;
+
+    for (let b = a + 1; b <= Math.cbrt(n); b++) {
+      let sum = a3 + b ** 3;
+      if (sum > n) break;
+      if (sum === n) {
+        if (cubeSums.has(sum)) return true;
+        cubeSums.set(sum, [a, b]);
+      }
+    }
+  }
+  return false;
+}
+
+console.log(hasTwoCubeSums(42));
+console.log(hasTwoCubeSums(1729));
