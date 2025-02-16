@@ -19083,10 +19083,45 @@ t[1] += 5
 t = [1, 7, 3, 4]
 tCopy = [1, 2, 3, 4]
 */
-
+/*
 function copyList(arr) {
   if (!Array.isArray(arr)) {
     throw new TypeError("Expected an array");
   }
   return [...arr];
 }
+*/
+
+// #5
+/*
+Your task is to remove all duplicate words from a string, leaving only single (first) words entries.
+
+Example:
+
+Input:
+
+'alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'
+
+Output:
+
+'alpha beta gamma delta'
+*/
+
+function removeDuplicateWords(s) {
+  let arr = s.split(" ");
+
+  let ht = {};
+
+  for (const word of arr) {
+    ht[word] = (ht[word] || 0) + 1;
+  }
+
+  let result = Object.keys(ht).join(" ");
+  return result;
+}
+
+console.log(
+  removeDuplicateWords(
+    "alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"
+  )
+);
