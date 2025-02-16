@@ -19031,8 +19031,36 @@ If bonus is true, the salary should be multiplied by 10. If bonus is false, the 
 
 Return the total figure the individual will receive as a string prefixed with "£" (= "\u00A3", JS, Go, Java, Scala, and Julia), "$" (C#, C++, Dart, Ruby, Clojure, Elixir, PHP, Python, Haskell, and Lua) or "¥" (Rust).
 */
+/*
 function bonusTime(salary, bonus) {
   return bonus === true ? `\u00A3${salary * 10}` : `\u00A3${salary}`;
 }
 
 console.log(bonusTime(10000, true));
+*/
+
+// #3
+/*
+If you visit London and travel on the Tube, you might hear the announcer say, "Mind the gap!"
+
+Usually this is to do with the gap between the train and the platform. Recently, another type of gap has started to appear on the overground trains. Train thieves have been stealing entire carriages from trains, leaving a gap in the sequence of carriage numbers. You have been asked to write software to detect the problem.
+Task
+
+You must implement a function that receives the sequence of carriages as a string of carriage letters and returns the number of missing carriages. The train carriages are initially lettered from 'A' onwards with no gaps. Several carriages may be missing, but the remaining carriages are in their original sequence order. The highest-lettered carriage can never be missing (because that is where the engine is). The number of carriages in a train can vary from 1 to 26 (i.e. 'A' to 'Z').
+Examples
+
+    countMissingCarriages("ABC") should return 0 because all carriages are present.
+    countMissingCarriages("ABD") should return 1 because carriage C is missing.
+    countMissingCarriages("BCF") should return 3 because carriages A, D, and E are missing.
+*/
+function countMissingCarriages(train) {
+  let vagon = train.split("").map((el) => el.charCodeAt(0) - 64);
+
+  let arr = Array.from({ length: vagon[vagon.length - 1] }, (_, n) => n + 1);
+
+  return arr.length - vagon.length;
+}
+
+console.log(countMissingCarriages("ABC"));
+console.log(countMissingCarriages("ABD"));
+console.log(countMissingCarriages("BCF"));
