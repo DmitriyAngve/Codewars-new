@@ -19000,6 +19000,7 @@ number = 841 => returns true -> 8 + 4 + 1 = 13 -> 1 + 3 => 4 is even
 
 Note: The numbers will always be 0 or positive integers!
 */
+/*
 function isVeryEvenNumber(n) {
   if (n <= 9) return n % 2 === 0;
 
@@ -19018,3 +19019,20 @@ console.log(isVeryEvenNumber(841));
 console.log(isVeryEvenNumber(5));
 console.log(isVeryEvenNumber(4));
 console.log(isVeryEvenNumber(45));
+*/
+
+// #2
+/*
+It's bonus time in the big city! The fatcats are rubbing their paws in anticipation... but who is going to make the most money?
+
+Build a function that takes in two arguments (salary, bonus). Salary will be an integer, and bonus a boolean.
+
+If bonus is true, the salary should be multiplied by 10. If bonus is false, the fatcat did not make enough money and must receive only his stated salary.
+
+Return the total figure the individual will receive as a string prefixed with "£" (= "\u00A3", JS, Go, Java, Scala, and Julia), "$" (C#, C++, Dart, Ruby, Clojure, Elixir, PHP, Python, Haskell, and Lua) or "¥" (Rust).
+*/
+function bonusTime(salary, bonus) {
+  return bonus === true ? `\u00A3${salary * 10}` : `\u00A3${salary}`;
+}
+
+console.log(bonusTime(10000, true));
