@@ -18970,10 +18970,51 @@ Some useful associations relevant to this kata:
     1 Imperial Gallon = 4.54609188 litres
     1 Mile = 1.609344 kilometres
 */
-
+/*
 function converter(mpg) {
   return Math.round(((mpg * 1.609344) / 4.54609188) * 100) / 100;
 }
 
 console.log(converter(10));
 console.log(converter(30));
+*/
+
+// 16.02.2025
+// #1
+
+/*
+Write a function that returns true if the number is a "Very Even" number.
+
+If a number is a single digit, then it is simply "Very Even" if it itself is even.
+
+If it has 2 or more digits, it is "Very Even" if the sum of its digits is "Very Even".
+Examples
+
+number = 88 => returns false -> 8 + 8 = 16 -> 1 + 6 = 7 => 7 is odd 
+
+number = 222 => returns true -> 2 + 2 + 2 = 6 => 6 is even
+
+number = 5 => returns false
+
+number = 841 => returns true -> 8 + 4 + 1 = 13 -> 1 + 3 => 4 is even
+
+Note: The numbers will always be 0 or positive integers!
+*/
+function isVeryEvenNumber(n) {
+  if (n <= 9) return n % 2 === 0;
+
+  let sum = n
+    .toString()
+    .split("")
+    .map(Number)
+    .reduce((acc, curr) => acc + curr, 0);
+
+  return isVeryEvenNumber(sum);
+}
+
+console.log(isVeryEvenNumber(88));
+console.log(isVeryEvenNumber(222));
+console.log(isVeryEvenNumber(841));
+console.log(isVeryEvenNumber(5));
+console.log(isVeryEvenNumber(4));
+console.log(isVeryEvenNumber(45));
