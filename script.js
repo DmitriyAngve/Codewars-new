@@ -19140,6 +19140,7 @@ See the pattern below:
 
 Names in the full name are separated by exactly one space (' ' ) ; without leading or trailing spaces. Names will always be lowercase, except optionally their first letter.
 */
+/*
 function initials(n) {
   let arr = n.split(" ");
   let result = arr.slice(0, -1).map((word) => abbreviate(word));
@@ -19159,3 +19160,26 @@ function capitalize(word) {
 
 console.log(initials("code wars"));
 console.log(initials("Barack hussein obama"));
+*/
+
+// 18.02.2025
+// #1
+/*
+Return 1 when any odd bit of x equals 1; 0 otherwise.
+
+Assume that:
+
+    x is an unsigned, 32-bit integer;
+    the bits are zero-indexed (the least significant bit is position 0)
+
+Examples
+
+  2  -->  1 (true) because at least one odd bit is 1 (2 = 0b10)
+  5  -->  0 (false) because none of the odd bits are 1 (5 = 0b101)
+170  -->  1 (true) because all of the odd bits are 1 (170 = 0b10101010)
+*/
+function anyOdd(x) {
+  return (x & 0xaaaaaaaa) !== 0 ? 1 : 0;
+}
+
+console.log(anyOdd(170));
