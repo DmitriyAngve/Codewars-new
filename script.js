@@ -19207,6 +19207,7 @@ Output
 
 A number, result of evaluating the expression.
 */
+/*
 function calculate(expression) {
   const tokens = expression.split(" ").reverse();
   const stack = [];
@@ -19239,3 +19240,15 @@ function calculate(expression) {
 
 console.log(calculate("+ -5 5"));
 console.log(calculate("* + 2 2 3"));
+*/
+
+// 25.02.2025
+// #1
+/*
+Oh no! Timmy hasn't followed instructions very carefully and forgot how to use the new String Template feature, Help Timmy with his string template so it works as he expects!
+*/
+function buildString(...template) {
+  return `I like ${template.join(", ")}!`;
+}
+
+console.log(buildString("Cheese", "Milk", "Chocolate"));
