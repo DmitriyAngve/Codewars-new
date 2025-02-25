@@ -19247,8 +19247,67 @@ console.log(calculate("* + 2 2 3"));
 /*
 Oh no! Timmy hasn't followed instructions very carefully and forgot how to use the new String Template feature, Help Timmy with his string template so it works as he expects!
 */
+/*
 function buildString(...template) {
   return `I like ${template.join(", ")}!`;
 }
 
 console.log(buildString("Cheese", "Milk", "Chocolate"));
+*/
+
+// #2
+/*
+SMS messages are limited to 160 characters. It tends to be irritating, especially when freshly written message is 164 characters long.
+
+Your task is to shorten the message to 160 characters, starting from end, by replacing spaces with camelCase, as much as necessary.
+
+If all the spaces are replaced but the resulting message is still longer than 160 characters, just return that resulting message.
+
+Example 1:
+
+Original message (169 chars):
+
+No one expects the Spanish Inquisition! Our chief weapon is surprise, fear and surprise; two chief weapons, fear, surprise, and ruthless efficiency! And that will be it.
+
+Shortened message (160 chars):
+
+No one expects the Spanish Inquisition! Our chief weapon is surprise, fear and surprise; two chief weapons, fear,Surprise,AndRuthlessEfficiency!AndThatWillBeIt.
+
+Example 2:
+
+Original message (269 chars):
+
+SMS messages are limited to 160 characters. It tends to be irritating, especially when freshly written message is 164 characters long. SMS messages are limited to 160 characters. It tends to be irritating, especially when freshly written message is 164 characters long.
+
+Shortened message (228 chars):
+
+SMSMessagesAreLimitedTo160Characters.ItTendsToBeIrritating,EspeciallyWhenFreshlyWrittenMessageIs164CharactersLong.SMSMessagesAreLimitedTo160Characters.ItTendsToBeIrritating,EspeciallyWhenFreshlyWrittenMessageIs164CharactersLong.
+*/
+var shortener = function (message) {
+  if (message.length <= 160) return message;
+
+  let words = message.split(" ");
+  let index = words.length - 1;
+
+  while (message.length > 160 && index > 0) {
+    if (words[index - 1]) {
+      words[index - 1] +=
+        words[index].charAt(0).toUpperCase() + words[index].slice(1);
+      words.splice(index, 1);
+    }
+    message = words.join(" ");
+    index--;
+  }
+  return message;
+};
+
+console.log(
+  shortener(
+    "No one expects the Spanish Inquisition! Our chief weapon is surprise, fear and surprise; two chief weapons, fear, surprise, and ruthless efficiency! And that will be it."
+  )
+);
+console.log(
+  shortener(
+    "SMS messages are limited to 160 characters. It tends to be irritating, especially when freshly written message is 164 characters long. SMS messages are limited to 160 characters. It tends to be irritating, especially when freshly written message is 164 characters long."
+  )
+);
