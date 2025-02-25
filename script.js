@@ -19283,6 +19283,7 @@ Shortened message (228 chars):
 
 SMSMessagesAreLimitedTo160Characters.ItTendsToBeIrritating,EspeciallyWhenFreshlyWrittenMessageIs164CharactersLong.SMSMessagesAreLimitedTo160Characters.ItTendsToBeIrritating,EspeciallyWhenFreshlyWrittenMessageIs164CharactersLong.
 */
+/*
 var shortener = function (message) {
   if (message.length <= 160) return message;
 
@@ -19311,3 +19312,45 @@ console.log(
     "SMS messages are limited to 160 characters. It tends to be irritating, especially when freshly written message is 164 characters long. SMS messages are limited to 160 characters. It tends to be irritating, especially when freshly written message is 164 characters long."
   )
 );
+*/
+
+// #2
+/*
+A number is self-descriptive when the n'th digit describes the amount n appears in the number.
+
+Example:
+
+For the number 21200:
+
+    There are two 0's in the number, so the first digit is 2.
+    There is one 1 in the number, so the second digit is 1.
+    There are two 2's in the number, so the third digit is 2.
+    There are no 3's in the number, so the fourth digit is 0.
+    There are no 4's in the number, so the fifth digit is 0.
+
+Numbers can be of any length up to 9 digits and are only full integers. For a given number, derive a function that returns:
+
+    True if the number is self-descriptive
+    False if the number is not.
+*/
+function selfDescriptive(num) {
+  let digits = num.toString().split("").map(Number);
+  let count = {};
+
+  // Подсчет количества каждой цифры
+  for (const digit of digits) {
+    count[digit] = (count[digit] || 0) + 1;
+  }
+
+  // Проверяем соответствие правилам
+  for (let i = 0; i < digits.length; i++) {
+    if ((count[i] || 0) !== digits[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+// {0: 2, 1: 1, 2: 2}
+console.log(selfDescriptive(21200));
+console.log(selfDescriptive(21230));
