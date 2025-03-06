@@ -19400,6 +19400,7 @@ Example
 decode([ 20, 12, 18, 30, 21],1939);  ==> "scout"
 decode([ 14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8],1939);  ==>  "masterpiece"
 */
+/*
 function decode(code, n) {
   let key = String(n).split("").map(Number);
   const length = code.length;
@@ -19414,3 +19415,17 @@ function decode(code, n) {
 
 console.log(decode([20, 12, 18, 30, 21], 1939));
 console.log(decode([14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8], 1939));
+*/
+
+// #2
+/*
+Write a function, isItLetter or is_it_letter or IsItLetter, which tells us if a given character is a letter or not. 
+*/
+function isItLetter(character) {
+  let alphabet = /[A-Za-z]/;
+  // console.log(alphabet.test(character));
+  return alphabet.test(character);
+}
+
+console.log(isItLetter("a"));
+console.log(isItLetter("1"));
