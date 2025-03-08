@@ -19468,8 +19468,46 @@ Example(Input1, Input2 --> Output)
 
 [1, 2, 3, 4, 5, 6], 2 --> [2, 4, 6]
 */
+/*
 function divisibleBy(numbers, divisor) {
   return numbers.filter((num) => num % divisor === 0);
 }
 
 console.log(divisibleBy([1, 2, 3, 4, 5, 6], 2));
+*/
+
+// 08.03.2025
+// #1
+/*
+Given a 2D ( nested ) list ( array, vector, .. ) of size m * n, your task is to find the sum of the minimum values in each row.
+
+For Example:
+
+[ [ 1, 2, 3, 4, 5 ]        #  minimum value of row is 1
+, [ 5, 6, 7, 8, 9 ]        #  minimum value of row is 5
+, [ 20, 21, 34, 56, 100 ]  #  minimum value of row is 20
+]
+
+So the function should return 26 because the sum of the minimums is 1 + 5 + 20 = 26.
+
+Note: You will always be given a non-empty list containing positive values.
+*/
+function sumOfMinimums(arr) {
+  let res = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let singleArr = arr[i].sort((a, b) => a - b)[0];
+
+    res += singleArr;
+  }
+  return res;
+}
+
+console.log(
+  sumOfMinimums([
+    [11, 12, 14, 54],
+    [67, 89, 90, 56],
+    [7, 9, 4, 3],
+    [9, 8, 6, 7],
+  ])
+);
