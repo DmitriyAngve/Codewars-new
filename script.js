@@ -19623,6 +19623,7 @@ Input -> Output
 0,2,3 -> false
 1,2,9 -> false 
 */
+/*
 function isTriangle(a, b, c) {
   if (a + b > c && a + c > b && b + c > a) {
     return true;
@@ -19637,3 +19638,28 @@ console.log(isTriangle(1, 2, 3));
 console.log(isTriangle(-5, 1, 3));
 console.log(isTriangle(1, 2, 9));
 console.log(isTriangle(0, 2, 3));
+*/
+
+// #5
+/*
+Create a function that takes a string and returns that string with the first half lowercased and the last half uppercased.
+
+eg: foobar == fooBAR
+
+If it is an odd number then 'round' it up to find which letters to uppercase. See example below.
+
+sillycase("brian")  
+//         --^-- midpoint  
+//         bri    first half (lower-cased)  
+//            AN second half (upper-cased)  
+*/
+function sillycase(s) {
+  let mid = Math.ceil(s.length / 2);
+  let first = s.slice(0, mid).toLowerCase();
+  let second = s.slice(mid).toUpperCase();
+
+  return first + second;
+}
+
+console.log(sillycase("brian"));
+console.log(sillycase("foobar"));
