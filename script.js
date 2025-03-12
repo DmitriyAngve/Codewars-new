@@ -19492,6 +19492,7 @@ So the function should return 26 because the sum of the minimums is 1 + 5 + 20 =
 
 Note: You will always be given a non-empty list containing positive values.
 */
+/*
 function sumOfMinimums(arr) {
   let res = 0;
 
@@ -19511,3 +19512,24 @@ console.log(
     [9, 8, 6, 7],
   ])
 );
+*/
+
+// 12.03.2025
+// #1
+/*
+Write a function that replaces 'two', 'too' and 'to' with the number '2'. Even if the sound is found mid word (like in octopus) or not in lowercase grandma still thinks that should be replaced with a 2. Bless her.
+
+'I love to text' becomes 'I love 2 text'
+'see you tomorrow' becomes 'see you 2morrow'
+'look at that octopus' becomes 'look at that oc2pus'
+
+Note that 'too' should become '2', not '2o'
+*/
+function textin(s) {
+  return s.replace(/(two|too|to)/gi, "2");
+}
+
+console.log(textin("see you tomorrow"));
+console.log(textin("look at that octopus"));
+console.log(textin("look at that octwopus"));
+console.log(textin("look at that octoopus"));
