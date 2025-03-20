@@ -19653,6 +19653,7 @@ sillycase("brian")
 //         bri    first half (lower-cased)  
 //            AN second half (upper-cased)  
 */
+/*
 function sillycase(s) {
   let mid = Math.ceil(s.length / 2);
   let first = s.slice(0, mid).toLowerCase();
@@ -19663,3 +19664,29 @@ function sillycase(s) {
 
 console.log(sillycase("brian"));
 console.log(sillycase("foobar"));
+*/
+
+// Задача:
+// Напиши функцию countSubsequence(needle, haystack), которая подсчитает, сколько раз needle встречается как подпоследовательность в haystack.
+function countSubsequence(needle, haystack) {
+  let m = needle.length,
+    n = haystack.length;
+
+  let dp = Array(m + 1).fill(0);
+  dp[0] = 1;
+
+  for (let j = 1; j <= n; j++) {
+    for (let i = 1; i <= m; i++) {
+      if (needle[i - 1] === haystack[j - 1]) {
+        dp[i] = dp[i] + dp[i - 1];
+      }
+    }
+  }
+  return dp[m];
+}
+// Тесты
+console.log(countSubsequence("abc", "acbacb"));
+console.log(countSubsequence("abc", "aabbcc"));
+console.log(countSubsequence("abc", "abcabc"));
+console.log(countSubsequence("xyz", "axybzcxyz"));
+console.log(countSubsequence("a", "aaaaaaa"));
