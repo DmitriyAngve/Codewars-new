@@ -19715,6 +19715,7 @@ Simple, given a string of words, return the length of the shortest word(s).
 
 String will never be empty and you do not need to account for different data types.
 */
+/*
 function findShort(s) {
   let arr = s.split(" ");
   console.log(arr);
@@ -19729,3 +19730,31 @@ function findShort(s) {
 }
 
 console.log(findShort("bitcoin take over the world maybe who knows perhaps"));
+*/
+
+// #3
+/*
+Your task is to write an update for a lottery machine. Its current version produces a sequence of random letters and integers (passed as a string to the function). Your code must filter out all letters and return unique integers as a string, in their order of first appearance. If there are no integers in the string return "One more run!"
+Examples
+
+"hPrBKWDH8yc6Lt5NQZWQ"  -->  "865"
+"ynMAisVpHEqpqHBqTrwH"  -->  "One more run!"
+"555"                   -->  "5"
+*/
+function lottery(str) {
+  const seen = new Set();
+  const result = [];
+
+  for (const char of str) {
+    if (/\d/.test(char) && !seen.has(char)) {
+      seen.add(char);
+      result.push(char);
+    }
+  }
+
+  return result.length ? result.join("") : "One more run!";
+}
+
+console.log(lottery("hPrBKWDH8yc6Lt5NQZWQ"));
+console.log(lottery("ynMAisVpHEqpqHBqTrwH"));
+console.log(lottery("555"));
