@@ -19698,6 +19698,7 @@ console.log(countSubsequence("a", "aaaaaaa"));
 /*
 It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string. You don't have to worry about strings with less than two characters.
 */
+/*
 function removeChar(str) {
   let first = str.slice(0, -1);
   let second = first.slice(1);
@@ -19706,3 +19707,25 @@ function removeChar(str) {
 
 console.log(removeChar("eloquent"));
 console.log(removeChar("ab"));
+*/
+
+// #2
+/*
+Simple, given a string of words, return the length of the shortest word(s).
+
+String will never be empty and you do not need to account for different data types.
+*/
+function findShort(s) {
+  let arr = s.split(" ");
+  console.log(arr);
+
+  let result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    result.push(arr[i].length);
+  }
+
+  return result.sort((a, b) => a - b)[0];
+}
+
+console.log(findShort("bitcoin take over the world maybe who knows perhaps"));
