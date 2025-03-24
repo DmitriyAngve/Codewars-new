@@ -19666,6 +19666,7 @@ console.log(sillycase("brian"));
 console.log(sillycase("foobar"));
 */
 
+/*
 // Задача:
 // Напиши функцию countSubsequence(needle, haystack), которая подсчитает, сколько раз needle встречается как подпоследовательность в haystack.
 function countSubsequence(needle, haystack) {
@@ -19690,3 +19691,18 @@ console.log(countSubsequence("abc", "aabbcc"));
 console.log(countSubsequence("abc", "abcabc"));
 console.log(countSubsequence("xyz", "axybzcxyz"));
 console.log(countSubsequence("a", "aaaaaaa"));
+*/
+
+// 24.03.2025
+// #1
+/*
+It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string. You don't have to worry about strings with less than two characters.
+*/
+function removeChar(str) {
+  let first = str.slice(0, -1);
+  let second = first.slice(1);
+  return second;
+}
+
+console.log(removeChar("eloquent"));
+console.log(removeChar("ab"));
