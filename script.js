@@ -19911,6 +19911,7 @@ At the annual family gathering, the family likes to find the oldest living famil
 
 You will be given an array of all the family members' ages, in any order. The ages will be given in whole numbers, so a baby of 5 months, will have an ascribed ‘age’ of 0. Return a new array (a tuple in Python) with [youngest age, oldest age, difference between the youngest and oldest age].
 */
+/*
 function differenceInAges(ages) {
   let sorted = ages.sort((a, b) => a - b);
   console.log(sorted);
@@ -19918,3 +19919,31 @@ function differenceInAges(ages) {
 }
 
 console.log(differenceInAges([82, 15, 6, 38, 35]));
+*/
+
+// #4
+/*
+Hey awesome programmer!
+
+You've got much data to manage and of course you use zero-based and non-negative ID's to make each data item unique!
+
+Therefore you need a method, which returns the smallest unused ID for your next new data item...
+
+Note: The given array of used IDs may be unsorted. For test reasons there may be duplicate IDs, but you don't have to find or remove them!
+
+Go on and code some pure awesomeness!
+*/
+function nextId(ids) {
+  let sorted = Array.from(new Set(ids)).sort((a, b) => a - b);
+
+  for (let i = 0; i < sorted.length; i++) {
+    if (sorted[i] !== i) {
+      return i;
+    }
+  }
+
+  return sorted.length;
+}
+
+console.log(nextId([0, 1, 2, 3, 5]));
+console.log(nextId([1, 2, 0, 2, 3, 5]));
