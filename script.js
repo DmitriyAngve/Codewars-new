@@ -19845,6 +19845,7 @@ Example(Input --> Output)
 
 The input will not be 0.
 */
+/*
 function nthEven(n) {
   return n * 2 - 2;
 }
@@ -19852,3 +19853,20 @@ function nthEven(n) {
 console.log(nthEven(1));
 console.log(nthEven(3));
 console.log(nthEven(100));
+*/
+
+// #2
+/*
+The code provided is supposed replace all the dots . in the specified String str with dashes -
+
+But it's not working properly.
+Task
+
+Fix the bug so we can all go home early.
+Notes
+
+String str will never be null.
+*/
+var replaceDots = function (str) {
+  return str.replace(/[.]/gi, "-");
+};
