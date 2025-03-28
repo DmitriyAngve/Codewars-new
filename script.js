@@ -19933,6 +19933,7 @@ Note: The given array of used IDs may be unsorted. For test reasons there may be
 
 Go on and code some pure awesomeness!
 */
+/*
 function nextId(ids) {
   let sorted = Array.from(new Set(ids)).sort((a, b) => a - b);
 
@@ -19947,3 +19948,16 @@ function nextId(ids) {
 
 console.log(nextId([0, 1, 2, 3, 5]));
 console.log(nextId([1, 2, 0, 2, 3, 5]));
+*/
+
+// #5
+/*
+I would like to be able to pass an array with two elements to my swapValues function to swap the values. However it appears that the values aren't changing.
+
+Can you figure out what's wrong here?
+*/
+function swapValues(arr) {
+  [arr[0], arr[1]] = [arr[1], arr[0]];
+}
+
+console.log(swapValues([1, 2]));
