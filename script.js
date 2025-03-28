@@ -19791,6 +19791,7 @@ Ignore all other letters; we don't want our taco uneccesarily clustered or else 
 
 Note that no matter what ingredients are passed, our taco will always have a shell.
 */
+/*
 function tacofy(word) {
   let arr = word.toLowerCase().split("");
   console.log(arr);
@@ -19824,7 +19825,30 @@ function tacofy(word) {
   res.push("shell");
   return res;
 }
-cl  
+
 console.log(tacofy(""));
 console.log(tacofy("ggg"));
 console.log(tacofy("ydjkpwqrztoa"));
+*/
+
+// 28.03.2025
+// #1
+/*
+Return the Nth Even Number
+
+Example(Input --> Output)
+
+1 --> 0 (the first even number is 0)
+3 --> 4 (the 3rd even number is 4 (0, 2, 4))
+100 --> 198
+1298734 --> 2597466
+
+The input will not be 0.
+*/
+function nthEven(n) {
+  return n * 2 - 2;
+}
+
+console.log(nthEven(1));
+console.log(nthEven(3));
+console.log(nthEven(100));
