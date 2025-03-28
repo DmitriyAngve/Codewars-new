@@ -19881,6 +19881,7 @@ By repairing the function provided, you will find out exactly how you should res
 
 The number of dogs will always be a number and there will always be at least 1 dog.
 */
+/*
 function howManyDalmations(number) {
   var dogs = [
     "Hardly any",
@@ -19902,3 +19903,18 @@ function howManyDalmations(number) {
 }
 
 console.log(howManyDalmations(26));
+*/
+
+// #3
+/*
+At the annual family gathering, the family likes to find the oldest living family member’s age and the youngest family member’s age and calculate the difference between them.
+
+You will be given an array of all the family members' ages, in any order. The ages will be given in whole numbers, so a baby of 5 months, will have an ascribed ‘age’ of 0. Return a new array (a tuple in Python) with [youngest age, oldest age, difference between the youngest and oldest age].
+*/
+function differenceInAges(ages) {
+  let sorted = ages.sort((a, b) => a - b);
+  console.log(sorted);
+  return [ages[0], ages[ages.length - 1], ages[ages.length - 1] - ages[0]];
+}
+
+console.log(differenceInAges([82, 15, 6, 38, 35]));
