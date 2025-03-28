@@ -19996,6 +19996,7 @@ The flat sign ("♭") is the opposite of a sharp, meaning one note lower. F♭ h
 
 Return nil (JS:  null ) for invalid input.
 */
+/*
 function pitchClass(note) {
   let ht = {
     "C": 0,
@@ -20032,3 +20033,21 @@ console.log(pitchClass("D"));
 console.log(pitchClass("X"));
 console.log(pitchClass("Ab"));
 console.log(pitchClass("D#"));
+*/
+
+// #8
+/*
+This function should return an object, but it's not doing what's intended. What's wrong?
+function mystery() {
+  var results =
+    {sanity: 'Hello'};
+  return
+    results;
+}
+*/
+function mystery() {
+  var results = { sanity: "Hello" };
+  return results;
+}
+
+console.log(mystery);
