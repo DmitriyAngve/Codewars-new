@@ -20196,6 +20196,7 @@ e.g.
 
 8 --> "adak adak adak adak"
 */
+/*
 function countArara(n) {
   if (n === 1) return "anane";
   if (n === 2) return "adak";
@@ -20219,3 +20220,47 @@ console.log(countArara(1));
 console.log(countArara(3));
 console.log(countArara(8));
 console.log(countArara(9));
+*/
+
+// #4
+/*
+You're a teacher preparing a test for your students. Each question is worth some number of points. Some of the questions are new to the students, while others are questions they have already seen and practiced. Your scoring system doubles the value of new questions. Your job is to determine the maximum possible score.
+
+Write a function that accepts
+
+    an object of questions (as keys) and points (values)
+    a sequence of new questions.
+
+The function should return the test's maximum possible score as an integer, where questions that are new are worth double points.
+
+You can assume that all questions are unique.
+
+Questions are case sensitive.
+
+Example:
+
+input:
+questions => {"a": 1, "b": 2, "c": 3}
+new       => ["a", "c"]
+output:
+1 * 2 + 2 + 3 * 2 = 10
+*/
+function maxPossibleScore(obj, arr) {
+  let res = 0;
+
+  const newQ = new Set(arr);
+
+  for (const quest in obj) {
+    if (newQ.has(quest)) {
+      res += obj[quest] * 2;
+    } else {
+      res += obj[quest];
+    }
+  }
+  return res;
+}
+
+function multy(val) {}
+
+console.log(maxPossibleScore({ "a": 1, "b": 2, "c": 4 }, ["a", "b", "c"]));
+console.log(maxPossibleScore({ "a": 1, "b": 14 }, ["b"]));
