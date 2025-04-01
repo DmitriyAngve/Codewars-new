@@ -20128,6 +20128,7 @@ Notes:
 
     Input array does not contain any duplicate element.
 */
+/*
 function orderBreaker(arr) {
   for (let i = 0; i < arr.length; i++) {
     const testArr = arr.slice(0, i).concat(arr.slice(i + 1));
@@ -20151,3 +20152,23 @@ console.log(orderBreaker([1, 2, 3, 4, 17, 5, 6, 7, 8]));
 // console.log(orderBreaker([105, 110, 111, 112, 114, 113, 115]));
 // console.log(orderBreaker([2, 0, 15, 3, 1, 2]));
 // console.log(orderBreaker([903225, 882792, 886075, 293791]));
+*/
+
+// 01.04.2025
+// #2
+/*
+Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. For example:
+
+* url = "http://github.com/carbonfive/raygun" -> domain name = "github"
+* url = "http://www.zombie-bites.com"         -> domain name = "zombie-bites"
+* url = "https://www.cnet.com"                -> domain name = cnet"
+*/
+function domainName(url) {
+  let domain = url.replace(/^(https?:\/\/)?(www\.)?/, "");
+
+  domain = domain.split(/[/.]/)[0];
+  return domain;
+}
+
+console.log(domainName("http://github.com/carbonfive/raygun"));
+console.log(domainName("http://www.zombie-bites.com"));
