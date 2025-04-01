@@ -20163,6 +20163,7 @@ Write a function that when given a URL as a string, parses out just the domain n
 * url = "http://www.zombie-bites.com"         -> domain name = "zombie-bites"
 * url = "https://www.cnet.com"                -> domain name = cnet"
 */
+/*
 function domainName(url) {
   let domain = url.replace(/^(https?:\/\/)?(www\.)?/, "");
 
@@ -20172,3 +20173,49 @@ function domainName(url) {
 
 console.log(domainName("http://github.com/carbonfive/raygun"));
 console.log(domainName("http://www.zombie-bites.com"));
+*/
+
+// #3
+/*
+The Arara is an isolated tribe found in the Amazon who count in pairs. For example one to eight is as follows:
+
+    1 = anane
+    2 = adak
+    3 = adak anane
+    4 = adak adak
+    5 = adak adak anane
+    6 = adak adak adak
+    7 = adak adak adak anane
+    8 = adak adak adak adak
+
+Take a given number and return the Arara's equivalent.
+
+e.g.
+
+3 --> "adak anane"
+
+8 --> "adak adak adak adak"
+*/
+function countArara(n) {
+  if (n === 1) return "anane";
+  if (n === 2) return "adak";
+
+  let res = splitIntoTwos(n)
+    .join(" ")
+    .replaceAll("2", "adak")
+    .replaceAll("1", "anane");
+
+  return res;
+}
+
+function splitIntoTwos(num) {
+  if (num <= 0) return [];
+
+  const twos = Array(Math.floor(num / 2)).fill(2);
+  return num % 2 === 0 ? twos : [...twos, 1];
+}
+
+console.log(countArara(1));
+console.log(countArara(3));
+console.log(countArara(8));
+console.log(countArara(9));
