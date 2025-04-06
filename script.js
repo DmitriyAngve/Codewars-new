@@ -20285,6 +20285,7 @@ Examples:
 [0] => True
 # Includes all numbers between 0 and a.length - 1 (1 - 1 = 0).
 */
+/*
 function isAllPossibilities(x) {
   if (x.length === 0) return false;
 
@@ -20301,3 +20302,31 @@ function isAllPossibilities(x) {
 console.log(isAllPossibilities([0, 1, 2, 3]));
 console.log(isAllPossibilities([1, 2, 0, 3]));
 console.log(isAllPossibilities([1, 2, 3, 4]));
+*/
+
+// #2
+/*
+ Задача 1: Найти повторяющийся элемент
+
+Условие:
+Напиши функцию hasDuplicate(arr), которая возвращает true, если в массиве есть хотя бы один повторяющийся элемент, и false — если все элементы уникальны.
+
+hasDuplicate([1, 2, 3, 4]);     // false
+hasDuplicate([1, 2, 3, 2]);     // true
+*/
+
+function hasDuplicate(arr) {
+  const seen = new Set();
+
+  for (const value of arr) {
+    if (seen.has(value)) {
+      return true; // Уже встречали — дубликат найден
+    }
+    seen.add(value); // Добавляем в множество
+  }
+
+  return false; // Всё уникально
+}
+
+console.log(hasDuplicate([1, 2, 3, 4]));
+console.log(hasDuplicate([1, 2, 3, 2]));
