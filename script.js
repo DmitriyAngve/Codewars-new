@@ -20286,8 +20286,18 @@ Examples:
 # Includes all numbers between 0 and a.length - 1 (1 - 1 = 0).
 */
 function isAllPossibilities(x) {
-  false;
+  if (x.length === 0) return false;
+
+  const numSet = new Set(x);
+
+  for (let i = 0; i < x.length; i++) {
+    if (!numSet.has(i)) {
+      return false;
+    }
+  }
+  return true;
 }
 
 console.log(isAllPossibilities([0, 1, 2, 3]));
+console.log(isAllPossibilities([1, 2, 0, 3]));
 console.log(isAllPossibilities([1, 2, 3, 4]));
