@@ -20314,19 +20314,42 @@ console.log(isAllPossibilities([1, 2, 3, 4]));
 hasDuplicate([1, 2, 3, 4]);     // false
 hasDuplicate([1, 2, 3, 2]);     // true
 */
-
+/*
 function hasDuplicate(arr) {
   const seen = new Set();
 
   for (const value of arr) {
     if (seen.has(value)) {
-      return true; // Уже встречали — дубликат найден
+      return true;
     }
-    seen.add(value); // Добавляем в множество
+    seen.add(value);
   }
 
-  return false; // Всё уникально
+  return false;
 }
 
 console.log(hasDuplicate([1, 2, 3, 4]));
 console.log(hasDuplicate([1, 2, 3, 2]));
+*/
+
+// #3
+/*
+Найти конкретный дубликат
+*/
+
+function findFirstDuplicate(arr) {
+  const seen = new Set();
+
+  for (const value of arr) {
+    if (seen.has(value)) {
+      return value;
+    }
+    seen.add(value);
+  }
+
+  return null;
+}
+
+console.log(findFirstDuplicate([1, 2, 3, 4]));
+console.log(findFirstDuplicate([1, 2, 3, 2, 4]));
+console.log(findFirstDuplicate([5, 1, 5, 2, 1]));
