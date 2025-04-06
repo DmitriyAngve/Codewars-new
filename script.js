@@ -20336,7 +20336,7 @@ console.log(hasDuplicate([1, 2, 3, 2]));
 /*
 Найти конкретный дубликат
 */
-
+/*
 function findFirstDuplicate(arr) {
   const seen = new Set();
 
@@ -20353,3 +20353,25 @@ function findFirstDuplicate(arr) {
 console.log(findFirstDuplicate([1, 2, 3, 4]));
 console.log(findFirstDuplicate([1, 2, 3, 2, 4]));
 console.log(findFirstDuplicate([5, 1, 5, 2, 1]));
+*/
+
+// #4
+/*
+Найти все дубликаты
+*/
+
+function findDuplicates(arr) {
+  const seen = new Set();
+  const duplicates = new Set();
+  for (const value of arr) {
+    if (seen.has(value)) {
+      duplicates.add(value);
+    } else {
+      seen.add(value);
+    }
+  }
+  return Array.from(duplicates);
+}
+console.log(findDuplicates([1, 2, 3, 4]));
+console.log(findDuplicates([1, 2, 3, 2, 4]));
+console.log(findDuplicates([5, 1, 5, 2, 1]));
