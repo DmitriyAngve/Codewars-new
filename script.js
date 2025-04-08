@@ -20359,7 +20359,7 @@ console.log(findFirstDuplicate([5, 1, 5, 2, 1]));
 /*
 Найти все дубликаты
 */
-
+/*
 function findDuplicates(arr) {
   const seen = new Set();
   const duplicates = new Set();
@@ -20375,3 +20375,59 @@ function findDuplicates(arr) {
 console.log(findDuplicates([1, 2, 3, 4]));
 console.log(findDuplicates([1, 2, 3, 2, 4]));
 console.log(findDuplicates([5, 1, 5, 2, 1]));
+*/
+
+// #5
+/*
+Напиши функцию getCommonElements(arr1, arr2), которая возвращает массив элементов, присутствующих в обоих массивах (без повторов).
+
+getCommonElements([1, 2, 3], [2, 3, 4]); // [2, 3]
+getCommonElements([5, 6], [1, 2]);       // []
+
+    Подсказка: Set.has отлично справляется с проверкой наличия элемента второго массива во множестве из первого.
+
+
+     Задача 3: Проверить наличие всех обязательных элементов
+
+Условие:
+У тебя есть массив обязательных прав:
+
+const requiredPermissions = ['read', 'write'];
+
+Пользователь имеет:
+
+const userPermissions = ['read', 'delete', 'write'];
+
+Напиши функцию hasAllPermissions(userPermissions, requiredPermissions), которая возвращает true, если у пользователя есть все обязательные, и false — если хоть одного не хватает.
+
+hasAllPermissions(['read', 'write'], ['read', 'write']);      // true
+hasAllPermissions(['read', 'delete'], ['read', 'write']);     // false
+*/
+
+// 08.04.2025
+// #1
+/*
+Напиши функцию getCommonElements(arr1, arr2), которая возвращает массив элементов, присутствующих в обоих массивах (без повторов).
+
+getCommonElements([1, 2, 3], [2, 3, 4]); // [2, 3]
+getCommonElements([5, 6], [1, 2]);       // []
+
+    Подсказка: Set.has отлично справляется с проверкой наличия элемента второго массива во множестве из первого.
+*/
+
+function getCommonElements(arr1, arr2) {
+  let seen1 = new Set(arr1);
+  let seen2 = new Set(arr2);
+  let duplicates = [];
+
+  for (const value of arr1) {
+    if (seen2.has(value)) {
+      duplicates.push(value);
+    }
+  }
+  return Array.from(new Set(duplicates));
+}
+
+console.log(getCommonElements([1, 2, 3], [2, 3, 4]));
+console.log(getCommonElements([1, 2, 3, 3, 3, 4, 9], [2, 3, 4, 9, 2]));
+console.log(getCommonElements([5, 6], [1, 2]));
