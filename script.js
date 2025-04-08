@@ -20414,7 +20414,7 @@ getCommonElements([5, 6], [1, 2]);       // []
 
     Подсказка: Set.has отлично справляется с проверкой наличия элемента второго массива во множестве из первого.
 */
-
+/*
 function getCommonElements(arr1, arr2) {
   let seen1 = new Set(arr1);
   let seen2 = new Set(arr2);
@@ -20431,3 +20431,39 @@ function getCommonElements(arr1, arr2) {
 console.log(getCommonElements([1, 2, 3], [2, 3, 4]));
 console.log(getCommonElements([1, 2, 3, 3, 3, 4, 9], [2, 3, 4, 9, 2]));
 console.log(getCommonElements([5, 6], [1, 2]));
+*/
+
+// #2
+/*
+Задача 3: Проверить наличие всех обязательных элементов
+
+Условие:
+У тебя есть массив обязательных прав:
+
+const requiredPermissions = ['read', 'write'];
+
+Пользователь имеет:
+
+const userPermissions = ['read', 'delete', 'write'];
+
+Напиши функцию hasAllPermissions(userPermissions, requiredPermissions), которая возвращает true, если у пользователя есть все обязательные, и false — если хоть одного не хватает.
+
+hasAllPermissions(['read', 'write'], ['read', 'write']);      // true
+hasAllPermissions(['read', 'delete'], ['read', 'write']);     // false
+*/
+
+function hasAllPermissions(userPermissions, requiredPermissions) {
+  let count = 0;
+
+  let seen = new Set(userPermissions);
+
+  for (const value of requiredPermissions) {
+    if (seen.has(value)) {
+      count++;
+    }
+  }
+  return count === requiredPermissions.length;
+}
+
+console.log(hasAllPermissions(["read", "write"], ["read", "write"]));
+console.log(hasAllPermissions(["read", "delete"], ["read", "write"]));
