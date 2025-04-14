@@ -20550,6 +20550,7 @@ Examples
 sortDict({3:1, 2:2, 1:3}) == [[1,3], [2,2], [3,1]]
 sortDict({1:2, 2:4, 3:6}) == [[3,6], [2,4], [1,2]]
 */
+/*
 function sortDict(dict) {
   return Object.entries(dict)
     .map(([k, v]) => [isNaN(k) ? k : Number(k), v])
@@ -20558,3 +20559,43 @@ function sortDict(dict) {
 
 console.log(sortDict({ 3: 1, 2: 2, 1: 3 }));
 console.log(sortDict({ 1: 2, 2: 4, 3: 6 }));
+*/
+
+// #5
+/*
+You are given two positive integers a and b (a < b <= 20000). Complete the function which returns a list of all those numbers in the interval [a, b) whose digits are made up of prime numbers (2, 3, 5, 7) but which are not primes themselves.
+
+Be careful about your timing!
+
+Good luck :)
+*/
+function notPrimes(a, b) {
+  let res = [];
+
+  for (let i = a; i < b; i++) {
+    if (isMadeOfPrimeDig(i) && !isP(i)) {
+      res.push(i);
+    }
+  }
+
+  return res;
+}
+
+function isMadeOfPrimeDig(n) {
+  return String(n)
+    .split("")
+    .every((dig) => ["2", "3", "5", "7"].includes(dig));
+}
+
+function isP(n) {
+  if (n < 2) return false;
+  for (let i = 2; i * i <= n; i++) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(notPrimes(2, 222));
+console.log(notPrimes(2700, 3000));
