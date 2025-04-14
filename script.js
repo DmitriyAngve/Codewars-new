@@ -20530,8 +20530,31 @@ Examples (Input -> Output)
 * [1, 2, 3, 4]  -> [4, 3, 2, 1]
 * [9, 2, 0, 7]  -> [7, 0, 2, 9]
 */
+/*
 function reverseList(list) {
   return list.reverse();
 }
 
 console.log(reverseList([9, 2, 0, 7]));
+*/
+
+// #4
+/*
+Python dictionaries are inherently unsorted. So what do you do if you need to sort the contents of a dictionary?
+
+Create a function that returns a sorted list of (key, value) tuples (Javascript: arrays of 2 items).
+
+The list must be sorted by the value and be sorted largest to smallest.
+Examples
+
+sortDict({3:1, 2:2, 1:3}) == [[1,3], [2,2], [3,1]]
+sortDict({1:2, 2:4, 3:6}) == [[3,6], [2,4], [1,2]]
+*/
+function sortDict(dict) {
+  return Object.entries(dict)
+    .map(([k, v]) => [isNaN(k) ? k : Number(k), v])
+    .sort((a, b) => b[1] - a[1]);
+}
+
+console.log(sortDict({ 3: 1, 2: 2, 1: 3 }));
+console.log(sortDict({ 1: 2, 2: 4, 3: 6 }));
