@@ -20569,6 +20569,7 @@ Be careful about your timing!
 
 Good luck :)
 */
+/*
 function notPrimes(a, b) {
   let res = [];
 
@@ -20599,3 +20600,26 @@ function isP(n) {
 
 console.log(notPrimes(2, 222));
 console.log(notPrimes(2700, 3000));
+*/
+
+// 15.04.2025
+// #1
+/*
+You need to design a recursive function called replicate which will receive arguments times and number.
+
+The function should return an array containing repetitions of the number argument. For instance, replicate(3, 5) should return [5,5,5]. If the times argument is negative, return an empty array.
+
+As tempting as it may seem, do not use loops to solve this problem.
+*/
+function replicate(times, number) {
+  if (times <= 0) {
+    return [];
+  } else {
+    return [number].concat(replicate(times - 1, number));
+  }
+}
+
+console.log(replicate(3, 5));
+console.log(replicate(0, 5));
+console.log(replicate(-1, 5));
+console.log(replicate(5, 1));
