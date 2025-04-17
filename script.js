@@ -20627,6 +20627,8 @@ console.log(replicate(5, 1));
 */
 
 // 17.04.2025
+
+// #1
 /*
 You must create a function, spread, that takes a function and a list of arguments to be applied to that function. You must make this function return the result of calling the given function/lambda with the given arguments.
 
@@ -20636,8 +20638,29 @@ spread(someFunction, [1, true, "Foo", "bar"] )
 // is the same as...
 someFunction(1, true, "Foo", "bar")
 */
+/*
 function spread(func, args) {
   return func(...args);
 }
 
 console.log(spread(someFunction, [1, true, "Foo", "bar"]));
+*/
+
+// #2
+/*
+Your task is very simple. Just write a function that takes an input string of lowercase letters and returns true/false depending on whether the string is in alphabetical order or not.
+Examples (input -> output)
+
+    "kata" -> false ('a' comes after 'k')
+    "ant" -> true (all characters are in alphabetical order)
+*/
+function alphabetic(s) {
+  let res = s.split("").map((el) => el.charCodeAt(0) - 96);
+  console.log(res);
+  let sorted = [...res].sort((a, b) => a - b);
+
+  return res.every((val, i) => val === sorted[i]);
+}
+
+console.log(alphabetic("kata"));
+console.log(alphabetic("ant"));
