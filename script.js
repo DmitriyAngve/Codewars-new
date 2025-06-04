@@ -20784,6 +20784,7 @@ Explanation:
 
 there are three arrays in the main array [], [[], [], []] , []. 2 are dead ends but one is nested, which is inconsistent.
 */
+/*
 function isCleanlyNested(xs) {
   if (!Array.isArray(xs)) return false;
 
@@ -20804,3 +20805,35 @@ console.log(
     [[], [[]]],
   ])
 );
+*/
+
+// #2
+/*
+Write a function that takes a list (or array) of integers and returns the sum of all numbers until the first 0 is encountered. If there's no 0, sum all numbers.
+
+You must stop adding just before the zero (exclude it).
+Example:
+
+sum_until_zero([1, 2, 3, 0, 4, 5]) => 6
+sum_until_zero([5, 4, 3]) => 12
+sum_until_zero([0, 1, 2, 3]) => 0
+sum_until_zero([]) => 0
+*/
+function sumUntilZero(numbers) {
+  if (!numbers.length) return 0;
+  let result = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] !== 0) {
+      result += numbers[i];
+    } else {
+      break;
+    }
+  }
+  return result;
+}
+
+console.log(sumUntilZero([1, 2, 3, 0, 4, 5]));
+console.log(sumUntilZero([5, 4, 3]));
+console.log(sumUntilZero([0, 1, 2, 3]));
+console.log(sumUntilZero([]));
+console.log(sumUntilZero([1, 2, 0, 3, 4]));
