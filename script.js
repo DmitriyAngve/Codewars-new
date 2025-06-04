@@ -20819,6 +20819,7 @@ sum_until_zero([5, 4, 3]) => 12
 sum_until_zero([0, 1, 2, 3]) => 0
 sum_until_zero([]) => 0
 */
+/*
 function sumUntilZero(numbers) {
   if (!numbers.length) return 0;
   let result = 0;
@@ -20837,3 +20838,59 @@ console.log(sumUntilZero([5, 4, 3]));
 console.log(sumUntilZero([0, 1, 2, 3]));
 console.log(sumUntilZero([]));
 console.log(sumUntilZero([1, 2, 0, 3, 4]));
+*/
+
+// #3
+/*
+Your task is to take a given range and return an array of the prime numbers in that range.
+
+You will write a function with the following parameters:
+
+start is the integer from which your range starts. (inclusive)
+
+end is the integer at which your range ends. (inclusive)
+
+If the range does not contain any prime numbers return null.
+
+Examples:
+
+primes(5, 7)  // [5, 7]
+primes(8, 9)  // null
+primes(1, 10) // [2, 3, 5, 7]
+*/
+function primes(start, end) {
+  let result = [];
+  const arr = Array.from({ length: end - start + 1 }, (_, i) => start + i);
+
+  for (let j = 0; j < arr.length; j++) {
+    if (isPrime(arr[j])) {
+      result.push(arr[j]);
+    }
+  }
+  return !result.length ? null : result;
+}
+
+function isPrime(x) {
+  if (x < 2) return false;
+  if (x === 2 || x === 3) return true;
+  if (x % 2 === 0 || x % 3 === 0) return false;
+  for (let i = 5; i * i <= x; i += 6) {
+    if (x % i === 0 || x % (i + 2) === 0) return false;
+  }
+  return true;
+}
+
+// const arr = Array.from({ length: n }, (_, index) => index + 1);
+// function isPrime(n) {
+//   if (n < 2) return false;
+//   if (n === 2 || n === 3) return true;
+//   if (n % 2 === 0 || n % 3 === 0) return false;
+//   for (let i = 5; i * i <= n; i += 6) {
+//     if (n % i === 0 || n % (i + 2) === 0) return false;
+//   }
+
+//   return true;
+// }
+console.log(primes(5, 7));
+console.log(primes(8, 9));
+console.log(primes(1, 10));
