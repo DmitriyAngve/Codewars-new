@@ -20858,6 +20858,7 @@ primes(5, 7)  // [5, 7]
 primes(8, 9)  // null
 primes(1, 10) // [2, 3, 5, 7]
 */
+/*
 function primes(start, end) {
   let result = [];
   const arr = Array.from({ length: end - start + 1 }, (_, i) => start + i);
@@ -20880,17 +20881,33 @@ function isPrime(x) {
   return true;
 }
 
-// const arr = Array.from({ length: n }, (_, index) => index + 1);
-// function isPrime(n) {
-//   if (n < 2) return false;
-//   if (n === 2 || n === 3) return true;
-//   if (n % 2 === 0 || n % 3 === 0) return false;
-//   for (let i = 5; i * i <= n; i += 6) {
-//     if (n % i === 0 || n % (i + 2) === 0) return false;
-//   }
 
-//   return true;
-// }
 console.log(primes(5, 7));
 console.log(primes(8, 9));
 console.log(primes(1, 10));
+*/
+
+// 06.06.2025
+// #1
+/*
+Write a function to shuffle an array.
+
+Ex.:
+
+Input: [1,2,3,4]
+Output: [3,1,4,2]
+
+Assume input is array.
+
+Hint: Math.random() 
+*/
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
+
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+console.log(shuffle([1, 2, 3, 4]));
