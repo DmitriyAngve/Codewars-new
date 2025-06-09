@@ -20901,6 +20901,7 @@ Assume input is array.
 
 Hint: Math.random() 
 */
+/*
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
@@ -20911,3 +20912,105 @@ function shuffle(arr) {
 }
 
 console.log(shuffle([1, 2, 3, 4]));
+*/
+
+// #2
+/*
+Another Kata testing an whether all elements of an array are square, although this time the array can be a multidemtional array with any number of dimensions.
+
+Your task - Write a function that checks whether all elements in a multidimensional array are square numbers. The function should be able to take any number of array elements and any number of dimensions.
+
+Your function should return true if all elements are square numbers and false if not.
+
+An entirely empty array should return undefined.
+
+You can assume that all array elements will be positive integers.
+
+Examples:
+
+isSquare([1, 4, 9, 16, 25, 36]);
+//returns true
+
+isSquare([1, 2, 3, 4, 5, 6]);
+//returns false
+
+isSquare([1, [4], [9, 16, 25], [36, 49, [64, 81]], [100, [121, 144, [169]]], [196, [225, [256, 289, [324, [361, 400]]]]]]);
+//returns true
+*/
+/*
+var isSquare = function (arr) {
+  const flatArr = arr.flat(Infinity);
+  console.log(flatArr);
+
+  if (flatArr.length === 0) return undefined;
+
+  return flatArr.every((n) => Number.isInteger(Math.sqrt(n)));
+};
+
+console.log(isSquare([1, 2, 3, 4, 5, 6]));
+console.log(isSquare([1, 4, 9, 16, 25, 36]));
+console.log(
+  isSquare([
+    1,
+    [4],
+    [9, 16, 25],
+    [36, 49, [64, 81]],
+    [100, [121, 144, [169]]],
+    [196, [225, [256, 289, [324, [361, 400]]]]],
+  ])
+);
+*/
+
+// 09.06.2025
+// #1
+/*
+Given a credit card number we can determine who the issuer/vendor is with a few basic knowns.
+
+Complete the function getIssuer() that will use the values shown below to determine the card issuer for a given card number. If the number cannot be matched then the function should return the string Unknown.
+
+| Card Type  | Begins With          | Number Length |
+|------------|----------------------|---------------|
+| AMEX       | 34 or 37             | 15            |
+| Discover   | 6011                 | 16            |
+| Mastercard | 51, 52, 53, 54 or 55 | 16            |
+| VISA       | 4                    | 13 or 16      |
+
+Examples
+
+getIssuer(4111111111111111) == "VISA"
+getIssuer(4111111111111) == "VISA"
+getIssuer(4012888888881881) == "VISA"
+getIssuer(378282246310005) == "AMEX"
+getIssuer(6011111111111117) == "Discover"
+getIssuer(5105105105105100) == "Mastercard"
+getIssuer(5105105105105106) == "Mastercard"
+getIssuer(9111111111111111) == "Unknown"
+*/
+function getIssuer(number) {
+  const numStr = number.toString();
+  const len = numStr.length;
+
+  if ((numStr.startsWith("34") || numStr.startsWith("37")) && len === 15) {
+    return "AMEX";
+  } else if (numStr.startsWith("6011") && len === 16) {
+    return "Discover";
+  } else if (
+    ["51", "52", "53", "54", "55"].some((prefix) =>
+      numStr.startsWith(prefix)
+    ) &&
+    len === 16
+  ) {
+    return "Mastercard";
+  } else if (numStr.startsWith("4") && (len === 13 || len === 16)) {
+    return "VISA";
+  } else {
+    return "Unknown";
+  }
+}
+console.log(getIssuer(4111111111111111));
+console.log(getIssuer(4111111111111));
+console.log(getIssuer(4012888888881881));
+console.log(getIssuer(378282246310005));
+console.log(getIssuer(6011111111111117));
+console.log(getIssuer(5105105105105100));
+console.log(getIssuer(9111111111111111));
