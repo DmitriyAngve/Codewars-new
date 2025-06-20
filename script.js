@@ -21342,6 +21342,7 @@ tea42(9022) //should return '90tt'
 tea42(5676765) //should return '5676765'
 tea42('2u2u') //should return 'tutu'
 */
+/*
 function tea42(input) {
   if (typeof input === "number") {
     input = input.toString().split("").join("");
@@ -21357,3 +21358,48 @@ console.log(tea42("2ea"));
 console.log(tea42(9022));
 console.log(tea42(5676765));
 console.log(tea42("2u2u"));
+*/
+
+// #12
+/*
+It's 9 time!
+
+I want to count from 1 to n. How many times will I use a '9'?
+
+9, 19, 91.. will contribute one '9' each, 99, 199, 919.. wil contribute two '9's each...etc
+
+Note: n will always be a positive integer.
+Examples (input -> output)
+
+8  -> 0
+9  -> 1
+10 -> 1
+98 -> 18
+100 -> 20
+*/
+function number9(n) {
+  let count = 0;
+  let factor = 1;
+
+  while (Math.floor(n / factor) > 0) {
+    const lower = n % factor;
+    const current = Math.floor(n / factor) % 10;
+    const higher = Math.floor(n / (factor * 10));
+
+    if (current < 9) {
+      count += higher * factor;
+    } else if (current === 9) {
+      count += higher * factor + (lower + 1);
+    } else {
+      count += (higher + 1) * factor;
+    }
+
+    factor *= 10;
+  }
+
+  return count;
+}
+
+console.log(number9(1));
+console.log(number9(100));
+console.log(number9(10000000000));
