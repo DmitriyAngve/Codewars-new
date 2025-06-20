@@ -21131,6 +21131,7 @@ Examples
 132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
 493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
 */
+/*
 function digitalRoot(n) {
   if (n < 10) return n;
   let str = n.toString().split("").map(Number);
@@ -21143,3 +21144,45 @@ function digitalRoot(n) {
 console.log(digitalRoot(16));
 console.log(digitalRoot(942));
 console.log(digitalRoot(132189));
+*/
+
+// #5
+/*
+You have been employed by the Japanese government to write a function that tests whether or not a building is strong enough to withstand a simulated earthquake.
+
+A building will fall if the magnitude of the earthquake is greater than the strength of the building.
+
+An earthquake takes the form of a 2D-Array. Each element within the Outer-Array represents a shockwave, and each element within the Inner-Arrays represents a tremor. The magnitude of the earthquake is determined by the product of the values of its shockwaves. A shockwave is equal to the sum of the values of its tremors.
+
+Example earthquake --> [[5,3,7],[3,3,1],[4,1,2]] ((5+3+7) * (3+3+1) * (4+1+2)) = 735
+
+A building begins with a strength value of 1000 when first built, but this value is subject to exponential decay of 1% per year. For more info on exponential decay, follow this link - https://en.wikipedia.org/wiki/Exponential_decay
+
+Given an earthquake and the age of a building, write a function that returns "Safe!" if the building is strong enough, or "Needs Reinforcement!" if it falls.
+*/
+function strongEnough(arr, age) {
+  let magnitude = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let summ = arr[i].reduce((acc, curr) => acc + curr, 0);
+    magnitude.push(summ);
+  }
+
+  magnitude = magnitude.reduce((acc, curr) => acc * curr, 1);
+  console.log(magnitude);
+
+  const strength = 1000 * Math.pow(0.99, age);
+
+  return strength >= magnitude ? "Safe!" : "Needs Reinforcement!";
+}
+
+console.log(
+  strongEnough(
+    [
+      [5, 3, 7],
+      [3, 3, 1],
+      [4, 1, 2],
+    ],
+    2
+  )
+);
