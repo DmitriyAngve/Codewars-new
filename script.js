@@ -21245,7 +21245,7 @@ scramble('rkqodlw', 'world') ==> True
 scramble('cedewaraaossoqqyt', 'codewars') ==> True
 scramble('katas', 'steak') ==> False
 */
-
+/*
 function scramble(str1, str2) {
   const count1 = {};
   const count2 = {};
@@ -21272,3 +21272,18 @@ function scramble(str1, str2) {
 console.log(scramble("rkqodlw", "world"));
 console.log(scramble("cedewaraaossoqqyt", "codewars"));
 console.log(scramble("katas", "steak"));
+*/
+
+// #9
+/*
+Is Undefined?
+Help Timmy remove undefined values from his array, you are modifing a callback function which he uses on each element on his array.
+Task
+Your task is to finish the isUndefined method which returns true if the value is undefined :)
+*/
+function isUndefined(value) {
+  return typeof value === "undefined";
+}
+console.log(isUndefined(1));
+console.log(isUndefined(2));
+console.log(isUndefined(undefined));
