@@ -20986,6 +20986,7 @@ getIssuer(5105105105105100) == "Mastercard"
 getIssuer(5105105105105106) == "Mastercard"
 getIssuer(9111111111111111) == "Unknown"
 */
+/*
 function getIssuer(number) {
   const numStr = number.toString();
   const len = numStr.length;
@@ -21014,3 +21015,37 @@ console.log(getIssuer(378282246310005));
 console.log(getIssuer(6011111111111117));
 console.log(getIssuer(5105105105105100));
 console.log(getIssuer(9111111111111111));
+*/
+
+// 20.06.2025
+// #1
+/*
+Your task is to convert a given number into a string with commas added for easier readability. The number should be rounded to 3 decimal places and the commas should be added at intervals of three digits before the decimal point. There does not need to be a comma at the end of the number.
+
+You will receive both positive and negative numbers.
+Examples
+
+commas(1) == "1"
+commas(1000) == "1,000"
+commas(100.2346) == "100.235"
+commas(1000000000.23) == "1,000,000,000.23"
+commas(-1) == "-1"
+commas(-1000000.123) == "-1,000,000.123"
+*/
+function commas(num) {
+  // const [int, dec] = Math.abs(num).toFixed(3).split(".");
+  // const intWithCommas = int.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // const decimal = dec.replace(/0+$/, "");
+  // const sign = num < 0 ? "-" : "";
+  // return sign + intWithCommas + (decimal ? "." + decimal : ""); // если decimal не пустая строка, то добавь точку и саму дробную часть, иначе - ничего не добавляй
+
+  return (+num.toFixed(3)).toString().replace(/\B(?=(\d{3})+(\.|$))/g, ",");
+}
+
+console.log(commas(1));
+console.log(commas(1000));
+console.log(commas(100.2346));
+console.log(commas(1000000000.23));
+console.log(commas(-1));
+console.log(commas(9123.212));
+console.log(commas(-1000000.123));
