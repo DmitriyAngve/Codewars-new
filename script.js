@@ -14099,7 +14099,7 @@ console.log(tripleX("abraxxxas"));
 console.log(tripleX("xoxotrololololololoxxx"));
 */
 
-const { StrictMode } = require("react");
+// const { StrictMode } = require("react");
 
 // 28.11.2024
 // #1
@@ -21222,8 +21222,53 @@ x === x // returns false!
 
 Write a function which will return value for which strict comparison will give false!
 */
+/*
 function findStrangeValue() {
   return NaN;
 }
 
 console.log(findStrangeValue() === findStrangeValue());
+*/
+
+// #8
+/*
+Complete the function scramble(str1, str2) that returns true if a portion of str1 characters can be rearranged to match str2, otherwise returns false.
+
+Notes:
+
+    Only lower case letters will be used (a-z). No punctuation or digits will be included.
+    Performance needs to be considered.
+
+Examples
+
+scramble('rkqodlw', 'world') ==> True
+scramble('cedewaraaossoqqyt', 'codewars') ==> True
+scramble('katas', 'steak') ==> False
+*/
+
+function scramble(str1, str2) {
+  const count1 = {};
+  const count2 = {};
+
+  for (const char of str1) {
+    count1[char] = (count1[char] || 0) + 1;
+  }
+
+  for (const char of str2) {
+    count2[char] = (count2[char] || 0) + 1;
+  }
+
+  console.log(count1);
+  console.log(count2);
+
+  for (const char in count2) {
+    if (!count1[char] || count1[char] < count2[char]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(scramble("rkqodlw", "world"));
+console.log(scramble("cedewaraaossoqqyt", "codewars"));
+console.log(scramble("katas", "steak"));
