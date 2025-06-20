@@ -21032,6 +21032,7 @@ commas(1000000000.23) == "1,000,000,000.23"
 commas(-1) == "-1"
 commas(-1000000.123) == "-1,000,000.123"
 */
+/*
 function commas(num) {
   // const [int, dec] = Math.abs(num).toFixed(3).split(".");
   // const intWithCommas = int.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -21049,3 +21050,38 @@ console.log(commas(1000000000.23));
 console.log(commas(-1));
 console.log(commas(9123.212));
 console.log(commas(-1000000.123));
+*/
+
+// #2
+/*
+Write a function groupIn10s which takes any number of arguments, groups them into tens, and sorts each group in ascending order.
+
+The return value should be an array of arrays, so that numbers between 0 and9 inclusive are in position 0, numbers between 10 and 19 are in position 1, etc.
+
+Here's an example of the required output:
+
+const grouped = groupIn10s(8, 12, 38, 3, 17, 19, 25, 35, 50) 
+
+grouped[0]     // [3, 8]
+grouped[1]     // [12, 17, 19]
+grouped[2]     // [25]
+grouped[3]     // [35, 38]
+grouped[4]     // undefined
+grouped[5]     // [50]
+*/
+function groupIn10s(...nums) {
+  const res = [];
+
+  for (let num of nums) {
+    const groupInd = Math.floor(num / 10);
+
+    if (!res[groupInd]) {
+      res[groupInd] = [];
+    }
+    res[groupInd].push(num);
+  }
+
+  return res.map((group) => (group ? group.sort((a, b) => a - b) : undefined));
+}
+
+console.log(groupIn10s(8, 12, 38, 3, 17, 19, 25, 35, 50));
