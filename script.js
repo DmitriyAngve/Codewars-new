@@ -14099,6 +14099,8 @@ console.log(tripleX("abraxxxas"));
 console.log(tripleX("xoxotrololololololoxxx"));
 */
 
+const { StrictMode } = require("react");
+
 // 28.11.2024
 // #1
 /*
@@ -21200,6 +21202,7 @@ For example
 
 Input sequence contains minimum two elements and every element is an integer.
 */
+/*
 function largestPairSum(numbers) {
   let sorted = numbers.sort((a, b) => b - a);
 
@@ -21208,3 +21211,19 @@ function largestPairSum(numbers) {
 
 console.log(largestPairSum([10, 14, 2, 23, 19]));
 console.log(largestPairSum([99, 2, 2, 23, 19]));
+*/
+
+// #7
+/*
+In JavaScript, there is a special case where strict comparison of the same variable returns false! Try to find out what must be done to get such result!
+
+var x = something;
+x === x // returns false!
+
+Write a function which will return value for which strict comparison will give false!
+*/
+function findStrangeValue() {
+  return NaN;
+}
+
+console.log(findStrangeValue() === findStrangeValue());
