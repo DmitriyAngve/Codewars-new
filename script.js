@@ -21319,6 +21319,7 @@ myPlayer.dribbling => 2
 myPlayer.pass => 3
 myPlayer.shoot => 4
 */
+/*
 function Player(name, position, age, dribbling, pass, shoot) {
   this.name = name;
   this.position = position;
@@ -21330,3 +21331,29 @@ function Player(name, position, age, dribbling, pass, shoot) {
 
 const newPlayer = new Player("Dumbo", "Kata Coder", 1, 2, 3, 4);
 console.log(newPlayer.name);
+*/
+
+// #11
+/*
+tea42('coffee') //should return 'coffee'
+tea42('tea') //should return 'tea'
+tea42('2ea') //should return 'tea'
+tea42(9022) //should return '90tt'
+tea42(5676765) //should return '5676765'
+tea42('2u2u') //should return 'tutu'
+*/
+function tea42(input) {
+  if (typeof input === "number") {
+    input = input.toString().split("").join("");
+  }
+
+  let res = input.replaceAll("2", "t");
+  console.log(res);
+}
+
+console.log(tea42("coffee"));
+console.log(tea42("tea"));
+console.log(tea42("2ea"));
+console.log(tea42(9022));
+console.log(tea42(5676765));
+console.log(tea42("2u2u"));
