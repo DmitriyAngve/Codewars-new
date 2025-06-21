@@ -21492,17 +21492,22 @@ titleCase('a clash of KINGS', 'a an the of') // should return: 'A Clash of Kings
 titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
 titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'
 */
-function titleCase(title, minorWords) {
+/*
+function titleCase(title, minorWords = "") {
   if (title === "") return "";
+
   const arr1 = title.toLowerCase().split(" ");
   const arr2 = minorWords.toLowerCase().split(" ");
 
   for (let i = 0; i < arr1.length; i++) {
     let word = arr1[i];
 
+    // Первое слово — всегда с заглавной
+    // Остальные — с заглавной, если не в списке minorWords
     if (i === 0 || !arr2.includes(word)) {
       arr1[i] = word.charAt(0).toUpperCase() + word.slice(1);
     }
+    // иначе оставляем как есть (в нижнем регистре)
   }
 
   return arr1.join(" ");
@@ -21511,3 +21516,29 @@ function titleCase(title, minorWords) {
 // console.log(titleCase("", ""));
 console.log(titleCase("a clash of KINGS", "a an the of"));
 console.log(titleCase("THE WIND IN THE WILLOWS", "The In"));
+*/
+
+// #4
+/*
+There's a built-in function called repeat on strings. It repeats the given string N times.
+
+Example:
+
+'a'.repeat(3) === 'aaa'
+'around the world '.repeat(2) === 'around the world around the world'
+
+It can be very useful for things like aligning text
+
+console.log('Root node')
+console.log(' '.repeat(4) + 'Sub-tree')
+console.log(' '.repeat(8) + 'Deeper sub-tree')
+
+Now imagine this function wasn't built-in. Can you implement it yourself?
+*/
+String.prototype.repeat = function (count) {
+  let res = Array(count).fill(this);
+  return res.join("");
+};
+
+console.log("a".repeat(3));
+console.log(" ho ".repeat(3));
