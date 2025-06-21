@@ -21377,6 +21377,7 @@ Examples (input -> output)
 98 -> 18
 100 -> 20
 */
+/*
 function number9(n) {
   let count = 0;
   let factor = 1;
@@ -21403,3 +21404,43 @@ function number9(n) {
 console.log(number9(1));
 console.log(number9(100));
 console.log(number9(10000000000));
+*/
+
+// 21.06.2025
+// #1
+/*
+The marketing team is spending way too much time typing in hashtags.
+Let's help them with our own Hashtag Generator!
+
+Here's the deal:
+
+    It must start with a hashtag (#).
+    All words must have their first letter capitalized.
+    If the final result is longer than 140 chars it must return false.
+    If the input or the result is an empty string it must return false.
+
+Examples
+
+" Hello there thanks for trying my Kata"  =>  "#HelloThereThanksForTryingMyKata"
+"    Hello     World   "                  =>  "#HelloWorld"
+""                                        =>  false
+*/
+function generateHashtag(str) {
+  if (str === "") return false;
+  const noSpace = str.trim().split(" ");
+
+  let result = "";
+  for (let i = 0; i < noSpace.length; i++) {
+    let word = noSpace[i].charAt(0).toUpperCase() + noSpace[i].slice(1);
+
+    if (noSpace[i] !== "") {
+      result += word;
+    }
+  }
+  if (result === "" || result.length + 1 > 140) return false;
+  return "#" + result;
+}
+
+console.log(generateHashtag(" Hello there thanks for trying my Kata"));
+console.log(generateHashtag("    Hello     World   "));
+console.log(generateHashtag(""));
