@@ -21649,6 +21649,7 @@ var input = [1, 2, 3, 4];
 input.reverse(); // == [4, 3, 2, 1]  // returned by .reverse()
 input;           // == [4, 3, 2, 1]  // items reordered in the original array
 */
+/*
 Array.prototype.reverse = function () {
   const len = this.length;
   for (let i = 0; i < Math.floor(len / 2); i++) {
@@ -21660,3 +21661,28 @@ Array.prototype.reverse = function () {
 };
 
 console.log([1, 2, 3, 4].reverse());
+*/
+
+// #4
+/*
+You are the best freelancer in the city. Everybody knows you, but what they don't know, is that you are actually offloading your work to other freelancers and and you rarely need to do any work. You're living the life!
+
+To make this process easier you need to write a method called workNeeded to figure out how much time you need to contribute to a project.
+
+Giving the amount of time in minutes needed to complete the project and an array of pair values representing other freelancers' time in [Hours, Minutes] format ie. [[2, 33], [3, 44]] calculate how much time you will need to contribute to the project (if at all) and return a string depending on the case.
+
+    If we need to contribute time to the project then return "I need to work x hour(s) and y minute(s)"
+    If we don't have to contribute any time to the project then return "Easy Money!"
+*/
+const workNeeded = (projectMinutes, freelancers) => {
+  let needs =
+    projectMinutes - freelancers.reduce((a, b) => a + b[0] * 60 + b[1], 0);
+
+  return needs <= 0
+    ? "Easy Money!"
+    : `I need to work ${(needs / 60) | 0} hour(s) and ${needs % 60} minute(s)`;
+};
+
+console.log(workNeeded(60, [1, 0]));
+console.log(workNeeded(60, [0, 0]));
+console.log(workNeeded(141, [1, 55]));
