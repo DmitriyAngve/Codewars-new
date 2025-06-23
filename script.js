@@ -21704,6 +21704,7 @@ Notes
     There will always be at least one number in the input string.
     Output string must be two numbers separated by a single space, and highest number is first.
 */
+/*
 function highAndLow(numbers) {
   let arr = numbers
     .split(" ")
@@ -21716,3 +21717,34 @@ function highAndLow(numbers) {
 
 console.log(highAndLow("1 2 3 4 5"));
 console.log(highAndLow("1 2 -3 4 5"));
+*/
+
+// #6
+/*
+Lets go fishing!
+
+Given an array of items, fish the odd one out!
+
+fish([1,1,1,"red herring",1]) //should return "red herring"
+fish(["red herring","red herring","red herring"]) //should return "no catch"
+fish(["red herring","blue herring","yellow herring"]) //should return "no catch"
+fish([1,2,1,2]) //should return "no catch"
+*/
+function fish() {
+  let arr = arguments[0];
+
+  const map = new Map();
+
+  for (const el of arr) {
+    map.set(el, (map.get(el) || 0) + 1);
+  }
+  for (const [key, val] of map.entries()) {
+    if (val === 1) return key;
+  }
+
+  return "no catch";
+}
+
+console.log(fish([1, 1, 1, "red herring", 1]));
+console.log(fish(["red herring", "red herring", "red herring"]));
+console.log(fish([1, 1, 1, 2]));
