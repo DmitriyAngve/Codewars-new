@@ -21674,6 +21674,7 @@ Giving the amount of time in minutes needed to complete the project and an array
     If we need to contribute time to the project then return "I need to work x hour(s) and y minute(s)"
     If we don't have to contribute any time to the project then return "Easy Money!"
 */
+/*
 const workNeeded = (projectMinutes, freelancers) => {
   let needs =
     projectMinutes - freelancers.reduce((a, b) => a + b[0] * 60 + b[1], 0);
@@ -21686,3 +21687,32 @@ const workNeeded = (projectMinutes, freelancers) => {
 console.log(workNeeded(60, [1, 0]));
 console.log(workNeeded(60, [0, 0]));
 console.log(workNeeded(141, [1, 55]));
+*/
+
+// #5
+/*
+In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+Examples
+
+highAndLow("1 2 3 4 5"); // return "5 1"
+highAndLow("1 2 -3 4 5"); // return "5 -3"
+highAndLow("1 9 3 4 -5"); // return "9 -5"
+
+Notes
+
+    All numbers are valid Int32, no need to validate them.
+    There will always be at least one number in the input string.
+    Output string must be two numbers separated by a single space, and highest number is first.
+*/
+function highAndLow(numbers) {
+  let arr = numbers
+    .split(" ")
+    .map(Number)
+    .sort((a, b) => b - a);
+  console.log(arr);
+
+  return `${arr[0]} ${arr[arr.length - 1]}`;
+}
+
+console.log(highAndLow("1 2 3 4 5"));
+console.log(highAndLow("1 2 -3 4 5"));
