@@ -21823,6 +21823,7 @@ Example:
 (100,5,4,10,25,20)--> true
 (12,7)--> false because 12 is not divisible by 7
 */
+/*
 function isDivisible() {
   const args = [...arguments];
   console.log(args);
@@ -21837,3 +21838,31 @@ function isDivisible() {
 
 console.log(isDivisible(3, 3, 4, 1, 3));
 console.log(isDivisible(12, 3, 4, 1, 12));
+*/
+
+// #4
+/*
+Filter the number
+
+Oh, no! The number has been mixed up with the text. Your goal is to retrieve the number from the text, can you return the number back to its original state?
+Task
+
+Your task is to return a number from a string.
+Details
+
+You will be given a string of numbers and letters mixed up, you have to return all the numbers in that string in the order they occur.
+*/
+function filterString(value) {
+  const regex = /[0-9]/g;
+  let res = "";
+  for (let i = 0; i < value.length; i++) {
+    if (value[i].match(regex)) {
+      res += value[i];
+    }
+  }
+  return Number(res.split("").join(""));
+}
+
+console.log(filterString("123"));
+console.log(filterString("a1b2c3"));
+console.log(filterString("aa1bb2cc3dd"));
