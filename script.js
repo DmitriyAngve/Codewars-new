@@ -21791,6 +21791,7 @@ Examples:
 "This is a test        --> "This is a test" 
 "This is another test" --> "This is rehtona test"
 */
+/*
 function spinWords(string) {
   let arr = string.split(" ");
   console.log(arr);
@@ -21809,3 +21810,30 @@ console.log(spinWords("Welcome"));
 console.log(spinWords("Hey fellow warriors"));
 console.log(spinWords("Seriously this is the last one"));
 console.log(spinWords("Just kidding there is still one more"));
+*/
+
+// #3
+/*
+Create a function that checks if the first argument n is divisible by all other arguments (return true if no other arguments)
+
+Example:
+
+(6,1,3)--> true because 6 is divisible by 1 and 3
+(12,2)--> true because 12 is divisible by 2
+(100,5,4,10,25,20)--> true
+(12,7)--> false because 12 is not divisible by 7
+*/
+function isDivisible() {
+  const args = [...arguments];
+  console.log(args);
+  let countDiv = 0;
+  for (let i = 0; i < args.length; i++) {
+    if (args[0] % args[i + 1] === 0) {
+      countDiv++;
+    }
+  }
+  return countDiv === args.length - 1;
+}
+
+console.log(isDivisible(3, 3, 4, 1, 3));
+console.log(isDivisible(12, 3, 4, 1, 12));
