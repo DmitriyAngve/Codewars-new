@@ -21761,6 +21761,7 @@ Given any number of boolean flags function should return true if and only if one
   onlyOne(true, false, false, true) --> false
   onlyOne(false, false, false, false) --> false  
 */
+/*
 function onlyOne() {
   const x = [...arguments];
   console.log(x);
@@ -21778,3 +21779,33 @@ console.log(onlyOne());
 console.log(onlyOne(true, false, false));
 console.log(onlyOne(true, false, true));
 console.log(onlyOne(true, false, false, true));
+*/
+
+// #2
+/*
+Write a function that takes in a string of one or more words, and returns the same string, but with all words that have five or more letters reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
+
+Examples:
+
+"Hey fellow warriors"  --> "Hey wollef sroirraw" 
+"This is a test        --> "This is a test" 
+"This is another test" --> "This is rehtona test"
+*/
+function spinWords(string) {
+  let arr = string.split(" ");
+  console.log(arr);
+  let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length >= 5) {
+      res.push(arr[i].split("").reverse().join(""));
+    } else {
+      res.push(arr[i]);
+    }
+  }
+  return res.join(" ");
+}
+
+console.log(spinWords("Welcome"));
+console.log(spinWords("Hey fellow warriors"));
+console.log(spinWords("Seriously this is the last one"));
+console.log(spinWords("Just kidding there is still one more"));
