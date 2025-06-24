@@ -21852,6 +21852,7 @@ Details
 
 You will be given a string of numbers and letters mixed up, you have to return all the numbers in that string in the order they occur.
 */
+/*
 function filterString(value) {
   const regex = /[0-9]/g;
   let res = "";
@@ -21866,3 +21867,44 @@ function filterString(value) {
 console.log(filterString("123"));
 console.log(filterString("a1b2c3"));
 console.log(filterString("aa1bb2cc3dd"));
+*/
+
+// #5
+/*
+    Run-length encoding (RLE) is a very simple form of data compression in which runs of data (that is, sequences in which the same data value occurs in many consecutive data elements) are stored as a single data value and count, rather than as the original run. Wikipedia
+
+Task
+
+Your task is to write such a run-length encoding. For a given string, return a list (or array) of pairs (or arrays) [ (i1, s1), (i2, s2), …, (in, sn) ], such that one can reconstruct the original string by replicating the character sx ix times and concatening all those strings. Your run-length encoding should be minimal, ie. for all i the values si and si+1 should differ.
+Examples
+
+As the article states, RLE is a very simple form of data compression. It's only suitable for runs of data, as one can see in the following example:
+
+runLengthEncoding("hello world!")
+ //=>      [[1,'h'], [1,'e'], [2,'l'], [1,'o'], [1,' '], [1,'w'], [1,'o'], [1,'r'], [1,'l'], [1,'d'], [1,'!']]
+
+It's very effective if the same data value occurs in many consecutive data elements:
+
+runLengthEncoding("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbb")
+ // => [[34,'a'], [3,'b']]
+*/
+var runLengthEncoding = function (str) {
+  let res = [];
+  let countDuplicates = 1;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i + 1]) {
+      countDuplicates++;
+    } else {
+      res.push([countDuplicates, str[i]]);
+      countDuplicates = 1;
+    }
+  }
+  return res;
+};
+
+console.log(
+  runLengthEncoding(
+    "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWBWWWWWWWWWWWWWW"
+  )
+);
+console.log(runLengthEncoding("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbb"));
