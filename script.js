@@ -21730,6 +21730,7 @@ fish(["red herring","red herring","red herring"]) //should return "no catch"
 fish(["red herring","blue herring","yellow herring"]) //should return "no catch"
 fish([1,2,1,2]) //should return "no catch"
 */
+/*
 function fish() {
   let arr = arguments[0];
 
@@ -21748,3 +21749,32 @@ function fish() {
 console.log(fish([1, 1, 1, "red herring", 1]));
 console.log(fish(["red herring", "red herring", "red herring"]));
 console.log(fish([1, 1, 1, 2]));
+*/
+
+// 24.06.2025
+// #1
+/*
+Given any number of boolean flags function should return true if and only if one of them is true while others are false. If function is called without arguments it should return false.
+
+  onlyOne() --> false
+  onlyOne(true, false, false) --> true
+  onlyOne(true, false, false, true) --> false
+  onlyOne(false, false, false, false) --> false  
+*/
+function onlyOne() {
+  const x = [...arguments];
+  console.log(x);
+  if (!x.length) return false;
+  let trueCount = 0;
+  for (let i = 0; i < x.length; i++) {
+    if (x[i] === true) {
+      trueCount++;
+    }
+  }
+  return trueCount === 1;
+}
+
+console.log(onlyOne());
+console.log(onlyOne(true, false, false));
+console.log(onlyOne(true, false, true));
+console.log(onlyOne(true, false, false, true));
