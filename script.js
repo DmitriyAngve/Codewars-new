@@ -21962,12 +21962,14 @@ console.log(removeSmallest([2, 2, 1, 2, 1]));
 console.log(removeSmallest([]));
 */
 
-// #7
+// 26.06.2025
+// #1
 /*
 Make a program that takes input and returns "Fizz" if it is a multiple of 7, "Fang" if it is a mulitple of 49 AND 3, "Foo" if it is a multiple of 15, and "Far" if it is not divisible by any of those.
 
 Note: Your program should only give one output. Note: When you are making your code you should check the divisibility such that it checks 49 and 3 first then 7 then 15. Check the example test codes for examples of the outputs and inputs.
 */
+/*
 function multiples(x) {
   if (x % 49 === 0 && x % 3 === 0) {
     return "Fang";
@@ -21984,3 +21986,16 @@ console.log(multiples(49));
 console.log(multiples(147));
 console.log(multiples(30));
 console.log(multiples(51));
+*/
+
+// #2
+/*
+A pangram is a sentence that contains every single letter of the alphabet at least once. For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram, because it uses the letters A-Z at least once (case is irrelevant).
+
+Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
+*/
+function isPangram(string) {
+  return new Set(string.toLowerCase().match(/[a-z]/g)).size === 26;
+}
+
+console.log(isPangram("The quick brown fox jumps over the lazy dog."));
