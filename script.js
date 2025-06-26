@@ -21994,8 +21994,36 @@ A pangram is a sentence that contains every single letter of the alphabet at lea
 
 Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
 */
+/*
 function isPangram(string) {
   return new Set(string.toLowerCase().match(/[a-z]/g)).size === 26;
 }
 
 console.log(isPangram("The quick brown fox jumps over the lazy dog."));
+*/
+
+// #3
+/*
+Have a look at the following numbers.
+
+ n | score
+---+-------
+ 1 |  50
+ 2 |  150
+ 3 |  300
+ 4 |  500
+ 5 |  750
+
+Can you find a pattern in it? If so, then write a function getScore(n)/get_score(n)/GetScore(n) which returns the score for any positive number n.
+
+Note Real test cases consists of 100 random cases where 1 <= n <= 10000
+*/
+function getScore(n) {
+  return 25 * n * (n + 1);
+}
+
+console.log(getScore(1));
+console.log(getScore(2));
+console.log(getScore(3));
+console.log(getScore(4));
+console.log(getScore(5));
