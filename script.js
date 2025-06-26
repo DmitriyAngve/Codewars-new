@@ -22152,6 +22152,7 @@ You should only use the + and/or - operators. Using * is cheating!
 
 You can do this iteratively or recursively.
 */
+/*
 function mul(a, b) {
   let result = 0;
   for (let i = 0; i < b; i++) {
@@ -22162,3 +22163,38 @@ function mul(a, b) {
 
 console.log(mul(1, 0));
 console.log(mul(2, 2));
+*/
+
+// #9
+/*
+Given an array of integers, find the one that appears an odd number of times.
+
+There will always be only one integer that appears an odd number of times.
+Examples
+
+[7] should return 7, because it occurs 1 time (which is odd).
+[0] should return 0, because it occurs 1 time (which is odd).
+[1,1,2] should return 2, because it occurs 1 time (which is odd).
+[0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+[1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
+*/
+function findOdd(arr) {
+  let ht = {};
+  for (const el of arr) {
+    ht[el] = (ht[el] || 0) + 1;
+  }
+  const res = Object.entries(ht);
+  let result;
+  for (let i = 0; i < res.length; i++) {
+    let x = res[i][1];
+    // console.log(x);
+    if (x % 2 === 1) {
+      result = res[i][0];
+    }
+  }
+  return Number(result);
+}
+
+console.log(findOdd([7]));
+console.log(findOdd([1, 1, 2]));
+console.log(findOdd([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1]));
