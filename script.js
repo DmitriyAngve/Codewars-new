@@ -22041,9 +22041,29 @@ Examples:(Input1, Input2 --> Output (explanation)))
 1, 1 --> "10" (1 + 1 = 2 in decimal or 10 in binary)
 5, 9 --> "1110" (5 + 9 = 14 in decimal or 1110 in binary)
 */
+/*
 function addBinary(a, b) {
   return (a + b).toString(2);
 }
 
 console.log(addBinary(1, 1));
 console.log(addBinary(5, 9));
+*/
+
+// #5
+/*
+Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary representation of that number. You can guarantee that input is non-negative.
+
+Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this case
+*/
+function countBits(n) {
+  const bin = n
+    .toString(2)
+    .split("")
+    .map(Number)
+    .reduce((acc, curr) => acc + curr, 0);
+  return bin;
+}
+console.log(countBits(0));
+console.log(countBits(4));
+console.log(countBits(10));
