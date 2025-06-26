@@ -22132,6 +22132,7 @@ This may be True and False in your language, e.g. PHP.
 
 Error checking for text strings or other invalid inputs is not required, only valid positive non-zero integers will be passed into the function.
 */
+/*
 function narcissistic(value) {
   const arr = value.toString().split("").map(Number);
   return (
@@ -22141,3 +22142,23 @@ function narcissistic(value) {
 
 console.log(narcissistic(153));
 console.log(narcissistic(122));
+*/
+
+// #8
+/*
+Define a function mul(a, b) that takes two non-negative integers a and b and returns their product.
+
+You should only use the + and/or - operators. Using * is cheating!
+
+You can do this iteratively or recursively.
+*/
+function mul(a, b) {
+  let result = 0;
+  for (let i = 0; i < b; i++) {
+    result += a;
+  }
+  return result;
+}
+
+console.log(mul(1, 0));
+console.log(mul(2, 2));
