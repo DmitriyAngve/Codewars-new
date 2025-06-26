@@ -22178,6 +22178,7 @@ Examples
 [0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
 [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
 */
+/*
 function findOdd(arr) {
   let ht = {};
   for (const el of arr) {
@@ -22198,3 +22199,41 @@ function findOdd(arr) {
 console.log(findOdd([7]));
 console.log(findOdd([1, 1, 2]));
 console.log(findOdd([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1]));
+*/
+
+// #10
+/*
+Our loose definition of Vampire Numbers can be described as follows:
+
+6 * 21 = 126
+# 6 and 21 would be valid 'fangs' for a vampire number as the 
+# digits 6, 1, and 2 are present in both the product and multiplicands
+
+10 * 11 = 110
+# 110 is not a vampire number since there are three 1's in the
+# multiplicands, but only two 1's in the product
+
+Create a function that can receive two 'fangs' and determine if the product of the two is a valid vampire number.
+*/
+function vampireTest(a, b) {
+  if (a < 0 && b < 0) return false;
+  const arr1 = (Math.abs(a).toString() + Math.abs(b).toString())
+    .split("")
+    .map(Number)
+    .sort((a, b) => a - b)
+    .join("");
+  console.log(arr1);
+  const arr2 = Math.abs(a * b)
+    .toString()
+    .split("")
+    .map(Number)
+    .sort((a, b) => a - b)
+    .join("");
+  console.log(arr2);
+  return arr1 === arr2;
+}
+
+console.log(vampireTest(21, 6));
+console.log(vampireTest(204, 615));
+console.log(vampireTest(30, -51));
+console.log(vampireTest(-246, -510));
