@@ -22609,8 +22609,8 @@ createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) // => returns "(123) 456-7890"
 The returned format must be correct in order to complete this challenge.
 
 Don't forget the space after the closing parentheses!
-
 */
+/*
 function createPhoneNumber(numbers) {
   let first = [numbers[0], numbers[1], numbers[2]].join("");
   let second = [numbers[3], numbers[4], numbers[5]].join("");
@@ -22619,3 +22619,24 @@ function createPhoneNumber(numbers) {
 }
 
 console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+*/
+
+// #12
+/*
+Oh, no! The number has been mixed up with the text. Your goal is to retrieve the number from the text, can you return the number back to its original state?
+Task
+
+Your task is to return a number from a string.
+Details
+
+You will be given a string of numbers and letters mixed up, you have to return all the numbers in that string in the order they occur.
+*/
+function filterString(value) {
+  const regex = /[a-zA-Z]/g;
+  const result = value.replace(regex, "");
+  return Number(result);
+}
+
+console.log(filterString("123"));
+console.log(filterString("a1b2c3"));
+console.log(filterString("aa1bb2cc3dd"));
