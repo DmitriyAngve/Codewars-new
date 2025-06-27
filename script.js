@@ -22346,6 +22346,7 @@ Such tickets were either eaten after being used or collected for bragging rights
 
 Your task is to write a funtion luck_check(str), which returns true/True if argument is string decimal representation of a lucky ticket number, or false/False for all other numbers. It should throw errors for empty strings or strings which don't represent a decimal number.
 */
+/*
 function luckCheck(ticket) {
   if (typeof ticket !== "string" || ticket.trim() === "") {
     throw new Error("Input must be a non-empty string");
@@ -22379,3 +22380,39 @@ console.log(luckCheck("003111"));
 console.log(luckCheck("0031111"));
 console.log(luckCheck("813372"));
 console.log(luckCheck("683000"));
+*/
+
+// #4
+/*
+Write
+
+function combine()
+
+that combines arrays by alternatingly taking elements passed to it.
+
+E.g
+
+combine(['a', 'b', 'c'], [1, 2, 3]) == ['a', 1, 'b', 2, 'c', 3]
+combine(['a', 'b', 'c'], [1, 2, 3, 4, 5]) == ['a', 1, 'b', 2, 'c', 3, 4, 5]
+combine(['a', 'b', 'c'], [1, 2, 3, 4, 5], [6, 7], [8]) == ['a', 1, 6, 8, 'b', 2, 7, 'c', 3, 4, 5]
+
+Arrays can have different lengths.
+*/
+function combine(...args) {
+  let res = [];
+  let maxLen = Math.max(...args.map((arr) => arr.length));
+  console.log(maxLen);
+
+  for (let i = 0; i < maxLen; i++) {
+    for (let arr of args) {
+      if (i < arr.length) {
+        res.push(arr[i]);
+      }
+    }
+  }
+
+  return res;
+}
+
+console.log(combine(["a", "b", "c"], [1, 2, 3]));
+console.log(combine(["a", "b", "c"], [1, 2, 3, 4, 5], [6, 7], [8]));
