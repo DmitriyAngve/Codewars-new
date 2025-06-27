@@ -22398,6 +22398,7 @@ combine(['a', 'b', 'c'], [1, 2, 3, 4, 5], [6, 7], [8]) == ['a', 1, 6, 8, 'b', 2,
 
 Arrays can have different lengths.
 */
+/*
 function combine(...args) {
   let res = [];
   let maxLen = Math.max(...args.map((arr) => arr.length));
@@ -22416,3 +22417,25 @@ function combine(...args) {
 
 console.log(combine(["a", "b", "c"], [1, 2, 3]));
 console.log(combine(["a", "b", "c"], [1, 2, 3, 4, 5], [6, 7], [8]));
+*/
+
+// #5
+/*
+Create a function that accepts an array of names, and returns an array of each name with its first letter capitalized and the remainder in lowercase.
+Examples
+
+["jo", "nelson", "jurie"] -->  ["Jo", "Nelson", "Jurie"]
+["KARLY", "DANIEL", "KELSEY"] --> ["Karly", "Daniel", "Kelsey"]
+*/
+function capMe(names) {
+  let res = [];
+  for (let i = 0; i < names.length; i++) {
+    res.push(
+      names[i].toUpperCase().slice(0, 1) + names[i].toLowerCase().slice(1)
+    );
+  }
+  return res;
+}
+
+console.log(capMe(["jo", "nelson", "jurie"]));
+console.log(capMe(["KARLY", "DANIEL", "KELSEY"]));
