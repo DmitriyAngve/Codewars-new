@@ -22317,6 +22317,7 @@ Examples
 132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
 493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
 */
+/*
 function digitalRoot(n) {
   let x = n
     .toString()
@@ -22330,3 +22331,51 @@ function digitalRoot(n) {
 console.log(digitalRoot(16));
 console.log(digitalRoot(942));
 console.log(digitalRoot(132189));
+*/
+
+// #3
+/*
+In some countries of former Soviet Union there was a belief about lucky tickets. A transport ticket of any sort was believed to posess luck if sum of digits on the left half of its number was equal to the sum of digits on the right half. Here are examples of such numbers:
+
+003111    #             3 = 1 + 1 + 1
+813372    #     8 + 1 + 3 = 3 + 7 + 2
+17935     #         1 + 7 = 3 + 5  // if the length is odd, you should ignore the middle number when adding the halves.
+56328116  # 5 + 6 + 3 + 2 = 8 + 1 + 1 + 6
+
+Such tickets were either eaten after being used or collected for bragging rights.
+
+Your task is to write a funtion luck_check(str), which returns true/True if argument is string decimal representation of a lucky ticket number, or false/False for all other numbers. It should throw errors for empty strings or strings which don't represent a decimal number.
+*/
+function luckCheck(ticket) {
+  if (typeof ticket !== "string" || ticket.trim() === "") {
+    throw new Error("Input must be a non-empty string");
+  }
+
+  if (!/^\d+$/.test(ticket)) {
+    throw new Error("Ticket must contain only digits");
+  }
+  const arr = ticket.split("").map(Number);
+  const len = ticket.length;
+  const middle = Math.floor(len / 2);
+
+  console.log(arr);
+
+  let left, right;
+  if (len % 2 === 0) {
+    left = arr.slice(0, middle);
+    right = arr.slice(middle);
+  } else {
+    left = arr.slice(0, middle);
+    right = arr.slice(middle + 1);
+  }
+
+  return (
+    left.reduce((acc, curr) => acc + curr, 0) ===
+    right.reduce((acc, curr) => acc + curr, 0)
+  );
+}
+
+console.log(luckCheck("003111"));
+console.log(luckCheck("0031111"));
+console.log(luckCheck("813372"));
+console.log(luckCheck("683000"));
