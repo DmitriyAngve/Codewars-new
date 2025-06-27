@@ -22215,6 +22215,7 @@ Our loose definition of Vampire Numbers can be described as follows:
 
 Create a function that can receive two 'fangs' and determine if the product of the two is a valid vampire number.
 */
+/*
 function vampireTest(a, b) {
   if (a < 0 && b < 0) return false;
   const arr1 = (Math.abs(a).toString() + Math.abs(b).toString())
@@ -22237,3 +22238,66 @@ console.log(vampireTest(21, 6));
 console.log(vampireTest(204, 615));
 console.log(vampireTest(30, -51));
 console.log(vampireTest(-246, -510));
+*/
+
+// #11
+/*
+Write a function that returns a sequence (index begins with 1) of all the even characters from a string. If the string is smaller than two characters or longer than 100 characters, the function should return "invalid string".
+
+For example:
+
+"abcdefghijklm" --> ["b", "d", "f", "h", "j", "l"]
+"a"             --> "invalid string"
+*/
+/*
+function evenChars(string) {
+  if (string.length < 2 || string.length > 100) return "invalid string";
+  let arr = string.split("");
+  console.log(arr);
+  let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 !== 0) {
+      res.push(arr[i]);
+    }
+  }
+  return res;
+}
+
+console.log(evenChars("2"));
+console.log(evenChars("1234"));
+console.log(evenChars(";;;--"));
+console.log(evenChars("abcdefghijklm"));
+*/
+
+// #12
+/*
+You are going to be given a non-empty string. Your job is to return the middle character(s) of the string.
+
+    If the string's length is odd, return the middle character.
+    If the string's length is even, return the middle 2 characters.
+
+Examples:
+
+"test" --> "es"
+"testing" --> "t"
+"middle" --> "dd"
+"A" --> "A"
+*/
+function getMiddle(s) {
+  if (s.length === 1 || s.length === 2) return s;
+  const middle = Math.ceil(s.length / 2);
+  // console.log(middle);
+  let result;
+  if (s.length % 2 === 0) {
+    result = s[middle - 1] + s[middle];
+  } else {
+    result = s[middle - 1];
+  }
+
+  return result;
+}
+
+console.log(getMiddle("test"));
+console.log(getMiddle("testing"));
+// console.log(getMiddle("t"));
+// console.log(getMiddle("tt"));
