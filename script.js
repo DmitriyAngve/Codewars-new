@@ -22249,6 +22249,7 @@ For example:
 "abcdefghijklm" --> ["b", "d", "f", "h", "j", "l"]
 "a"             --> "invalid string"
 */
+/*
 function evenChars(string) {
   if (string.length < 2 || string.length > 100) return "invalid string";
   let arr = string.split("");
@@ -22266,3 +22267,37 @@ console.log(evenChars("2"));
 console.log(evenChars("1234"));
 console.log(evenChars(";;;--"));
 console.log(evenChars("abcdefghijklm"));
+*/
+
+// #12
+/*
+You are going to be given a non-empty string. Your job is to return the middle character(s) of the string.
+
+    If the string's length is odd, return the middle character.
+    If the string's length is even, return the middle 2 characters.
+
+Examples:
+
+"test" --> "es"
+"testing" --> "t"
+"middle" --> "dd"
+"A" --> "A"
+*/
+function getMiddle(s) {
+  if (s.length === 1 || s.length === 2) return s;
+  const middle = Math.ceil(s.length / 2);
+  // console.log(middle);
+  let result;
+  if (s.length % 2 === 0) {
+    result = s[middle - 1] + s[middle];
+  } else {
+    result = s[middle - 1];
+  }
+
+  return result;
+}
+
+console.log(getMiddle("test"));
+console.log(getMiddle("testing"));
+// console.log(getMiddle("t"));
+// console.log(getMiddle("tt"));
