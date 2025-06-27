@@ -22454,6 +22454,7 @@ Examples:
 [0, 5, 1, 3, 2, 9, 7, 6, 4] --> 8
 [9, 2, 4, 5, 7, 0, 8, 6, 1] --> 3
 */
+/*
 function getMissingElement(arr) {
   if (!arr.length) return 0;
   const res = arr.sort((a, b) => a - b);
@@ -22473,3 +22474,38 @@ function getMissingElement(arr) {
 
 console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4]));
 console.log(getMissingElement([0, 1, 2, 3, 4, 5, 7, 8, 9]));
+*/
+
+// #7
+/*
+Create a function named divisors/Divisors that takes an integer n > 1 and returns an array with all of the integer's divisors(except for 1 and the number itself), from smallest to largest. If the number is prime return the string '(integer) is prime' (null in C#, empty table in COBOL) (use Either String a in Haskell and Result<Vec<u32>, String> in Rust).
+Examples:
+
+divisors(12) --> [2, 3, 4, 6]
+divisors(25) --> [5]
+divisors(13) --> "13 is prime"
+*/
+function divisors(int) {
+  if (isPrime(int)) return `${int} is prime`;
+  let res = [];
+  for (let i = 1; i < int; i++) {
+    if (int % i === 0) {
+      res.push(i);
+    }
+  }
+  return res.slice(1);
+}
+
+function isPrime(x) {
+  if (x < 2) return false;
+  if (x === 2 || x === 3) return true;
+  if (x % 2 === 0 || x % 3 === 0) return false;
+  for (let i = 5; i * i <= x; i += 6) {
+    if (x % i === 0 || x % (i + 2) === 0) return false;
+  }
+  return true;
+}
+
+console.log(divisors(12));
+console.log(divisors(25));
+console.log(divisors(13));
