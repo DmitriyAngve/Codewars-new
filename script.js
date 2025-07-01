@@ -22656,6 +22656,7 @@ If a string contains all repeating characters, it should return an empty string 
 
 † Note: the function is called firstNonRepeatingLetter for historical reasons, but your function should handle any Unicode character.
 */
+/*
 function firstNonRepeatingLetter(s) {
   if (s.length <= 1) return s;
   let ht = {};
@@ -22679,3 +22680,58 @@ console.log(firstNonRepeatingLetter("moonmen"));
 console.log(firstNonRepeatingLetter("a"));
 console.log(firstNonRepeatingLetter("aa"));
 console.log(firstNonRepeatingLetter(""));
+*/
+
+// #2
+/*
+Step 1: Create a function called encode() to replace all the lowercase vowels in a given string with numbers according to the following pattern:
+
+a -> 1
+e -> 2
+i -> 3
+o -> 4
+u -> 5
+
+For example, encode("hello") would return "h2ll4". There is no need to worry about uppercase vowels in this kata.
+
+Step 2: Now create a function called decode() to turn the numbers back into vowels according to the same pattern shown above.
+
+For example, decode("h3 th2r2") would return "hi there".
+
+For the sake of simplicity, you can assume that any numbers passed into the function will correspond to vowels.
+*/
+function encode(string) {
+  let res = "";
+  const ht = {
+    a: "1",
+    e: "2",
+    i: "3",
+    o: "4",
+    u: "5",
+  };
+
+  for (let i = 0; i < string.length; i++) {
+    const char = string[i];
+    res += ht[char] || char;
+  }
+  return res;
+}
+
+function decode(string) {
+  const ht = {
+    "1": "a",
+    "2": "e",
+    "3": "i",
+    "4": "o",
+    "5": "u",
+  };
+  let res = "";
+  for (let i = 0; i < string.length; i++) {
+    const char = string[i];
+    res += ht[char] || char;
+  }
+  return res;
+}
+
+console.log(encode("hello"));
+console.log(decode(encode("hello")));
