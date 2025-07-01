@@ -22865,6 +22865,7 @@ Example:
 input:  "stop Making spongebob Memes!"
 output: "StOp mAkInG SpOnGeBoB MeMeS!"
 */
+/*
 function spongeMeme(str) {
   const arr = str.split("");
   console.log(arr);
@@ -22881,3 +22882,74 @@ function spongeMeme(str) {
 }
 
 console.log(spongeMeme("stop Making spongebob Memes!"));
+*/
+
+// #8
+/*
+Create a function that takes an array of letters, and combines them into words in a sentence.
+
+The array will be formatted as so:
+
+[
+  ['J','L','L','M'],
+  ['u','i','i','a'],
+  ['s','v','f','n'],
+  ['t','e','e','']
+]
+
+The function should combine all the 0th indexed letters of each sub-array to create the word Just, all the 1st indexed letters of each sub-array to create the word Live, etc.
+
+If a word is shorter than the maximum length, the remaining positions in the sub-array will contain empty strings (e.g., the last element in the last sub-array).
+
+Examples:
+
+[
+  ['J','L','L','M'],
+  ['u','i','i','a'],
+  ['s','v','f','n'],
+  ['t','e','e','']
+] // => "Just Live Life Man"
+
+[ 
+  [ 'T', 'M', 'i', 't', 'p', 'o', 't', 'c' ],
+  [ 'h', 'i', 's', 'h', 'o', 'f', 'h', 'e' ],
+  [ 'e', 't', '', 'e', 'w', '', 'e', 'l' ],
+  [ '', 'o', '', '', 'e', '', '', 'l' ],
+  [ '', 'c', '', '', 'r', '', '', '' ],
+  [ '', 'h', '', '', 'h', '', '', '' ],
+  [ '', 'o', '', '', 'o', '', '', '' ],
+  [ '', 'n', '', '', 'u', '', '', '' ],
+  [ '', 'd', '', '', 's', '', '', '' ],
+  [ '', 'r', '', '', 'e', '', '', '' ],
+  [ '', 'i', '', '', '', '', '', '' ],
+  [ '', 'a', '', '', '', '', '', '' ]
+] // => "The Mitochondria is the powerhouse of the cell"
+*/
+
+function arrAdder(arr) {
+  const flatArr = arr.flat(Infinity);
+  const rows = arr.length; // сколько букв в одном слове
+  const cols = arr[0].length; // сколько всего слов
+
+  const result = [];
+
+  for (let i = 0; i < cols; i++) {
+    let word = "";
+    for (let j = 0; j < rows; j++) {
+      const index = j * cols + i;
+      word += flatArr[index];
+    }
+    result.push(word);
+  }
+
+  return result.join(" ");
+}
+
+console.log(
+  arrAdder([
+    ["J", "L", "L", "M"],
+    ["u", "i", "i", "a"],
+    ["s", "v", "f", "n"],
+    ["t", "e", "e", ""],
+  ])
+);
