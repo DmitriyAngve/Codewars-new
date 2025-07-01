@@ -22805,6 +22805,7 @@ oddOne([2,16,98,10,13,78]) // => 4
 oddOne([4,-8,98,-12,-7,90,100]) // => 4
 oddOne([2,4,6,8]) // => -1
 */
+/*
 function oddOne(arr) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] % 2 !== 0) {
@@ -22817,3 +22818,34 @@ function oddOne(arr) {
 console.log(oddOne([2, 4, 6, 7, 10]));
 console.log(oddOne([4, -8, 98, -12, -7, 90, 100]));
 console.log(oddOne([2, 4, 6, 8]));
+*/
+
+// #6
+/*
+Willy Wonka has put golden tickets into the candy bars around the world! Do you have one of those lucky golden tickets?
+
+Create a function that will search a box of candy bars for the golden ticket. The box is a 2D array that contains false if there is no ticket, and a true if there is one.
+
+//Example of a box of candy bars:
+[[false],[false],[false],[true],[false]]
+
+The function should output the index of the candy bar with the golden ticket. IF there is NO golden ticket in the box, the function should output "There is no golden ticket!"
+
+Examples:
+
+finder([[false],[false],[false],[true],[false]]) // => 3
+finder([[true],[false],[false],[false]]) // => 0
+finder([[false],[false],[false],[false],[false]]) // => "There is no golden ticket!"
+*/
+function finder(box) {
+  for (let i = 0; i < box.length; i++) {
+    if (box[i].includes(true)) {
+      return i;
+    }
+  }
+  return "There is no golden ticket!";
+}
+
+console.log(finder([[false], [false], [false], [true], [false]]));
+console.log(finder([[true], [false], [false], [false]]));
+console.log(finder([[false], [false], [false], [false], [false]]));
