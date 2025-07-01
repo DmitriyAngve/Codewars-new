@@ -22700,6 +22700,7 @@ For example, decode("h3 th2r2") would return "hi there".
 
 For the sake of simplicity, you can assume that any numbers passed into the function will correspond to vowels.
 */
+/*
 function encode(string) {
   let res = "";
   const ht = {
@@ -22735,3 +22736,28 @@ function decode(string) {
 
 console.log(encode("hello"));
 console.log(decode(encode("hello")));
+*/
+
+// #3
+/*
+Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+Examples
+
+"This is an example!" ==> "sihT si na !elpmaxe"
+"double  spaces"      ==> "elbuod  secaps"
+*/
+function reverseWords(str) {
+  let res = [];
+
+  const arr = str.split(" ");
+
+  for (let i = 0; i < arr.length; i++) {
+    let word = arr[i].split("").reverse().join("");
+    console.log(word);
+    res.push(word);
+  }
+  return res.join(" ");
+}
+
+console.log(reverseWords("This is an example!"));
+console.log(reverseWords("double  space"));
