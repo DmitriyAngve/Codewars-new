@@ -22837,6 +22837,7 @@ finder([[false],[false],[false],[true],[false]]) // => 3
 finder([[true],[false],[false],[false]]) // => 0
 finder([[false],[false],[false],[false],[false]]) // => "There is no golden ticket!"
 */
+/*
 function finder(box) {
   for (let i = 0; i < box.length; i++) {
     if (box[i].includes(true)) {
@@ -22849,3 +22850,34 @@ function finder(box) {
 console.log(finder([[false], [false], [false], [true], [false]]));
 console.log(finder([[true], [false], [false], [false]]));
 console.log(finder([[false], [false], [false], [false], [false]]));
+*/
+
+// #7
+/*
+Remember the spongebob meme that is meant to make fun of people by repeating what they say in a mocking way?
+
+"Dont use that weird spongebob mocking meme" Me: DonT uSe thAt WeIrd SpoNgEboB MoCkinG MEme
+
+You need to create a function that converts the input into this format, with the output being the same string expect there is a pattern of uppercase and lowercase letters.
+
+Example:
+
+input:  "stop Making spongebob Memes!"
+output: "StOp mAkInG SpOnGeBoB MeMeS!"
+*/
+function spongeMeme(str) {
+  const arr = str.split("");
+  console.log(arr);
+  let res = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 === 0) {
+      res.push(arr[i].toUpperCase());
+    } else {
+      res.push(arr[i].toLowerCase());
+    }
+  }
+  return res.join("");
+}
+
+console.log(spongeMeme("stop Making spongebob Memes!"));
