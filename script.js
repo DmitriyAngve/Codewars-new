@@ -22631,6 +22631,7 @@ Details
 
 You will be given a string of numbers and letters mixed up, you have to return all the numbers in that string in the order they occur.
 */
+/*
 function filterString(value) {
   const regex = /[a-zA-Z]/g;
   const result = value.replace(regex, "");
@@ -22640,3 +22641,41 @@ function filterString(value) {
 console.log(filterString("123"));
 console.log(filterString("a1b2c3"));
 console.log(filterString("aa1bb2cc3dd"));
+*/
+
+// 01.07.2025
+// #1
+/*
+first_non_repeating_letter† that takes a string input, and returns the first character that is not repeated anywhere in the string.
+
+For example, if given the input 'stress', the function should return 't', since the letter t only occurs once in the string, and occurs first in the string.
+
+As an added challenge, upper- and lowercase letters are considered the same character, but the function should return the correct case for the initial letter. For example, the input 'sTreSS' should return 'T'.
+
+If a string contains all repeating characters, it should return an empty string ("");
+
+† Note: the function is called firstNonRepeatingLetter for historical reasons, but your function should handle any Unicode character.
+*/
+function firstNonRepeatingLetter(s) {
+  if (s.length <= 1) return s;
+  let ht = {};
+  const lower = s.toLowerCase();
+  for (let i = 0; i < lower.length; i++) {
+    const char = lower[i];
+    ht[char] = (ht[char] || 0) + 1;
+  }
+
+  for (let i = 0; i < s.length; i++) {
+    const lowChar = s[i].toLowerCase();
+    if (ht[lowChar] === 1) {
+      return s[i];
+    }
+  }
+  return "";
+}
+
+console.log(firstNonRepeatingLetter("stress"));
+console.log(firstNonRepeatingLetter("moonmen"));
+console.log(firstNonRepeatingLetter("a"));
+console.log(firstNonRepeatingLetter("aa"));
+console.log(firstNonRepeatingLetter(""));
