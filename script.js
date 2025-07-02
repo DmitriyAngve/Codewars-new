@@ -22968,6 +22968,7 @@ Examples
 "Lets go to the movies"       -->  "L  E  T  S  G  O  T  O  T  H  E  M  O  V  I  E  S"
 "Why isn't my code working?"  -->  "W  H  Y  I  S  N  '  T  M  Y  C  O  D  E  W  O  R  K  I  N  G  ?"
 */
+/*
 function vaporcode(str) {
   let arr = str.replace(/ /g, "").split("");
   // console.log(arr);
@@ -22980,3 +22981,78 @@ function vaporcode(str) {
 
 console.log(vaporcode("Why isn't my code working?"));
 console.log(vaporcode("Lets go to the movies"));
+*/
+
+// #2
+/*
+ASC Week 1 Challenge 5 (Medium #2)
+
+Create a function that takes a 2D array as an input, and outputs another array that contains the average values for the numbers in the nested arrays at the corresponding indexes.
+
+Note: the function should also work with negative numbers and floats.
+Examples
+
+[ [1, 2, 3, 4], [5, 6, 7, 8] ]  ==>  [3, 4, 5, 6]
+
+1st array: [1, 2, 3, 4]
+2nd array: [5, 6, 7, 8]
+            |  |  |  |
+            v  v  v  v
+average:   [3, 4, 5, 6]
+
+And another one:
+
+[ [2, 3, 9, 10, 7], [12, 6, 89, 45, 3], [9, 12, 56, 10, 34], [67, 23, 1, 88, 34] ]  ==>  [22.5, 11, 38.75, 38.25, 19.5]
+
+1st array: [  2,   3,    9,   10,    7]
+2nd array: [ 12,   6,   89,   45,    3]
+3rd array: [  9,  12,   56,   10,   34]
+4th array: [ 67,  23,    1,   88,   34]
+              |    |     |     |     |
+              v    v     v     v     v
+average:   [22.5, 11, 38.75, 38.25, 19.5]
+*/
+function avgArray(arr) {
+  const flatArr = arr.flat(Infinity);
+  console.log(flatArr);
+  const rows = arr.length;
+  const cols = arr[0].length;
+  let result = [];
+  for (let i = 0; i < cols; i++) {
+    let avg = 0;
+    for (let j = 0; j < rows; j++) {
+      const index = j * cols + i;
+      avg += flatArr[index] / rows;
+    }
+    result.push(avg);
+  }
+  return result;
+}
+
+// unction arrAdder(arr) {
+//   const flatArr = arr.flat(Infinity);
+//   const rows = arr.length; // сколько букв в одном слове
+//   const cols = arr[0].length; // сколько всего слов
+
+//   const result = [];
+
+//   for (let i = 0; i < cols; i++) {
+//     let word = "";
+//     for (let j = 0; j < rows; j++) {
+//       const index = j * cols + i;
+//       word += flatArr[index];
+//     }
+//     result.push(word);
+//   }
+
+//   return result.join(" ");
+// }
+
+console.log(
+  avgArray([
+    [2, 3, 9, 10, 7],
+    [12, 6, 89, 45, 3],
+    [9, 12, 56, 10, 34],
+    [67, 23, 1, 88, 34],
+  ])
+);
