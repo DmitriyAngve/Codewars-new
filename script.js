@@ -23075,6 +23075,7 @@ oddNum([2, 4, 18, 20, 28, 90, 158]) // => -1
 
 If there are no odd numbers, the function should output -1. Numbers are guaranteed to be non-negative.
 */
+/*
 function oddNum(arr) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] % 2 !== 0) {
@@ -23086,3 +23087,36 @@ function oddNum(arr) {
 
 console.log(oddNum([2, 4, 6, 7, 10]));
 console.log(oddNum([2, 4]));
+*/
+
+// #5
+/*
+Create a function that takes 2 arrays of 5 string numbers each, and outputs the sum of the corresponding elements as strings as well.
+
+  sumArr(['4','5','6','7','8'],['1','2','3','4','5']) // => ['5','7','9','11','13']
+  sumArr(['34','5','200','17','6'],['27','24','14','90','16']) // => ['61','29','214','107','22']
+
+If any input is an empty string, it should return the number that isn't just an empty string. If both corresponding elements are empty, output "0".
+
+HINT: Remember Number()/parseInt() from https://www.codewars.com/kata/5966e33c4e686b508700002d
+*/
+function sumArr(a, b) {
+  let res = [];
+  for (let i = 0; i < a.length; i++) {
+    let first = a[i];
+    let second = b[i];
+
+    if (first === "" && second === "") {
+      res.push("0");
+    } else if (first === "") {
+      res.push(second);
+    } else if (second === "") {
+      res.push(first);
+    } else {
+      res.push(String(Number(first) + Number(second)));
+    }
+  }
+  return res;
+}
+
+console.log(sumArr(["4", "5", "6", "7", "8"], ["1", "2", "3", "4", "5"]));
