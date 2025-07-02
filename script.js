@@ -23051,6 +23051,7 @@ For Example:
 
 Remember, c corresponds with g, and a corresponds with t
 */
+/*
 function dnaMaker(dna) {
   const pairs = { a: "t", t: "a", c: "g", g: "c" };
 
@@ -23061,3 +23062,27 @@ function dnaMaker(dna) {
 }
 
 console.log(dnaMaker("cactgcctagtcactgat"));
+*/
+
+// #4
+/*
+ASC Week 1 Challenge 2 (Easy #2)
+
+Create a function that takes an array of numbers, and returns the index of the first odd number.
+
+oddNum([2, 4, 6, 7, 10])            // =>  3
+oddNum([2, 4, 18, 20, 28, 90, 158]) // => -1
+
+If there are no odd numbers, the function should output -1. Numbers are guaranteed to be non-negative.
+*/
+function oddNum(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 !== 0) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+console.log(oddNum([2, 4, 6, 7, 10]));
+console.log(oddNum([2, 4]));
