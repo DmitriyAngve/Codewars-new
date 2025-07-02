@@ -23164,6 +23164,7 @@ If a = [1, 2] and b = [1], the result should be [2].
 
 If a = [1, 2, 2, 2, 3] and b = [2], the result should be [1, 3].
 */
+/*
 function arrayDiff(a, b) {
   let res = [];
   for (let i = 0; i < a.length; i++) {
@@ -23176,3 +23177,36 @@ function arrayDiff(a, b) {
 
 console.log(arrayDiff([1, 2, 3], [1, 2]));
 console.log(arrayDiff([1, 2, 3], [2]));
+*/
+
+// #8
+/*
+Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
+
+Examples input/output:
+
+XO("ooxx") => true
+XO("xooxx") => false
+XO("ooxXm") => true
+XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+XO("zzoo") => false
+*/
+function XO(str) {
+  str = str.toLowerCase();
+  let xCount = 0;
+  let oCount = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "x") {
+      xCount++;
+    } else if (str[i] === "o") {
+      oCount++;
+    }
+  }
+
+  return xCount === oCount;
+}
+
+console.log(XO("ooxx"));
+console.log(XO("zpzpzpp"));
+console.log(XO("xooxx"));
