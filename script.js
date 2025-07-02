@@ -23012,6 +23012,7 @@ And another one:
               v    v     v     v     v
 average:   [22.5, 11, 38.75, 38.25, 19.5]
 */
+/*
 function avgArray(arr) {
   const flatArr = arr.flat(Infinity);
   console.log(flatArr);
@@ -23029,25 +23030,6 @@ function avgArray(arr) {
   return result;
 }
 
-// unction arrAdder(arr) {
-//   const flatArr = arr.flat(Infinity);
-//   const rows = arr.length; // сколько букв в одном слове
-//   const cols = arr[0].length; // сколько всего слов
-
-//   const result = [];
-
-//   for (let i = 0; i < cols; i++) {
-//     let word = "";
-//     for (let j = 0; j < rows; j++) {
-//       const index = j * cols + i;
-//       word += flatArr[index];
-//     }
-//     result.push(word);
-//   }
-
-//   return result.join(" ");
-// }
-
 console.log(
   avgArray([
     [2, 3, 9, 10, 7],
@@ -23056,3 +23038,26 @@ console.log(
     [67, 23, 1, 88, 34],
   ])
 );
+*/
+
+// #3
+/*
+You're working at a bio-engineering lab that wants you to create a function that will help recreate DNA strands. At the moment, you only have one half of the DNA. Your job is to create the corresponding other half of the DNA.
+
+For Example:
+
+  dnaMaker('gctcacgtag') // => 'cgagtgcatc'
+  dnaMaker('cactgcctagtcactgat') // => 'gtgacggatcagtgacta'
+
+Remember, c corresponds with g, and a corresponds with t
+*/
+function dnaMaker(dna) {
+  const pairs = { a: "t", t: "a", c: "g", g: "c" };
+
+  return dna
+    .split("")
+    .map((el) => pairs[el])
+    .join("");
+}
+
+console.log(dnaMaker("cactgcctagtcactgat"));
