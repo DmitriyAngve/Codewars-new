@@ -23228,6 +23228,7 @@ For example:
 '{0} + {0} = {1}'.formatWith('1','2') ===  '1 + 1 = 2'
 'Testing {1}'.formatWith('kata') === 'Testing {1}' // there is no arguments at position 1
 */
+/*
 String.prototype.formatWith = function (...args) {
   return this.replace(/{(\d+)}/g, (match, index) => {
     return args[index] !== undefined ? args[index] : match;
@@ -23235,3 +23236,34 @@ String.prototype.formatWith = function (...args) {
 };
 
 console.log("Hello {0}".formatWith("Codewars"));
+*/
+
+// #2
+/*
+You have to create a function that converts integer given as string into ASCII uppercase letters or spaces.
+
+All ASCII characters have their numerical order in table.
+
+For example,
+
+from ASCII table, character of number 65 is "A".
+
+Numbers will be next to each other, So you have to split given number to two digit long integers.
+Examples (input -> output)
+
+'658776' -> 'AWL' (because in ASCII table 'A' is 65, 'W' is 87, 'L' is 76)
+'73327673756932858080698267658369' ->'I LIKE UPPERCASE'
+
+Good Luck!
+*/
+function convert(number) {
+  let res = [];
+
+  for (let i = 0; i < number.length; i += 2) {
+    res.push(String.fromCharCode(number[i] + number[i + 1]));
+  }
+  return res.join("");
+}
+
+console.log(convert("658776"));
+console.log(convert("73327673756932858080698267658369"));
