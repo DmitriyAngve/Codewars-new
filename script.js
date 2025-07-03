@@ -23256,6 +23256,7 @@ Examples (input -> output)
 
 Good Luck!
 */
+/*
 function convert(number) {
   let res = [];
 
@@ -23267,3 +23268,60 @@ function convert(number) {
 
 console.log(convert("658776"));
 console.log(convert("73327673756932858080698267658369"));
+*/
+
+// #3
+/*
+Create a function mispelled(word1, word2):
+
+mispelled('versed', 'xersed'); // returns true
+mispelled('versed', 'applb'); // returns false
+mispelled('versed', 'v5rsed'); // returns true
+mispelled('1versed', 'versed'); // returns true
+mispelled('versed', 'versed'); // returns true
+
+It checks if the word2 differs from word1 by at most one character.
+
+This can include an extra char at the end or the beginning of either of words.
+
+In the tests that expect true, the mispelled word will always differ mostly by one character. If the two words are the same, return True.
+*/
+var mispelled = function (word1, word2) {
+  if (word1 === word2) return true;
+  if (Math.abs(word1.length - word2.length) > 1) return false;
+
+  let i = 0,
+    j = 0,
+    differences = 0;
+
+  while (i < word1.length && j < word2.length) {
+    if (word1[i] !== word2[j]) {
+      differences++;
+      if (differences > 1) return false;
+
+      // Если длины не равны, двигаем указатель длинного слова
+      if (word1.length > word2.length) i++;
+      else if (word2.length > word1.length) j++;
+      else {
+        i++;
+        j++;
+      }
+    } else {
+      i++;
+      j++;
+    }
+  }
+
+  // Учитываем возможную разницу на один символ в конце
+  if (i < word1.length || j < word2.length) differences++;
+
+  return differences <= 1;
+};
+
+console.log(mispelled("versed", "xersed"));
+console.log(mispelled("versed", "applb"));
+console.log(mispelled("versed", "v5rsed"));
+console.log(mispelled("1versed", "versed"));
+console.log(mispelled("versed", "versed"));
+console.log(mispelled("aaversed", "versed"));
+console.log(mispelled("versed", "aaversed"));
