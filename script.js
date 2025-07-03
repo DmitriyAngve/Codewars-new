@@ -23286,6 +23286,7 @@ This can include an extra char at the end or the beginning of either of words.
 
 In the tests that expect true, the mispelled word will always differ mostly by one character. If the two words are the same, return True.
 */
+/*
 var mispelled = function (word1, word2) {
   if (word1 === word2) return true;
   if (Math.abs(word1.length - word2.length) > 1) return false;
@@ -23325,3 +23326,28 @@ console.log(mispelled("1versed", "versed"));
 console.log(mispelled("versed", "versed"));
 console.log(mispelled("aaversed", "versed"));
 console.log(mispelled("versed", "aaversed"));
+*/
+
+// #4
+/*
+In this Kata, you will be given a string that has lowercase letters and numbers. Your task is to compare the number groupings and return the largest number. Numbers will not have leading zeros.
+
+For example, solve("gh12cdy695m1") = 695, because this is the largest of all number groupings.
+
+Good luck!
+
+Please also try Simple remove duplicates
+*/
+function solve(s) {
+  let res = s
+    .replace(/[a-zA-Z]/g, " ")
+    .trim()
+    .split(" ")
+    .map(Number)
+    .sort((a, b) => b - a);
+  return res[0];
+}
+
+console.log(solve("gh12cdy695m1"));
+console.log(solve("vih61w8oohj5"));
+console.log(solve("lu1j8qbbb85"));
