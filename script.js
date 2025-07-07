@@ -23384,6 +23384,7 @@ Strings may contain spaces. Spaces are not significant, only non-spaces symbols 
 
 It’s guaranteed that array contains more than 2 strings.
 */
+/*
 function findUniq(arr) {
   const signature = (str) =>
     [...new Set(str.toLowerCase().replace(/\s+/g, ""))].sort().join("");
@@ -23404,3 +23405,27 @@ console.log(findUniq(["abc", "acb", "bac", "foo", "bca", "cab", "cba"]));
 console.log(
   findUniq(["Tom Marvolo Riddle", "I am Lord Voldemort", "Harry Potter"])
 );
+*/
+
+// #3
+/*
+findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+findUniq([ 4, 4, 'foo', 4 ]) === 'foo'
+
+It’s guaranteed that array contains more than 3 elements. Array may contain anything (including NaN).
+*/
+function findUniq(arr) {
+  let map = new Map();
+
+  for (const el of arr) {
+    map.set(el, (map.get(el) || 0) + 1);
+  }
+
+  for (const [key, value] of map.entries()) {
+    // console.log([key, value]);
+    if (value === 1) return key;
+  }
+}
+
+console.log(findUniq([NaN, 2, NaN, NaN]));
+console.log(findUniq([4, 4, "foo", 4]));
