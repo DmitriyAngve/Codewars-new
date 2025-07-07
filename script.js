@@ -23361,6 +23361,7 @@ The notorious Captain Schneider has given you a very straightforward mission. An
 
 Create a function that given a string, retains only the letters A-Z (upper and lowercase), 0-9 digits, and whitespace characters. Also, returns "Not a string!" if the entry type is not a string.
 */
+/*
 function nothingSpecial(str) {
   if (typeof str !== "string") return "Not a string!";
 
@@ -23370,3 +23371,36 @@ function nothingSpecial(str) {
 
 console.log(nothingSpecial(2));
 console.log(nothingSpecial("M$$$$$$$y ally!!!!!"));
+*/
+
+// #2
+/*
+There is an array of strings. All strings contains similar letters except one. Try to find it!
+
+findUniq([ 'Aa', 'aaa', 'aaaaa', 'BbBb', 'Aaaa', 'AaAaAa', 'a' ]) === 'BbBb'
+findUniq([ 'abc', 'acb', 'bac', 'foo', 'bca', 'cab', 'cba' ]) === 'foo'
+
+Strings may contain spaces. Spaces are not significant, only non-spaces symbols matters. E.g. string that contains only spaces is like empty string.
+
+It’s guaranteed that array contains more than 2 strings.
+*/
+function findUniq(arr) {
+  const signature = (str) =>
+    [...new Set(str.toLowerCase().replace(/\s+/g, ""))].sort().join("");
+
+  const signs = arr.map(signature);
+  console.log(signs);
+
+  const uniqueSign = signs.find(
+    (sign) => signs.indexOf(sign) === signs.lastIndexOf(sign)
+  );
+
+  console.log(uniqueSign);
+
+  return arr[signs.indexOf(uniqueSign)];
+}
+
+console.log(findUniq(["abc", "acb", "bac", "foo", "bca", "cab", "cba"]));
+console.log(
+  findUniq(["Tom Marvolo Riddle", "I am Lord Voldemort", "Harry Potter"])
+);
