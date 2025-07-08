@@ -23510,6 +23510,7 @@ Examples
     "abcabcd" is NOT a valid word because "a" appears twice, "b" appears twice, "c" appears twice, but "d" only appears once!
     "123abc!" is a valid word because all of the characters only appear once in the word.
 */
+/*
 function validateWord(s) {
   let ht = {};
   s = s.toLowerCase();
@@ -23527,3 +23528,23 @@ function validateWord(s) {
 console.log(validateWord("123abc!"));
 console.log(validateWord("abcabcd"));
 console.log(validateWord("abcabc"));
+*/
+
+// 08.07.2025
+// #1
+/*
+You need to create a function, helloWorld, that will return the String Hello, World! without actually using raw strings. This includes quotes, double quotes and template strings. You can, however, use the String constructor and any related functions.
+
+You cannot use the following:
+
+"Hello, World!"
+'Hello, World!'
+`Hello, World!`
+*/
+const helloWorld = () => {
+  let hello = [72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108, 100, 33];
+  return hello.map((char) => String.fromCharCode(char)).join("");
+};
+
+console.log(helloWorld());
+// const helloWorld = () => String.fromCharCode(72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108, 100, 33);
