@@ -23667,6 +23667,7 @@ Examples
 "1001" -> "0110"
 "1001" -> "0110"
 */
+/*
 function onesComplement(n) {
   let res = "";
 
@@ -23684,3 +23685,34 @@ function onesComplement(n) {
 console.log(onesComplement("0"));
 console.log(onesComplement("1"));
 console.log(onesComplement("1101"));
+*/
+
+// #6
+/*
+Complete the method so that it formats the words into a single comma separated value. The last word should be separated by the word 'and' instead of a comma. The method takes in an array of strings and returns a single formatted string.
+
+Note:
+
+    Empty string values should be ignored.
+    Empty arrays or null/nil/None values being passed into the method should result in an empty string being returned.
+
+Example: (Input --> output)
+
+['ninja', 'samurai', 'ronin'] --> "ninja, samurai and ronin"
+['ninja', '', 'ronin'] --> "ninja and ronin"
+[] -->""
+*/
+function formatWords(words) {
+  if (!Array.isArray(words)) return "";
+  const filtered = words.filter((word) => word !== "");
+
+  if (filtered.length === 0) return "";
+  if (filtered.length === 1) return filtered[0];
+
+  const lastWord = filtered.pop();
+  return `${filtered.join(", ")} and ${lastWord}`;
+}
+
+console.log(formatWords(["ninja", "samurai", "ronin"]));
+console.log(formatWords(["ninja", "", "ronin"]));
+console.log(formatWords([]));
