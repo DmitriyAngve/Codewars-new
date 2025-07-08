@@ -23541,6 +23541,7 @@ You cannot use the following:
 'Hello, World!'
 `Hello, World!`
 */
+/*
 const helloWorld = () => {
   let hello = [72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108, 100, 33];
   return hello.map((char) => String.fromCharCode(char)).join("");
@@ -23548,3 +23549,43 @@ const helloWorld = () => {
 
 console.log(helloWorld());
 // const helloWorld = () => String.fromCharCode(72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108, 100, 33);
+*/
+
+// #2
+/*
+Your job is to implement a function which returns the last D digits of an integer N as a list.
+Special cases:
+
+    If D > (the number of digits of N), return all the digits.
+    If D <= 0, return an empty list.
+
+Examples:
+
+N = 1
+D = 1
+result = [1]
+
+N = 1234
+D = 2
+result = [3, 4]
+
+N = 637547
+D = 6
+result = [6, 3, 7, 5, 4, 7]
+*/
+function lastDigit(n, d) {
+  let arr = String(n).split("").map(Number);
+  console.log(arr);
+  if (d <= 0) return [];
+  if (d >= arr.length) return arr;
+  let result = [];
+  for (let i = arr.length - d; i < arr.length; i++) {
+    result.push(arr[i]);
+  }
+  return result;
+}
+
+console.log(lastDigit(1, 1));
+console.log(lastDigit(0, -1));
+console.log(lastDigit(637547, 8));
+console.log(lastDigit(34625647867585, 10));
