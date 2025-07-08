@@ -23573,6 +23573,7 @@ N = 637547
 D = 6
 result = [6, 3, 7, 5, 4, 7]
 */
+/*
 function lastDigit(n, d) {
   let arr = String(n).split("").map(Number);
   console.log(arr);
@@ -23589,3 +23590,31 @@ console.log(lastDigit(1, 1));
 console.log(lastDigit(0, -1));
 console.log(lastDigit(637547, 8));
 console.log(lastDigit(34625647867585, 10));
+*/
+
+// #3
+/*
+For every good kata idea there seem to be quite a few bad ones!
+
+In this kata you need to check the provided array (x) for good ideas 'good' and bad ideas 'bad'. If there are one or two good ideas, return 'Publish!', if there are more than 2 return 'I smell a series!'. If there are no good ideas, as is often the case, return 'Fail!'.
+*/
+function well(x) {
+  let count = 0;
+  for (let i = 0; i < x.length; i++) {
+    if (x[i] === "good") {
+      count++;
+    }
+  }
+  console.log(count);
+  return count === 0
+    ? "Fail!"
+    : count === 1 || count === 2
+    ? "Publish!"
+    : "I smell a series!";
+}
+
+console.log(well(["bad", "bad", "bad"]));
+console.log(well(["good", "bad", "bad", "bad", "bad"]));
+console.log(
+  well(["good", "bad", "bad", "bad", "bad", "good", "bad", "bad", "good"])
+);
