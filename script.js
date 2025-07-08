@@ -23639,6 +23639,7 @@ per(69) = [54, 20, 0]
 per(277777788888899) = [4996238671872, 438939648, 4478976, 338688, 27648, 2688, 768, 336, 54, 20, 0]
 // 2*7*7*7*7*7*7*8*8*8*8*8*8*9*9 = 4996238671872 --> 4*9*9*6*2*3*8*6*7*1*8*7*2 = 4478976 --> ...
 */
+/*
 function per(n) {
   if (n < 10) return [];
 
@@ -23651,3 +23652,35 @@ function per(n) {
 console.log(per(1));
 console.log(per(69));
 console.log(per(277777788888899));
+*/
+
+// #5
+/*
+The Ones' Complement of a binary number is the number obtained by swapping all the 0s for 1s and all the 1s for 0s.
+
+For any given binary number,formatted as a string, return the Ones' Complement of that number.
+Examples
+
+"0"    -> "1"
+"1"    -> "0"
+"000"  -> "111"
+"1001" -> "0110"
+"1001" -> "0110"
+*/
+function onesComplement(n) {
+  let res = "";
+
+  for (let i = 0; i < n.length; i++) {
+    if (n[i] === "1") {
+      res += "0";
+    } else {
+      res += "1";
+    }
+  }
+
+  return res;
+}
+
+console.log(onesComplement("0"));
+console.log(onesComplement("1"));
+console.log(onesComplement("1101"));
