@@ -23702,6 +23702,7 @@ Example: (Input --> output)
 ['ninja', '', 'ronin'] --> "ninja and ronin"
 [] -->""
 */
+/*
 function formatWords(words) {
   if (!Array.isArray(words)) return "";
   const filtered = words.filter((word) => word !== "");
@@ -23716,3 +23717,38 @@ function formatWords(words) {
 console.log(formatWords(["ninja", "samurai", "ronin"]));
 console.log(formatWords(["ninja", "", "ronin"]));
 console.log(formatWords([]));
+*/
+
+// 10.07.2025
+// #1
+/*
+You will be given a string with sets of characters, (i.e. words), seperated by between one and four spaces (inclusive).
+
+Looking at the first letter of each word (case insensitive-"A" and "a" should be treated the same), you need to determine whether it falls into the positive/first half of the alphabet ("a"-"m") or the negative/second half ("n"-"z").
+
+Return True/true if there are more (or equal) positive words than negative words, False/false otherwise.
+
+"A big brown fox caught a bad rabbit" => True/true
+"Xylophones can obtain Xenon." => False/false
+*/
+function connotation(str) {
+  const words = str.trim().split(/\s{1,4}/);
+  let posCount = 0;
+  let negCount = 0;
+
+  for (const word of words) {
+    if (!word) continue; // Пропустить пустые строки
+
+    const firstChar = word[0].toLowerCase();
+
+    if (firstChar >= "a" && firstChar <= "m") {
+      posCount++;
+    } else if (firstChar >= "n" && firstChar <= "z") {
+      negCount++;
+    }
+  }
+
+  return posCount >= negCount;
+}
+console.log(connotation("A big brown fox caught a bad rabbit"));
+console.log(connotation("Xylophones can obtain Xenon."));
