@@ -23731,6 +23731,7 @@ Return True/true if there are more (or equal) positive words than negative words
 "A big brown fox caught a bad rabbit" => True/true
 "Xylophones can obtain Xenon." => False/false
 */
+/*
 function connotation(str) {
   const words = str.trim().split(/\s{1,4}/);
   let posCount = 0;
@@ -23752,3 +23753,24 @@ function connotation(str) {
 }
 console.log(connotation("A big brown fox caught a bad rabbit"));
 console.log(connotation("Xylophones can obtain Xenon."));
+*/
+
+// 11.07.2025
+// #1
+/*
+Write a method remainder which takes two integer arguments, dividend and divisor, and returns the remainder when dividend is divided by divisor. Do NOT use the modulus operator (%) to calculate the remainder!
+Assumption
+
+Dividend will always be greater than or equal to divisor.
+Notes
+
+Make sure that the implemented remainder function works exactly the same as the Modulus operator (%).
+*/
+const remainder = (D, d) => {
+  return D - Math.floor(D / d) * d;
+};
+
+console.log(remainder(3, 2));
+console.log(remainder(19, 2));
+console.log(remainder(34, 7));
+console.log(remainder(78, 5));
