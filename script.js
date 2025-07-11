@@ -23766,6 +23766,7 @@ Notes
 
 Make sure that the implemented remainder function works exactly the same as the Modulus operator (%).
 */
+/*
 const remainder = (D, d) => {
   return D - Math.floor(D / d) * d;
 };
@@ -23774,3 +23775,35 @@ console.log(remainder(3, 2));
 console.log(remainder(19, 2));
 console.log(remainder(34, 7));
 console.log(remainder(78, 5));
+*/
+
+// #2
+/*
+Create a function that takes a number and returns an array of strings containing the number cut off at each digit.
+Examples
+
+    420 should return ["4", "42", "420"]
+    2017 should return ["2", "20", "201", "2017"]
+    2010 should return ["2", "20", "201", "2010"]
+    4020 should return ["4", "40", "402", "4020"]
+    80200 should return ["8", "80", "802", "8020", "80200"]
+
+PS: The input is guaranteed to be an integer in the range [0, 1000000]
+*/
+// const arr = num.toString().split("").map(Number);
+// for (let i = 0; i < arr.length; i++) {
+//   console.log(arr[i]);
+// }
+function createArrayOfTiers(num) {
+  let res = [];
+  let str = num.toString();
+  console.log(str);
+
+  for (let i = 1; i <= str.length; i++) {
+    res.push(str.slice(0, i));
+  }
+  return res;
+}
+
+console.log(createArrayOfTiers(420));
+console.log(createArrayOfTiers(80200));
