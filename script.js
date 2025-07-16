@@ -23794,6 +23794,7 @@ PS: The input is guaranteed to be an integer in the range [0, 1000000]
 // for (let i = 0; i < arr.length; i++) {
 //   console.log(arr[i]);
 // }
+/*
 function createArrayOfTiers(num) {
   let res = [];
   let str = num.toString();
@@ -23807,3 +23808,67 @@ function createArrayOfTiers(num) {
 
 console.log(createArrayOfTiers(420));
 console.log(createArrayOfTiers(80200));
+*/
+
+// 16.07.2025
+// #1
+/*
+In this Kata, we are going to reverse a string while maintaining the spaces (if any) in their original place.
+
+For example:
+
+"our code" => "edo cruo"
+-- Normal reversal without spaces is "edocruo". 
+-- However, there is a space at index 3, so the string becomes "edo cruo"
+
+"your code rocks" => "skco redo cruoy". 
+"codewars" => "srawedoc"
+
+More examples in the test cases. All input will be lower case letters and in some cases spaces.
+*/
+// function solve(str) {
+//   let arr = [];
+//   for (let i = 1; i < str.length; i++) {
+//     if (str[i] === " ") {
+//       arr.push(i);
+//     }
+//   }
+
+//   console.log(arr);
+
+//   let words = str.split(" ");
+//   console.log(words);
+//   let res = "";
+//   for (let i = 0; i < words.length; i++) {
+//     res += words[i].split("").reverse().join("");
+//   }
+//   console.log(res);
+
+//   for (let i = 0; i < arr.length; i++) {
+//     res = res.slice(0, arr[i] + i) + " " + res.slice(arr[i] + i);
+//   }
+//   return res;
+// }
+
+function solve(str) {
+  const chars = str.split("");
+  console.log(chars);
+  const letters = chars.filter((c) => c !== " ");
+  console.log(letters);
+  const reversed = letters.reverse();
+  console.log(reversed);
+
+  let res = "";
+  let letterIndex = 0;
+  for (let i = 0; i < chars.length; i++) {
+    if (chars[i] === " ") {
+      res += " ";
+    } else {
+      res += reversed[letterIndex];
+      letterIndex++;
+    }
+  }
+  return res;
+}
+
+console.log(solve("your code rocks"));
