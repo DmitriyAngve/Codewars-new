@@ -23894,6 +23894,7 @@ Notes
     0 can be substituted for O
     5 can be substituted for S
 */
+/*
 function hexWordSum(string) {
   let words = string.split(" ");
   let sum = 0;
@@ -23910,3 +23911,33 @@ function hexWordSum(string) {
 
 console.log(hexWordSum("BAG OF BEES"));
 console.log(hexWordSum("BEES"));
+*/
+
+// 17.07.2025
+// #1
+/*
+This time the input is a sequence of course-ids that are formatted in the following way:
+
+name-yymm
+
+The return of the function shall first be sorted by yymm, then by the name (which varies in length).
+*/
+sortme = function (courses) {
+  return courses.sort((a, b) => {
+    const dateA = help(a);
+    const dateB = help(b);
+    if (dateA !== dateB) return dateA - dateB;
+
+    const nameA = a.split("-")[0];
+    const nameB = b.split("-")[0];
+    return nameA.localeCompare(nameB);
+  });
+};
+
+help = function (el) {
+  return Number(el.match(/\d+/g).join(""));
+};
+
+console.log(sortme(["web-1305", "site-1305", "web-1304", "site-1304"]));
+console.log(sortme([]));
+// ["site-1304", "web-1304", "site-1305", "web-1305"])
