@@ -23922,6 +23922,7 @@ name-yymm
 
 The return of the function shall first be sorted by yymm, then by the name (which varies in length).
 */
+/*
 sortme = function (courses) {
   return courses.sort((a, b) => {
     const dateA = help(a);
@@ -23941,3 +23942,39 @@ help = function (el) {
 console.log(sortme(["web-1305", "site-1305", "web-1304", "site-1304"]));
 console.log(sortme([]));
 // ["site-1304", "web-1304", "site-1305", "web-1305"])
+*/
+
+// 18.07.2025
+// #1
+/*
+Implement function sequence, which returns new n-size Array filled according to pattern.
+
+pattern may be:
+
+    a function that takes two: (element, index), one: (element) or any arguments (similar to map function), then filled running this function, in other words: function describes sequence,
+    number, string or any other object, then filled by copying, this object n-times.
+
+Examples:
+
+sequence(3, 4); // [4, 4, 4]
+sequence(5, []); // [[], [], [], [], []]
+sequence(2, "s"); // ["s", "s"]
+sequence(5, (x, idx) => idx%2) // [0, 1, 0, 1, 0];
+sequence(10, (x, idx) => idx+1) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Note: Sequences are great to work with functional methods like map, reduce, forEach, every or any. For example:
+
+// sum of numbers 1-10
+let sum = sequence(10, (x, idx) => idx+1).reduce((sum, num) => sum + num);
+
+Be careful with long sequences. They are just arrays, every element is created when function is called.
+*/
+function sequence(n, pattern) {
+  return Array.from(
+    { length: n },
+    typeof pattern === "function" ? pattern : () => pattern
+  );
+}
+
+console.log(sequence((5, [])));
+console.log(sequence(10, (x, idx) => idx + 1));
