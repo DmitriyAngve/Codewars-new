@@ -23969,6 +23969,7 @@ let sum = sequence(10, (x, idx) => idx+1).reduce((sum, num) => sum + num);
 
 Be careful with long sequences. They are just arrays, every element is created when function is called.
 */
+/*
 function sequence(n, pattern) {
   return Array.from(
     { length: n },
@@ -23978,3 +23979,101 @@ function sequence(n, pattern) {
 
 console.log(sequence((5, [])));
 console.log(sequence(10, (x, idx) => idx + 1));
+*/
+
+// #2
+/*
+The Adapter Design Pattern can be used, for example in the StarCraft game, to insert an external character in the game.
+
+The pattern consists in having a wrapper class that will adapt the code from the external source.
+Your Task
+
+The adapter receives an instance of the object that it is going to adapt and handles it in a way that works with our application.
+
+In this example we have the pre-loaded classes:
+
+class Marine {
+  attack(target) {
+    target.health -= 6;
+  }
+}
+
+class Zealot {
+  attack(target) {
+    target.health -= 8;
+  }
+}
+
+class Zergling {
+  attack(target) {
+    target.health -= 5;
+  }
+}
+
+class Mario {
+  jumpAttack() {
+    console.log('Mamamia!');
+    return 3;
+  }
+}
+
+Complete the code so that we can create a MarioAdapter that can attack as other units do.
+
+Note to calculate how much damage mario is going to do you have to call the jumpAttack method (jump_attack in Python).
+*/
+/*
+class MarioAdapter {
+  constructor(mario) {
+    this.mario = mario;
+  }
+
+  attack(target) {
+    target.health -= this.mario.jumpAttack();
+  }
+}
+*/
+
+// #3
+/*
+Build a function that will take an array of filenames (as string) and return an array of array. Each array will provide 3 informations about the image file: the full filename, its name and the extension. (See the example below)
+
+Detect the image files based on the end of the filename which is their format (extension).
+Image files are defined as jpg, gif, png, tiff, svg and bmp. So "puppies.jpg" is a image file while "puppies.html" is not.
+
+For example:
+Input: ["imgName.extension", "notAnImg"]
+Output: [["imgName.extension", "imgName", "extension"], null]
+
+So:
+imageFilter(["index.html", "favicon.gif"])
+return [null, ["favicon.gif", "favicon", "gif"]] 
+
+!Non Case Sensitive, so a file with the extension .jpg or .JPG is still an image.
+*/
+function imageFilter(arr) {
+  const imageExts = ["jpg", "gif", "png", "tiff", "svg", "bmp"];
+  const result = [];
+
+  for (let file of arr) {
+    const lastDot = file.lastIndexOf(".");
+    if (lastDot === -1 || lastDot === 0) {
+      result.push(null);
+      continue;
+    }
+
+    const name = file.slice(0, lastDot);
+    const ext = file.slice(lastDot + 1);
+    const extLower = ext.toLowerCase();
+
+    if (imageExts.includes(extLower)) {
+      result.push([file, name, ext]); // сохраняем оригинальное расширение
+    } else {
+      result.push(null);
+    }
+  }
+
+  return result;
+}
+
+console.log(imageFilter(["favicon.gif", "img.tiff"]));
+console.log(imageFilter([".bash_profile", "workspace.doc", "img0912.jpg"]));
