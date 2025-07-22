@@ -24134,7 +24134,7 @@ Examples
 (128).toBits(4) === '10000000';
 (255).toBits(4) === '11111111';
 */
-
+/*
 Number.prototype.toBits = function (l = 8) {
   let binary = this.toString(2);
   if (binary.length >= l) return binary;
@@ -24145,3 +24145,54 @@ console.log((0).toBits(0));
 console.log((7).toBits(2));
 console.log((128).toBits(4));
 console.log((255).toBits(1));
+*/
+
+// #2
+/*
+Define createSequence(regex) function that returns a string of all characters (in ASCII order) matching specified regular expression one-character criterion.
+Examples
+
+let digits = /[0-9]/;
+// createSequence(digits) === '0123456789'
+
+let hexadecimal = /[0-9A-F]/;
+// createSequence(hexadecimal) === '0123456789ABCDEF'
+*/
+const createSequence = (regex) => {
+  // let str = regex
+  //   .toString()
+  //   .replace("/", "")
+  //   .replace("[", "")
+  //   .replace("]", "")
+  //   .replace("/", "")
+  //   .replaceAll("-", "")
+  //   .split("");
+  // let arrNum = [];
+  // let arrChar = [];
+  // for (let i = 0; i < str.length; i++) {
+  //   if (!isNaN(Number(str[i]))) {
+  //     arrNum.push(Number(str[i]));
+  //   } else {
+  //     arrChar.push(str[i]);
+  //   }
+  // }
+  // arrNum = Array.from(
+  //   { length: arrNum[1] - arrNum[0] + 1 },
+  //   (_, i) => arrNum[0] + i
+  // );
+  // arrChar = Array.from(
+  //   { length: arrChar[1].charCodeAt(0) - arrChar[0].charCodeAt(0) + 1 },
+  //   (_, i) => String.fromCharCode(arrChar[0].charCodeAt(0) + i)
+  // );
+  // console.log(arrNum, arrChar);
+  // return arrNum.concat(arrChar).join("");
+  let result = "";
+  for (let i = 0; i <= 127; i++) {
+    const char = String.fromCharCode(i);
+    if (regex.test(char)) result += char;
+  }
+  return result;
+};
+
+console.log(createSequence(/[a-c]/));
+console.log(createSequence(/[0-9A-F]/));
