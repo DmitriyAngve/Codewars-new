@@ -24096,7 +24096,7 @@ likeOrDislike([Dislike,Like]) => Like
 likeOrDislike([Like,Dislike,Dislike]) => Nothing
 */
 // Like, Dislike, Nothing come from Preloaded
-
+/*
 function likeOrDislike(buttons) {
   let state = "Nothing";
 
@@ -24116,3 +24116,32 @@ console.log(likeOrDislike(["Dislike"]));
 console.log(likeOrDislike(["Like", "Like"]));
 console.log(likeOrDislike(["Like", "Like", "Like"]));
 console.log(likeOrDislike(["Dislike", "Like", "Dislike"]));
+*/
+
+// 22.07.2025
+// #1
+/*
+Define the toBits(minLength) function converting provided number to a sequence of bits. The default minimum length should be 8.
+Examples
+
+(0).toBits() === '00000000';
+(7).toBits() === '00000111';
+(128).toBits() === '10000000';
+(255).toBits() === '11111111';
+
+(0).toBits(0) === '0';
+(7).toBits(2) === '111';
+(128).toBits(4) === '10000000';
+(255).toBits(4) === '11111111';
+*/
+
+Number.prototype.toBits = function (l = 8) {
+  let binary = this.toString(2);
+  if (binary.length >= l) return binary;
+  return binary.padStart(l, "0");
+};
+
+console.log((0).toBits(0));
+console.log((7).toBits(2));
+console.log((128).toBits(4));
+console.log((255).toBits(1));
