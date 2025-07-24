@@ -24158,6 +24158,7 @@ let digits = /[0-9]/;
 let hexadecimal = /[0-9A-F]/;
 // createSequence(hexadecimal) === '0123456789ABCDEF'
 */
+/*
 const createSequence = (regex) => {
   // let str = regex
   //   .toString()
@@ -24196,3 +24197,67 @@ const createSequence = (regex) => {
 
 console.log(createSequence(/[a-c]/));
 console.log(createSequence(/[0-9A-F]/));
+*/
+
+// #24.07.2025
+// #1
+/*
+This kata is all about adding numbers.
+
+You will create a function named add. It will return the sum of all the arguments. Sounds easy, doesn't it?
+
+Well Here's the Twist. The inputs will gradually decrease with their index as parameter to the function.
+
+  add(3,4,6); 
+
+  returns ( 3 / 1 ) + ( 4 / 2 ) + ( 6 / 3 ) = 7
+  
+
+Remember the function will return 0 if no arguments are passed and it must round the result if sum is a float.
+
+Example
+
+  add(); //=> 0
+  add(1,2,3); //=> 3
+  add(1,4,-6,20); //=> 6
+*/
+function add() {
+  let arr = [...arguments];
+  if (!arr.length) return 0;
+  let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    res.push(arr[i] / (i + 1));
+  }
+  return Math.round(res.reduce((acc, curr) => acc + curr, 0));
+}
+
+console.log(add());
+console.log(add(1, 2, 3));
+console.log(add(3, 4, 6));
+console.log(add(1, 4, -6, 20));
+console.log(
+  add(
+    -373,
+    179,
+    -58,
+    379,
+    -169,
+    -165,
+    291,
+    -3,
+    -478,
+    -355,
+    295,
+    -370,
+    -21,
+    -410,
+    403,
+    320,
+    -230,
+    -487,
+    -97,
+    212,
+    -220,
+    -383
+  )
+);
