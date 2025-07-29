@@ -24433,6 +24433,7 @@ Note: if this seems too simple for you try the next level
 
 Note2: the input data can be: boolean array, array of objects, array of string arrays, array of number arrays... 😕
 */
+/*
 function printArray(array) {
   let res = "";
   for (let i = 0; i < array.length; i++) {
@@ -24450,3 +24451,45 @@ console.log(
   ])
 );
 console.log(printArray([true, false]));
+*/
+
+// #4
+/*
+Input: Array of elements
+
+["h","o","l","a"]
+
+Output: String with comma delimited elements of the array in th same order.
+
+"h,o,l,a"
+Javascript examples
+
+printArray([1,2,3]) // --> '1,2,3' : elements are Numbers
+printArray([[1,2],["a","b"]]) // --> '[[1,2],["a","b"]]' : elements are 
+*/
+function printArray1(array) {
+  if (!array.length) return ": elements are Unknown";
+
+  const type = Array.isArray(array[0])
+    ? "Array"
+    : typeof array[0] === "object"
+    ? "Object"
+    : typeof array[0] === "number"
+    ? "Number"
+    : typeof array[0] === "string"
+    ? "String"
+    : typeof array[0];
+
+  const result = array.join(",");
+  // console.log(result);
+
+  return `${result} : elements are ${type}`;
+}
+
+console.log(printArray1([1, 2, 3]));
+console.log(
+  printArray1([
+    [1, 2],
+    ["a", "b"],
+  ])
+);
