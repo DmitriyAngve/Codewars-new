@@ -24338,6 +24338,7 @@ Some easy example:
   combat("abc","ab")   == "Winner: s1(c)"    combat("ab","ab")   == "Draw"
   combat("boy","girl") == "Winner: s2(fl)"   combat("dog","cat") == "Draw"
 */
+/*
 function combat(s1, s2) {
   if (!s1 && !s2) return "Draw";
   if (!s1) return `Winner: s2(${s2})`;
@@ -24388,3 +24389,30 @@ function getCharByHP(hp) {
 console.log(combat("dog", "cat"));
 console.log(combat("boy", "gir"));
 console.log(combat("q", "b"));
+*/
+
+// #2
+/*
+Zebulan has worked hard to write all his python code in strict compliance to PEP8 rules. In this kata, you are a mischievous hacker that has set out to sabotage all his good code.
+
+Your job is to take PEP8 compatible function names and convert them to camelCase. For example:
+
+"camel_case" --> "camelCase"
+"zebulans_nightmare" --> "zebulansNightmare"
+"get_string" --> "getString"
+"convert_to_uppercase" --> "convertToUppercase"
+"main" --> "main"
+*/
+function zebulansNightmare(x) {
+  let arr = x.split("_");
+  console.log(arr);
+  let result = "";
+  if (arr.length === 1) return x;
+  for (let i = 0; i < arr.length; i++) {
+    result += arr[i][0].toUpperCase() + arr[i].slice(1);
+  }
+  return result[0].toLowerCase() + result.slice(1);
+}
+
+console.log(zebulansNightmare("convert_to_uppercase"));
+console.log(zebulansNightmare("main"));
