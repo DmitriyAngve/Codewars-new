@@ -24403,6 +24403,7 @@ Your job is to take PEP8 compatible function names and convert them to camelCase
 "convert_to_uppercase" --> "convertToUppercase"
 "main" --> "main"
 */
+/*
 function zebulansNightmare(x) {
   let arr = x.split("_");
   console.log(arr);
@@ -24416,3 +24417,36 @@ function zebulansNightmare(x) {
 
 console.log(zebulansNightmare("convert_to_uppercase"));
 console.log(zebulansNightmare("main"));
+*/
+
+// #3
+/*
+Input: Array of elements
+
+["h","o","l","a"]
+
+Output: String with comma delimited elements of the array in th same order.
+
+"h,o,l,a"
+
+Note: if this seems too simple for you try the next level
+
+Note2: the input data can be: boolean array, array of objects, array of string arrays, array of number arrays... 😕
+*/
+function printArray(array) {
+  let res = "";
+  for (let i = 0; i < array.length; i++) {
+    res += array[i] + ",";
+  }
+  return res.slice(0, -1);
+}
+
+console.log(printArray([2, 4, 5, 2]));
+console.log(printArray(["2", "4", "5", "2"]));
+console.log(
+  printArray([
+    { firstName: "Ruslan", lastName: "López" },
+    { firstName: "John", lastName: "Doe" },
+  ])
+);
+console.log(printArray([true, false]));
