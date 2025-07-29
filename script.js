@@ -24538,6 +24538,7 @@ Example:
 
 findAll([6, 9, 3, 4, 3, 82, 11], 3) => [2, 4]
 */
+/*
 function findAll(arr, n) {
   let res = [];
   for (let i = 0; i < arr.length; i++) {
@@ -24549,3 +24550,37 @@ function findAll(arr, n) {
 }
 
 console.log(findAll([6, 9, 3, 4, 3, 82, 11], 3));
+*/
+
+// #7
+/*
+We will call a natural number a "doubleton number" if it contains exactly two distinct digits. For example, 23, 35, 100, 12121 are doubleton numbers, and 123 and 9980 are not.
+
+For a given natural number n (from 1 to 1 000 000), you need to find the next doubleton number. If n itself is a doubleton, return the next bigger than n.
+Examples:
+
+doubleton(120) === 121
+doubleton(1234) === 1311
+doubleton(10) === 12
+*/
+function doubleton(num) {
+  num++;
+  while (helper(num) !== 2) {
+    num++;
+  }
+  return num;
+}
+
+function helper(num) {
+  let ht = {};
+  let str = num.toString();
+  for (const el of str) {
+    ht[el] = (ht[el] || 0) + 1;
+  }
+  let len = Object.keys(ht).length;
+  return len;
+}
+
+console.log(doubleton(120));
+console.log(doubleton(1234));
+console.log(doubleton(10));
