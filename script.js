@@ -24467,6 +24467,7 @@ Javascript examples
 printArray([1,2,3]) // --> '1,2,3' : elements are Numbers
 printArray([[1,2],["a","b"]]) // --> '[[1,2],["a","b"]]' : elements are 
 */
+/*
 function printArray1(array) {
   if (!array.length) return ": elements are Unknown";
 
@@ -24493,3 +24494,40 @@ console.log(
     ["a", "b"],
   ])
 );
+*/
+
+// #5
+/*
+Given two integers a and x, return the minimum non-negative number to add to / subtract from a to make it a multiple of x.
+
+minimum(10, 6)  //= 2
+
+10+2 = 12 which is a multiple of 6
+
+Note
+
+    0 is always a multiple of x
+
+Constraints
+
+1 <= a <= 106
+
+1 <= x <= 105
+*/
+function minimum(a, x) {
+  if (a % x === 0) return 0;
+  let add = x - (a % x);
+  let sub = a % x;
+
+  return Math.min(add, sub);
+}
+
+// function minimum(a, x) {
+//   if (a % x === 0) return 0;
+//   let add = x - (a % x);
+//   let sub = a % x;
+
+//   return Math.min(add, sub);
+// }
+
+console.log(minimum(100, 8));
