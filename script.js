@@ -24628,6 +24628,7 @@ Santa is coming to town and he needs your help finding out who's been naughty or
 
 Your function should return "Naughty!" or "Nice!" depending on the total number of occurrences in a given year (whichever one is greater). If both are equal, return "Nice!"
 */
+/*
 function naughtyOrNice(data) {
   let arr = Object.entries(data);
 
@@ -25044,3 +25045,32 @@ console.log(
     },
   })
 );
+*/
+
+// #2
+/*
+Implement a function move_zeros which takes two arguments first an array of numbers arrNum and second a Boolean value isRight (default is true) and returns the array with all zero to right if isRight is true else to left if isRight is false.
+
+Example:
+
+arrNum = [12, 0, 10, 0, 8, 12, 7, 6, 0, 4, 10, 12, 0];
+move_zeros(arrNum, true) //=> returns [12, 10, 8, 12, 7, 6, 4, 10, 12, 0, 0, 0, 0]
+
+arrNum = [12, 0, 10, 0, 8, 12, 7, 6, 0, 4, 10, 12, 0];
+move_zeros(arrNum, false) //=> returns [0, 0, 0, 0, 12, 10, 8, 12, 7, 6, 4, 10, 12]
+
+arrNum = [12, 0, 10, 0, 8, 12, 7, 6, 0, 4, 10, 12, 0];
+move_zeros(arrNum) //=> returns [12, 10, 8, 12, 7, 6, 4, 10, 12, 0, 0, 0, 0]
+
+Tips: Order of other numbers should not change.
+*/
+function move_zeros(arrNum, isRight = true) {
+  let zeroes = arrNum.filter((i) => i === 0);
+  let nonZeroes = arrNum.filter((i) => i !== 0);
+
+  return isRight ? nonZeroes.concat(zeroes) : zeroes.concat(nonZeroes);
+}
+
+console.log(move_zeros([12, 0, 10, 0, 8, 12, 7, 6, 0, 4, 10, 12, 0], true));
+console.log(move_zeros([12, 0, 10, 0, 8, 12, 7, 6, 0, 4, 10, 12, 0], false));
+console.log(move_zeros([12, 0, 10, 0, 8, 12, 7, 6, 0, 4, 10, 12, 0]));
