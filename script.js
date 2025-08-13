@@ -25064,6 +25064,7 @@ move_zeros(arrNum) //=> returns [12, 10, 8, 12, 7, 6, 4, 10, 12, 0, 0, 0, 0]
 
 Tips: Order of other numbers should not change.
 */
+/*
 function move_zeros(arrNum, isRight = true) {
   let zeroes = arrNum.filter((i) => i === 0);
   let nonZeroes = arrNum.filter((i) => i !== 0);
@@ -25074,3 +25075,24 @@ function move_zeros(arrNum, isRight = true) {
 console.log(move_zeros([12, 0, 10, 0, 8, 12, 7, 6, 0, 4, 10, 12, 0], true));
 console.log(move_zeros([12, 0, 10, 0, 8, 12, 7, 6, 0, 4, 10, 12, 0], false));
 console.log(move_zeros([12, 0, 10, 0, 8, 12, 7, 6, 0, 4, 10, 12, 0]));
+*/
+
+// 13.08.2025
+// #1
+/*
+The notorious Captain Schneider has given you a very straightforward mission. Any data that comes through the system make sure that only non-special characters see the light of day.
+
+Create a function that given a string, retains only the letters A-Z (upper and lowercase), 0-9 digits, and whitespace characters. Also, returns "Not a string!" if the entry type is not a string.
+*/
+function nothingSpecial(str) {
+  if (typeof str !== "string") {
+    return "Not a string!";
+  } else {
+    const mat = str.match(/[a-zA-Z0-9\s]/g);
+    console.log(mat);
+    return mat ? mat.join("") : "";
+  }
+}
+
+console.log(nothingSpecial(25));
+console.log(nothingSpecial("%^Take le$ft ##quad%r&a&nt"));
