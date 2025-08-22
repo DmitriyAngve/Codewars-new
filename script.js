@@ -25084,6 +25084,7 @@ The notorious Captain Schneider has given you a very straightforward mission. An
 
 Create a function that given a string, retains only the letters A-Z (upper and lowercase), 0-9 digits, and whitespace characters. Also, returns "Not a string!" if the entry type is not a string.
 */
+/*
 function nothingSpecial(str) {
   if (typeof str !== "string") {
     return "Not a string!";
@@ -25096,3 +25097,39 @@ function nothingSpecial(str) {
 
 console.log(nothingSpecial(25));
 console.log(nothingSpecial("%^Take le$ft ##quad%r&a&nt"));
+*/
+
+// 22.08.2025
+// #1
+/*
+Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+Examples
+
+"This is an example!" ==> "sihT si na !elpmaxe"
+"double  spaces"      ==> "elbuod  secaps"
+*/
+function reverseWords(str) {
+  let arr = str.split(" ");
+  console.log(arr);
+  let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    let el = arr[i].split("").reverse().join("");
+    res.push(el);
+  }
+  return res.join(" ");
+}
+
+console.log(reverseWords("This is an example!"));
+console.log(reverseWords("double  spaces"));
+// function reverseWords(str) {
+//   let arr = str.split(" ");
+//   console.log(arr);
+//   let result = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     let el = arr[i].split("").reverse().join("");
+
+//     result.push(el);
+//   }
+
+//   return result.join(" ");
+// }
