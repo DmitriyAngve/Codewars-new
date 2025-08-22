@@ -25108,6 +25108,7 @@ Examples
 "This is an example!" ==> "sihT si na !elpmaxe"
 "double  spaces"      ==> "elbuod  secaps"
 */
+/*
 function reverseWords(str) {
   let arr = str.split(" ");
   console.log(arr);
@@ -25121,15 +25122,27 @@ function reverseWords(str) {
 
 console.log(reverseWords("This is an example!"));
 console.log(reverseWords("double  spaces"));
-// function reverseWords(str) {
-//   let arr = str.split(" ");
-//   console.log(arr);
-//   let result = [];
-//   for (let i = 0; i < arr.length; i++) {
-//     let el = arr[i].split("").reverse().join("");
+*/
 
-//     result.push(el);
-//   }
+// #2
+/*
+Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+Examples:
 
-//   return result.join(" ");
-// }
+Input: 42145 Output: 54421
+
+Input: 145263 Output: 654321
+
+Input: 123456789 Output: 987654321
+*/
+function descendingOrder(n) {
+  return Number(
+    n
+      .toString()
+      .split("")
+      .map(Number)
+      .sort((a, b) => b - a)
+      .join("")
+  );
+}
+console.log(descendingOrder(42145));
