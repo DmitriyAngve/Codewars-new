@@ -25108,6 +25108,7 @@ Examples
 "This is an example!" ==> "sihT si na !elpmaxe"
 "double  spaces"      ==> "elbuod  secaps"
 */
+/*
 function reverseWords(str) {
   let arr = str.split(" ");
   console.log(arr);
@@ -25121,15 +25122,55 @@ function reverseWords(str) {
 
 console.log(reverseWords("This is an example!"));
 console.log(reverseWords("double  spaces"));
-// function reverseWords(str) {
-//   let arr = str.split(" ");
-//   console.log(arr);
-//   let result = [];
-//   for (let i = 0; i < arr.length; i++) {
-//     let el = arr[i].split("").reverse().join("");
+*/
 
-//     result.push(el);
-//   }
+// #2
+/*
+Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+Examples:
 
-//   return result.join(" ");
-// }
+Input: 42145 Output: 54421
+
+Input: 145263 Output: 654321
+
+Input: 123456789 Output: 987654321
+*/
+/*
+function descendingOrder(n) {
+  return Number(
+    n
+      .toString()
+      .split("")
+      .map(Number)
+      .sort((a, b) => b - a)
+      .join("")
+  );
+}
+console.log(descendingOrder(42145));
+*/
+
+// #3
+/*
+Your task is to sum the differences between consecutive pairs in the array in descending order.
+Example
+
+[2, 1, 10]  -->  9
+
+In descending order: [10, 2, 1]
+
+Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9
+
+If the array is empty or the array has only one element the result should be 0 (Nothing in Haskell, None in Rust).
+*/
+function sumOfDifferences(arr) {
+  if (!arr.length) return 0;
+  let sorted = arr.sort((a, b) => b - a);
+
+  let res = 0;
+  for (let i = 0; i < sorted.length - 1; i++) {
+    res += sorted[i] - sorted[i + 1];
+  }
+  return res;
+}
+
+console.log(sumOfDifferences([2, 1, 10]));
