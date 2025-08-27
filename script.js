@@ -25162,6 +25162,7 @@ Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9
 
 If the array is empty or the array has only one element the result should be 0 (Nothing in Haskell, None in Rust).
 */
+/*
 function sumOfDifferences(arr) {
   if (!arr.length) return 0;
   let sorted = arr.sort((a, b) => b - a);
@@ -25174,3 +25175,37 @@ function sumOfDifferences(arr) {
 }
 
 console.log(sumOfDifferences([2, 1, 10]));
+*/
+
+// 27.08.2025
+// #1
+/*
+The object is to count the number of occurances of a specified character (or set of characters) in a string.
+Instructions
+
+Complete the placeholder function characterCount.
+
+    it should return the number of times a single character appears in the string, or
+    if multiple characters are specified (either by providing an array or string of length 2 or more), it should return an array of character counts
+    see the unit tests provided for a more comprehensive definition
+
+NOTE: The tests assume that if no arguments are provided to the function (i.e. ''.characterCount()), then the result is undefined.
+*/
+
+String.prototype.characterCount = function (charsToCount) {
+  if (!charsToCount) return undefined;
+  const chars = [...charsToCount];
+  const counts = new Array(chars.length).fill(0);
+
+  for (let i = 0; i < this.length; i++) {
+    for (let j = 0; j < chars.length; j++) {
+      if (this[i] === chars[j]) {
+        counts[j]++;
+      }
+    }
+  }
+
+  return chars.length === 1 ? counts[0] : counts;
+};
+console.log("lol".characterCount("l"));
+console.log("booop-booop-deee-doo-dooop".characterCount("ado"));
