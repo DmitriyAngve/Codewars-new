@@ -25228,6 +25228,7 @@ Some examples:
     words will be separated by a single space character
     the string will have neither leading nor trailing spaces
 */
+/*
 function sortTheInnerContent(words) {
   return words
     .split(" ")
@@ -25247,3 +25248,25 @@ function sortTheInnerContent(words) {
 
 console.log(sortTheInnerContent("sort the inner content in descending order"));
 console.log(sortTheInnerContent("this kata is easy"));
+*/
+
+// 05.09.2025
+// #1
+/*
+Bob is a theoretical coder - he doesn't write code, but comes up with theories, formulas and algorithm ideas. You are his secretary, and he has tasked you with writing the code for his newest project - a method for making the short form of a word. Write a function shortForm(C# ShortForm, Python short_form) that takes a string and returns it converted into short form using the rule: Remove all vowels, except for those that are the first or last letter. Do not count 'y' as a vowel, and ignore case. Also note, the string given will not have any spaces; only one word, and only Roman letters.
+Example:
+
+shortForm("assault");
+short_form("assault")
+ShortForm("assault");
+// should return "asslt"
+*/
+function shortForm(str) {
+  const chars = /[aeiouAEIOU]/g;
+  let firstChar = str.slice(0, 1);
+  let lastChar = str.slice(-1);
+  let middleWord = str.slice(1).slice(0, -1);
+
+  return firstChar + middleWord.replace(chars, "") + lastChar;
+}
+console.log(shortForm("assault"));
