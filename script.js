@@ -25261,6 +25261,7 @@ short_form("assault")
 ShortForm("assault");
 // should return "asslt"
 */
+/*
 function shortForm(str) {
   const chars = /[aeiouAEIOU]/g;
   let firstChar = str.slice(0, 1);
@@ -25270,3 +25271,26 @@ function shortForm(str) {
   return firstChar + middleWord.replace(chars, "") + lastChar;
 }
 console.log(shortForm("assault"));
+*/
+
+// #2
+/*
+Write function replaceAll (Python: replace_all) that will replace all occurrences of an item with another.
+
+Python / JavaScript: The function has to work for strings and lists.
+
+Example: replaceAll [1,2,2] 1 2 -> in list [1,2,2] we replace 1 with 2 to get new list [2,2,2]
+
+replaceAll(replaceAll(array: [1,2,2], old: 1, new: 2) // [2,2,2]
+*/
+function replaceAll(seq, find, rep) {
+  if (Array.isArray(seq)) {
+    return seq.map((x) => (x === find ? rep : x));
+  }
+  if (typeof seq === "string") {
+    return seq.split(find).join(rep);
+  }
+  return seq;
+}
+
+console.log(replaceAll([1, 2, 2], 1, 2));
