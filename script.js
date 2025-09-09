@@ -25320,6 +25320,7 @@ consecutives 3 is 6 ..."""
 [1,1,7,7,3] # should return [2,14,3]
 [-5,-5,7,7,12,0] # should return [-10,14,12,0]
 */
+/*
 function sumConsecutives(s) {
   let res = [];
   let sum = s[0];
@@ -25336,3 +25337,37 @@ function sumConsecutives(s) {
 
 console.log(sumConsecutives([1, 4, 4, 4, 0, 4, 3, 3, 1]));
 // console.log(sumConsecutives([-5, -5, 7, 7, 12, 0]));
+*/
+
+// #2
+/*
+The objective is to return all pairs of integers from a given array of integers that have a difference of 2.
+
+The result array should be sorted in ascending order of values.
+
+Assume there are no duplicate integers in the array. The order of the integers in the input array should not matter.
+Examples
+
+[1, 2, 3, 4]  should return [[1, 3], [2, 4]]
+
+[4, 1, 2, 3]  should also return [[1, 3], [2, 4]]
+
+[1, 23, 3, 4, 7] should return [[1, 3]]
+
+[4, 3, 1, 5, 6] should return [[1, 3], [3, 5], [4, 6]]
+*/
+function twosDifference(input) {
+  let sorted = input.sort((a, b) => a - b);
+  // console.log(sorted);
+  let res = [];
+
+  for (let i = 0; i < sorted.length; i++) {
+    if (sorted.includes(sorted[i] + 2)) {
+      res.push([sorted[i], sorted[i] + 2]);
+    }
+  }
+  return res;
+}
+
+console.log(twosDifference([1, 2, 3, 4]));
+console.log(twosDifference([1, 23, 3, 4, 7]));
