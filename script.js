@@ -25391,6 +25391,7 @@ Array will contain at least one item.
 // if (typeof el !== "number" && !Number.isNaN(el)) {
 //   console.log(el);
 // }
+/*
 Array.prototype.max = function () {
   let max = -Infinity;
 
@@ -25412,3 +25413,58 @@ console.log([2, 5, 1, 3].max());
 console.log([1, 2, 3, 8, 4, 9, 7, 42, 99].max());
 console.log([2, "5", 1, 3].max());
 console.log([2, 5, 1, "ab"].max());
+*/
+
+// #2
+/*
+You have a list of integers. The task is to return the maximum sum of the elements located between two negative elements. No negative element should be present in the sum. If there is no such sum: -1 for Python, C++, JavaScript, Java, CoffeeScript and COBOL, Nothing for Haskell, None for Rust.
+Example 1
+
+[4, -1, 6, -2, 3, 5, -7, 7] -> 8
+     ^      ^         ^
+
+Sum between -1 and -2 is 6, between -2 and -7 is 3 + 5 = 8. It's also not 14 (between -1 and -7), because this includes a negative number (-2).
+Example 2
+
+[4, -1, -2] -> 0
+     ^   ^
+
+There is nothing between -1 and -2, so return 0.
+*/
+function maxSumBetweenTwoNegatives(a) {
+  let indexes = negInd(a);
+
+  if (indexes.length < 2) return -1;
+  let max = -Infinity;
+
+  for (let i = 0; i < indexes.length - 1; i++) {
+    let start = indexes[i];
+    let end = indexes[i + 1];
+
+    let sum = 0;
+
+    for (let j = start + 1; j < end; j++) {
+      if (a[j] < 0) {
+        sum = -Infinity;
+        break;
+      }
+      sum += a[j];
+    }
+    if (sum > max) {
+      max = sum;
+    }
+  }
+
+  return max === -Infinity ? -1 : max;
+}
+
+function negInd(arr) {
+  return arr.reduce((acc, num, i) => {
+    if (num < 0) acc.push(i);
+    return acc;
+  }, []);
+}
+
+console.log(maxSumBetweenTwoNegatives([4, -1, 6, -2, 3, 5, -7, 7]));
+console.log(maxSumBetweenTwoNegatives([4, -1, -2]));
+console.log(maxSumBetweenTwoNegatives([4, -1, 2]));
