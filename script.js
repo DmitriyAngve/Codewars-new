@@ -25356,6 +25356,7 @@ Examples
 
 [4, 3, 1, 5, 6] should return [[1, 3], [3, 5], [4, 6]]
 */
+/*
 function twosDifference(input) {
   let sorted = input.sort((a, b) => a - b);
   // console.log(sorted);
@@ -25371,3 +25372,43 @@ function twosDifference(input) {
 
 console.log(twosDifference([1, 2, 3, 4]));
 console.log(twosDifference([1, 23, 3, 4, 7]));
+*/
+
+// 15.09.2025
+// #1
+/*
+Extend the Array's built-in functions by implementing .max() method. This method will return the largest number in the array. If the array contains one or more non-number elements that can't be converted into numbers (e.g., string letters), return NaN
+
+Example:
+
+[2,5,1,3].max() // returns 5
+[1,2,3,8,4,9,7,42,99].max() // returns 99
+[2,'5',1,3].max() // returns 5 ("5" can be converted to 5)
+[2,5,1,'ab'].max() // returns NaN ("ab" can't be converted to a number)
+
+Array will contain at least one item.
+*/
+// if (typeof el !== "number" && !Number.isNaN(el)) {
+//   console.log(el);
+// }
+Array.prototype.max = function () {
+  let max = -Infinity;
+
+  for (let i = 0; i < this.length; i++) {
+    let el = Number(this[i]);
+
+    if (Number.isNaN(el)) {
+      return NaN;
+    }
+
+    if (el > max) {
+      max = el;
+    }
+  }
+  return max;
+};
+
+console.log([2, 5, 1, 3].max());
+console.log([1, 2, 3, 8, 4, 9, 7, 42, 99].max());
+console.log([2, "5", 1, 3].max());
+console.log([2, 5, 1, "ab"].max());
