@@ -25565,6 +25565,7 @@ Indices in sequence start from 0.
 
 If the sequence is empty, you should return 0.
 */
+/*
 function evenLast(numbers) {
   if (!numbers.length) return 0;
   let sum = 0;
@@ -25575,3 +25576,29 @@ function evenLast(numbers) {
 }
 
 console.log(evenLast([2, 3, 4, 5]));
+*/
+
+// #7
+/*
+Given a non-empty array of non-empty integer arrays, multiply the contents of each nested array and return the smallest total.
+Example
+
+input = [
+  [1, 5],
+  [2],
+  [-1, -3]
+]
+
+result = 2
+*/
+function smallestProduct(arr) {
+  let res = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    res.push(arr[i].reduce((acc, curr) => acc * curr, 1));
+  }
+
+  return res.sort((a, b) => a - b)[0];
+}
+
+console.log(smallestProduct([[1, 5], [2], [-1, -3]]));
