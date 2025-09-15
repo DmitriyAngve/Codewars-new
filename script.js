@@ -25530,6 +25530,7 @@ Write a function feast that takes the animal's name and dish as arguments and re
 
 Assume that beast and dish are always lowercase strings, and that each has at least two letters. beast and dish may contain hyphens and spaces, but these will not appear at the beginning or end of the string. They will not contain numerals.
 */
+/*
 function feast(beast, dish) {
   return (
     beast[0] === dish[0] &&
@@ -25540,3 +25541,37 @@ function feast(beast, dish) {
 console.log(feast("great blue heron", "garlic naan"));
 console.log(feast("brown bear", "bear claw"));
 console.log(feast("chickadee", "chocolate cake"));
+*/
+
+// #6
+/*
+Implement a function which convert the given boolean value into its string representation.
+
+Note: Only valid inputs will be given.
+*/
+/*
+function booleanToString(b) {
+  return String(b);
+}
+
+console.log(booleanToString(true));
+*/
+
+// #6
+/*
+Given a sequence of integers, return the sum of all the integers that have an even index (odd index in COBOL), multiplied by the integer at the last index.
+
+Indices in sequence start from 0.
+
+If the sequence is empty, you should return 0.
+*/
+function evenLast(numbers) {
+  if (!numbers.length) return 0;
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (i % 2 === 0) sum += numbers[i];
+  }
+  return sum * numbers[numbers.length - 1];
+}
+
+console.log(evenLast([2, 3, 4, 5]));
