@@ -25621,6 +25621,7 @@ Examples
     145 is a strong number, because 1! + 4! + 5! = 1 + 24 + 120 = 145, so return "STRONG!!!!".
     150 is not a strong number, because 1! + 5! + 0! = 122 is not equal to 150, so return "Not Strong !!".
 */
+/*
 function strong(n) {
   const arr = String(n).split("").map(Number);
   console.log(arr);
@@ -25641,3 +25642,17 @@ function factorial(x) {
 
 console.log(strong(145));
 console.log(strong(123));
+*/
+
+// #2
+/*
+Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary representation of that number. You can guarantee that input is non-negative.
+
+Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this case
+*/
+function countBits(n) {
+  return n === 0 ? 0 : n.toString(2).match(/1/g).length;
+}
+
+console.log(countBits(0));
+console.log(countBits(1234));
