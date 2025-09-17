@@ -25650,9 +25650,28 @@ Write a function that takes an integer as input, and returns the number of bits 
 
 Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this case
 */
+/*
 function countBits(n) {
   return n === 0 ? 0 : n.toString(2).match(/1/g).length;
 }
 
 console.log(countBits(0));
 console.log(countBits(1234));
+*/
+
+// #3
+/*
+Write a function reverse which reverses a list (or in clojure's case, any list-like data structure)
+
+(the dedicated builtin(s) functionalities are deactivated)
+*/
+reverse = function (arr) {
+  let newArr = [];
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    newArr.push(arr[i]);
+  }
+  return newArr;
+};
+
+console.log(reverse([1, 2, 3]));
