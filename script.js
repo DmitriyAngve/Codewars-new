@@ -25766,6 +25766,7 @@ If letter = 'r':
 
 Return an empty string if there are no instances of letter in the given string.
 */
+/*
 function comes_after(str, l) {
   let res = "";
   for (let i = 0; i < str.length - 1; i++) {
@@ -25781,3 +25782,19 @@ function comes_after(str, l) {
 
 console.log(comes_after("are you really learning Ruby?", "r"));
 console.log(comes_after("r8 your friend", "r"));
+*/
+
+// #3
+/*
+Today's task is to write a function empty(), which take an array as argument. This function should return the same array, but empty.
+
+To make it even more fun, you are not allowed to use any kind of loop (nor recursion)
+
+Good luck!
+*/
+function empty(arr) {
+  arr.length = 0;
+  return arr;
+}
+
+console.log(empty([1, 1, 2]));
