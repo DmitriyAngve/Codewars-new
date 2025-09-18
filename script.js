@@ -25665,6 +25665,7 @@ Write a function reverse which reverses a list (or in clojure's case, any list-l
 
 (the dedicated builtin(s) functionalities are deactivated)
 */
+/*
 reverse = function (arr) {
   let newArr = [];
 
@@ -25675,3 +25676,38 @@ reverse = function (arr) {
 };
 
 console.log(reverse([1, 2, 3]));
+*/
+
+// #4
+/*
+Find the last element of the given argument(s). If a single argument is passed and is a list/array or a string, return its last element. It is guaranteed that there will be at least one argument and that single-argument arrays/lists/strings will not be empty.
+Examples
+
+last(5)               ==> 5
+last([1, 2, 3, 4])    ==>  4
+last("xyz")           ==> "z"
+last(1, 2, 3, 4)      ==>  4
+last([1, 2], [3, 4])  ==>  [3, 4]
+last([[1, 2], [3, 4]])  ==>  [3, 4]
+*/
+function last(...args) {
+  if (args.length === 1) {
+    let n = args[0];
+    if (Array.isArray(n) || typeof n === "string") {
+      return n[n.length - 1];
+    }
+    return n;
+  }
+  return args[args.length - 1];
+}
+
+console.log(last(5));
+console.log(last([1, 2, 3, 4]));
+console.log(last("xyz"));
+console.log(last([1, 2], [3, 4]));
+console.log(
+  last([
+    [1, 2],
+    [3, 4],
+  ])
+);
