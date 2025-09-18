@@ -25690,6 +25690,7 @@ last(1, 2, 3, 4)      ==>  4
 last([1, 2], [3, 4])  ==>  [3, 4]
 last([[1, 2], [3, 4]])  ==>  [3, 4]
 */
+/*
 function last(...args) {
   if (args.length === 1) {
     let n = args[0];
@@ -25711,3 +25712,40 @@ console.log(
     [3, 4],
   ])
 );
+*/
+
+// 18.09.2025
+// #1
+/*
+Write a program that outputs the top n elements from a list.
+
+Example:
+
+k = 2; list = [7, 6, 5, 4, 3, 2, 1]
+==> [6, 7]
+*/
+function largest(n, arr) {
+  let res = [];
+  let copy = arr.slice(); // чтобы не менять оригинал
+
+  for (let i = 0; i < n; i++) {
+    let max = -Infinity;
+    let idx = -1;
+
+    // ищем максимум
+    for (let j = 0; j < copy.length; j++) {
+      if (copy[j] > max) {
+        max = copy[j];
+        idx = j;
+      }
+    }
+
+    res.push(max);
+    copy.splice(idx, 1); // удаляем найденный максимум
+  }
+
+  return res.sort((a, b) => a - b); // по условию результат в порядке возрастания
+}
+
+console.log(largest(2, [7, 6, 5, 4, 3, 2, 1]));
+console.log(largest(2, [-3, -2, -1, 0, -9, -8, -7, -6, -4, -5]));
