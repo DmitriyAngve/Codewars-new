@@ -25852,6 +25852,7 @@ All numbers, except the first one, must be lower than 10: if there are, you have
 
 You can assume all tests inputs to be valid.
 */
+/*
 function nextVersion(ver) {
   var arr = ver.split(".").map((el) => parseInt(el));
   for (var i = arr.length - 1; i >= 0; i--) {
@@ -25870,3 +25871,53 @@ console.log(nextVersion("0.9.9"));
 console.log(nextVersion("1.2.3.4.5.6.7.8"));
 console.log(nextVersion("1"));
 console.log(nextVersion("9.9"));
+*/
+
+// #3
+/*
+Write a method, that replaces every nth char oldValue with char newValue.
+Inputs
+
+    text: the string to modify
+    n: change the target letter every nth occurrencies
+    old_value (or similar): the targetted character
+    new_value (or similar): the character to use as replacement
+
+Note for untyped languages: all inputs are always valid and of their expected type.
+Rules
+
+    Your method has to be case sensitive!
+    If n is 0 or negative or if it is larger than the count of the oldValue, return the original text without a change.
+
+Example:
+
+n:         2
+old_value: 'a'
+new_value: 'o'
+"Vader said: No, I am your father!"
+  1     2          3        4       -> 2nd and 4th occurence are replaced
+"Vader soid: No, I am your fother!"
+
+As you can see in the example: The first changed is the 2nd 'a'. So the start is always at the nth suitable char and not at the first!
+*/
+function replaceNth(text, n, oldv, newv) {
+  let count = 1;
+  let res = "";
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] === oldv) {
+      if (count % n === 0) {
+        res += newv;
+      } else {
+        res += oldv;
+      }
+      count++;
+    } else {
+      res += text[i];
+    }
+  }
+
+  return res;
+}
+
+console.log(replaceNth("Vader said: No, I am your father!", 2, "a", "o"));
+console.log(replaceNth("Vader said: No, I am your father!", 4, "a", "o"));
